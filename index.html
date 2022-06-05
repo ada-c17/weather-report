@@ -4,9 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
     <title>Weather Report</title>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav id="nav">
+                <div>icon</div>
+                <h1>Weather Report</h1>
+                <h2>For the lovely city of</h2>
+                <h2 id="city-name">blank?</h2>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <section id="main">
+        <div class="container">
+            <div id="main__intro">
+                <div id="main__intro__left">
+                    <div class="block__left">
+                        <h3 id="temperature">Temperature</h3>
+                        <!-- !move F to the right -->
+                        <h3 id="degree">°F</h3>
+                        <button id="increaseTempButton">⬆️</button>
+                        <h3 id="current_temp">Current temp: 55</h3>
+                        <button id="decreaseTempButton">⬇️</button>
+                    </div>
+                    <div class="block__left">
+                        <h3 id="sky">Sky</h3>
+                    </div>
+                    <div class="block__left">
+                        <h3 id="city-name">City Name</h3>
+                    </div>
+                </div>
+                <div id="main__intro__right">
+                    <div id="block__right__name">
+                        ****************************
+                        <h4>Weather Garden</h4>
+                        ****************************
+                    </div>
+                </div>
+            </div><!-- main__intro -->
+        </div><!-- container -->
+    </section><!-- main -->
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div id="footer__copyright">
+                &copy; 2022 Ada Developers Academy, Nina Patrina
+            </div>
+        </div>
+    </footer>        
+
+    <script src="src/index.js"></script>
+    <!-- <script src="./node_modules/axios/dist/axios.min.js"></script> -->
     
 </body>
 </html>
