@@ -4,22 +4,22 @@ let temperature = 79;
 
 const increaseTemp = function () {
   temperature += 1;
-  newTemperatureMessage();
+  newTemperature();
 };
 
 const decreaseTemp = function () {
   temperature -= 1;
-  newTemperatureMessage();
+  newTemperature();
 };
 
-const newTemperatureMessage = function () {
+const newTemperature = function () {
   const temperatureMessage = 'Temperature: ' + temperature + '\u00B0F';
   document.getElementById('temperature').innerHTML = temperatureMessage;
   setTextColorLandscapeBasedOnTemp();
 };
 
 window.onload = function () {
-  newTemperatureMessage();
+  newTemperature();
 };
 
 const setTextColorLandscapeBasedOnTemp = function () {
