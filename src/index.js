@@ -3,6 +3,7 @@
 window.onload = function () {
   newTemperature();
   changeCity();
+  changeSky();
 };
 
 let temperature = 79;
@@ -33,6 +34,29 @@ const changeCity = function () {
     city = e.target.value;
     curWeatherHeader.textContent = 'Current Weather for ' + city;
   }
+};
+
+const changeSky = function () {
+  const input = document.querySelector('#skytype-select');
+
+  input.addEventListener('change', (event) => {
+    const skyOutput = document.querySelector('#sky');
+    skyOutput.textContent = getSky(event.target.value);
+  });
+};
+
+const getSky = function (skyType) {
+  let sky = '';
+  if (skyType == 'cloudy') {
+    sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skyType == 'rainy') {
+    sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skyType == 'snowy') {
+    sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  } else if (skyType == 'sunny') {
+    sky = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  }
+  return sky;
 };
 
 const newTemperature = function () {
