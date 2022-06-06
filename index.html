@@ -5,17 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/snow.css">
+    <link rel="stylesheet" href="styles/rain_sun.css">
+    <link rel="stylesheet" href="styles/clouds.css">
+
     <title>Weather Report</title>
 </head>
-<body>
+<body class="sun">
+    
     <!-- Header -->
     <header>
         <div class="container">
             <nav id="nav">
-                <div>icon</div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Rotating_earth_animated_transparent.gif"/>
                 <h1>Weather Report</h1>
                 <h2>For the lovely city of</h2>
-                <h2 id="city-name">blank?</h2>
+                <h2 id="city_name">default name</h2>
             </nav>
         </div>
     </header>
@@ -35,16 +40,25 @@
                     </div>
                     <div class="block__left">
                         <h3 id="sky">Sky</h3>
+                        <label for="sky-select">Choose sky:</label>
+                            <select name="skies" id="sky-select">
+                                <option value="">--Please choose an option--</option>
+                                <option value="sun">Sunny</option>
+                                <option value="cloud">Cloudy</option>
+                                <option value="rain">Rainy</option>
+                                <option value="snow-bg">Snowy</option>
+                            </select>
                     </div>
                     <div class="block__left">
-                        <h3 id="city-name">City Name</h3>
+                        <h3 id="city-name">Enter City Name:</h3>
+                        <input id="enter_city">
                     </div>
                 </div>
-                <div id="main__intro__right">
+                <div id="main__intro__right" class="winter">
                     <div id="block__right__name">
-                        ****************************
+                        *******************************
                         <h4>Weather Garden</h4>
-                        ****************************
+                        *******************************
                     </div>
                 </div>
             </div><!-- main__intro -->
