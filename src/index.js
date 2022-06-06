@@ -7,7 +7,7 @@ window.onload = function () {
 };
 
 let temperature = 79;
-let city = '';
+let city = 'Seattle';
 
 const increaseTemp = function () {
   temperature += 1;
@@ -19,17 +19,20 @@ const decreaseTemp = function () {
   newTemperature();
 };
 
-// const resetCity = function () {
-//   city = 'new city';
-// };
+const resetCity = function () {
+  city = 'Seattle';
+  document.querySelector('#cityname').value = '';
+  const curWeatherHeader = document.getElementById('cityheader');
+  curWeatherHeader.textContent = 'Current Weather for ' + city;
+};
 
 const changeCity = function () {
   // if the #cityname element is changed
   const input = document.querySelector('#cityname');
   input.addEventListener('change', updateValue);
-  const curWeatherHeader = document.getElementById('cityheader');
 
   // update header to display city name and update city variable
+  const curWeatherHeader = document.getElementById('cityheader');
   function updateValue(e) {
     city = e.target.value;
     curWeatherHeader.textContent = 'Current Weather for ' + city;
@@ -45,6 +48,36 @@ const changeSky = function () {
   });
 };
 
+const newTemperature = function () {
+  const temperatureMessage = 'Temperature: ' + temperature + '\u00B0F';
+  document.getElementById('temperature').innerHTML = temperatureMessage;
+  setTextColorLandscapeBasedOnTemp();
+};
+
+const setTextColorLandscapeBasedOnTemp = function () {
+  let landscape = 'landscape';
+  let tempColor = '';
+  if (temperature >= 80) {
+    tempColor = 'red';
+    // document.getElementById('temperature').style.color = 'red';
+    landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (temperature >= 70) {
+    tempColor = 'orange';
+    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (temperature >= 60) {
+    tempColor = 'yellow';
+    landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (temperature >= 50) {
+    tempColor = 'green';
+    landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  } else if (temperature < 50) {
+    tempColor = 'teal';
+    landscape = '⛄🥶 ❄️🥶 ❄️ 🧤 🧥🧣❄️🥶 ❄️🥶 ⛄';
+  }
+  document.getElementById('temperature').style.color = tempColor;
+  document.getElementById('landscape').innerHTML = landscape;
+};
+
 const getSky = function (skyType) {
   let sky = '';
   if (skyType == 'cloudy') {
@@ -57,31 +90,4 @@ const getSky = function (skyType) {
     sky = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
   }
   return sky;
-};
-
-const newTemperature = function () {
-  const temperatureMessage = 'Temperature: ' + temperature + '\u00B0F';
-  document.getElementById('temperature').innerHTML = temperatureMessage;
-  setTextColorLandscapeBasedOnTemp();
-};
-
-const setTextColorLandscapeBasedOnTemp = function () {
-  let landscape = 'landscape';
-  if (temperature >= 80) {
-    document.getElementById('temperature').style.color = 'red';
-    landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
-  } else if (temperature >= 70) {
-    document.getElementById('temperature').style.color = 'orange';
-    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-  } else if (temperature >= 60) {
-    document.getElementById('temperature').style.color = 'yellow';
-    landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
-  } else if (temperature >= 50) {
-    document.getElementById('temperature').style.color = 'green';
-    landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
-  } else if (temperature < 50) {
-    document.getElementById('temperature').style.color = 'teal';
-    landscape = '⛄🥶 ❄️🥶 ❄️ 🧤 🧥🧣❄️🥶 ❄️🥶 ⛄';
-  }
-  document.getElementById('landscape').innerHTML = landscape;
 };
