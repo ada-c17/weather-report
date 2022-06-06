@@ -1,6 +1,6 @@
 'use strict';
 
-// Change temperature by clicking on an arrow
+// 2. Change temperature by clicking on an arrow
 
 const state = {
   temp: 55,
@@ -31,10 +31,10 @@ const registerEventHandlers1 = () => {
 };
 document.addEventListener('DOMContentLoaded', registerEventHandlers1);
 
-// background will be changed depending on temp
+// Temperature Ranges Change Landscape
 
 const changeBackground = (temp) => {
-  var element = document.querySelector('#main__intro__right');
+  const element = document.querySelector('#main__intro__right');
   if (temp >= 80) {
     element.classList.remove(element.className);
     element.classList.add('summer');
@@ -50,25 +50,42 @@ const changeBackground = (temp) => {
   }
 };
 
-// Naming the City
+// 3. Naming the City
 
 const message = document.querySelector('#enter_city');
 const result = document.querySelector('#city_name');
 message.addEventListener('input', function () {
-  result.textContent = this.value;
+  result.textContent = this.value.toUpperCase();
 });
 
-// Selection Changes Sky
+// 5. Selection Changes Sky
 
 function changeModeSky(event) {
-  console.log('in changeModeSummer:', event);
-  var element = document.body;
+  const element = document.body;
   element.classList.remove(element.className);
   element.classList.add(`${event.target.value}`);
 }
-const registerEventHandlersSky = (event) => {
-  console.log('in registerEventHandlers1:', event);
+const registerEventHandlersSky = () => {
   const skyMode = document.querySelector('#sky-select');
   skyMode.addEventListener('change', changeModeSky);
 };
 document.addEventListener('DOMContentLoaded', registerEventHandlersSky);
+
+// 6.Resetting the City Name
+
+const ResetCity = () => {
+  const nameContainer = document.querySelector('#city_name');
+  nameContainer.textContent = 'default name';
+};
+
+const registerEventHandlersReset = () => {
+  const form = document.querySelector('#form');
+  form.addEventListener('reset', ResetCity);
+};
+
+document.addEventListener('DOMContentLoaded', registerEventHandlersReset);
+
+// 7. convert the temperature between Celsius and Fahrenheit
+// using the mode query param
+// For temperature in Fahrenheit use units=imperial
+// For temperature in Celsius use units=metric

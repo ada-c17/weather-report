@@ -82,31 +82,33 @@ h3{margin: 0;}
     text-align: center;
     padding-top: 50px;
     color: var(--dark);
-
-
-
 }
 .winter{
     background-image: url("/assets/winter.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    transition: background-image linear 2s;
 }
 .spring{
     background-image: url("/assets/spring.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    transition: background-image linear 2s;
+
 }
 .summer{
     background-image: url("/assets/summer.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    transition: background-image linear 2s;
+
 }
 .autumn{
     background-image: url("/assets/autumn.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    transition: background-image linear 2s;
 }
-
 
 footer {
     position: absolute;
