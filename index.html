@@ -11,11 +11,13 @@
 </head>
 <body>
     <h1>Weather Report</h1>
-    <p id="temperature">temperature</p>
-    <!-- <section id="temperature">temperature</section> -->
-    <label for="cityname">City:</label>
-    <input type="text" id="cityname">
+    <h2 id="cityheader">Current Weather for Seattle</h2>
+    <article id="temperature">temperature</article>
     <button>Current Temperature</button>
+    <br/>
+    <label for="cityname">City:</label>
+    <input type="text" placeholder="Enter a city" id="cityname">
+    <button onclick="resetCity()">Reset City Name</button>
     <section id="landscape">Landscape</section>
     <button onclick="increaseTemp()">Increase Temperature</button>
     <button onclick="decreaseTemp()">Decrease Temperature</button>
@@ -25,7 +27,7 @@
         <option value="cloudy">Cloudy</option>
     </select>
     <section>display sky</section>
-    <button>Reset City Name</button>
+
     
 </body>
 </html>

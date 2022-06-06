@@ -1,6 +1,12 @@
 'use strict';
 
+window.onload = function () {
+  newTemperature();
+  changeCity();
+};
+
 let temperature = 79;
+let city = '';
 
 const increaseTemp = function () {
   temperature += 1;
@@ -12,14 +18,27 @@ const decreaseTemp = function () {
   newTemperature();
 };
 
+// const resetCity = function () {
+//   city = 'new city';
+// };
+
+const changeCity = function () {
+  // if the #cityname element is changed
+  const input = document.querySelector('#cityname');
+  input.addEventListener('change', updateValue);
+  const curWeatherHeader = document.getElementById('cityheader');
+
+  // update header to display city name and update city variable
+  function updateValue(e) {
+    city = e.target.value;
+    curWeatherHeader.textContent = 'Current Weather for ' + city;
+  }
+};
+
 const newTemperature = function () {
   const temperatureMessage = 'Temperature: ' + temperature + '\u00B0F';
   document.getElementById('temperature').innerHTML = temperatureMessage;
   setTextColorLandscapeBasedOnTemp();
-};
-
-window.onload = function () {
-  newTemperature();
 };
 
 const setTextColorLandscapeBasedOnTemp = function () {
