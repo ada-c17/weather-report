@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightblue;
+}
+
+button {
+    background-color: blue;
+    border-radius: 25px;
+    color: white;
+    padding: 10px;
+}
+
+/* #temperature[color="red"] {
+    color: red;
+}
+
+#temperature[color="orange"] {
+    color: orange;
+} */
