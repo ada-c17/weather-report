@@ -24,13 +24,13 @@ body {
     border-radius: 2vw;
     display: grid;
     grid-template-columns: 10% 10% 60% 10% 10%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 10% 10% 20% 20% 10% 10%;
     width: 30vw;
     height: 35vh;
 }
 
 #temp-controls {
-    grid-row-start: 2;
+    grid-row-start: 4;
     grid-column-start: 3;
     display: flex;
     flex-flow: row nowrap;
@@ -59,7 +59,7 @@ body {
     border-radius: 2vw;
     color: azure;
     background-color: darkblue;
-    grid-row-start: 4;
+    grid-row: 6/8;
     grid-column-start: 2;
 }
 
