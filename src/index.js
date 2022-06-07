@@ -1,4 +1,5 @@
 'use strict';
+// const axios = require('axios');
 
 window.onload = function () {
   newTemperature();
@@ -6,8 +7,8 @@ window.onload = function () {
   changeSky();
 };
 
-let temperature = 79;
 let city = 'Seattle';
+let temperature = 79;
 
 const increaseTemp = function () {
   temperature += 1;
@@ -17,6 +18,34 @@ const increaseTemp = function () {
 const decreaseTemp = function () {
   temperature -= 1;
   newTemperature();
+};
+
+const getCurrentTemp = function () {
+  let latitude;
+  let longitude;
+
+  axios
+    .get('http://localhost:5000/location', { params: { q: city } })
+    .then((response) => {
+      latitude = response.data[0].lat;
+      longitude = response.data[0].lon;
+      axios
+        .get('http://localhost:5000/weather', {
+          params: { lat: latitude, lon: longitude },
+        })
+        .then((response) => {
+          const kelvin = response.data.current.temp;
+          const fahrenheit = (9 / 5) * (kelvin - 273) + 32;
+          temperature = Math.round(fahrenheit);
+          newTemperature();
+        })
+        .catch((error) => {
+          console.log('errorrrr');
+        });
+    })
+    .catch((error) => {
+      console.log('error :(');
+    });
 };
 
 const resetCity = function () {
