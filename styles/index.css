@@ -1,0 +1,30 @@
+
+
+
+#weatherFrame {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#clickables{
+    display: flexbox;
+}
+
+/* #tempBlock {
+    grid-column: 1 2;
+    grid-row: 1 2
+}
+
+#skyBlock {
+    grid-column: 1 2;
+    grid-row: 2 3;
+}
+
+#cityBlock{
+    grid-column: 1 2;
+    grid-row: 3 4;
+}
+
+#gardenBlock {
+    grid-column: 2 3;
+} */
