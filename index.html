@@ -17,20 +17,34 @@
                 <header>
                     <h2>Temperature</h2>
                 </header>
-                <button id="tempUp">⬆️</button>
-                <p>(Temperature Value)</p>
-                <button id="tempDown">⬇️</button>
-                <button id="getTemp">Get Real-Time Temperature</button>
+                <section id="tempButtonLayout">
+                    <section id="tempChanger">
+                        <button id="tempUp">⬆️</button>
+                        <p>(Temperature Value)</p>
+                        <button id="tempDown">⬇️</button>
+                    </section>
+                    <button id="getTemp">Get Real-Time Temperature</button>
+                </section>
             </section>
             <section id="skyBlock">
                 <header>
                     <h2>Sky</h2>
                 </header>
+                <label for="weather">The weather is...</label>
+                <select name="weather">
+                    <option value="sunny">Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                </select>
             </section>
             <section id="cityBlock">
                 <header>
                     <h2>City Name</h2>
+                    <label for="cityName">Show me the weather in...</label>
+                    <input name="cityName" type="text" placeholder="e.g. &quot;Seattle&quot;">
                 </header>
+
             </section>
         </section>
         <section id="gardenBlock">

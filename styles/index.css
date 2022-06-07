@@ -1,30 +1,40 @@
-
+button {
+    background: cyan;
+    padding: 10px;
+    border-radius: 25px;
+}
 
 
 #weatherFrame {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
 }
 
 #clickables{
     display: flexbox;
 }
 
-/* #tempBlock {
-    grid-column: 1 2;
-    grid-row: 1 2
+#clickables > section{
+    padding: 10px;
+    margin: 10px;
+    background: grey;
+    border-radius: 25px;
 }
 
-#skyBlock {
+#tempButtonLayout {
+    display: flex;
+    flex-direction: row;
+}
+
+/* #skyBlock {
     grid-column: 1 2;
     grid-row: 2 3;
+} */
+
+#cityBlock ::placeholder{
+    color:lightgray;
 }
 
-#cityBlock{
-    grid-column: 1 2;
-    grid-row: 3 4;
-}
-
-#gardenBlock {
+/* #gardenBlock {
     grid-column: 2 3;
 } */
