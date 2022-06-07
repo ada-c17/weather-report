@@ -1,29 +1,65 @@
 body {
     background: rgb(60,124,255);
-background: linear-gradient(90deg, rgba(60,124,255,1) 0%, rgba(0,212,255,1) 47%, rgba(205,246,255,1) 89%);
+    background: linear-gradient(90deg, rgba(60,124,255,1) 0%, rgba(0,212,255,1) 47%, rgba(205,246,255,1) 89%);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .container {
+    width: 100%;
     display: grid;
     grid-template-areas: 
     "header header"
     "city garden"
     "temperature garden"
-    "sky garden";
+    "sky garden"
+    "footer footer";
+    align-items: center;
 }
 .header {
     grid-area: header;
+    align-self: center;
+    justify-self: center;
 }
 
 .city {
     grid-area: city;
+    border-radius: 15px;
+    background: white;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+    margin-bottom: 20px;
 }
 
 .garden {
     grid-area: garden;
+    align-self: center;
+    justify-self: center;
+    border-radius: 15px;
+    background: white;
+    padding: 20px;
+    width: 300px;
+    height: 150px;
 }
 .sky {
     grid-area: sky;
+    border-radius: 15px;
+    background: white;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
 }
 .temperature {
     grid-area: temperature;
+    border-radius: 15px;
+    background: white;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.footer {
+    grid-area: footer;
+    align-self: center;
+    justify-self: center;
 }

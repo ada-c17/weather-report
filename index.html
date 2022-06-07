@@ -8,6 +8,56 @@
     <link href="../styles/index.css" rel="stylesheet">
 </head>
 <body class="container">
-    
+    <header class="header">
+        <h1>Weather Report</h1>
+        <!-- Update [CITY] with city input -->
+        <h2 class="header-city">For the city of [CITY]</h2>
+    </header>
+    <aside>
+        <section class="city">
+            <div>
+            <h3>City Name</h3>
+            </div>
+            <div>
+            <input type="text">
+            </div>
+            <div>
+            <input type="reset">
+            <!-- <button id="reset">Reset</button> -->
+            </div>
+        </section>
+        <section class="temperature">
+            <h3>Temperature</h3>
+
+            <section>
+                <button id="increase-temp">▲</button>
+            </section>
+            <section id="temp-field">
+                75
+            </section>
+            <section>
+                <button id="decrease-temp">▼</button>
+            </section>
+        </section>
+        <section class="sky">
+            <h3>Sky</h3>
+
+        <select name="sky" id="sky">
+            <option value="sunny">sunny</option>
+            <option value="cloudy">cloudy</option>
+            <option value="rainy">rainy</option>
+            <option value="snowy">snowy</option>
+        </select>
+        </section>
+
+    </aside>
+    <main>
+        <section class="garden">
+            <h3>Garden</h3>
+        </section>
+    </main>
+    <footer class="footer">
+        © 2022 Srey Mom & Grace
+    </footer>
 </body>
 </html>
