@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Report</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div id="title">
+      <h1>Weather Report</h1>
+      <h4>For the city of ??????</h4>
+    </div>
+    <section class="weather-features" id="temp">
+        <h3>Temperature</h3>
+      <button id="up-button"></button>
+      <p id="fahrenheit"></p>
+      <button id="down-button"></button>
+      <button id="API-button"></button>
+    </section> <!-- end of temp section -->
+    <section class="weather-features" id="sky">
+        <h3>Sky</h3>
+        <select id="sky-condition"></select>
+    </section> <!-- end of sky section -->
+    <section class="weather-features" id="city">
+        <h3>City Name</h3>
+        <input id="city-selector"></input>
+        <button id="reset"></button>
+    </section> <!-- end of city section -->
+  </body>
 </html>
