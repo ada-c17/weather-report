@@ -8,6 +8,29 @@
     <title>Weather Report</title>
 </head>
 <body>
+    <h1>Weather Report</h1>
+    <p>For the city of Seattle</p>
+    <article id="temperature-container">
+        <h2>Temperature</h2>
+        <button id="increase">Up</button>
+        <span id="temp">85</span>
+        <button id="decrease">Down</button>
+        <button>Get Temperature</button>
+    </article>
+    <article id="sky-container">
+        <h2>Sky</h2>
+        <select name="sky" id="sky">
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+        </select>
+    </article>
+    <article id="city-container">
+        <h2>City Name</h2>
+        <input type="text" id="city-name" name="city-name">
+        <button id="reset">Reset</button>
+    </article>
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
