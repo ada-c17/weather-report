@@ -4,9 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet" />
     <title>Weather Report</title>
 </head>
 <body>
+    <header>
+        <h1 id="header">Weather Garden for San Diego</h1>
+    </header>
+
+    <main id="main">
+
+        <section id="garden-box">
+            <div>
+                <h2>Garden area</h2>
+            </div>
+        </section>
+        
+        <section id="temp-box">            
+            <h2>Temp</h2>
+            <div id="temp-controls">
+                <img id="left-arrow" alt="left arrow" src="assets/left-arrow-blue.jpg"  />
+                <p id="temp-display">00</p>
+                <img id="right-arrow" alt="right arrow" src="assets/right-arrow-blue.jpg"  />
+            </div>
+            <button id="real-temp-button">Get Realtime Temperature</button>
+        </section>
+        
+        <section id="sky-box">
+            <h2>Sky</h2>
+            <select name="sky" id="sky-selector">
+                <option value="Sunny">Sunny</option>
+                <option value="Cloudy">Cloudy</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Snowy">Snowy</option>
+            </select>
+        </section>
+
+        <section id="city-box">
+            <h2>City Name</h2>
+            <form id="city-form">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" placeholder="Enter city"><br><br>
+                <input id="reset-button" type="submit" value="Reset">
+              </form> 
+        </section>
+    </main>
     
 </body>
 </html>

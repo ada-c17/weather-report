@@ -1,0 +1,109 @@
+body {
+    background-color: cornflowerblue;
+}
+
+#main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1vw;
+    row-gap: 3vh;
+}
+
+#garden-box {
+    background-color: azure;
+    border-radius: 2vw;
+    width: 90%;
+    height: 35vh;
+}
+
+#temp-box, #city-box, #sky-box {
+    background-color: azure;
+    border-radius: 2vw;
+    display: grid;
+    grid-template-columns: 10% 10% 60% 10% 10%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    width: 30vw;
+    height: 35vh;
+}
+
+#temp-controls {
+    grid-row-start: 2;
+    grid-column-start: 3;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#left-arrow, #right-arrow {
+    color: blue;
+    width: 5vw;
+    height: 5vh;
+    
+}
+
+#temp-display {
+    width: 15vw;
+    height: 10vh;
+    font-size: 200%;
+    padding-top: 5vh;
+    background: linear-gradient(90deg, rgb(244, 245, 175) 20%, #5edc7e 50%, rgb(245, 175, 183) 100%);
+}
+
+#real-temp-button {
+    width: 25vw;
+    text-align: center;
+    border-radius: 2vw;
+    color: azure;
+    background-color: darkblue;
+    grid-row-start: 4;
+    grid-column-start: 2;
+}
+
+#sky-selector {
+    margin-top: 6%;
+    width: 20vw;
+    height: 5vh;
+    border-radius: 2vw;
+    text-align: center;
+    color: azure;
+    background-color: darkblue;
+    font-weight: bolder;
+    grid-row-start: 2;
+    grid-column-start: 3;
+}
+
+#city-form {
+    margin-top: 3vh;
+    grid-row-start: 2;
+    grid-column-start: 3;
+    justify-self:center;
+    width: 20vw;
+}
+
+#city {
+    width: 20vw;
+}
+
+#reset-button {
+    width: 17vw;
+    border-radius: 2vw;
+    color: azure;
+    background-color: darkblue;
+    height: 5vh;
+}
+
+h1 {
+    font-size: 120%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 120%;
+    text-align: center;
+    margin: 0vh;
+    grid-column-start: 3;
+}
