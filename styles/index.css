@@ -1,0 +1,29 @@
+body {
+    background: rgb(60,124,255);
+background: linear-gradient(90deg, rgba(60,124,255,1) 0%, rgba(0,212,255,1) 47%, rgba(205,246,255,1) 89%);
+}
+.container {
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "city garden"
+    "temperature garden"
+    "sky garden";
+}
+.header {
+    grid-area: header;
+}
+
+.city {
+    grid-area: city;
+}
+
+.garden {
+    grid-area: garden;
+}
+.sky {
+    grid-area: sky;
+}
+.temperature {
+    grid-area: temperature;
+}
