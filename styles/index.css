@@ -1,0 +1,25 @@
+header {
+    border: blue solid 3px;
+}
+
+section {
+    border: red solid 3px;
+    width: 100%;
+    height: 500px;
+    display: grid;
+    grid-template-columns:  40vw,60vw;
+    grid-gap: 0.5rem;
+}
+
+#left-container {
+    border: orange solid 3px;
+    /*width: 40%;
+    height: 400px;*/
+}
+
+#right-container {
+    border: purple solid 3px;
+    /*width: 60%;
+    height: 400px;*/
+}
+
