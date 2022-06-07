@@ -6,20 +6,44 @@ section {
     border: red solid 3px;
     width: 100%;
     height: 500px;
-    display: grid;
-    grid-template-columns:  40vw,60vw;
-    grid-gap: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    /*grid-template-columns:  40vw,60vw;
+    grid-gap: 0.5rem;*/
 }
 
 #left-container {
     border: orange solid 3px;
-    /*width: 40%;
-    height: 400px;*/
+    display: grid;
+    grid-gap: 0.5rem;
+    width: 40%;
+    
 }
 
 #right-container {
     border: purple solid 3px;
-    /*width: 60%;
-    height: 400px;*/
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+#card1 {
+    border: black solid 3px;
+}
+
+#card2{
+    border: black solid 3px;
+}
+
+#card3{
+    border: black solid 3px;
+}
+
+
+#picture{
+    border: black solid 3px;
+    width: 70%;
+    height: 90%;
+    
+}
