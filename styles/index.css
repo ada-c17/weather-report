@@ -61,6 +61,7 @@ body {
     background-color: darkblue;
     grid-row: 6/8;
     grid-column-start: 2;
+    margin-bottom: 2vh;
 }
 
 #sky-selector {
