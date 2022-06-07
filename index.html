@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet">
     <title>Weather Report</title>
 </head>
-<body>
-    
+<body class="gridContainer">
+    <header class="centerColumn">
+        <h1 id="pageTitle">Weather App</h1>
+    </header>
+    <main class="centerColumn">
+        <section id="subSectionContainer">
+            <section id="citySection">City Info</section>
+            <section id="tempSection">Temp Info</section>
+            <section id="skySection">Sky Info</section>
+        </section>
+        <section id="gardenSection">Weather Garden</section>
+    </main>
+    <footer class="centerColumn">
+        <section>copyright info or something here</section>
+    </footer>
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>

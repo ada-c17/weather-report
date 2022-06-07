@@ -1,0 +1,20 @@
+/* css grid for major setup: 3 columns (1fr, 3fr, 1fr), 4 rows (.5fr, 2fr, 2 fr, .5 fr)
+flexbox for subsections */
+
+.gridContainer {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template: .5fr 2fr 2fr .5fr/ 1fr 3fr 1fr;
+}
+
+.centerColumn {
+    grid-column: 2 / 3;
+    text-align: center;
+}
+
+#subSectionContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
