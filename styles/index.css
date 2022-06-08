@@ -1,0 +1,42 @@
+.container {
+    display:flex; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item {
+    width: 48%;
+    height: 100px;
+    margin-bottom: 2%;
+}
+
+.item:nth-child(3n-2) {
+    border: red solid 5px;
+    width: 45%;
+
+}
+
+.item:nth-child(2n) {
+    border: orange solid 5px;
+    width: 45%;
+}
+
+.item:nth-child(3n) {
+    border: yellow solid 5px;
+    width: 40%;
+}
+
+.item:nth-child(4n) {
+    border: green solid 5px;
+    width: 20%;
+}
+
+.item:nth-child(5n) {
+    border: blue solid 5px;
+    width: 20%;
+}
+
+.item:nth-child(6n) {
+    border: purple solid 5px;
+    width: 50%;
+}
