@@ -3,23 +3,19 @@ const state = {
   temp: 0,
 };
 
-const increaseTemp = () => {
-  state.temp += 1;
+const changeColorAndLand = (t) => {
   const tempContainer = document.getElementById('temperature');
   const landScape = document.getElementById('picture');
-
-  tempContainer.textContent = `${state.temp}`;
-
-  if (state.temp >= 80) {
+  if (t >= 80) {
     tempContainer.className = 'hottest';
     landScape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
-  } else if (state.temp >= 70 && state.temp < 79) {
+  } else if (t >= 70 && t < 79) {
     tempContainer.className = 'warm';
     landScape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-  } else if (state.temp >= 60 && state.temp < 69) {
+  } else if (t >= 60 && t < 69) {
     tempContainer.className = 'fresh';
     landScape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
-  } else if (state.temp >= 50 && state.temp < 59) {
+  } else if (t >= 50 && t < 59) {
     tempContainer.className = 'cool';
     landScape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else {
@@ -28,27 +24,18 @@ const increaseTemp = () => {
   }
 };
 
+const increaseTemp = () => {
+  state.temp += 1;
+  const tempContainer = document.getElementById('temperature');
+  tempContainer.textContent = `${state.temp}`;
+  changeColorAndLand(state.temp);
+};
+
 const decreaseTemp = () => {
   state.temp -= 1;
   const tempContainer = document.getElementById('temperature');
   tempContainer.textContent = `${state.temp}`;
-
-  if (state.temp >= 80) {
-    tempContainer.className = 'hottest';
-    landScape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
-  } else if (state.temp >= 70 && state.temp < 79) {
-    tempContainer.className = 'warm';
-    landScape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-  } else if (state.temp >= 60 && state.temp < 69) {
-    tempContainer.className = 'fresh';
-    landScape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
-  } else if (state.temp >= 50 && state.temp < 59) {
-    tempContainer.className = 'cool';
-    landScape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
-  } else {
-    tempContainer.className = 'freeze';
-    landScape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
-  }
+  changeColorAndLand(state.temp);
 };
 
 const displayCity = () => {
