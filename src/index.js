@@ -4,18 +4,20 @@ const state = {
   temp: 75,
 };
 
+const tempChange = new Event('changedTemp');
+
 const increaseTemp = () => {
   state.temp += 1;
   const tempDisplay = document.getElementById('tempNum');
   tempDisplay.textContent = state.temp;
-  tempDisplay.dispatchEvent(new Event('tempChange'));
+  tempDisplay.dispatchEvent(tempChange);
 };
 
 const decreaseTemp = () => {
   state.temp -= 1;
   const tempDisplay = document.getElementById('tempNum');
   tempDisplay.textContent = state.temp;
-  tempDisplay.dispatchEvent(new Event('tempChange'));
+  tempDisplay.dispatchEvent(tempChange);
 };
 
 const changeTempClass = () => {
@@ -57,7 +59,7 @@ const registerEventHandlers = (event) => {
   const tempDownButton = document.getElementById('tempDown');
   tempDownButton.addEventListener('click', decreaseTemp);
   const tempDisplay = document.getElementById('tempNum');
-  tempDisplay.addEventListener('tempChange', changeTempClass);
+  tempDisplay.addEventListener('changedTemp', changeTempClass);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
