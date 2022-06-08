@@ -52,6 +52,7 @@ const changeBackground = (temp) => {
 };
 
 // 3. Naming the City
+//! used different syntax here
 
 const message = document.getElementById('enter_city');
 const result = document.getElementById('city_name');
