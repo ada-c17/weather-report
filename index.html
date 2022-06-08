@@ -5,8 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href = "styles/index.css" rel="stylesheet">
 </head>
 <body>
+    <h1> Weather Report</h1>
+    <h2 id="subheader">What I Wish The Weather Was Like in Brownsville</h2>
+    <main>
+        <div id="center-section" >
+            <div id="options" >
+                <button>Change Sky</button>
+                <span>
+                    <label>City:</label>
+                    <input type="text">
+                    <button>Reset</button>
+                </span>
+                <button>Get Realtime Weather</button>
+            </div>
+            <div id="temp-control">
+                <img src="images/left-arrow.png" alt="Left pointing arrow" class="arrow">
+                <h2>72°F</h2>
+                <img src="images/right-arrow.png" alt="Right pointing arrow" class="arrow">
+            </div>
+            <img src="images/80.png" alt="Oak tree from Animal Crossings New Horizions" id="landscape">
+        </div>
+        
+    </main>
+    
     
 </body>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+<script src="src/index.js"></script>
 </html>
