@@ -1,0 +1,13 @@
+article {
+    background-color: lightblue;
+    padding: 20px;
+    margin-bottom: 30px;
+    width: 500px;
+    border: 2px solid blue;
+    border-radius: 10px;
+    
+}
+
+button, select, input {
+    padding: 5px 10px;
+}
