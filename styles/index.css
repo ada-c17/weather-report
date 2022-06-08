@@ -1,5 +1,13 @@
-/* css grid for major setup: 3 columns (1fr, 3fr, 1fr), 4 rows (.5fr, 2fr, 2 fr, .5 fr)
-flexbox for subsections */
+/* for temp variations in temp section and garden section
+class   temp    color       garden
+tooHot - 85+ - temp is red, garden is dry and hot
+warm - 75-84 - temp is orange, garden is 
+pleasant - 65-74 - temp is yellow, garden is 
+mild - 55-64 - temp is green,
+chilly - 45-54 - temp is blue,
+cold - 35-44 - temp is purple,
+tooCold - <34 - temp is v. v. dark purple, garden is all snow and ice
+*/
 
 .gridContainer {
     width: 100vw;
@@ -17,4 +25,43 @@ flexbox for subsections */
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.subSection {
+    padding: 20px;
+}
+
+#tempNum {
+    font-size: 3em;
+}
+
+/* Temp Classes */
+
+.tooHot {
+    color: #FF474E;
+}
+
+.warm {
+    color: #F47E3E
+}
+
+.pleasant {
+    color: #FFCA3A;
+}
+
+.mild {
+    color: #6BAA75;
+    /* color: #00916E */
+}
+
+.chilly {
+    color: #1982C4;
+}
+
+.cold {
+    color: #6A4C93;
+}
+
+.tooCold {
+    color: #331832;
 }
