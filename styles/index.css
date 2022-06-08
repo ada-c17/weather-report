@@ -11,3 +11,8 @@ article {
 button, select, input {
     padding: 5px 10px;
 }
+
+.make-red {
+    color: red;
+}
+
