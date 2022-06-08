@@ -85,7 +85,6 @@ const registerEventHandlersReset = () => {
   const form = document.querySelector('#form');
   form.addEventListener('reset', ResetCity);
 };
-
 document.addEventListener('DOMContentLoaded', registerEventHandlersReset);
 
 // 7. convert the temperature between Celsius and Fahrenheit
