@@ -47,3 +47,23 @@ section {
     height: 90%;
     
 }
+
+.hottest {
+    color: red;
+}
+
+.warm {
+    color: orange;
+}
+
+.fresh {
+    color: yellow;
+}
+
+.cool {
+    color: green;
+}
+
+.freeze {
+    color: teal;
+}
