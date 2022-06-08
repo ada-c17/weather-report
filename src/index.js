@@ -1,5 +1,3 @@
-"use strict";
-
 const setColor = temp => {
   let color = 'orange';
 
@@ -38,14 +36,33 @@ const state = {
   tempCount: 0
 };
 
-const changeCity = () => {
-  // let greeting = document.querySelector("#greeting").innerHTML;
-  const city = document.querySelector("#city").value;
+const updateWeather = (latitude, longitude) => {
+  console.log(`City data: ${latitude}, ${longitude}`)
+};
 
+const changeCityHeader = () => {
+  const city = document.querySelector("#city").value;
   let newGreeting = document.createElement("h1");
   greeting.appendChild(newGreeting);
   greeting.innerHTML = `Weather Report for ${city}`
-  
+}
+
+const resetHeader = () => {
+  let newGreeting = document.createElement("h1");
+  greeting.appendChild(newGreeting);
+  greeting.innerHTML = `Weather Report for San Diego`
+}
+
+const searchCity = () => {
+  const city = document.querySelector("#city").value;
+
+  axios
+    .get("/proxy_bp/location", {
+      params: {
+      q: city,
+  },
+});
+  updateWeather(latitude, longitude)
 }
 
 const lowerTemp = event => {
@@ -76,6 +93,25 @@ const raiseTemp = event => {
   landscape.textContent = `${tempLandscape}`;  
 };
 
+const setSky = () => {
+  const newSky = document.getElementById("skySelector");
+  const currSky = newSky.options[newSky.selectedIndex].text;
+  let sky = ''
+  console.log(`Sky: ${currSky}`);
+
+  if (currSky === 'Sunny') {
+    sky = 'sunny';
+  } else if (currSky === 'Cloudy') {
+    sky = 'cloudy';
+  } else if (currSky === 'Rainy') {
+    sky = 'rainy';
+  } else if (currSky === 'Snowy') {
+    sky = 'snowy';
+  };
+
+  const garden = document.querySelector("#gardenBox");
+  garden.className = sky;
+};
 
 const registerEventHandlers = (event) => {
   const leftArrow = document.querySelector("#leftArrow");
@@ -85,7 +121,13 @@ const registerEventHandlers = (event) => {
   rightArrow.addEventListener("click", raiseTemp); 
 
   const city = document.querySelector("#city");
-  city.addEventListener("keyup", changeCity);
+  city.addEventListener("keyup", changeCityHeader);
+
+  const resetButton = document.querySelector("#resetButton");
+  resetButton.addEventListener("click", resetHeader);
+
+  const skySelector = document.querySelector("#skySelector");
+  skySelector.addEventListener("change", setSky);
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);

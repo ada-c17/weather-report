@@ -17,7 +17,7 @@
         <section id="gardenBox">
             <h2>Weather Garden</h2>
             <p id="gardenData">This is some placeholder text</p>
-            <p id="landscape"></p>
+            <p id="landscape">'🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷'</p>
         </section>
         
         <section id="tempBox">            
@@ -32,8 +32,8 @@
         
         <section id="skyBox">
             <h2>Sky</h2>
-            <select name="sky" id="skySelector">
-                <option value="Sunny">Sunny</option>
+            <select id="skySelector">
+                <option value="Sunny" selected="selected">Sunny</option>
                 <option value="Cloudy">Cloudy</option>
                 <option value="Rainy">Rainy</option>
                 <option value="Snowy">Snowy</option>
@@ -45,8 +45,8 @@
             <form id="cityForm">
                 <label for="city">City:</label>
                 <input type="text" id="city" name="city" placeholder="Enter city"><br><br>
-                <input id="resetButton" type="submit" value="Reset">
-              </form> 
+            </form> 
+            <button id="resetButton">Reset</button>
         </section>
     </main>
     <script src="src/index.js"></script>
