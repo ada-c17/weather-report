@@ -1,0 +1,16 @@
+body {
+    background-color: #026DFF;
+    }
+.grid-container {
+    border: red 2px dotted;
+    margin: auto;
+    width: 80vw;
+    height: 80vh;
+    display:grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 100px 1fr 30px;
+  }
+
+.heading {
+    text-align: center;
+}   
