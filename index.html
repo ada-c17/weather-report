@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="styles/index.css">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,29 +9,46 @@
     <title>Weather Report</title>
 </head>
 <body>
-    <header><h1>Weather Report by Mandy and Camila</h1></header>
+    <header>
+        <h1>Weather Report by Mandy and Camila</h1>
+    </header>
     <main>
         <h2>For the amazing city of </h2>
 
         <section id="temp">
-            
+            <p> Temperature</p>
+            <button id = "raiseTemp"> ^</button>
+
+            <section id = "tempContainer"> 
+                <h2 id = "tempCount"> 65</h2>
+            </section>
+                
+
+            <button id = "decreaseTemp"> v</button>
         </section>
-        
+
         <section id="sky">
-            
+            <p> Sky</p>
+            <details> 
+                <summary> Pick Sky</summary>
+                <ul>
+                    <li>Sunny</li>
+                    <li>Cloudly</li>
+                    <li> Snowy</li>
+                </ul>
+            </details>
         </section>
 
         <section id="cityname">
-            
+            <p> City Name</p>
         </section>
 
         <section id="garden">
-            
+            <p> Weather in Garden</p>
         </section>
-
-    </main>
+        </main>
     <footer><small>&copy; Copyright  2022, Mandy, Camila</small></footer>
-    <script src="src/index.js" type="src/index.js"></script>
+    <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
