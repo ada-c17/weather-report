@@ -4,9 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../styles/index.css" rel="stylesheet">
+    <script src="../src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <title>Weather Report</title>
 </head>
+
 <body>
-    
+    <header id="main"> 
+        <h1>Weather Report</h1>
+        <p>For the lovely city of &#10024;Seattle&#10024;</p>
+    </header>
+
+    <section id="temperature-container">
+        <p>
+            <label id="temp-label">Temperature</label>
+            <button id="adjust-temp">
+                TODO: Add button
+            </button>
+        </p>
+        <p id="realtime-temp">
+            Get Realtime Temperature
+        </p>
+    </section>
+
+    <section id="sky-container">
+        <p>
+            <label id="sky-label">Sky</label>
+        </p>
+        <button id="dropdown"></button>
+        <div id="emoji-dropdown"> 
+            <p>Cloudy&#x2601;</p>
+        </div>
+    </section>
+
+    <section id="city-container"> 
+        <p>
+            <label id="city-label">City Name</label>
+            <input type="text" id="city-name"><br><br>
+        </p>
+        <button id="reset-button">Reset</button>
+    </section>
+
+    <section id="weather-garden-container"> 
+        <p>
+            <label id="weather-garden-label">Weather Garden</label>
+        </p>
+    </section>
+
+    <!-- <div>
+        <footer class="copyright">
+        <p class="footer">Tetiana Zakipna and Natascha Jenkins ©2022</p>
+        </footer>
+    </div> -->
+
 </body>
+
 </html>
