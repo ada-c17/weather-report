@@ -21,12 +21,12 @@ const tempIncrease = (event) => {
   //const tempContainer = document.querySelector("#tempContainer");
   state.tempCount += 1;
   const tempCountContainer = document.querySelector('#tempCount');
-  tempCountContainer.textContent = `Temperature is: ${state.tempCount}`;
+  tempCountContainer.textContent = `${state.tempCount}`;
 };
 
 const registerEventHandlers = (event) => {
-  const raiseTemp = document.querySelector("#raiseTemp");
-  crabButton.addEventListener("click", tempIncrease)
+  const raiseTemp = document.querySelector('#raiseTemp');
+  raiseTemp.addEventListener('click', tempIncrease);
 };
 
-document.addEventListener("DOMContentLoaded", registerEventHandlers);
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
