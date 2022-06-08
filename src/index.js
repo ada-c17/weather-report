@@ -44,13 +44,16 @@ const changeCityHeader = () => {
   const city = document.querySelector("#city").value;
   let newGreeting = document.createElement("h1");
   greeting.appendChild(newGreeting);
-  greeting.innerHTML = `Weather Report for ${city}`
+  greeting.innerHTML = `Weather Report for ${city}`;
 }
 
 const resetHeader = () => {
   let newGreeting = document.createElement("h1");
+  
   greeting.appendChild(newGreeting);
-  greeting.innerHTML = `Weather Report for San Diego`
+  greeting.innerHTML = `Weather Report for San Diego`;
+  
+  document.querySelector("#city").value = '';
 }
 
 const searchCity = () => {
