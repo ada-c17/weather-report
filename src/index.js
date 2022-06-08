@@ -38,6 +38,16 @@ const state = {
   tempCount: 0
 };
 
+const changeCity = () => {
+  // let greeting = document.querySelector("#greeting").innerHTML;
+  const city = document.querySelector("#city").value;
+
+  let newGreeting = document.createElement("h1");
+  greeting.appendChild(newGreeting);
+  greeting.innerHTML = `Weather Report for ${city}`
+  
+}
+
 const lowerTemp = event => {
   let temp = document.querySelector("#tempDisplay").innerHTML;
   state.tempCount = parseInt(temp, 10) - 1;
@@ -73,6 +83,9 @@ const registerEventHandlers = (event) => {
 
   const rightArrow = document.querySelector("#rightArrow");
   rightArrow.addEventListener("click", raiseTemp); 
+
+  const city = document.querySelector("#city");
+  city.addEventListener("keyup", changeCity);
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
