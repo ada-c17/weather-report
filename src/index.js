@@ -51,12 +51,20 @@ const decreaseTemp = () => {
   }
 };
 
+const displayCity = () => {
+  const cityContainer = document.getElementById('city');
+  cityContainer.textContent = document.getElementById('city-name').value;
+};
+
 const registerEventHandlers = () => {
   const upButton = document.getElementById('up');
   upButton.addEventListener('click', increaseTemp);
 
   const downButton = document.getElementById('down');
   downButton.addEventListener('click', decreaseTemp);
+
+  const searchButton = document.getElementById('search');
+  searchButton.addEventListener('click', displayCity);
 };
 
 if (document.readyState !== 'loading') {
