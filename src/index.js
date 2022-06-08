@@ -50,8 +50,10 @@ const registerEventHandlers = () => {
   const downButton = document.getElementById('down');
   downButton.addEventListener('click', decreaseTemp);
 
-  const searchButton = document.getElementById('search');
-  searchButton.addEventListener('click', displayCity);
+  const userInput = document.getElementById('city-name');
+  userInput.addEventListener('keyup', displayCity);
+  //const searchButton = document.getElementById('search');
+  //searchButton.addEventListener('click', displayCity);
 };
 
 if (document.readyState !== 'loading') {
