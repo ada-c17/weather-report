@@ -12,14 +12,32 @@ body {
     row-gap: 3vh;
 }
 
-#garden-box {
+#gardenBox {
+    display: flex;
+    flex-flow: column nowrap;
     background-color: azure;
     border-radius: 2vw;
-    width: 90%;
+    width: 70%;
     height: 35vh;
+    justify-content: center;
+    align-items: center;
 }
 
-#temp-box, #city-box, #sky-box {
+#gardenData {
+    border: solid green 2px;
+    height: 20vh;
+}
+
+#landscape {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 85%;
+    height: 20vh;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#tempBox, #cityBox, #skyBox {
     background-color: azure;
     border-radius: 2vw;
     display: grid;
@@ -29,8 +47,8 @@ body {
     height: 35vh;
 }
 
-#temp-controls {
-    grid-row-start: 4;
+#tempControls {
+    grid-row-start: 3;
     grid-column-start: 3;
     display: flex;
     flex-flow: row nowrap;
@@ -38,33 +56,33 @@ body {
     align-items: center;
 }
 
-#left-arrow, #right-arrow {
+#tempDisplay {
+    width: 5vw;
+    height: 10vh;
+    font-size: 4vw;
+    padding-top: 5vh;
+    text-align: center;
+    align-self: center;
+}
+
+#leftArrow, #rightArrow {
     color: blue;
     width: 5vw;
     height: 5vh;
-    
 }
 
-#temp-display {
-    width: 15vw;
-    height: 10vh;
-    font-size: 200%;
-    padding-top: 5vh;
-    background: linear-gradient(90deg, rgb(244, 245, 175) 20%, #5edc7e 50%, rgb(245, 175, 183) 100%);
-}
-
-#real-temp-button {
+#realTempButton {
     width: 25vw;
     text-align: center;
     border-radius: 2vw;
     color: azure;
     background-color: darkblue;
-    grid-row: 6/8;
+    grid-row: 5/6;
     grid-column-start: 2;
     margin-bottom: 2vh;
 }
 
-#sky-selector {
+#skySelector {
     margin-top: 6%;
     width: 20vw;
     height: 5vh;
@@ -77,7 +95,7 @@ body {
     grid-column-start: 3;
 }
 
-#city-form {
+#cityForm {
     margin-top: 3vh;
     grid-row-start: 2;
     grid-column-start: 3;
@@ -89,7 +107,7 @@ body {
     width: 20vw;
 }
 
-#reset-button {
+#resetButton {
     width: 17vw;
     border-radius: 2vw;
     color: azure;
@@ -107,4 +125,24 @@ h2 {
     text-align: center;
     margin: 0vh;
     grid-column-start: 3;
+}
+
+.teal {
+    color: teal;
+}
+
+.darkblue {
+    color: darkblue;
+}
+
+.gold {
+    color: gold;
+}
+
+.orange {
+    color: orange;
+}
+
+.red {
+    color: red;
 }
