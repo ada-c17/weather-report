@@ -42,7 +42,7 @@ tooCold - <34 - temp is v. v. dark purple, garden is all snow and ice
 }
 
 .warm {
-    color: #F47E3E
+    color: #FF924C
 }
 
 .pleasant {
@@ -50,8 +50,9 @@ tooCold - <34 - temp is v. v. dark purple, garden is all snow and ice
 }
 
 .mild {
-    color: #6BAA75;
+    /* color: #6BAA75; */
     /* color: #00916E */
+    color: #52A675;
 }
 
 .chilly {
@@ -63,5 +64,6 @@ tooCold - <34 - temp is v. v. dark purple, garden is all snow and ice
 }
 
 .tooCold {
-    color: #331832;
+    /* color: #4C366A; */
+    color: #AEA3B0;
 }
