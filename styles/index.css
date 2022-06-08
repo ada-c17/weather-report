@@ -1,0 +1,40 @@
+html {
+    cursor: pointer;
+}
+
+section {
+    background-color: aquamarine;
+    text-align: center;
+}
+
+body {
+    background-color: rgb(59, 150, 164);
+}
+
+#tValue {
+    font-size: 3rem;
+}
+
+#temperature, #bottom, #sky, #city {
+    padding-bottom: 1%;
+}
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.green {
+    color: green;
+}
+
+.teal {
+    color: teal;
+}
