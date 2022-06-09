@@ -96,27 +96,26 @@ message.addEventListener('input', function () {
 
 const getRealTemp = () => {
   let coords;
-  axios.get('http://127.0.0.1:5000', {
-    params: {
-      q: document.getElementById('enter_city').value
-    }
+  axios
+    .get('http://127.0.0.1:5000', {
+      params: {
+        q: document.getElementById('enter_city').value,
+      },
     })
-  .then((response) => {
-    coords = [response.data[0].lat, response.data[0].lon]
-    console.log('success!', response.data);  
-  })
-  .catch((error) => {
-    console.log('error!', error.response);
-  });
-
-}
+    .then((response) => {
+      coords = [response.data[0].lat, response.data[0].lon];
+      console.log('success!', response.data);
+    })
+    .catch((error) => {
+      console.log('error!', error.response);
+    });
+};
 
 const registerEventHandlersReal = () => {
   const getRealTempBtn = document.getElementById('get__real__temp');
   getRealTempBtn.addEventListener('click', getRealTemp);
 };
 document.addEventListener('DOMContentLoaded', registerEventHandlersReal);
-
 
 // 5. Selection Changes Sky Background
 
@@ -131,17 +130,32 @@ const changeModeSky = (event) => {
   } else if (skyText == 'Rainy') {
     element.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
   } else if (skyText == 'Snowy') {
-    element.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨'
+    element.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   } else {
     element.textContent = 'Weather Garden';
-  };
-}
+  }
+};
 
 const registerEventHandlersSky = () => {
   const skyMode = document.getElementById('sky-select');
   skyMode.addEventListener('change', changeModeSky);
 };
 document.addEventListener('DOMContentLoaded', registerEventHandlersSky);
+
+const changeModeSkyBackground = (event) => {
+  const element = document.body;
+  element.classList.remove(element.className);
+  element.classList.add(`${event.target.value}`);
+};
+
+const registerEventHandlersSkybackground = () => {
+  const skyMode = document.getElementById('back-select');
+  skyMode.addEventListener('change', changeModeSky);
+};
+document.addEventListener(
+  'DOMContentLoaded',
+  registerEventHandlersSkybackground
+);
 
 // 6.Resetting the City Name
 
