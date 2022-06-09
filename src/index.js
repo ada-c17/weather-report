@@ -4,7 +4,7 @@
 const currentTemp = document.getElementById('current-temp');
 
 //select weather garden picture element
-const weatherGardenChanger = document.getElementById('weather-background');
+const weatherGardenChanger = document.getElementById('bottom-landscape');
 
 //function to change background of the oicture
 const landscapeChanger = (temp) => {
