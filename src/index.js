@@ -54,6 +54,39 @@ const changeLandscape = (temp) => {
 const changeCity = (event) => {
   const inputCity = document.getElementById('inputCity');
   inputCity.textContent = document.getElementById('city').value;
+  let cityLat;
+  let cityLon;
+  let cityTemp;
+
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: inputCity.textContent,
+      },
+    })
+    .then((response) => {
+      const searchResult = response.data[0];
+      cityLat = searchResult.lat;
+      cityLon = searchResult.lon;
+    })
+    .catch((error) => {
+      console.log('error!', error.response.status);
+    });
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: cityLat,
+        lon: cityLon,
+      },
+    })
+    .then((response) => {
+      const searchResult2 = response.data;
+      cityTemp = searchResult2.current.temp;
+      console.log(cityLat, cityLon, cityTemp);
+    })
+    .catch((error) => {
+      console.log('error!', error.response.status);
+    });
 };
 
 const registerEventHandlers = (event) => {
