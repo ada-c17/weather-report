@@ -10,6 +10,9 @@
     <link href="./src/index.css">
 </head>
 <body>
+    <main>
+        <h1 id="welcome">Weather Report</h1>
+        <p id="sub-welcome">For the lovely city of ✨<span id="chosen-city">Seattle</span>✨</p>
     <section id="temperature">
         <h1>Temperature</h1>
         <span id="temperature-reading"> 70 </span>
@@ -17,6 +20,25 @@
         <a id="temperature-down"> ⬇️ </a>
     </section>
     <section id="temperature-garden"></section>
+    <section id="sky">
+        <h1>Sky</h1>
+        <select name="skys" id="sky-select">
+            <option value="Sunny" selected>Sunny</option>
+            <option value="Cloudy">Cloudy</option>
+            <option value="Rainy">Rainy</option>
+            <option value="Snowy">Snowy</option>
+        </select>
+    </section>
+    <section id="sky-garden"></section>
+    <section id="city">
+        <h1>City Name</h1>
+        <input type="text" id="input-city" name="city-name" value="Seattle">
+        <button id="enterCitybutton">Enter</button>
+    </section>
+    <section id="reset">
+        <h1>Default Mode</h1>
+        <button id="resetCitybutton">Reset</button>
+    </section>
+    </main>
 </body>
-
 </html>
