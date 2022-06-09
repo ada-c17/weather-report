@@ -1,28 +1,28 @@
 //////////////temperature section/////////////////
 
 // Select temperature
-const totalCount = document.getElementById('total-count');
+const currentTemp = document.getElementById('total-count');
 
 // Variable to track temperature
-var count = 0;
+var temperature = 0;
 
 // Display initial value
-totalCount.innerHTML = count;
+currentTemp.innerHTML = temperature;
 
 // Function to increment temperature
-const handleIncrement = () => {
-  count++;
-  totalCount.innerHTML = count;
+const handleTempIncrement = () => {
+  temperature++;
+  currentTemp.innerHTML = temperature;
 };
 // Function to decrement temp
-const handleDecrement = () => {
-  count--;
-  totalCount.innerHTML = count;
+const handleTempDecrement = () => {
+  temperature--;
+  currentTemp.innerHTML = temperature;
 };
 // Select increment and decrement buttons
-const incrementCount = document.getElementById('increment-count');
-const decrementCount = document.getElementById('decrement-count');
+const incrementTemp = document.getElementById('increment-count');
+const decrementTemp = document.getElementById('decrement-count');
 
 // Add click event to buttons
-incrementCount.addEventListener('click', handleIncrement);
-decrementCount.addEventListener('click', handleDecrement);
+incrementTemp.addEventListener('click', handleTempIncrement);
+decrementTemp.addEventListener('click', handleTempDecrement);
