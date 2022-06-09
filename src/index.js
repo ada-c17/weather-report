@@ -73,3 +73,16 @@ function cityNameChanger(event) {
 
 //listener to change city name
 cityName.addEventListener('input', cityNameChanger);
+
+//getting the button element in HTML to rerest city name
+const resetCityButton = document.getElementById('city-reset-button');
+
+//function to reset city name
+function resetCityName() {
+  cityName.value = '';
+  document.getElementById('top-city-name').innerHTML =
+    '💗 ' + cityName.placeholder + ' 💗';
+}
+
+//event listener for reseting the city name
+resetCityButton.addEventListener('click', resetCityName);
