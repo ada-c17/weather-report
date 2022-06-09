@@ -18,14 +18,18 @@
 #subSectionContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .subSection {
     padding: 20px;
 }
 
-#tempNum {
+#tempSection {
+    justify-self: center;
+}
+
+#tempNum, #cityDisplay {
     font-size: 3em;
     text-shadow: .5px 0 0 #000, 0 -.5px 0 #000, 0 .5px 0 #000, -.5px 0 0 #000;
 }

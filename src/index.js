@@ -45,6 +45,8 @@ let tempUpButton;
 let tempDownButton;
 let tempDisplay;
 let gardenDisplay;
+let inputText;
+let cityDisplay;
 
 const increaseTemp = () => {
   state.temp += 1;
@@ -75,16 +77,25 @@ const changeTempClass = () => {
   gardenDisplay.textContent = tempClassInfo.garden;
 };
 
+const updateCity = () => {
+  let newCity = inputText.value;
+  cityDisplay.textContent = newCity;
+  inputText.value = '';
+};
+
 const lookUpElements = () => {
   tempUpButton = document.getElementById('tempUp');
   tempDownButton = document.getElementById('tempDown');
   tempDisplay = document.getElementById('tempNum');
   gardenDisplay = document.getElementById('garden');
+  inputText = document.getElementById('cityInput');
+  cityDisplay = document.getElementById('cityDisplay');
 };
 
 const registerEventHandlers = () => {
   tempUpButton.addEventListener('click', increaseTemp);
   tempDownButton.addEventListener('click', decreaseTemp);
+  inputText.addEventListener('change', updateCity);
 };
 
 const initializePage = () => {
