@@ -5,10 +5,12 @@
 const state = {
   temp: 55,
 };
+let flagFahrenheit = true;
 
 const increaseTemp = () => {
   state.temp += 1;
   const tempContainer = document.getElementById('current_temp');
+<<<<<<< HEAD
   tempContainer.textContent = `Current temp: ${state.temp}`;
   if (state.temp < 50) {
     tempContainer.className = 'teal';
@@ -21,6 +23,11 @@ const increaseTemp = () => {
   } else {
     tempContainer.className = 'red';
   } 
+=======
+  tempContainer.textContent = flagFahrenheit
+    ? `${Math.trunc(state.temp)}°F`
+    : `${Math.trunc(state.temp)}°C`;
+>>>>>>> nina
   changeBackground(state.temp);
 };
 
@@ -33,6 +40,7 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 const decreaseTemp = () => {
   state.temp -= 1;
   const tempContainer = document.getElementById('current_temp');
+<<<<<<< HEAD
   tempContainer.textContent = `Current temp: ${state.temp}`;
   if (state.temp < 50) {
     tempContainer.className = 'teal';
@@ -45,6 +53,11 @@ const decreaseTemp = () => {
   } else {
     tempContainer.className = 'red';
   }
+=======
+  tempContainer.textContent = flagFahrenheit
+    ? `${Math.trunc(state.temp)}°F`
+    : `${Math.trunc(state.temp)}°C`;
+>>>>>>> nina
   changeBackground(state.temp);
 };
 
@@ -58,6 +71,9 @@ document.addEventListener('DOMContentLoaded', registerEventHandlersDecrease);
 
 const changeBackground = (temp) => {
   const element = document.getElementById('main__intro__right');
+  if (!flagFahrenheit) {
+    temp = (9 / 5) * temp + 32;
+  }
   if (temp >= 80) {
     element.classList.remove(element.className);
     element.classList.add('summer');
@@ -79,10 +95,10 @@ const changeBackground = (temp) => {
 const message = document.getElementById('enter_city');
 const result = document.getElementById('city_name');
 message.addEventListener('input', function () {
-  result.textContent = this.value.toUpperCase();
+  result.textContent = this.value.charAt(0).toUpperCase() + this.value.slice(1);
 });
 
-// 5. Selection Changes Sky
+// 5. Selection Changes Sky Background
 
 function changeModeSky(event) {
   const element = document.body;
@@ -110,6 +126,23 @@ const registerEventHandlersReset = () => {
 document.addEventListener('DOMContentLoaded', registerEventHandlersReset);
 
 // 7. convert the temperature between Celsius and Fahrenheit
-// using the mode query param
-// For temperature in Fahrenheit use units=imperial
-// For temperature in Celsius use units=metric
+
+const changeMetricForTemp = () => {
+  flagFahrenheit = !flagFahrenheit;
+  if (!flagFahrenheit) {
+    state.temp = (5 / 9) * (state.temp - 32);
+  } else {
+    state.temp = (9 / 5) * state.temp + 32;
+  }
+  const tempContainer = document.getElementById('current_temp');
+  tempContainer.textContent = flagFahrenheit
+    ? `${Math.trunc(state.temp)}°F`
+    : `${Math.trunc(state.temp)}°C`;
+  changeBackground(state.temp);
+};
+
+const registerEventHandlersFarenheit = () => {
+  const switchFC = document.getElementById('switchBtnFC');
+  switchFC.addEventListener('click', changeMetricForTemp);
+};
+document.addEventListener('DOMContentLoaded', registerEventHandlersFarenheit);
