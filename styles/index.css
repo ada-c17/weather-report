@@ -17,6 +17,7 @@ body {
     width: 100vw;
     background-color: #B4F4D9;
     font-family: VarelaRound;
+    color:#503b06;
 
 }
 
@@ -31,6 +32,7 @@ button {
     width: 50%;
     align-self: center;
     font-size: 16pt;
+    color:#503b06;
 }
 
 input {
@@ -45,6 +47,8 @@ input {
 
 #temp {
     padding: 10px;
+    color: #F5B070;
+    text-shadow: 2px 2px 2px gray;
 }
 
 #center-section {
@@ -61,6 +65,12 @@ input {
     border-radius: 100px;
 }
 
+#options, #temp-control {
+    background-color: rgb(232, 222, 197, 0.8);
+    border-radius: 15px;
+    border: 2px solid #503b06;
+}
+
 #options {
     display: flex;
     flex-direction: column;
@@ -69,21 +79,14 @@ input {
     text-align: center;
     height: 50%;
     width: 25%;
-    background-color: rgb(232, 222, 197, 0.8);
-    border-radius: 15px;
-    border-radius: 15px;
-    border: 2px solid #503b06;
     font-size: 16pt;
 }
 
 #temp-control {
     display: flex;
     justify-content: space-evenly;
-    background-color: rgb(232, 222, 197, 0.8);
     align-content: center;
     flex-direction: row;
-    border-radius: 15px;
-    border: 2px solid #503b06;
 }
 
 #landscape-container {
