@@ -1,6 +1,3 @@
-// const axios = require('axios');
-
-
 const state = {
   temp: parseInt(document.getElementById('fahrenheit').innerHTML),
 };
@@ -67,23 +64,7 @@ const getRealTemp = () => {
 };
 
 const apiCalls = () => {
-  const currentCity = document.getElementById('current-city').innerHTML;
-  // axios
-  //   .get('https://us1.locationiq.com/v1/search.php', {
-  //     params: {
-  //       key: process.env['api_key'],
-  //       q: currentCity,
-  //       format: 'json',
-  //     },
-  //   })
-  //   .then((response) => {
-  //     console.log('Latitude ' + response.data[0].lat);
-  //     console.log('Longitude ' + response.data[0].lon);
-  //   })
-  //   .catch((error) => {
-  //     console.log('Error');
-  //   });
-  console.log(currentCity);
+  const currentCity = document.getElementById('current-city').innerHTML; // axios
 };
 
 document.addEventListener('DOMContentLoaded', setTemp);
