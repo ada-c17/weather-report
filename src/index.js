@@ -41,14 +41,24 @@ const changeLandscape = () => {
   }
 };
 
+const updateCityName = () => {
+  let currentCityName = document.getElementById('city-name-display'); // where city name is currently displayed
+  let cityNameUserInput = document.getElementById('city-name').value; // should give value of input
+  currentCityName.textContent = cityNameUserInput;
+};
+
 const registerEventHandlers = () => {
   const increaseTemp = document.getElementById('adjust-temp-up');
   const decreaseTemp = document.getElementById('adjust-temp-down');
+  const input = document.querySelector('input');
   increaseTemp.addEventListener('click', () => {
     raiseTemp();
   });
   decreaseTemp.addEventListener('click', () => {
     lowerTemp();
+  });
+  input.addEventListener('keyup', () => {
+    updateCityName();
   });
 };
 

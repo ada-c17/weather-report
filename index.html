@@ -14,8 +14,11 @@
     <main>
         <header id="main"> 
             <h1>Weather Report</h1>
-            <p>For the lovely city of &#10024;Seattle&#10024;</p>
         </header>
+
+        <section id="city">
+            <p id="city-sentence">For the lovely city of &#10024;</p><p id="city-name-display">Seattle</p><p id="city-sparkle">&#10024;</p>
+        </section>
 
         <section id="temperature-container">
             <p>
@@ -42,7 +45,10 @@
         <section id="city-container"> 
             <p>
                 <label id="city-label">City Name</label>
-                <input type="text" id="city-name"><br><br>
+            </p>
+            <p>
+                <input type="text" placeholder="Enter City Name" onkeyup="updateCityName()" id="city-name">
+                <!-- <p id="city-value"></p> -->
             </p>
             <button id="reset-button">Reset</button>
         </section>

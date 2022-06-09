@@ -1,7 +1,14 @@
+/* * {border:1px solid red} */
+
 body { 
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #display-temp { 
     color: orange; 
+}
+
+#city-sentence, #city-name-display, #city-sparkle { 
+    display:inline-block; 
+    vertical-align:top; 
 }
