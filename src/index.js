@@ -30,10 +30,10 @@ const changeTempTextColor = () => {
 
 const changeLandscape = () => {
   const imgs = [
-    '/assets/winter.jpg',
-    '/assets/fall.jpg',
-    '/assets/spring.jpg',
-    '/assets/summer.jpg',
+    './assets/winter.jpg',
+    './assets/fall.jpg',
+    './assets/spring.jpg',
+    './assets/summer.jpg',
   ];
   const img = getEffectByTempRange(imgs);
   landscape.style.backgroundImage = `url(${img})`;
