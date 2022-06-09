@@ -8,6 +8,69 @@
     <title>Weather Report</title>
 </head>
 <body>
+    <header>
+       <div id="clock">
+           clock
+       </div> 
+       <div id="title">
+           title
+       </div>
+    </header>
+    <main>
+        <div class="info" id="temp-display">
+            <img>map icon</img>
+            <h1>
+                city name
+            </h1>
+        </div>
+        <div class="info" id="control-container">
+            <div class="control-panel" id="temp-box">
+                <div class="box-name">
+                    <h3>Temperature</h3>
+                </div>
+                <div class="box-content">
+                    <h1>
+                        90 &#8457;
+                    </h1>
+                    <div id = "temp-adjustment">
+                        <button class = "temp-control" id="temp-up"> up</button>
+                        <button class = "temp-control" id="temp-down">down</button>
+                    </div>
+                </div>
+                <div class="box-button">
+                    <button class="button" id="get-temp">Real Time Temperature</button>
+                </div>
+            </div>
+            <div class="control-panel" id="sky-box">
+                <div class="box-name">
+                    <h3>Sky</h3>
+                </div>
+                <div class="box-content">
+                    <div class="drop-search-bar">
+                        drop down menu
+                    </div>  
+                </div>
+                <div class="box-button">
+                    button
+                </div>
+            </div>
+            <div class="control-panel" id="city-box">
+                <div class="box-name">
+                    <h3>City</h3>
+                </div>
+                <div class="box-content">
+                    <div class="drop-search-bar">
+                        city searching bar
+                    </div>
+                </div>
+                <div class="box-button">
+                    <button class="button" id="reset-city">Reset City</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>footer</footer>
+
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="src/index.js"></script>
 </body>
