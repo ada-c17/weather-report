@@ -1,34 +1,52 @@
+body {
+    background-color: rgb(206, 233, 183);
+}
+
 .container {
     display:flex; 
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
+    font-family: Andale Mono, monospace;
+}
+
+.head {
+    text-align: center;
+    font-family: Andale Mono, monospace;
+    color: rgb(81, 81, 83);
+    background-color: rgba(255, 255, 245, 0.891);
+}
+#inputCity {
+    color: rgb(255, 100, 80);
+    font-family: Apple Chancery, cursive;
+    font-size:50px;
 }
 
 .item {
     width: 48%;
     height: 100px;
     margin-bottom: 2%;
+    background-color: rgba(255, 255, 245, 0.891);
+    color: rgb(79, 80, 82);
 }
 
 .item:nth-child(3n-2) {
     border: red solid 5px;
     width: 45%;
-
 }
 label {
     display: block;
-    font: 1rem 'Fira Sans', sans-serif;
+    font: Andale Mono, monospace;
 }
-
 input,
 label {
     margin: .4rem 0;
 }
 
-
 .item:nth-child(2n) {
     border: orange solid 5px;
     width: 45%;
+    text-align: center;
+    font-size: large;
 }
 
 .item:nth-child(3n) {
@@ -47,10 +65,11 @@ label {
     width: 20%;
     height: 200px;
     text-align: center;
-    background-color: rgb(197, 227, 237);
 }
 
 .item:nth-child(6n) {
     border: purple solid 5px;
     width: 50%;
+    text-align: center;
+    justify-content:flex-end;
 }
