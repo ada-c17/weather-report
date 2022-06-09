@@ -56,12 +56,22 @@ const increaseTemp = () => {
   changeLandscape();
 };
 
+const changeCity = () => {
+  const cityInput = document.querySelector('input');
+  let newCity = cityInput.value;
+  let subheader = document.getElementById('subheader');
+  subheader.textContent = `What I Wish The Weather Was Like in ${newCity}`;
+};
+
 const registerEventHandlers = () => {
   const leftArrow = document.getElementById('left-arrow');
   leftArrow.addEventListener('click', decreaseTemp);
 
   const rightArrow = document.getElementById('right-arrow');
   rightArrow.addEventListener('click', increaseTemp);
+
+  const cityInput = document.querySelector('input');
+  cityInput.addEventListener('input', changeCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
