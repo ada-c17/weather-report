@@ -14,6 +14,19 @@ const tempColor = (temp) => {
   }
 };
 
+const gardenLayout = (temp) => {
+  const floorEmojisContainer = document.querySelector('#floorEmojis');
+  if (temp >= 80) {
+    floorEmojisContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (70 <= temp && temp <= 79) {
+    floorEmojisContainer.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (60 <= temp && temp <= 69) {
+    floorEmojisContainer.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (50 <= temp && temp <= 59) {
+    floorEmojisContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  }
+};
+
 const state = {
   tempCount: 65,
 };
@@ -23,6 +36,7 @@ const tempIncrease = () => {
   const tempCountContainer = document.querySelector('#tempCount');
   tempCountContainer.textContent = `${state.tempCount}`;
   tempColor(state.tempCount);
+  gardenLayout(state.tempCount);
 };
 
 const tempDecrease = () => {
@@ -30,6 +44,7 @@ const tempDecrease = () => {
   const tempCountContainer = document.querySelector('#tempCount');
   tempCountContainer.textContent = `${state.tempCount}`;
   tempColor(state.tempCount);
+  gardenLayout(state.tempCount);
 };
 
 const registerEventHandlers = (event) => {
