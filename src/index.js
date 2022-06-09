@@ -2,12 +2,12 @@ const state = {
   temp: 79,
 };
 
-const axios = require('axios');
+// const axios = require('axios');
 
 const getCityTemp = () => {
-  let city = document.getElementById('city');
+  let city = document.getElementById('city').textContent;
   axios
-    .get('127.0.0.1:5000/location', {
+    .get('http://127.0.0.1:5000/location', {
       params: {
         q: city,
       },
@@ -15,8 +15,10 @@ const getCityTemp = () => {
     .then((response) => {
       const latitude = response.data[0].lat;
       const longitude = response.data[0].lon;
+      console.log(latitude);
+      console.log(longitude);
       axios
-        .get('127.0.0.1:5000/weather', {
+        .get('http://127.0.0.1:5000/weather', {
           params: {
             lat: latitude,
             lon: longitude,
