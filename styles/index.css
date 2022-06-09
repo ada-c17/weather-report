@@ -25,13 +25,17 @@
     padding: 20px;
 }
 
-#tempSection {
-    justify-self: center;
-}
 
-#tempNum, #cityDisplay {
+
+#tempNum {
     font-size: 3em;
     text-shadow: .5px 0 0 #000, 0 -.5px 0 #000, 0 .5px 0 #000, -.5px 0 0 #000;
+}
+
+#cityDisplay {
+    font-size: 2em;
+    padding-top: .75em;
+    padding-bottom: .75em;
 }
 
 #garden {

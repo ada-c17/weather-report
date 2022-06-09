@@ -47,6 +47,7 @@ let tempDisplay;
 let gardenDisplay;
 let inputText;
 let cityDisplay;
+let tempRealTimeButton;
 
 const increaseTemp = () => {
   state.temp += 1;
@@ -83,6 +84,55 @@ const updateCity = () => {
   inputText.value = '';
 };
 
+const convertFromKToF = (num) => {
+  const tempInF = Math.round(1.8 * (num - 273) + 32);
+  return tempInF;
+};
+
+const getRealTimeTemp = (locationData) => {
+  let realTimeTemp;
+  axios
+    .get('http://localhost:5000/weather', {
+      params: {
+        lat: locationData.lat,
+        lon: locationData.lon,
+      },
+    })
+    .then((response) => {
+      let tempInKelvin = response.data.current.temp;
+      realTimeTemp = convertFromKToF(tempInKelvin);
+      state.temp = realTimeTemp;
+      tempDisplay.textContent = `${state.temp}°F`;
+    })
+    .catch((error) => {
+      console.log(
+        `error in getRealTimeTemp: ${error.response.status}, ${error.response.data}`
+      );
+    });
+};
+
+const getLatLong = () => {
+  const locationName = cityDisplay.textContent;
+  let lat, lon, locationData;
+  axios
+    .get('http://localhost:5000/location', {
+      params: {
+        q: locationName,
+      },
+    })
+    .then((response) => {
+      lat = response.data[0].lat;
+      lon = response.data[0].lon;
+      locationData = { lat, lon };
+      getRealTimeTemp(locationData);
+    })
+    .catch((error) => {
+      console.log(
+        `error in getLatLong: ${error.response.status}, ${error.response.data}`
+      );
+    });
+};
+
 const lookUpElements = () => {
   tempUpButton = document.getElementById('tempUp');
   tempDownButton = document.getElementById('tempDown');
@@ -90,12 +140,14 @@ const lookUpElements = () => {
   gardenDisplay = document.getElementById('garden');
   inputText = document.getElementById('cityInput');
   cityDisplay = document.getElementById('cityDisplay');
+  tempRealTimeButton = document.getElementById('realTime');
 };
 
 const registerEventHandlers = () => {
   tempUpButton.addEventListener('click', increaseTemp);
   tempDownButton.addEventListener('click', decreaseTemp);
   inputText.addEventListener('change', updateCity);
+  tempRealTimeButton.addEventListener('click', getLatLong);
 };
 
 const initializePage = () => {
