@@ -26,16 +26,16 @@ const setTemp = () => {
 document.addEventListener('DOMContentLoaded', setTemp);
 
 const changeGarden = () => {
-  const garden = document.querySelector('#garden-visual')
+  const landscape = document.querySelector('#landscape')
 
   if (state.temp >= 80) {
-    garden.textContent = '🌵🌞🌊🐍🦂🌵🌞🌊🐍🏜'
+    landscape.textContent = '🌵🌞🌊🐍🦂🌵🌞🌊🐍🏜'
   } else if (state.temp < 80 && state.temp >= 70) {
-    garden.textContent = '🌸🌿🌼🌷🌻🌿🌱🌻🌷'
+    landscape.textContent = '🌸🌿🌼🌷🌻🌿🌱🌻🌷'
   } else if (state.temp < 70 && state.temp >= 60) {
-    garden.textContent = '🌾🌾🍃🪨🛤🌾🌾🌾🍃'
+    landscape.textContent = '🌾🌾🍃🪨🛤🌾🌾🌾🍃'
   } else {
-    garden.textContent = '🌲⛄️🌲⛄️🍂🌲🍁🌲⛄️🍂🌲'
+    landscape.textContent = '🌲⛄️🌲⛄️🍂🌲🍁🌲⛄️🍂🌲'
   }
 }
 
