@@ -1,0 +1,98 @@
+* body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightblue;
+}
+
+button {
+    background-color: rgb(236, 236, 244);
+    border-radius: 10px;
+    color: rgb(7, 7, 7);
+    font-size:small;
+    margin-top: 2rem;
+    padding: 10px;
+} */
+.lower {
+    color: blueviolet;
+    margin-top: 7rem;
+    font-size: 100px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../image/atlanta-captions-for-instagram.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #f0e6f0;
+    text-align: center;
+}
+
+header {
+    min-height: 100px;
+    color: rgb(16, 87, 132);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+}
+
+.boxes {
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+}
+.boxes2 {
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 500px 500px 500px;
+    grid-template-rows: 250px 50px 50px;
+    color: black;
+    grid-gap: 3px;
+    justify-items: center;
+    align-items: center;
+    margin-left: 2rem;
+    font-size: 2em;
+    padding-top: 120px;
+    padding-bottom: 1rem ;
+}
+
+.grid-item {
+    background-color: rgba(98, 129, 117, 0.8);
+    border: 1px solid rgba(62, 75, 78, 0.383);
+    border-radius: 30px;
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+    width: 400px;
+    height: 400px;
+}
+.grid-item-1 {
+    background-color: rgba(98, 129, 117, 0.8);
+    border: 1px solid rgba(62, 75, 78, 0.383);
+    border-radius: 30px;
+    text-align: center;
+    padding: 50px;
+    margin-left: 2rem;
+    font-size: 25px;
+    width: 1600px;
+    height: 400px;
+}
+
+footer {
+    color: rgb(33, 31, 31);
+    font-size: larger;
+    text-align: center;
+    position:relative;
+    margin-left: 10rem;
+    bottom: 0;
+}
