@@ -30,7 +30,23 @@ section {
 
 #card1 {
     border: black solid 3px;
+    display: flex;
+    flex-direction: row;
 }
+
+#card1-left {
+    border: blue solid 3px;
+    display: grid;
+    width: 50%;
+}
+
+#card1-right {
+    border: blue solid 3px;
+    width: 50%;
+}
+
+
+
 
 #card2{
     border: black solid 3px;
