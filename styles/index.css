@@ -2,6 +2,7 @@ body {
     background: rgb(60,124,255);
     background: linear-gradient(90deg, rgba(60,124,255,1) 0%, rgba(0,212,255,1) 47%, rgba(205,246,255,1) 89%);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
 }
 .container {
     width: 100%;
@@ -62,4 +63,31 @@ body {
     grid-area: footer;
     align-self: center;
     justify-self: center;
+}
+
+.city-name-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.temp-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.temp-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:center;
+    margin-right: 20px;
+}
+#increase-temp {
+    margin-bottom: 10px;
+}
+#temp {
+    font-size: 30px;
+    margin-bottom: 10px;
 }
