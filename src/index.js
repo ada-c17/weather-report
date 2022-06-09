@@ -1,17 +1,24 @@
 'use strict';
-// const tempColor = (temp) => {
-//   if (temp >= 80) {
-//     //color has to be red
-//   } else if (70 <= temp <= 79) {
-//     //color has to be orange
-//   } else if (60 <= temp <= 69) {
-//     //color is yellow
-//   } else if (50 <= temp <= 59) {
-//     //color is green
-//   } else ( temp <= 49 ) {
-//   } //color is teal
+const tempColor = (temp) => {
+  const colorCode = document.getElementById('tempCount');
+  if (temp >= 80) {
+    colorCode.style.color = 'red';
+  } else if (70 <= temp <= 79) {
+    //color has to be orange
+    colorCode.style.color = 'orange';
+  } else if (60 <= temp <= 69) {
+    //color is yellow
+    colorCode.style.color = 'yellow';
+  } else if (50 <= temp <= 59) {
+    //color is green
+    colorCode.style.color = 'green';
+  } else {
+    colorCode.style.color = 'teal';
+  }
+};
 
-//const getTemp = () =>
+document.addEventListener('DOMContentLoaded', tempColor(45));
+
 const state = {
   tempCount: 65,
 };
