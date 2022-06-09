@@ -23,6 +23,10 @@ h1 {
     background: none;
 }
 
+.btn {
+    background: transparent;
+}
+
 #container_grid {
     display: grid;
     grid-template-rows: 10% 15rem auto 2rem;
@@ -50,7 +54,8 @@ h1 {
     min-height: 100%;
     align-items: center;
     align-content: center;
-    background-color: gray;
+    background-color: transparent;
+    border-radius: 30px;
 }
 
 #city {
@@ -65,23 +70,40 @@ h1 {
     margin-bottom: auto;
 }
 
-#up_arrow {
+
+.icon {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn {
+    cursor: pointer; /* Mouse pointer on hover */
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 5px;
+}
+
+/* .btn:hover {
+    filter: brightness(0.85);
+} 
+
+Want to change it so that the background color of the temp city box is accessed, then darkened a bit on hover. Need to access background color of the 
+*/
+
+#up_arrow_btn {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    max-width: 100%;
-    height: auto;
+    align-self: end;
 }
 
-#down_arrow {
+#down_arrow_btn {
     grid-column: 2 / 3;
     grid-row: 3  / 4;
-    max-width: 100%;
-    height: auto;
+    align-self: start;
 }
 
-#magnifier {
+
+#magn_btn {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    max-width: 100%;
-    height: auto;
 }
