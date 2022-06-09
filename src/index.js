@@ -85,12 +85,11 @@ const newTemperature = function () {
 
 const setTextColorLandscapeBasedOnTemp = function () {
   let img;
-  let color = '';
-  let weatherfarm = "weatherfarm";
   let tempColor = '';
   if (temperature >= 80) {
     tempColor = 'red';
     img = 'desert'
+
   } else if (temperature >= 70) {
     tempColor = 'orange';
     img = 'spring';
@@ -102,24 +101,36 @@ const setTextColorLandscapeBasedOnTemp = function () {
     img = 'winter';
   } else if (temperature < 50) {
     tempColor = 'teal';
-    img = 'winter';
+    img = 'freez';
   }
   document.getElementById('temperature').style.color = tempColor;
   document.queryCommandValue("#skyContent");
-  skyContent.classList = `grid-item-1 ${img}${color}`;
+  skyContent.classList = `grid-item-1 ${img}`;
 }
 
 
-const getSky = function (skyType) {
-  let sky = '';
-  if (skyType == 'cloudy') {
-    sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  } else if (skyType == 'rainy') {
-    sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else if (skyType == 'snowy') {
-    sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
-  } else if (skyType == 'sunny') {
-    sky = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  }
-  return sky;
-};
+const updateSky = () => {
+  const optionSky = document.querySelector('#skytype').value;
+  const skyContainer = document.querySelector('#sky');
+  let img;
+  if (optionSky === 'cloudy') {
+    img = 'cloudy';
+} else if (optionSky === 'sunny') {
+    img = 'sunny';
+} else if (optionSky === 'rainy') {
+    img = 'rainy';
+} else if (optionSky === 'snowy') {
+    img = 'snowy'
+}
+
+skyContainer.textContent = '';
+const skyContent = document.querySelector('#skyIllustration');
+skyContent.classList = `grid-item-2 ${img}`;
+}
+
+
+
+
+
+const skySelect = document.querySelector("#skytype");
+skySelect.addEventListener('change', updateSky);
