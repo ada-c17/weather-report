@@ -4,62 +4,92 @@ const state = {
   temp: 75,
 };
 
-const tempChange = new Event('changedTemp');
+const tempVariations = [
+  {
+    lowestTemp: 85,
+    garden: '🌴  🌴  🦜 🪨   🌵  🌵  🪨   🥥 🌴  🌺   🌵 🪨',
+    className: 'tempStyled tooHot',
+  },
+  {
+    lowestTemp: 75,
+    garden: '🌳 🌱 🌷 🌷 🌱 🌳  🌳 🌱 🌻 🌷 🌱 ⚽️  🌳 🌱 🐿 🌱',
+    className: 'tempStyled warm',
+  },
+  {
+    lowestTemp: 65,
+    garden: '🌳 🦉 🍃 🌳 🌳 🌳 🍃 🌹 🌹 🌿 🌿 🌹 🌹 🍃 🌳 🍃 🌳',
+    className: 'tempStyled pleasant',
+  },
+  {
+    lowestTemp: 55,
+    garden: '🌲 🍄 🍃  🌳 🍃 🦝 🌳  🥀 🥀  🌲 🌲 🍂   🌾 🌾 🌾',
+    className: 'tempStyled mild',
+  },
+  {
+    lowestTemp: 45,
+    garden: '🌲 🍂 🪵 🪵 🍂  🍁 🍁  🌲 🌲 🦌 🌲 🍄  🌲 🌲 🌲 🪵',
+    className: 'tempStyled chilly',
+  },
+  {
+    lowestTemp: 35,
+    garden: '🌲 🌲 🌲 🦃 🌲 🌲   🪨     🌲 🌲 🪵 🪵 🌲 🌲 🪨',
+    className: 'tempStyled cold',
+  },
+  {
+    garden: '🌲 🌲 🌲  ❄️ ❄️ ⛄️ ❄️ ⛄️ ❄️ ❄️ 🌲 🌲 ❄️ ❄️ 🌲 ❄️ ❄️ 🌲 🌲',
+    className: 'tempStyled tooCold',
+  },
+];
+
+let tempUpButton;
+let tempDownButton;
+let tempDisplay;
+let gardenDisplay;
 
 const increaseTemp = () => {
   state.temp += 1;
-  const tempDisplay = document.getElementById('tempNum');
-  tempDisplay.textContent = state.temp;
-  tempDisplay.dispatchEvent(tempChange);
+  tempDisplay.textContent = `${state.temp}°F`;
+  changeTempClass();
 };
 
 const decreaseTemp = () => {
   state.temp -= 1;
-  const tempDisplay = document.getElementById('tempNum');
-  tempDisplay.textContent = state.temp;
-  tempDisplay.dispatchEvent(tempChange);
+  tempDisplay.textContent = `${state.temp}°F`;
+  changeTempClass();
 };
 
 const changeTempClass = () => {
-  const tempStyling = document.getElementsByClassName('tempStyled');
-  if (state.temp >= 85) {
-    for (let element of tempStyling) {
-      element.className = 'tempStyled tooHot';
-    }
-  } else if (state.temp >= 75 && state.temp <= 84) {
-    for (let element of tempStyling) {
-      element.className = 'tempStyled warm';
-    }
-  } else if (state.temp >= 65 && state.temp <= 74) {
-    for (let element of tempStyling) {
-      element.className = 'tempStyled pleasant';
-    }
-  } else if (state.temp >= 55 && state.temp <= 64) {
-    for (let element of tempStyling) {
-      element.className = 'tempStyled mild';
-    }
-  } else if (state.temp >= 45 && state.temp <= 54) {
-    for (let element of tempStyling) {
-      element.className = 'tempStyled chilly';
-    }
-  } else if (state.temp >= 35 && state.temp <= 44) {
-    for (let element of tempStyling) {
-      element.className = 'tempStyled cold';
-    }
-  } else if (state.temp <= 34) {
-    for (let element of tempStyling) {
-      element.className = 'tempStyled tooCold';
+  let tempClassInfo;
+  for (let i = 0; i < tempVariations.length - 1; i++) {
+    if (state.temp >= tempVariations[i].lowestTemp) {
+      tempClassInfo = tempVariations[i];
+      break;
     }
   }
+  if (!tempClassInfo) {
+    tempClassInfo = tempVariations.at(-1);
+  }
+
+  tempDisplay.className = tempClassInfo.className;
+  gardenDisplay.className = tempClassInfo.className;
+  gardenDisplay.textContent = tempClassInfo.garden;
 };
 
-const registerEventHandlers = (event) => {
-  const tempUpButton = document.getElementById('tempUp');
+const lookUpElements = () => {
+  tempUpButton = document.getElementById('tempUp');
+  tempDownButton = document.getElementById('tempDown');
+  tempDisplay = document.getElementById('tempNum');
+  gardenDisplay = document.getElementById('garden');
+};
+
+const registerEventHandlers = () => {
   tempUpButton.addEventListener('click', increaseTemp);
-  const tempDownButton = document.getElementById('tempDown');
   tempDownButton.addEventListener('click', decreaseTemp);
-  const tempDisplay = document.getElementById('tempNum');
-  tempDisplay.addEventListener('changedTemp', changeTempClass);
 };
 
-document.addEventListener('DOMContentLoaded', registerEventHandlers);
+const initializePage = () => {
+  lookUpElements();
+  registerEventHandlers();
+};
+
+document.addEventListener('DOMContentLoaded', initializePage);
