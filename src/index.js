@@ -81,3 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('sky-garden').innerHTML = skyArt(skyElement);
   });
 });
+
+//wave 6
+const resetCityButton = document.getElementById('resetCitybutton');
+
+resetCityButton.addEventListener('click', () => {
+  const defaultCity = 'Seattle';
+  document.querySelector('#input-city').value = defaultCity;
+  document.getElementById('chosen-city').innerText = defaultCity;
+});
