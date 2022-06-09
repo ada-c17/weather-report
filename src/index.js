@@ -95,9 +95,20 @@ message.addEventListener('input', function () {
 // 5. Selection Changes Sky Background
 
 function changeModeSky(event) {
-  const element = document.body;
-  element.classList.remove(element.className);
-  element.classList.add(`${event.target.value}`);
+  const skyMode = document.getElementById('sky-select');
+  const skyText = skyMode.options[skyMode.selectedIndex].text;
+  const element = document.querySelector('#block__right__name > h4');
+  if (skyText == 'Sunny') {
+    element.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (skyText == 'Cloudy') {
+    element.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skyText == 'Rainy') {
+    element.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skyText == 'Snowy') {
+    element.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨'
+  } else {
+    element.textContent = 'Weather Garden';
+  };
 }
 
 const registerEventHandlersSky = () => {
