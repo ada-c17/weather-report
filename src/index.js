@@ -2,7 +2,41 @@ const state = {
   temp: 79,
 };
 
-//document.getElementById("myText").value = "Johnny Bravo";
+const axios = require('axios');
+
+const getCityTemp = () => {
+  let city = document.getElementById('city');
+  axios
+    .get('127.0.0.1:5000/location', {
+      params: {
+        q: city,
+      },
+    })
+    .then((response) => {
+      const latitude = response.data[0].lat;
+      const longitude = response.data[0].lon;
+      axios
+        .get('127.0.0.1:5000/weather', {
+          params: {
+            lat: latitude,
+            lon: longitude,
+          },
+        })
+        .then((response) => {
+          const temp = response.current.temp;
+          const tempContainer = document.querySelector('#temp');
+          tempContainer.textContent = temp;
+          changeTempColorAndGarden(temp);
+        })
+        .catch((error) => {
+          console.log("Couldn't get city temperature");
+        });
+    })
+
+    .catch((error) => {
+      console.log('Error in finding latitude and longitude.');
+    });
+};
 
 const getNewCity = () => {
   const cityName = document.getElementById('city-name').value;
@@ -25,13 +59,19 @@ const tempDecrease = () => {
 };
 
 const registerEventHandlers = () => {
+  // wave 2
   const tempIncreaseButton = document.querySelector('#increase');
   tempIncreaseButton.addEventListener('click', tempIncrease);
   const tempDecreaseButton = document.querySelector('#decrease');
   tempDecreaseButton.addEventListener('click', tempDecrease);
 
+  // wave 3
   const inputElement = document.querySelector('#city-name');
   inputElement.addEventListener('change', getNewCity);
+
+  // wave 4
+  const getTempButton = document.querySelector('#get-temp');
+  getTempButton.addEventListener('click', getCityTemp);
 };
 
 const changeTempColorAndGarden = (temperature) => {
