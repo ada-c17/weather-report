@@ -2,26 +2,26 @@ const state = {
   temp: 79,
 };
 
-// const axios = require('axios');
 const getWeather = (lat, lon) => {
   axios
     .get('http://127.0.0.1:5000/weather', {
       params: {
-        lat: parseFloat(lat),
-        lon: parseFloat(lon),
+        lat: lat,
+        lon: lon,
       },
     })
+
     .then((response) => {
-      const temp = response.current.temp;
-      console.log(temp);
-      // const tempContainer = document.querySelector('#temp');
-      // tempContainer.textContent = temp;
-      // changeTempColorAndGarden(temp);
+      state.temp = response.data.current.temp;
+      const tempContainer = document.querySelector('#temp');
+      tempContainer.textContent = state.temp;
+      changeTempColorAndGarden(state.temp);
     })
     .catch((error) => {
       console.log("Couldn't get city temperature");
     });
 };
+
 const getCityTemp = () => {
   let city = document.getElementById('city').textContent;
   axios
@@ -31,10 +31,8 @@ const getCityTemp = () => {
       },
     })
     .then((response) => {
-      const latitude = response.data[0].lat;
-      const longitude = response.data[0].lon;
-      console.log(latitude);
-      console.log(longitude);
+      const latitude = parseFloat(response.data[0].lat);
+      const longitude = parseFloat(response.data[0].lon);
       getWeather(latitude, longitude);
       // axios
       //   .get('http://127.0.0.1:5000/weather', {
@@ -44,11 +42,11 @@ const getCityTemp = () => {
       //     },
       //   })
       //   .then((response) => {
-      //     const temp = response.current.temp;
+      //     state.temp = response.current.temp;
       //     console.log(temp);
       //     // const tempContainer = document.querySelector('#temp');
-      //     // tempContainer.textContent = temp;
-      //     // changeTempColorAndGarden(temp);
+      //     // tempContainer.textContent = state.temp;
+      //     // changeTempColorAndGarden(state.temp);
       //   })
       //   .catch((error) => {
       //     console.log("Couldn't get city temperature");
