@@ -60,8 +60,8 @@ const changeCity = () => {
 const apiCalls = () => {
   const tempContainer = document.getElementById('fahrenheit');
   const apiButton = document.getElementById('API-button');
-  const currentCity = document.getElementById('current-city').innerHTML;
   apiButton.addEventListener('click', () => {
+    const currentCity = document.getElementById('current-city').innerHTML;
     axios
       .get('http://localhost:5000/location', {
         params: { q: currentCity },
