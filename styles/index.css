@@ -1,0 +1,21 @@
+html {
+    width: 90%;
+    background-color: #009999;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.box-container{
+    border: 1px solid white;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+
+#temperature{
+    width: 400px;
+    border: 1px solid rgb(184, 16, 16);
+    height: 400px;
+}
