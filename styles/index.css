@@ -2,6 +2,18 @@ ul {
     display: inline;
 }
 
-.clicked {
-    text-decoration: underline;
+.veryHot {
+    color: red;
+}
+.hot {
+    color: orange;
+}
+.warm {
+    color: yellow;
+}
+.cool {
+    color: green;
+}
+.cold {
+    color: teal;
 }
