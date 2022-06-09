@@ -22,11 +22,9 @@ const tempDown = () => {
 
 const newReport = (event) => {
   console.log('in newReport:', event);
-  const cityName = document.createElement('h3');
   const titleContainer = document.querySelector('#city-name-container');
-  titleContainer.replaceWith(cityName); //adds city 1x only, won't replace
-  // titleContainer.appendChild(cityName); //keeps adding cities
-  cityName.textContent = document.getElementById('cityToSearch').value;
+  titleContainer.textContent = document.getElementById('cityToSearch').value;
+  //want to change this text to an h2... how can I do that?
 };
 
 const registerEventHandlers = (event) => {
