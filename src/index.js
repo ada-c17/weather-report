@@ -3,7 +3,25 @@ const state = {
 };
 
 // const axios = require('axios');
-
+const getWeather = (lat, lon) => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: parseFloat(lat),
+        lon: parseFloat(lon),
+      },
+    })
+    .then((response) => {
+      const temp = response.current.temp;
+      console.log(temp);
+      // const tempContainer = document.querySelector('#temp');
+      // tempContainer.textContent = temp;
+      // changeTempColorAndGarden(temp);
+    })
+    .catch((error) => {
+      console.log("Couldn't get city temperature");
+    });
+};
 const getCityTemp = () => {
   let city = document.getElementById('city').textContent;
   axios
@@ -17,22 +35,24 @@ const getCityTemp = () => {
       const longitude = response.data[0].lon;
       console.log(latitude);
       console.log(longitude);
-      axios
-        .get('http://127.0.0.1:5000/weather', {
-          params: {
-            lat: latitude,
-            lon: longitude,
-          },
-        })
-        .then((response) => {
-          const temp = response.current.temp;
-          const tempContainer = document.querySelector('#temp');
-          tempContainer.textContent = temp;
-          changeTempColorAndGarden(temp);
-        })
-        .catch((error) => {
-          console.log("Couldn't get city temperature");
-        });
+      getWeather(latitude, longitude);
+      // axios
+      //   .get('http://127.0.0.1:5000/weather', {
+      //     params: {
+      //       lat: parseFloat(latitude),
+      //       lon: parseFloat(longitude),
+      //     },
+      //   })
+      //   .then((response) => {
+      //     const temp = response.current.temp;
+      //     console.log(temp);
+      //     // const tempContainer = document.querySelector('#temp');
+      //     // tempContainer.textContent = temp;
+      //     // changeTempColorAndGarden(temp);
+      //   })
+      //   .catch((error) => {
+      //     console.log("Couldn't get city temperature");
+      //   });
     })
 
     .catch((error) => {
