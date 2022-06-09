@@ -32,10 +32,12 @@
 }
 
 .item:nth-child(5n) {
-    border: blue solid 5px;
+    border: lightseagreen solid 5px;
+    color: rgb(102, 103, 106);
     width: 20%;
     height: 200px;
     text-align: center;
+    background-color: rgb(197, 227, 237);
 }
 
 .item:nth-child(6n) {
