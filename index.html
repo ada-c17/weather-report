@@ -10,10 +10,15 @@
 <body>
     <header>
         <h1>Weather Report</h1>
-        <h2 id="City Name"> For the City of Seattle </h2>
+        <h2 id="cityIntro"> For the City of</h2>
+        <h2 id="inputCity"> Seattle</h2>
     </header> 
     <section class="container">
-        <div class="item"></div>
+        <div class="item">
+            <label for="city">Input City Name:</label>
+            <input type="text" id="city" name="city" required minlength="4" maxlength="20" size="25">
+            <button id="submitButton">Submit</button>
+        </div>
         <div class="item"></div>
         <div class="item"></div>
         <div class="item"></div>

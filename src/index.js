@@ -51,11 +51,18 @@ const changeLandscape = (temp) => {
   }
 };
 
+const changeCity = (event) => {
+  const inputCity = document.querySelector('#inputCity');
+  inputCity.textContent = docutment.getElementById.name.value;
+}
+
 const registerEventHandlers = (event) => {
   const upButton = document.querySelector('#upButton');
   const downButton = document.querySelector('#downButton');
   upButton.addEventListener('click', addTemp);
   downButton.addEventListener('click', subtractTemp);
+  const submitButton = document.querySelector('#submitButton');
+  submitButton.addEventListener('click', changeCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
