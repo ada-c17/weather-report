@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles/style.css" rel="stylesheet" />
+    <link href="styles/index.css" rel="stylesheet" />
 </head>
     <title>Weather Report</title>
 </head>
 <body>
     <form id="sky">
-        <img src="" alt="An image of the sky">
-
         <div id="city">
             <input type="text" id="city-input" placeholder="Enter the name of the city">
             <button id="reset">
@@ -34,11 +32,14 @@
             </button>
         </div>
 
-        <select name="sky" id="sky-menu">
-            <option value="Cloudy"> Cloudy </option>
-            <option value="Sunny"> Sunny </option>
-            <option value="Rainy"> Rainy </option>
-        </select>
+        <div id="menu-container">
+            <select name="sky" id="sky-dropdown" aria-placeholder="Sky">
+                <option value="Cloudy"> Cloudy </option>
+                <option value="Sunny"> Sunny </option>
+                <option value="Rainy"> Rainy </option>
+            </select>
+        </div>
+
     </form>
 
     <div id="landscape">
