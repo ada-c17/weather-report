@@ -2,30 +2,42 @@ const state = {
   temp: 50,
 };
 
-const colorTempChange = (temp) => {
+const colorTempChange = () => {
+  let temp = state.temp;
+  let color = 'tempRed';
+  let landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   if (temp >= 80) {
-    tempDisplay.classList.add('tempRed');
+    color = 'tempRed';
+    landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (temp >= 70) {
-    tempDisplay.classList.add('tempOrange');
+    color = 'tempOrange';
+    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (temp >= 60) {
-    tempDisplay.classList.add('tempYellow');
+    color = 'tempYellow';
+    landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (temp >= 50) {
-    tempDisplay.classList.add('tempGreen');
+    color = 'tempGreen';
+    landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else if (temp < 50) {
-    tempDisplay.classList.add('tempTeal');
+    color = 'tempTeal';
+    landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
+
+  const tempDisplay = document.querySelector('#tempValue');
+  tempDisplay.textContent = `${state.temp}`;
+  tempDisplay.className = color;
+  const gardenLandscape = document.querySelector('#garden');
+  gardenLandscape.textContent = landscape;
 };
 
 const increaseTemp = () => {
   state.temp += 1;
-  const tempDisplay = document.querySelector('#tempValue');
-  tempDisplay.textContent = `${state.temp}`;
+  colorTempChange();
 };
 
 const decreaseTemp = () => {
   state.temp -= 1;
-  const tempDisplay = document.querySelector('#tempValue');
-  tempDisplay.textContent = `${state.temp}`;
+  colorTempChange();
 };
 
 const registerEventHandlers = () => {
