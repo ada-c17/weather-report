@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h1>Weather for the lovely city of</h1>
+        <h1>Weather for the lovely city of <span id=titleCity>Seattle</span></h1>
     </header>
     <section id="weatherFrame">
         <section id="clickables">
@@ -42,10 +42,10 @@
             <section id="cityBlock">
                 <header>
                     <h2>City Name</h2>
-                    <label for="cityName">Show me the weather in...</label>
-                    <input name="cityName" type="text" placeholder="e.g. &quot;Seattle&quot;">
                 </header>
-
+                <label for="cityName">Show me the weather in...</label>
+                <input id="cityName" type="text" placeholder="e.g. &quot;Seattle&quot;">
+                <button id="resetCity">Reset</button>
             </section>
         </section>
         <section id="gardenBlock">
@@ -63,6 +63,6 @@
         </section>
     </section>
 </body>
-<script src="src/styles.js"></script>
+<script src="src/index.js"></script>
 <script src="./node_modules/axios/dist/axios.min.js"></script>
 </html>
