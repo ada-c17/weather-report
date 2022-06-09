@@ -43,9 +43,8 @@ h1 {
   color: aliceblue;
 }
 #top-city-name{
-    background-color: blue;
     margin: 4%;
-    margin-left: 1px;
+    margin-left: 0px;
   color: aliceblue;
 }
 

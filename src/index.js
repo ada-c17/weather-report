@@ -61,14 +61,15 @@ const changeTempColor = (temp) => {
     currentTemp.style.color = 'teal';
   }
 };
+//getting the city input element that needs to be changed
+const cityName = document.getElementById('city-name');
 
-//city name is equal city on top of the page
-// let topCityName = document.getElementById('top-city-name').value;
+//function to change city name on top of the page
+function cityNameChanger(event) {
+  cityNameValue = cityName.value;
+  document.getElementById('top-city-name').innerHTML =
+    '💗 ' + cityNameValue + ' 💗';
+}
 
-// const cityNameChanger = () => {
-//   let cityName = document.getElementById('city-name').value;
-//   document.getElementById('top-city-name'.value).innerHTML = cityName;
-// };
-
-// //listener
-// cityName.addEventListener('onchange', cityNameChanger);
+//listener to change city name
+cityName.addEventListener('input', cityNameChanger);
