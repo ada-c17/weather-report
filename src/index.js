@@ -150,7 +150,7 @@ const changeModeSkyBackground = (event) => {
 
 const registerEventHandlersSkybackground = () => {
   const skyMode = document.getElementById('back-select');
-  skyMode.addEventListener('change', changeModeSky);
+  skyMode.addEventListener('change', changeModeSkyBackground);
 };
 document.addEventListener(
   'DOMContentLoaded',
