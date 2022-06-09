@@ -1,19 +1,29 @@
 'use strict';
 const tempColor = (temp) => {
   const colorCode = document.getElementById('tempCount');
-  if (temp.innerHTML >= 80) {
-    colorCode.style.color = 'red';
+  if (temp >= 80) {
+    colorCode.className = 'hotTemp';
   } else if (70 <= temp && temp <= 79) {
-    //color has to be orange
-    colorCode.style.color = 'orange';
+    colorCode.className = 'warmTemp';
   } else if (60 <= temp && temp <= 69) {
-    //color is yellow
-    colorCode.style.color = 'yellow';
+    colorCode.className = 'mildTemp';
   } else if (50 <= temp && temp <= 59) {
-    //color is green
-    colorCode.style.color = 'green';
-  } else {
-    colorCode.style.color = 'teal';
+    colorCode.className = 'chillTemp';
+  } else if (-100 <= temp && temp <= 49) {
+    colorCode.className = 'coldTemp';
+  }
+};
+
+const gardenLayout = (temp) => {
+  const floorEmojisContainer = document.querySelector('#floorEmojis');
+  if (temp >= 80) {
+    floorEmojisContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (70 <= temp && temp <= 79) {
+    floorEmojisContainer.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (60 <= temp && temp <= 69) {
+    floorEmojisContainer.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (50 <= temp && temp <= 59) {
+    floorEmojisContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
 };
 
@@ -23,11 +33,10 @@ const state = {
 
 const tempIncrease = () => {
   state.tempCount += 1;
-  console.log(state.tempCount);
   const tempCountContainer = document.querySelector('#tempCount');
   tempCountContainer.textContent = `${state.tempCount}`;
-  // tempColor(state.tempCount);
-  // console.log("Hello");
+  tempColor(state.tempCount);
+  gardenLayout(state.tempCount);
 };
 
 const tempDecrease = () => {
@@ -35,7 +44,7 @@ const tempDecrease = () => {
   const tempCountContainer = document.querySelector('#tempCount');
   tempCountContainer.textContent = `${state.tempCount}`;
   tempColor(state.tempCount);
-  console.log('hegood morningllo');
+  gardenLayout(state.tempCount);
 };
 
 const registerEventHandlers = (event) => {
