@@ -10,13 +10,30 @@ const setTemp = () => {
 
   upButton.addEventListener('click', () => {
     state.temp += 1;
+    changeGarden();
     console.log('add one');
     tempContainer.textContent = `${state.temp}`;
   });
   downButton.addEventListener('click', () => {
     state.temp -= 1;
+    changeGarden();
     console.log('subtract one');
     tempContainer.textContent = `${state.temp}`;
   });
 };
 document.addEventListener('DOMContentLoaded', setTemp);
+
+const changeGarden = () => {
+  const garden = document.querySelector('#garden-visual')
+
+  if (state.temp >= 80) {
+    garden.textContent = '🌵🌞🌊🐍🦂🌵🌞🌊🐍🏜'
+  } else if (state.temp < 80 && state.temp >= 70) {
+    garden.textContent = '🌸🌿🌼🌷🌻🌿🌱🌻🌷'
+  } else if (state.temp < 70 && state.temp >= 60) {
+    garden.textContent = '🌾🌾🍃🪨🛤🌾🌾🌾🍃'
+  } else {
+    garden.textContent = '🌲⛄️🌲⛄️🍂🌲🍁🌲⛄️🍂🌲'
+  }
+}
+
