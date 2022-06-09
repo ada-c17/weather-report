@@ -24,8 +24,14 @@ header {
     flex-direction: row;
 }
 
+#title h1 {
+    text-align: right;
+    margin-right: 15%;;
+}
+
 .control-panel {
     width: 30%;
+    height: 70%;
     
 }
 
@@ -46,6 +52,11 @@ header {
     height: 10%;
 }
 
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
 
 #clock {
     width: 20%;
@@ -69,8 +80,7 @@ header {
 
 #temp-display h1 {
     text-align: center;
-    height: 30%;
-    
+
 }
 
 #temp-box .box-content {
