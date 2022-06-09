@@ -7,12 +7,23 @@
     <title>Weather Report</title>
     <link href="styles/index.css" rel="stylesheet">
 </head>
-<body>
-    <h1 id = ""> </h1>
-    <section id = "temp"> </section>
-    <section id = "city"> </section>
-    <section id = "sky"> </section>
-    <section id = "landscape"> </section>
+<body class = "grid-container">
+    <h1 id = "header"> here's some weather</h1>
+    <section id = "temp"> 
+        <h2 id = "">Temperature</h2>
+        <button id="up-button">⇑</button>  
+        <p id = "temp-value"> 1 </p>
+        <button id="down-button">⇓</button>
+    </section>
+    <section id = "city"> 
+        <h2 id = "">City</h2>
+    </section>
+    <section id = "sky"> 
+        <h2 id = "">Sky</h2>
+    </section>
+    <section id = "landscape"> 
+        <h2 id = "">Landscape</h2>
+    </section>
     
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
