@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 // const axios = require('axios'); //Per README, may cause an error?
 
 let city = document.getElementById('newCity').textContent;
-
 axios
   .get(
     'http://127.0.0.1:5000/location',
