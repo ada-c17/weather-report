@@ -9,6 +9,96 @@
     <title>Weather Report</title>
 </head>
 <body>
+    <header>
+        <h1 id="page-title">
+            Clever Weather Title
+        </h1>
+        <!-- make real button -->
+    </header>
+    <main id="main-container">
+        <div>
+            <!-- flexbox or grid for city/temp/sky boxes -->
+            <ul>
+                <li id="city">
+                    <h2>
+                        City
+                    </h2>
+                    <input type="text" id="input-city" name="input-city">
+                        <!-- box to input city -->
+                    <label for="input-city">
+                        Enter city name
+                    </label>
+                    <button type="submit">
+                        <!-- button to get that city weather -->
+                    </button>
+                    <button type="reset" class="reset-button">
+                        <!-- 'reset city' button -->
+                    </button>
+                </li>
+                <li id="temperature">
+                    <h2>
+                        Temperature
+                    </h2>
+                    <div id="change-temp">
+                        (insert box for current weather here)
+                    </div>
+                    <label for="change-temp">
+                        Adjust temperature
+                    </label>
+                    <div id="arrow-container">
+                        <button type="button" id="arrow-up">
+                            <!-- temperature up button  -->
+                        </button>
+                        <button type="button" id="arrow-down">
+                            <!-- temperature down button -->
+                        </button>
+                    </div>
+                    <button type="reset" class="reset-button">
+                        <!-- 'use current temperature' button -->
+                    </button>
+                </li>
+                <li id="sky">
+                    <h2>
+                        Sky Coverage
+                    </h2>
+                    <!-- info on select https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select -->
+                    <select name="skys" id="sky-select">
+                        <option value="" selected>
+                            --current sky--
+                        </option>
+                        <option value="sunny">
+                            sunny
+                        </option>
+                        <option value="cloudy">
+                            cloudy
+                        </option>
+                        <option value="raining">
+                            raining
+                        </option>
+                        <option value="snowing">
+                            snowing
+                        </option>
+                    </select>
+                    <label for="sky-select">
+                        Select sky view
+                    </label>
+                    <button type="reset" class="reset-button">
+                        <!-- 'use current sky' button -->
+                    </button>  
+                </li>
+            </ul>
+        </div>
+        <div>
+            <!-- weather garden -->
+            put a big weather image here
+            <div id="emoji-container">
+                placeholder box for emojis to put over image
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- placeholder -->
+    </footer>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>

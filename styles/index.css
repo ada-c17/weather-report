@@ -1,0 +1,30 @@
+h1 {
+    font-size: 40;
+}
+
+.smallcontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    height: 100px;
+    width: auto;
+
+    margin: auto;
+}
+
+#cityname {
+    display: grid;
+    
+}
+
+#skytemplatebox {
+    display: grid;
+}
+
+#tempbox {
+    display: grid;
+}
+
+.smallcontainer h3 {
+    justify-self: center;
+}
