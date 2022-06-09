@@ -90,6 +90,19 @@ h3 {
     border: solid 2px darkblue;
     padding: 50px;
     margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#skyContainer {
+    padding: 20px;
+    margin: 20px;
+    justify-self: start;
+}
+
+#landscapeContainer {
+justify-self: end;
 }
 
 /* skyeType-dropdown-button {

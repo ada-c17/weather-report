@@ -1,35 +1,42 @@
 // 'use strict';
 
-// document.getElementById("p2").style.color = "blue";
-
 //write conditional statements to change backgroundColor based on temp
 // 95+	Red
 // 80-95	Orange
-// 70-80	Yellow
-// 55-70	Green
-// 55 or below	Teal
+// 70-80	green
+// 55-70	teal
+// 55 or below	whitish
 
-console.log(document.getElementById('temp').innerHTML);
+// To see whats within an element:
+// console.log(document.getElementById('temp').innerHTML);
+console.log(document.getElementById('landscapeContainer'));
 
 const state = {
-  temp: 70,
+  temp: 80,
 };
+
+// Example to re-assign the color:
+// document.getElementById("p2").style.color = "blue";
 
 const updateTempBackground = () => {
+  const landscape = document.querySelector('#landscapeContainer');
   if (state.temp >= 90) {
     document.getElementById('temp').style.backgroundColor = 'red';
+    landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂🍳';
   } else if (state.temp >= 80 && state.temp < 90) {
     document.getElementById('temp').style.backgroundColor = 'orange';
+    landscape.textContent = '🌴🌳🌿__🍁🌴__🐶🦮__🤾🏼‍♀️__🏊🏻‍♀️_🌴🌳🌿';
   } else if (state.temp >= 70 && state.temp < 80) {
     document.getElementById('temp').style.backgroundColor = 'green';
+    landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (state.temp >= 55 && state.temp < 70) {
     document.getElementById('temp').style.backgroundColor = 'teal';
+    landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (state.temp < 55) {
     document.getElementById('temp').style.backgroundColor = '#F2EBE9';
+    landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
 };
-
-// document.getElementById('temp').style.backgroundColor = 'red';
 
 const tempUp = () => {
   state.temp += 1;
