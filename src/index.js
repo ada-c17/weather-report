@@ -10,37 +10,6 @@ let flagFahrenheit = true;
 const increaseTemp = () => {
   state.temp += 1;
   const tempContainer = document.getElementById('current_temp');
-<<<<<<< HEAD
-  tempContainer.textContent = `Current temp: ${state.temp}`;
-  if (state.temp < 50) {
-    tempContainer.className = 'teal';
-  } else if (state.temp < 60) {
-    tempContainer.className = 'green';
-  } else if (state.temp < 70) {
-    tempContainer.className = 'yellow';
-  } else if (state.temp < 80) {
-    tempContainer.className = 'orange';
-  } else {
-    tempContainer.className = 'red';
-  } 
-=======
-  tempContainer.textContent = flagFahrenheit
-    ? `${Math.trunc(state.temp)}°F`
-    : `${Math.trunc(state.temp)}°C`;
->>>>>>> nina
-  changeBackground(state.temp);
-};
-
-const registerEventHandlers = () => {
-  const increaseTempButton = document.getElementById('increaseTempButton');
-  increaseTempButton.addEventListener('click', increaseTemp);
-};
-document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
-const decreaseTemp = () => {
-  state.temp -= 1;
-  const tempContainer = document.getElementById('current_temp');
-<<<<<<< HEAD
   tempContainer.textContent = `Current temp: ${state.temp}`;
   if (state.temp < 50) {
     tempContainer.className = 'teal';
@@ -53,11 +22,36 @@ const decreaseTemp = () => {
   } else {
     tempContainer.className = 'red';
   }
-=======
   tempContainer.textContent = flagFahrenheit
     ? `${Math.trunc(state.temp)}°F`
     : `${Math.trunc(state.temp)}°C`;
->>>>>>> nina
+  changeBackground(state.temp);
+};
+
+const registerEventHandlers = () => {
+  const increaseTempButton = document.getElementById('increaseTempButton');
+  increaseTempButton.addEventListener('click', increaseTemp);
+};
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
+
+const decreaseTemp = () => {
+  state.temp -= 1;
+  const tempContainer = document.getElementById('current_temp');
+  tempContainer.textContent = `Current temp: ${state.temp}`;
+  if (state.temp < 50) {
+    tempContainer.className = 'teal';
+  } else if (state.temp < 60) {
+    tempContainer.className = 'green';
+  } else if (state.temp < 70) {
+    tempContainer.className = 'yellow';
+  } else if (state.temp < 80) {
+    tempContainer.className = 'orange';
+  } else {
+    tempContainer.className = 'red';
+  }
+  tempContainer.textContent = flagFahrenheit
+    ? `${Math.trunc(state.temp)}°F`
+    : `${Math.trunc(state.temp)}°C`;
   changeBackground(state.temp);
 };
 
@@ -95,7 +89,7 @@ const changeBackground = (temp) => {
 const message = document.getElementById('enter_city');
 const result = document.getElementById('city_name');
 message.addEventListener('input', function () {
-  result.textContent = this.value.charAt(0).toUpperCase() + this.value.slice(1);
+  result.textContent = this.value;
 });
 
 // 5. Selection Changes Sky Background

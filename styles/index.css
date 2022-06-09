@@ -44,16 +44,10 @@ nav {
 h1{font-size: 3rem;}
 h3{margin: 0;}
 
-/*!! need to be improved */
-/* #increaseTempButton,#decreaseTempButton {
-    width:50px;
-    height:40px;
-    font-size: 1.5em;;
-    margin: 10px;
-    padding:3px;
-    background-color: var(--white);
-    border-color: var(--white);
-} */
+#current_temp{
+    font-size: 4rem;
+    text-align: center;
+}
 
 #main__intro {
     display: flex;
