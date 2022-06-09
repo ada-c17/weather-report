@@ -34,7 +34,7 @@ const changeGarden = () => {
     landscape.textContent = '🌲⛄️🌲⛄️🍂🌲🍁🌲⛄️🍂🌲';
   }
 };
-
+// How does it know what 'temp' is?
 const changeTempColor = (temp, text) => {
   if (temp >= 80) {
     text.style.color = 'red';
@@ -57,30 +57,27 @@ const changeCity = () => {
   });
 };
 
-const getRealTemp = () => {
+const apiCalls = () => {
   const tempContainer = document.getElementById('fahrenheit');
   const apiButton = document.getElementById('API-button');
-  apiButton.addEventListener('click', apiCalls);
-};
-
-const apiCalls = () => {
   const currentCity = document.getElementById('current-city').innerHTML;
-  axios
-    .get('http://localhost:5000/location', {
-      params: { q: currentCity },
-    })
-    .then((response) => {
-      const lat = response.data[0].lat;
-      const lon = response.data[0].lon;
-      console.log(lat, lon);
-      axios
-        .get('http://localhost5000/weather', {
-          params: { lat: lat, lon: lon },
-        })
-        .then((response) => {
-          console.log(response);
-        });
-    });
+  apiButton.addEventListener('click', () => {
+    axios
+      .get('http://localhost:5000/location', {
+        params: { q: currentCity },
+      })
+      .then((response) => {
+        const lat = response.data[0].lat;
+        const lon = response.data[0].lon;
+        axios
+          .get('http://127.0.0.1:5000/weather', {
+            params: { lat: lat, lon: lon },
+          })
+          .then((response) => {
+            tempContainer.textContent = response.data.current.temp;
+          });
+      });
+  });
 };
 const selectSky = () => {
   const skyCondition = document.getElementById('sky-condition');
@@ -127,5 +124,5 @@ const changeSky = (skyCondition) => {
 // note for refactoring: curious if the following calls could be made into one call
 document.addEventListener('DOMContentLoaded', setTemp);
 document.addEventListener('DOMContentLoaded', changeCity);
-document.addEventListener('DOMContentLoaded', getRealTemp);
+document.addEventListener('DOMContentLoaded', apiCalls);
 document.addEventListener('DOMContentLoaded', selectSky);
