@@ -111,7 +111,17 @@ const selectSky = () => {
 
 const changeSky = (skyCondition) => {
   const selectedSky = skyCondition.options[skyCondition.selectedIndex].value;
-  console.log(selectedSky);
+  let skyGIF = document.getElementById('sky-gif');
+
+  if (selectedSky === 'rainy') {
+    skyGIF.src = 'images/rainy-gif.webp';
+  } else if (selectedSky === 'cloudy') {
+    skyGIF.src = 'images/cloudy-gif.gif';
+  } else if (selectedSky === 'snowy') {
+    skyGIF.src = 'images/snowy-gif.gif';
+  } else if (selectedSky === 'sunny') {
+    skyGIF.src = 'images/sunny-gif.gif';
+  }
 };
 
 // note for refactoring: curious if the following calls could be made into one call
