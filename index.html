@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="styles/index.css">
     <title>Weather Report</title>
 </head>
-
 <body>
     <header>
         <div class="text">
@@ -19,10 +17,12 @@
     <section class="boxes">
         <div class="grid-container ">
             <div class="grid-item">
-                <label id="temperature">TEMPERATURE</label> 
-                <br>               
+                
                 <button onclick="getCurrentTemp()"> Get Current Temperature</button>
-                <br><br><br><br><br><br><br> 
+                <br><br><br>
+                <label id="temperature"></label>
+
+                <br><br>
                 <button onclick="increaseTemp()">Increase Temperature</button>
                 <button onclick="decreaseTemp()">Decrease Temperature</button>
             </div>
@@ -32,7 +32,6 @@
                 <input type="text" placeholder="Enter a City" id="cityid">
                 <br>
                 <button onclick="resetCity()"> Reset City </button>
-
             </div>
             <div class="grid-item">
                 <label id="sky">SKY</label>
@@ -48,21 +47,16 @@
         </div>
     </section>
     <section class="boxes2">
-
-            <div class="grid-item-1">
-                <label for="weatherfarm">WEATHER FARM</label>
+            <div id = "skyContent" class="grid-item-1">
+                <!-- <section id="weatherfarm"><br>LAND</section> -->
 
             </div>
-
     </section>
+    <br>
     <footer>
         <p>&copy;2022;Raha Rastegar</p>
     </footer>
     <script src="./src/index.js" type="text/javascript"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
-
 </html>
-
-
-

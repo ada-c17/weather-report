@@ -2,7 +2,6 @@
     font-family: Arial, Helvetica, sans-serif;
     background-color: lightblue;
 }
-
 button {
     background-color: rgb(236, 236, 244);
     border-radius: 10px;
@@ -16,29 +15,25 @@ button {
     margin-top: 7rem;
     font-size: 100px;
 }
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 body {
-    background-image: url("../image/atlanta-captions-for-instagram.jpeg");
+    background-image: url(“../image/atlanta-captions-for-instagram.jpeg”);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    color: #f0e6f0;
+    color: #F0E6F0;
     text-align: center;
 }
-
 header {
     min-height: 100px;
     color: rgb(16, 87, 132);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: ‘Franklin Gothic Medium’, ‘Arial Narrow’, Arial, sans-serif;
     font-size: 30px;
 }
-
 .boxes {
     display: grid;
     justify-content: space-around;
@@ -50,8 +45,6 @@ header {
     align-items: center;
     margin-top: 2rem;
 }
-
-
 .grid-container {
     display: grid;
     grid-template-columns: 500px 500px 500px;
@@ -65,7 +58,6 @@ header {
     padding-top: 120px;
     padding-bottom: 1rem ;
 }
-
 .grid-item {
     background-color: rgba(98, 129, 117, 0.8);
     border: 1px solid rgba(62, 75, 78, 0.383);
@@ -75,24 +67,69 @@ header {
     font-size: 25px;
     width: 400px;
     height: 400px;
+    color: black;
+
 }
 .grid-item-1 {
     background-color: rgba(98, 129, 117, 0.8);
+    background-image: url('../image/images.jpeg');
     border: 1px solid rgba(62, 75, 78, 0.383);
-    border-radius: 30px;
+    border-radius: 300px;
     text-align: center;
     padding: 50px;
     margin-left: 2rem;
-    font-size: 25px;
-    width: 1600px;
+    font-size: 60px;
+    width: 400px;
     height: 400px;
+    color: black;
 }
-
 footer {
     color: rgb(33, 31, 31);
     font-size: larger;
-    text-align: center;
+    text-align:center;
     position:relative;
-    margin-left: 10rem;
     bottom: 0;
+}
+.weatherfarm {
+    color: black;
+    background: none;
+    background-image: url('../image/images.jpeg');
+    align-items: center;
+    border-radius: 300px;
+    max-width: 70%;
+    background-size: cover;
+
+}
+
+.desert {
+    background: none;
+    background-image: url('../image/cartoon-desert-010.jpeg');
+    align-items: center;
+    border-radius: 300px;
+    background-size:cover;
+
+}
+
+.winter {
+    background: none;
+    background-image: url('../image/winter-cartoon-png.png');
+    align-items: center;
+    border-radius: 300px;
+    background-size:cover;
+
+}
+
+.spring {
+    background: none;
+    background-image: url('../image/spring.jpeg');
+    align-items: center;
+    border-radius: 300px;
+    background-size:cover;
+
+}
+
+#temperature {
+    position:relative;
+
+    font-size:5rem;
 }
