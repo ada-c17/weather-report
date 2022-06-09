@@ -67,6 +67,40 @@ const apiCalls = () => {
   const currentCity = document.getElementById('current-city').innerHTML; // axios
 };
 
+const selectSky = () => {
+  const skyCondition = document.getElementById('sky-condition');
+  
+  // Add select options to the sky selector 
+  const rainy = document.createElement('option');
+  rainy.value = 'rainy'
+  rainy.text = 'Rainy'
+  const cloudy = document.createElement('option');
+  cloudy.value = 'cloudy'
+  cloudy.text = 'Cloudy'
+  const snowy = document.createElement('option');
+  snowy.value = 'snowy'
+  snowy.text = 'Snowy'
+  const sunny = document.createElement('option');
+  sunny.value = 'sunny'
+  sunny.text = 'Sunny'
+  skyCondition.add(rainy);
+  skyCondition.add(cloudy);
+  skyCondition.add(snowy);
+  skyCondition.add(sunny);
+
+  // Listen for new sky selection
+  skyCondition.addEventListener('change', () => {
+    changeSky(skyCondition)
+  });
+}
+
+const changeSky = (skyCondition) => {
+  const selectedSky = skyCondition.options[skyCondition.selectedIndex].value;
+  console.log(selectedSky);
+}
+
+// note for refactoring: curious if the following calls could be made into one call
 document.addEventListener('DOMContentLoaded', setTemp);
 document.addEventListener('DOMContentLoaded', changeCity);
 document.addEventListener('DOMContentLoaded', getRealTemp);
+document.addEventListener('DOMContentLoaded', selectSky);
