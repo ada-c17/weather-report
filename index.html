@@ -9,6 +9,38 @@
     <title>Weather Report</title>
 </head>
 <body>
+    <form id="sky">
+        <img src="" alt="An image of the sky">
+
+        <div id="city">
+            <input type="text" id="city-input" placeholder="Enter the name of the city">
+            <button id="reset">
+                Reset
+            </button>
+        </div>
+
+        <div id="temperature">
+            <button id="increase">
+                +
+            </button>
+            <button id ="decrease">
+                -
+            </button>
+            <button id="realtime-temp">
+                Get Realtime Temp
+            </button>
+        </div>
+
+        <select name="sky" id="sky-menu">
+            <option value="Cloudy"> Cloudy </option>
+            <option value="Sunny"> Sunny </option>
+            <option value="Rainy"> Rainy </option>
+        </select>
+    </form>
+
+    <div id="landscape">
+        <img src="" alt="A picture of the landscape">
+    </div>
 
     <script src="src/index.js" type="text/javascript"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
