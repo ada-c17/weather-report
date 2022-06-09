@@ -7,7 +7,7 @@ const state = {
 const tempUp = () => {
   state.temp += 1;
   const currentTemp = document.querySelector('#temp');
-  currentTemp.textContent = `{state.temp} ℉`;
+  currentTemp.textContent = `${state.temp} ℉`;
 };
 
 // const updateNewBookCount = () => {
@@ -17,12 +17,14 @@ const tempUp = () => {
 // };
 
 const tempDown = () => {
-  //pass
+  state.temp -= 1;
+  const currentTemp = document.querySelector('#temp');
+  currentTemp.textContent = `${state.temp} ℉`;
 };
 
 const newReport = (event) => {
   console.log('in newReport:', event);
-  const titleContainer = document.querySelector('#city-name-container');
+  const titleContainer = document.querySelector('#newCity');
   titleContainer.textContent = document.getElementById('cityToSearch').value;
   //want to change this text to an h2... how can I do that?
 };

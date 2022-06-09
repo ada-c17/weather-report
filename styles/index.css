@@ -3,15 +3,48 @@ F2EBE9
 A5BECC
 243A73 */
 
-
-
 body {
     font-style: open sans;
     margin: 10vw;
     background-color: #A5BECC;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: .5fr .3fr 1fr .3fr .5fr .4fr; 
 }
 #landscapeContainer {
+    grid-row: 2/5;
+    grid-column: 1/2;
     border: solid 2px darkblue;
-    padding: 50px;
-    margin: 50px;
+    /* padding: 50px;
+    margin: 50px; */
+}
+
+.city-name-container {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.search-container {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.temp-display {
+    grid-column:2/3;
+}
+
+#tempUp {
+    grid-row:2/3;
+}
+
+#currentTemp {
+    grid-row: 3/4;
+}
+
+#tempDown {
+    grid-row: 4/5;
+}
+
+#getRealTimeTemp {
+    grid-row: 5/6;
 }
