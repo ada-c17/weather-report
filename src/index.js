@@ -10,7 +10,9 @@ let flagFahrenheit = true;
 const increaseTemp = () => {
   state.temp += 1;
   const tempContainer = document.getElementById('current_temp');
-  tempContainer.textContent = `Current temp: ${Math.trunc(state.temp)}`;
+  tempContainer.textContent = flagFahrenheit
+    ? `Current temp: ${Math.trunc(state.temp)}°F`
+    : `Current temp: ${Math.trunc(state.temp)}°C`;
   changeBackground(state.temp);
 };
 
@@ -23,7 +25,9 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 const decreaseTemp = () => {
   state.temp -= 1;
   const tempContainer = document.getElementById('current_temp');
-  tempContainer.textContent = `Current temp: ${Math.trunc(state.temp)}`;
+  tempContainer.textContent = flagFahrenheit
+    ? `Current temp: ${Math.trunc(state.temp)}°F`
+    : `Current temp: ${Math.trunc(state.temp)}°C`;
   changeBackground(state.temp);
 };
 
@@ -61,7 +65,7 @@ const changeBackground = (temp) => {
 const message = document.getElementById('enter_city');
 const result = document.getElementById('city_name');
 message.addEventListener('input', function () {
-  result.textContent = this.value.toUpperCase();
+  result.textContent = this.value.charAt(0).toUpperCase() + this.value.slice(1);
 });
 
 // 5. Selection Changes Sky Background
@@ -92,9 +96,6 @@ const registerEventHandlersReset = () => {
 document.addEventListener('DOMContentLoaded', registerEventHandlersReset);
 
 // 7. convert the temperature between Celsius and Fahrenheit
-// using the mode query param
-// For temperature in Fahrenheit use units=imperial
-// For temperature in Celsius use units=metric
 
 const changeMetricForTemp = () => {
   flagFahrenheit = !flagFahrenheit;
@@ -104,7 +105,9 @@ const changeMetricForTemp = () => {
     state.temp = (9 / 5) * state.temp + 32;
   }
   const tempContainer = document.getElementById('current_temp');
-  tempContainer.textContent = `Current temp: ${Math.trunc(state.temp)}`;
+  tempContainer.textContent = flagFahrenheit
+    ? `Current temp: ${Math.trunc(state.temp)}°F`
+    : `Current temp: ${Math.trunc(state.temp)}°C`;
   changeBackground(state.temp);
 };
 
@@ -112,5 +115,4 @@ const registerEventHandlersFarenheit = () => {
   const switchFC = document.getElementById('switchBtnFC');
   switchFC.addEventListener('click', changeMetricForTemp);
 };
-
 document.addEventListener('DOMContentLoaded', registerEventHandlersFarenheit);
