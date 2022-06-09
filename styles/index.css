@@ -42,6 +42,12 @@ h1 {
   margin: 4%;
   color: aliceblue;
 }
+#top-city-name{
+    background-color: blue;
+    margin: 4%;
+    margin-left: 1px;
+  color: aliceblue;
+}
 
 /********************************* temperature section *********************************/
 .temperature-content {

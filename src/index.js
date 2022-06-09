@@ -3,10 +3,10 @@
 // Select temperature
 const currentTemp = document.getElementById('current-temp');
 
-//select weather garden picture element
+//select weather garden bottom picture element
 const weatherGardenChanger = document.getElementById('bottom-landscape');
 
-//function to change background of the oicture
+//function to change background of the picture
 const landscapeChanger = (temp) => {
   if (temp > 26) {
     weatherGardenChanger.innerHTML = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
@@ -61,3 +61,14 @@ const changeTempColor = (temp) => {
     currentTemp.style.color = 'teal';
   }
 };
+
+//city name is equal city on top of the page
+// let topCityName = document.getElementById('top-city-name').value;
+
+// const cityNameChanger = () => {
+//   let cityName = document.getElementById('city-name').value;
+//   document.getElementById('top-city-name'.value).innerHTML = cityName;
+// };
+
+// //listener
+// cityName.addEventListener('onchange', cityNameChanger);
