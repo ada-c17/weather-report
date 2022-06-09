@@ -12,7 +12,7 @@
 console.log(document.getElementById('landscapeContainer'));
 
 const state = {
-  temp: 80,
+  temp: 60,
 };
 
 // Example to re-assign the color:
@@ -69,6 +69,57 @@ const registerEventHandlers = (event) => {
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+
+// const axios = require('axios'); //Per README, may cause an error?
+
+let city = document.getElementById('newCity').textContent;
+
+axios
+  .get(
+    'http://127.0.0.1:5000/location',
+    { params: { q: city } }
+    // `http://127.0.0.1:5000/location?q=${city}`
+  )
+  //when do I pass in response and error?
+  .then((response) => {
+    const latt = response.data[0].lat;
+    const long = response.data[0].lon;
+    console.log(latt, long);
+    //make another axios request here... calling weather api with lon & lat params
+    axios
+      .get(
+        'http://127.0.0.1:5000/weather',
+        {
+          params: { lat: latt, lon: long },
+        }
+        // `http://127.0.0.1:5000/weather?lat=${lat}&lon=${lon}`
+      )
+      .then((response) => {
+        console.log(latt);
+        console.log(long);
+      })
+      .catch((error) => {
+        console.log('Error occured with weather API request');
+      });
+  })
+  .catch((error) => {
+    console.log('Error occured with location API request'); // Do i need a .catch() here?
+  });
+
+// axios
+//   .get('some URL')
+//   .then((response) => {
+//     // Code that executes with a successful response goes here
+//   })
+//   .catch((error) => {
+//     // Code that executes with an unsuccessful response goes here
+//   });
+
+// http://127.0.0.1:5000/location
+// http://127.0.0.1:5000/location?q='seattle, wa'
+
+// http://127.0.0.1:5000/weather
+// http://127.0.0.1:5000/weather?lat=47.6484673&lon=-122.3790015
 
 //examples:
 
