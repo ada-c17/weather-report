@@ -7,7 +7,7 @@ window.onload = function () {
   changeSky();
 };
 
-let city = 'Seattle';
+let city = 'Atlanta';
 let temperature = 70;
 
 const increaseTemp = function () {
@@ -24,13 +24,12 @@ const getCurrentTemp = function () {
   let latitude;
   let longitude;
 
-  axios
-    .get('http://localhost:5000/location', { params: { q: city } })
+  const weatherData = axios.get('http://localhost:5001/location', { params: { q: city } })
     .then((response) => {
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
       axios
-        .get('http://localhost:5000/weather', {
+        .get('http://localhost:5001/weather', {
           params: { lat: latitude, lon: longitude },
         })
         .then((response) => {
@@ -40,7 +39,7 @@ const getCurrentTemp = function () {
           newTemperature();
         })
         .catch((error) => {
-          console.log('errorrrr');
+          console.log('error');
         });
     })
     .catch((error) => {
@@ -49,10 +48,12 @@ const getCurrentTemp = function () {
 };
 
 const resetCity = function () {
-  city = 'Seattle';
-  document.querySelector('#cityname').value = '';
-  const curWeatherHeader = document.getElementById('cityheader');
-  curWeatherHeader.textContent = 'Current Weather for ' + city;
+  city = 'Atlanta';
+  document.querySelector('#cityname').value = 'Atlanta';
+  const curWeatherHeader = document.getElementById('cityQuote');
+  curWeatherHeader.textContent = 'Hotlanta! The City of Sweet tea and Sunshine';
+  getCurrentTemp();
+  setTextColorLandscapeBasedOnTemp();
 };
 
 const changeCity = function () {
@@ -61,10 +62,11 @@ const changeCity = function () {
   input.addEventListener('change', updateValue);
 
   // update header to display city name and update city variable
-  const curWeatherHeader = document.getElementById('cityheader');
+  const curWeatherHeader = document.getElementById('cityQuote');
   function updateValue(e) {
     city = e.target.value;
     curWeatherHeader.textContent = 'Current Weather for ' + city;
+    getCurrentTemp();
   }
 };
 
