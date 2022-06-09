@@ -58,3 +58,10 @@ const registerEventHandlers = (event) => {
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+
+
+const updateCityname = () => {
+  //const input = document.querySelector('input');
+  const nameOfcity = document.getElementById('cityNameid');
+};
+  nameofCity.addEventListener('click',updateCityname)
