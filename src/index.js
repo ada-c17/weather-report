@@ -1,4 +1,5 @@
-// The state object is designed to be on global scope and helps us track anything we want to change after our page is loaded. We can add and use its key:value pairs in any fx
+// const axios = require('axios');
+
 const state = {
   temp: parseInt(document.getElementById('fahrenheit').innerHTML),
 };
@@ -57,5 +58,33 @@ const changeCity = () => {
     cityContainer.textContent = e.target.value;
   });
 };
+
+const getRealTemp = () => {
+  const tempContainer = document.getElementById('fahrenheit');
+  const apiButton = document.getElementById('API-button');
+  apiButton.addEventListener('click', apiCalls);
+};
+
+const apiCalls = () => {
+  const currentCity = document.getElementById('current-city').innerHTML;
+  // axios
+  //   .get('https://us1.locationiq.com/v1/search.php', {
+  //     params: {
+  //       key: process.env['api_key'],
+  //       q: currentCity,
+  //       format: 'json',
+  //     },
+  //   })
+  //   .then((response) => {
+  //     console.log('Latitude ' + response.data[0].lat);
+  //     console.log('Longitude ' + response.data[0].lon);
+  //   })
+  //   .catch((error) => {
+  //     console.log('Error');
+  //   });
+  console.log(currentCity);
+};
+
 document.addEventListener('DOMContentLoaded', setTemp);
 document.addEventListener('DOMContentLoaded', changeCity);
+document.addEventListener('DOMContentLoaded', getRealTemp);
