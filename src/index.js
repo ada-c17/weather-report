@@ -58,3 +58,26 @@ const enterCityButton = document.getElementById('enterCitybutton');
 enterCityButton.addEventListener('click', () => {
   updateCityName();
 });
+
+//wave 5
+const skyArt = (sky) => {
+  if (sky == 'Sunny') {
+    return '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (sky == 'Cloudy') {
+    return '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (sky == 'Rainy') {
+    return '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else {
+    return '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  let sky = 'Sunny';
+  document.getElementById('sky-garden').innerHTML = skyArt(sky);
+
+  document.getElementById('sky-select').addEventListener('change', () => {
+    const skyElement = document.getElementById('sky-select').value;
+    document.getElementById('sky-garden').innerHTML = skyArt(skyElement);
+  });
+});
