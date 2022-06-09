@@ -10,12 +10,35 @@ html {
     list-style: none;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    
+    align-items: center;
+    justify-content:space-between;
+    padding: 100px;
+    margin: 100px;    
 }
 
-#temperature{
+#real-temp-button{
+    position:absolute;
+    bottom: 290px;
+    left: 310px;
+    width: 20%;
+    height: 2.4%;
+}
+
+#drop-down{
+    position:absolute; 
+    bottom: 490px;
+    left: 870px;
+    width: 10%;
+    height: 2.4%; 
+}
+
+#temperature, #sky, #city{
     width: 400px;
     border: 1px solid rgb(184, 16, 16);
+    color: whitesmoke; 
     height: 400px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
 }
