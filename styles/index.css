@@ -1,3 +1,7 @@
 ul {
     display: inline;
 }
+
+.clicked {
+    text-decoration: underline;
+}
