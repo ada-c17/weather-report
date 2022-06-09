@@ -1,0 +1,17 @@
+/* 7C3E66
+F2EBE9
+A5BECC
+243A73 */
+
+
+
+body {
+    font-style: open sans;
+    margin: 10vw;
+    background-color: #A5BECC;
+}
+#landscapeContainer {
+    border: solid 2px darkblue;
+    padding: 50px;
+    margin: 50px;
+}

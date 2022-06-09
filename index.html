@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,56 @@
     <title>Weather Report</title>
     <link href="styles/index.css" rel="stylesheet" />
 </head>
+
 <body>
+    <h1>Weather Report</h1>
+    <h2>for the lovely city of</h2>
+    <section id="city-name-container"></section>
+
+    <section>
+        <input id="cityToSearch" type="text">
+        <button id="changeCity">New Weather Report</button>
+    </section>
+
+
+    <!-- <section id="bookCounterElement">
+        <h2 id="newBookCount">New Books Added: 0</h2>
+    </section> -->
+
+    <section class="temp-display">
+        <section id="tempUp">
+            <button id="up">⬆</button>
+        </section>
+
+        <section id="currentTemp">  
+        <p id="temp">60</p>
+        <h3>Current Temp</h3>
+    </section>
+
+    <section id="tempDown">
+        <button id="down">⬇</button>
+    </section>
+    
+    <section>
+    <button id="getTemp">Get Current temperature</button>
+    </section>
+
+
+    <section id="landscapeContainer"></section>
+
+    <!-- dropdown select button for 'sky type'-->
+
+    <!-- <section id="bookCounterElement">
+        <h2 id="newBookCount">New Books Added: 0</h2>
+    </section> -->
+
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
+
 </html>
+
+<!-- An element that displays the temperature
+A clickable element to increase temperature
+A clickable element to decrease temperature
+An element that displays a landscape -->
