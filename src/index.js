@@ -41,9 +41,14 @@ const updateImage = () => {
 
 const updateTemperature = () => {
   const updateTempElement = document.querySelector('#updateTemperature');
-  updateTempElement.innerHTML;
   updateTempElement.textContent = state.tempChange;
   updateTempElement.style.color = updateColor(state.tempChange);
+};
+
+const updateCity = () => {
+  const updateCityElement = document.querySelector('#headerCity');
+  const inputCity = document.querySelector('#inputCity');
+  updateCityElement.textContent = inputCity.value;
 };
 
 const increaseTemp = () => {
@@ -63,6 +68,8 @@ const registerEventHandlers = () => {
   increaseButton.addEventListener('click', increaseTemp);
   const decreaseButton = document.querySelector('#decreaseButton');
   decreaseButton.addEventListener('click', decreaseTemp);
+  const submitCityButton = document.querySelector('#submitCityButton');
+  submitCityButton.addEventListener('click', updateCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
