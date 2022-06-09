@@ -104,7 +104,34 @@ const getRealTemp = () => {
     })
     .then((response) => {
       coords = [response.data[0].lat, response.data[0].lon];
-      console.log('success!', response.data);
+      axios
+        .get('http://127.0.0.1:5000/weather', {
+          params: {
+            lat: response.data[0].lat,
+            lon: response.data[0].lon,
+          },
+        })
+        .then((response) => {
+          console.log('success!', response.data);
+          flagFahrenheit = true;
+          state.temp = response.data.current.temp;
+          const tempContainer = document.getElementById('current_temp');
+          tempContainer.textContent = `${Math.trunc(state.temp)}°F`;
+          changeBackground(state.temp);
+
+          // forecast for a week
+          for (let i = 1; i <= 7; i++) {
+            console.log('success!', response.data.daily[i].temp.day);
+            console.log('success!', response.data.daily[i].temp.night);
+            console.log(
+              'success!',
+              response.data.daily[i]['weather'][0].description
+            );
+          }
+        })
+        .catch((error) => {
+          console.log('error!', error.response);
+        });
     })
     .catch((error) => {
       console.log('error!', error.response);
