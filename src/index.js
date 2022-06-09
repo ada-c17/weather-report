@@ -119,8 +119,25 @@ const getRealTemp = () => {
           tempContainer.textContent = `${Math.trunc(state.temp)}°F`;
           changeBackground(state.temp);
 
+          const taskList = document.getElementById('day__forecast');
           // forecast for a week
           for (let i = 1; i <= 7; i++) {
+            const listItem = document.createElement('li');
+
+            const dayTemp = document.createElement('li');
+            dayTemp.textContent = `${response.data.daily[i].temp.day}`;
+            listItem.appendChild(dayTemp);
+
+            const nightTemp = document.createElement('li');
+            nightTemp.textContent = `${response.data.daily[i].temp.night}`;
+            listItem.appendChild(nightTemp);
+
+            const description = document.createElement('li');
+            description.textContent = `${response.data.daily[i]['weather'][0].description}`;
+            listItem.appendChild(description);
+
+            taskList.appendChild(listItem);
+
             console.log('success!', response.data.daily[i].temp.day);
             console.log('success!', response.data.daily[i].temp.night);
             console.log(
