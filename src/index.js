@@ -10,14 +10,16 @@ const setTemp = () => {
 
   upButton.addEventListener('click', () => {
     state.temp += 1;
-    changeGarden();
     console.log('add one');
+    changeGarden();
+    changeTempColor(state.temp, tempContainer);
     tempContainer.textContent = `${state.temp}`;
   });
   downButton.addEventListener('click', () => {
     state.temp -= 1;
-    changeGarden();
     console.log('subtract one');
+    changeGarden();
+    changeTempColor(state.temp, tempContainer); 
     tempContainer.textContent = `${state.temp}`;
   });
 };
@@ -34,6 +36,20 @@ const changeGarden = () => {
     garden.textContent = '🌾🌾🍃🪨🛤🌾🌾🌾🍃'
   } else {
     garden.textContent = '🌲⛄️🌲⛄️🍂🌲🍁🌲⛄️🍂🌲'
+  }
+}
+
+const changeTempColor = (temp, text) => {
+  if (temp >= 80) {
+    text.style.color = 'red'
+  } else if (temp < 80 && temp >= 70) {
+    text.style.color = 'orange'
+  } else if (temp < 70 && temp >= 60) {
+    text.style.color = 'yellow'
+  } else if (temp < 60 && temp >= 50){
+    text.style.color = 'green'
+  } else {
+    text.style.color = 'blue'
   }
 }
 
