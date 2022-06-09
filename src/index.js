@@ -10,46 +10,52 @@ const setTemp = () => {
 
   upButton.addEventListener('click', () => {
     state.temp += 1;
-    console.log('add one');
     changeGarden();
     changeTempColor(state.temp, tempContainer);
     tempContainer.textContent = `${state.temp}`;
   });
   downButton.addEventListener('click', () => {
     state.temp -= 1;
-    console.log('subtract one');
     changeGarden();
-    changeTempColor(state.temp, tempContainer); 
+    changeTempColor(state.temp, tempContainer);
     tempContainer.textContent = `${state.temp}`;
   });
 };
-document.addEventListener('DOMContentLoaded', setTemp);
 
 const changeGarden = () => {
-  const landscape = document.querySelector('#landscape')
+  const landscape = document.querySelector('#landscape');
 
   if (state.temp >= 80) {
-    landscape.textContent = '🌵🌞🌊🐍🦂🌵🌞🌊🐍🏜'
+    landscape.textContent = '🌵🌞🌊🐍🦂🌵🌞🌊🐍🏜';
   } else if (state.temp < 80 && state.temp >= 70) {
-    landscape.textContent = '🌸🌿🌼🌷🌻🌿🌱🌻🌷'
+    landscape.textContent = '🌸🌿🌼🌷🌻🌿🌱🌻🌷';
   } else if (state.temp < 70 && state.temp >= 60) {
-    landscape.textContent = '🌾🌾🍃🪨🛤🌾🌾🌾🍃'
+    landscape.textContent = '🌾🌾🍃🪨🛤🌾🌾🌾🍃';
   } else {
-    landscape.textContent = '🌲⛄️🌲⛄️🍂🌲🍁🌲⛄️🍂🌲'
+    landscape.textContent = '🌲⛄️🌲⛄️🍂🌲🍁🌲⛄️🍂🌲';
   }
-}
+};
 
 const changeTempColor = (temp, text) => {
   if (temp >= 80) {
-    text.style.color = 'red'
+    text.style.color = 'red';
   } else if (temp < 80 && temp >= 70) {
-    text.style.color = 'orange'
+    text.style.color = 'orange';
   } else if (temp < 70 && temp >= 60) {
-    text.style.color = 'yellow'
-  } else if (temp < 60 && temp >= 50){
-    text.style.color = 'green'
+    text.style.color = 'yellow';
+  } else if (temp < 60 && temp >= 50) {
+    text.style.color = 'green';
   } else {
-    text.style.color = 'blue'
+    text.style.color = 'blue';
   }
-}
+};
 
+const changeCity = () => {
+  const cityContainer = document.getElementById('current-city');
+  const input = document.getElementById('city-selector');
+  input.addEventListener('change', (e) => {
+    cityContainer.textContent = e.target.value;
+  });
+};
+document.addEventListener('DOMContentLoaded', setTemp);
+document.addEventListener('DOMContentLoaded', changeCity);
