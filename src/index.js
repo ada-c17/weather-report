@@ -68,21 +68,22 @@ const changeCity = (event) => {
       const searchResult = response.data[0];
       cityLat = searchResult.lat;
       cityLon = searchResult.lon;
-    })
-    .catch((error) => {
-      console.log('error!', error.response.status);
-    });
-  axios
-    .get('http://127.0.0.1:5000/weather', {
-      params: {
-        lat: cityLat,
-        lon: cityLon,
-      },
-    })
-    .then((response) => {
-      const searchResult2 = response.data;
-      cityTemp = searchResult2.current.temp;
-      console.log(cityLat, cityLon, cityTemp);
+
+      axios
+        .get('http://127.0.0.1:5000/weather', {
+          params: {
+            lat: cityLat,
+            lon: cityLon,
+          },
+        })
+        .then((response) => {
+          const searchResult2 = response.data;
+          cityTemp = searchResult2.current.temp;
+          console.log(cityLat, cityLon, cityTemp);
+        })
+        .catch((error) => {
+          console.log('error!', error.response.status);
+        });
     })
     .catch((error) => {
       console.log('error!', error.response.status);
