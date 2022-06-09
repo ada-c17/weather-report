@@ -34,6 +34,8 @@
 .item:nth-child(5n) {
     border: blue solid 5px;
     width: 20%;
+    height: 200px;
+    text-align: center;
 }
 
 .item:nth-child(6n) {
