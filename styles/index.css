@@ -16,23 +16,16 @@ body {
 #city {
     grid-row: 1/2;
     justify-self: end;
-    border: 1px solid red;
 }
 
 #temperature {
     grid-row: 2/3;
-    border: 1px solid red;
 }
 
 #menu-container {
     grid-row: 3/4;
-    border: 1px solid red;
     justify-self: center;
     align-self: center;
-}
-
-#sky-dropdown {
-    border: 1px solid red;
 }
 
 #temp-display {
