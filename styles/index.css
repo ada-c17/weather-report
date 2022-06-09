@@ -4,8 +4,9 @@
 }
 
 body {
-    background-image: none;
-    background-color: lightblue;
+    background: url('/assets/anandu-vinod-pbxwxwfI0B4-unsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: transparent;
     height: 100%;
 }
 
@@ -14,7 +15,15 @@ footer {
     grid-row: 4 / span 1;
 }
 
-.container {
+h1 {
+    background-color: rgba(174, 171, 171, 0.7);
+}
+
+.change_with_temp {
+    background: none;
+}
+
+#container_grid {
     display: grid;
     grid-template-rows: 10% 15rem auto 2rem;
     grid-template-columns: 5% 15rem 78%;
@@ -31,7 +40,7 @@ footer {
     text-align: center;
 }
 
-#temp_city_box {
+#temp_city_box_grid {
     grid-column-start: 2;
     grid-column-end: 3;
     display: grid;
@@ -41,6 +50,7 @@ footer {
     min-height: 100%;
     align-items: center;
     align-content: center;
+    background-color: gray;
 }
 
 #city {
@@ -53,4 +63,18 @@ footer {
     font-size: 7em;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+#up_arrow {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    max-width: 100%;
+    height: auto;
+}
+
+#down_arrow {
+    grid-column: 2 / 3;
+    grid-row: 3  / 4;
+    max-width: 100%;
+    height: auto;
 }
