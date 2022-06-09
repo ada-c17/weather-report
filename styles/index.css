@@ -1,0 +1,48 @@
+body {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    height: 100vh;
+}
+
+#sky {
+    grid-row: 1/2;
+    background-color: lightblue;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 1vw;
+    background-image: url(../assets/sunny.jpg)
+}
+
+#city {
+    grid-row: 1/2;
+    justify-self: end;
+    border: 1px solid red;
+}
+
+#temperature {
+    grid-row: 2/3;
+    border: 1px solid red;
+}
+
+#menu-container {
+    grid-row: 3/4;
+    border: 1px solid red;
+    justify-self: center;
+    align-self: center;
+}
+
+#sky-dropdown {
+    border: 1px solid red;
+}
+
+#temp-display {
+    font-size: 5vh;
+    background-color: yellow;
+    border-radius: 10vh;
+    background-position: 10px;
+}
+
+#landscape {
+    grid-row: 2;
+    background-color: darkgreen;
+}
