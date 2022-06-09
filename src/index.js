@@ -1,5 +1,3 @@
-// 'use strict';
-
 //write conditional statements to change backgroundColor based on temp
 // 95+	Red
 // 80-95	Orange
@@ -7,16 +5,9 @@
 // 55-70	teal
 // 55 or below	whitish
 
-// To see whats within an element:
-// console.log(document.getElementById('temp').innerHTML);
-console.log(document.getElementById('landscapeContainer'));
-
 const state = {
   temp: 60,
 };
-
-// Example to re-assign the color:
-// document.getElementById("p2").style.color = "blue";
 
 const updateTempBackground = () => {
   const landscape = document.querySelector('#landscapeContainer');
@@ -52,10 +43,44 @@ const tempDown = () => {
   updateTempBackground();
 };
 
-const newReport = (event) => {
-  console.log('in newReport:', event);
+const changeCity = (event) => {
+  console.log('in changeCity:', event);
   const titleContainer = document.querySelector('#newCity');
   titleContainer.textContent = document.getElementById('cityToSearch').value;
+};
+
+// Notes to self: Need to:
+// 1. activate venv in weatherAPI-proxy
+// 2. flask run
+
+const apiRequests = () => {
+  let city = document.getElementById('newCity').textContent;
+  axios
+    .get(`http://127.0.0.1:5000/location?q=${city}`)
+    .then((response) => {
+      const latt = response.data[0].lat;
+      const long = response.data[0].lon;
+      console.log(latt, long);
+      //make another axios request here... calling weather api with lon & lat params
+      axios
+        .get(`http://127.0.0.1:5000/weather?lat=${latt}&lon=${long}`)
+        .then((response) => {
+          const weather = response.data.current.temp;
+          console.log('The temp right now is', weather);
+          console.log(latt);
+          console.log(long);
+          const farenheitTemp = Math.round((weather - 273.15) * (9 / 5) + 32);
+          console.log(farenheitTemp);
+          state.temp = farenheitTemp;
+          document.querySelector('#temp').textContent = `${state.temp} ℉`;
+        })
+        .catch((error) => {
+          console.log('Error occured with weather API request');
+        });
+    })
+    .catch((error) => {
+      console.log('Error occured with location API request');
+    });
 };
 
 const registerEventHandlers = (event) => {
@@ -65,45 +90,18 @@ const registerEventHandlers = (event) => {
   const tempDownButton = document.querySelector('#tempDown');
   tempDownButton.addEventListener('click', tempDown);
   const cityChageButton = document.querySelector('#changeCity');
-  cityChageButton.addEventListener('click', newReport);
+  cityChageButton.addEventListener('click', changeCity);
+  const getRealTempButton = document.querySelector('#getRealTimeTemp');
+  getRealTempButton.addEventListener('click', apiRequests);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
-// const axios = require('axios'); //Per README, may cause an error?
+// Example to re-assign the color:
+// document.getElementById("p2").style.color = "blue";
 
-let city = document.getElementById('newCity').textContent;
-axios
-  .get(
-    'http://127.0.0.1:5000/location',
-    { params: { q: city } }
-    // `http://127.0.0.1:5000/location?q=${city}`
-  )
-  //when do I pass in response and error?
-  .then((response) => {
-    const latt = response.data[0].lat;
-    const long = response.data[0].lon;
-    console.log(latt, long);
-    //make another axios request here... calling weather api with lon & lat params
-    axios
-      .get(
-        'http://127.0.0.1:5000/weather',
-        {
-          params: { lat: latt, lon: long },
-        }
-        // `http://127.0.0.1:5000/weather?lat=${lat}&lon=${lon}`
-      )
-      .then((response) => {
-        console.log(latt);
-        console.log(long);
-      })
-      .catch((error) => {
-        console.log('Error occured with weather API request');
-      });
-  })
-  .catch((error) => {
-    console.log('Error occured with location API request'); // Do i need a .catch() here?
-  });
+// To see whats within an element:
+// console.log(document.getElementById('temp').innerHTML);
 
 // axios
 //   .get('some URL')
