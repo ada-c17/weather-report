@@ -55,13 +55,20 @@ const registerEventHandlers = (event) => {
   const decreaseTemp = document.querySelector('#decreaseTemp');
   decreaseTemp.addEventListener('click', tempDecrease);
   decreaseTemp.addEventListener('click', tempColor);
+
+  const cityNameid = document.querySelector('#cityNameid');
+  cityNameid.addEventListener('input', updateCityname);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
-
+const defaultCity = {
+  cityName: 'The amazing city of ...',
+};
 const updateCityname = () => {
   //const input = document.querySelector('input');
-  const nameOfcity = document.getElementById('cityNameid');
+  const nameOfCity = document.getElementById('cityNameid').value;
+  const cityContainer = document.querySelector('#amazingCity');
+
+  cityContainer.textContent = `The amazing city of ${nameOfCity}`;
 };
-  nameofCity.addEventListener('click',updateCityname)
