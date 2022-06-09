@@ -20,23 +20,7 @@ const adjustTemp = () => {
   tempText.textContent = `${state.tempIncrement} °C`;
 }
 
-const temperatureNumber = () => {
-  const tempPlus = document.querySelector("#left-arrow-btn");
-  tempPlus.addEventListener('click', () => {
-    state.tempIncrement += 1;
-    if (state.tempIncrement >= 80){
-      document.body.style.backgroundColor = "red";
-    }else if (state.tempIncrement <=79 && state.tempIncrement >= 70){
-      document.body.style.backgroundColor = "orange";
-    }else if (state.tempIncrement <= 69 && state.tempIncrement >= 60){
-      document.body.style.backgroundColor = "yellow";
-    }else if (state.tempIncrement <= 59 && state.tempIncrement >= 50){
-      document.body.style.backgroundColor = "green";
-    }else{
-      document.body.style.backgroundColor = "teal";
-    }
-  })
-}
+
 
 const temperaturePlusClickHandler = () => {
   const tempPlus = document.querySelector("#left-arrow-btn");
@@ -48,18 +32,66 @@ const temperaturePlusClickHandler = () => {
   
 };
 
+//register events to html element(minus button)
 const temperatureMinusClickHandler = () => {
   const tempMinus = document.querySelector("#right-arrow-btn");
+  //similar to callback function, instead anoynymous func
   tempMinus.addEventListener("click",  () => {
     state.tempIncrement -= 1;
     const tempText = document.querySelector("#temperature");
     tempText.textContent = `${state.tempIncrement} °C`;
+    
+    const gardenEmoji = document.querySelector("#temp-emoji");
+    if (state.tempIncrement >= 80){
+      document.body.style.backgroundColor = "red";
+      gardenEmoji.textContent = "🌵_🐍_🦂_🌵🌵__🐍_🏜_🦂🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂🐍_🦂_🌵🌵__🐍_🏜_🦂";
+    }else if (state.tempIncrement <=79 && state.tempIncrement >= 70){
+      document.body.style.backgroundColor = "orange";
+      gardenEmoji.textContent = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
+    }else if (state.tempIncrement <= 69 && state.tempIncrement >= 60){
+      document.body.style.backgroundColor = "yellow";
+      gardenEmoji.textContent = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
+    }else if (state.tempIncrement <= 59 && state.tempIncrement >= 50){
+      document.body.style.backgroundColor = "green";
+      gardenEmoji.textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
+    }else{
+      document.body.style.backgroundColor = "teal";
+      gardenEmoji.textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
+    }
   });
 }
+
+const temperatureNumber = () => {
+  const tempPlus = document.querySelector("#left-arrow-btn");
+  const gardenEmoji = document.querySelector("#temp-emoji");
+  tempPlus.addEventListener('click', () => {
+    state.tempIncrement += 1;
+    if (state.tempIncrement >= 80){
+      document.body.style.backgroundColor = "red";
+      gardenEmoji.textContent = "🌵_🐍_🦂_🌵🌵__🐍_🏜_🦂🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂🐍_🦂_🌵🌵__🐍_🏜_🦂";
+    }else if (state.tempIncrement <=79 && state.tempIncrement >= 70){
+      document.body.style.backgroundColor = "orange";
+      gardenEmoji.textContent = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
+    }else if (state.tempIncrement <= 69 && state.tempIncrement >= 60){
+      document.body.style.backgroundColor = "yellow";
+      gardenEmoji.textContent = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
+    }else if (state.tempIncrement <= 59 && state.tempIncrement >= 50){
+      document.body.style.backgroundColor = "green";
+      gardenEmoji.textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
+    }else{
+      document.body.style.backgroundColor = "teal";
+      gardenEmoji.textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
+    }
+  })
+}
+
+
 //content load
 document.addEventListener("DOMContentLoaded", temperaturePlusClickHandler);
 document.addEventListener("DOMContentLoaded", temperatureMinusClickHandler);
 document.addEventListener("DOMContentLoaded", temperatureNumber);
+//document.addEventListener("DOMContentLoaded", gardenEmojiHandler);
+
 
 
 /* Wave3 
