@@ -34,7 +34,6 @@ const changeGarden = () => {
     landscape.textContent = '🌲⛄️🌲⛄️🍂🌲🍁🌲⛄️🍂🌲';
   }
 };
-// How does it know what 'temp' is?
 const changeTempColor = (temp, text) => {
   if (temp >= 80) {
     text.style.color = 'red';
@@ -52,13 +51,18 @@ const changeTempColor = (temp, text) => {
 const changeCity = () => {
   const cityContainer = document.getElementById('current-city');
   const input = document.getElementById('city-selector');
+  const reset = document.getElementById('reset');
   input.addEventListener('change', (e) => {
     cityContainer.textContent = e.target.value;
+  });
+  reset.addEventListener('click', () => {
+    cityContainer.textContent = 'Seattle';
+    input.value = '';
   });
 };
 
 const apiCalls = () => {
-  // Listen for #API-button click.  When it happens, look at #current-cty and send a get request to proxy server who then sends a request for that city to Locaion IQ.  With the lat and lon from that request send a second request via server to Open Weather and use that response to disaply current temp.  Any errors caught change #farheneit to 'Error'
+  // Listen for #API-button click.  When it happens, look at #current-cty and send a get request to proxy server who then add API key and sends a request for that city to Locaion IQ.  With the lat and lon from that response, send a second request via proxy server to Open Weather. that response will be in kelvin so math it to fahrenheit. Change state.temp to the fahrenheit number. Set display temp to state.temp.  Any errors caught during API calls change #farheneit to 'Error'
   const tempContainer = document.getElementById('fahrenheit');
   const apiButton = document.getElementById('API-button');
   apiButton.addEventListener('click', () => {
@@ -75,7 +79,12 @@ const apiCalls = () => {
             params: { lat: lat, lon: lon },
           })
           .then((response) => {
-            tempContainer.textContent = response.data.current.temp;
+            const kelvin = response.data.current.temp;
+            farTemp = Math.round(((kelvin - 273.15) * 9) / 5 + 32);
+            state.temp = farTemp;
+            tempContainer.textContent = state.temp;
+            changeGarden();
+            changeTempColor(state.temp, tempContainer);
           })
           .catch(() => {
             tempContainer.textContent = 'Error';
