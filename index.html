@@ -18,26 +18,37 @@
             <div>
             <h3>City Name</h3>
             </div>
-            <div>
-            <input type="text">
+            <div class="city-name-container">
+                <div>
+                <input type="text">
+                </div>
+                <div>
+                <input type="reset">
+                <!-- <button id="reset">Reset</button> -->
+                </div>
             </div>
-            <div>
-            <input type="reset">
-            <!-- <button id="reset">Reset</button> -->
-            </div>
+            
         </section>
         <section class="temperature">
             <h3>Temperature</h3>
-
-            <section>
-                <button id="increase-temp">▲</button>
-            </section>
-            <section id="temp-field">
-                75
-            </section>
-            <section>
-                <button id="decrease-temp">▼</button>
-            </section>
+            <div class="temp-container">
+                <div class="temp-button-container">
+                    <section>
+                        <button id="increase-temp">▲</button>
+                    </section>
+                    <section id="temp">
+                        75
+                    </section>
+                    <section>
+                        <button id="decrease-temp">▼</button>
+                    </section>
+                </div>
+                
+                <section>
+                    <button id="realtime-temp">Get Realtime Temperature</button>
+                </section>
+            </div>
+            
         </section>
         <section class="sky">
             <h3>Sky</h3>
@@ -59,5 +70,8 @@
     <footer class="footer">
         © 2022 Srey Mom & Grace
     </footer>
+    <script src="./src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    
 </body>
 </html>
