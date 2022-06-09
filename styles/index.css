@@ -1,0 +1,65 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+header {
+  font-size: 8vh;
+  position: sticky;
+  text-align: center;
+  top: 0px;
+  padding: 25px 25px;
+  font-family: 'Paytone One', sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #4679bd;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  height: 100%;
+}
+.round-button {
+  width: 25vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+}
+.round-button-circle {
+  width: 100%;
+  border-radius: 50%;
+  border: 1vw solid #cfdcec;
+
+  background: #4679bd;
+  box-shadow: 0 0 3px rgb(101, 140, 208);
+}
+.round-button-circle:hover {
+  background: #30588e;
+}
+.round-button nav {
+  display: block;
+  float: left;
+  width: 100%;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  line-height: 1em;
+  margin-top: -0.5em;
+
+  text-align: center;
+  color: #e2eaf3;
+  font-family: 'Paytone One', sans-serif;
+  font-size: 2.5vw;
+  font-weight: bold;
+  text-decoration: none;
+}
