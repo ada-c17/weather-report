@@ -40,11 +40,26 @@ const decreaseTemp = () => {
   colorTempChange();
 };
 
+const inputElement = document.querySelector('#myInput');
+
 const registerEventHandlers = () => {
   const upArrow = document.querySelector('#increaseTemp');
   const downArrow = document.querySelector('#decreaseTemp');
   upArrow.addEventListener('click', increaseTemp);
   downArrow.addEventListener('click', decreaseTemp);
+  inputElement.addEventListener('change', changeCityName);
+  const resetButton = document.querySelector('#resetButton');
+  resetButton.addEventListener('click', resetInput);
+};
+
+const changeCityName = (event) => {
+  const cityName = document.querySelector('#cityName');
+  const result = event.target.value;
+  cityName.textContent = result;
+};
+
+const resetInput = () => {
+  inputElement.value = '';
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
