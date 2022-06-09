@@ -17,9 +17,13 @@ const state = {
 };
 
 const tempIncrease = (event) => {
-  //onst newTemp = document.createElement("span");
-  //const tempContainer = document.querySelector("#tempContainer");
   state.tempCount += 1;
+  const tempCountContainer = document.querySelector('#tempCount');
+  tempCountContainer.textContent = `${state.tempCount}`;
+};
+
+const tempDecrease = (event) => {
+  state.tempCount -= 1;
   const tempCountContainer = document.querySelector('#tempCount');
   tempCountContainer.textContent = `${state.tempCount}`;
 };
@@ -27,6 +31,9 @@ const tempIncrease = (event) => {
 const registerEventHandlers = (event) => {
   const raiseTemp = document.querySelector('#raiseTemp');
   raiseTemp.addEventListener('click', tempIncrease);
+
+  const decreaseTemp = document.querySelector('#decreaseTemp');
+  decreaseTemp.addEventListener('click', tempDecrease);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
