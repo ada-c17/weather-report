@@ -13,38 +13,36 @@
         <h1 id="page-title">
             Clever Weather Title
         </h1>
-        <!-- make real button -->
+        <button type="reset" id="make-real">
+            Make it real!
+        </button>
     </header>
     <main id="main-container">
         <div>
-            <!-- flexbox or grid for city/temp/sky boxes -->
+            <!-- grid for city/temp/sky boxes -->
             <ul>
                 <li id="city">
-                    <h2>
+                    <h2 class="grid-box-names">
                         City
                     </h2>
                     <input type="text" id="input-city" name="input-city">
-                        <!-- box to input city -->
-                    <label for="input-city">
-                        Enter city name
-                    </label>
                     <button type="submit">
                         Go!
                     </button>
+                    <label for="input-city">
+                        Enter city name
+                    </label>
                     <button type="reset" class="reset-button">
                         reset to Seattle, WA
                     </button>
                 </li>
                 <li id="temperature">
-                    <h2>
+                    <h2 class="grid-box-names">
                         Temperature
                     </h2>
-                    <div id="change-temp">
-                        (insert box for current weather here)
+                    <div id="display-temp">
+                        current temp will be shown here
                     </div>
-                    <label for="change-temp">
-                        Adjust temperature
-                    </label>
                     <div id="arrow-container">
                         <button type="button" id="arrow-up">
                             ⬆️
@@ -53,12 +51,15 @@
                             ⬇️
                         </button>
                     </div>
+                    <label for="display-temp">
+                        Adjust temperature with arrows
+                    </label>
                     <button type="reset" class="reset-button">
                         reset to current temperature
                     </button>
                 </li>
                 <li id="sky">
-                    <h2>
+                    <h2 class="grid-box-names">
                         Sky Coverage
                     </h2>
                     <!-- info on select https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select -->
