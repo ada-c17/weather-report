@@ -46,3 +46,15 @@ document.addEventListener('DOMContentLoaded', () => {
     setTemperature(temperature);
   });
 });
+
+//wave 3
+const updateCityName = () => {
+  const cityElement = document.getElementById('chosen-city');
+  cityElement.innerText = document.querySelector('#input-city').value;
+};
+
+const enterCityButton = document.getElementById('enterCitybutton');
+
+enterCityButton.addEventListener('click', () => {
+  updateCityName();
+});
