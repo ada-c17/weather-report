@@ -58,6 +58,7 @@ const changeCity = () => {
 };
 
 const apiCalls = () => {
+  // Listen for #API-button click.  When it happens, look at #current-cty and send a get request to proxy server who then sends a request for that city to Locaion IQ.  With the lat and lon from that request send a second request via server to Open Weather and use that response to disaply current temp.  Any errors caught change #farheneit to 'Error'
   const tempContainer = document.getElementById('fahrenheit');
   const apiButton = document.getElementById('API-button');
   apiButton.addEventListener('click', () => {
@@ -75,7 +76,13 @@ const apiCalls = () => {
           })
           .then((response) => {
             tempContainer.textContent = response.data.current.temp;
+          })
+          .catch(() => {
+            tempContainer.textContent = 'Error';
           });
+      })
+      .catch(() => {
+        tempContainer.textContent = 'Error';
       });
   });
 };
