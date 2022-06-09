@@ -110,6 +110,26 @@ h3{margin: 0;}
     transition: background-image linear 2s;
 }
 
+.teal {
+    color: teal;
+}
+
+.green {
+    color: green;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.orange {
+    color: orange;
+}
+
+.red {
+    color: red;
+}
+
 footer {
     position: absolute;
     bottom: 0px;

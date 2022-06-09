@@ -10,6 +10,17 @@ const increaseTemp = () => {
   state.temp += 1;
   const tempContainer = document.getElementById('current_temp');
   tempContainer.textContent = `Current temp: ${state.temp}`;
+  if (state.temp < 50) {
+    tempContainer.className = 'teal';
+  } else if (state.temp < 60) {
+    tempContainer.className = 'green';
+  } else if (state.temp < 70) {
+    tempContainer.className = 'yellow';
+  } else if (state.temp < 80) {
+    tempContainer.className = 'orange';
+  } else {
+    tempContainer.className = 'red';
+  } 
   changeBackground(state.temp);
 };
 
@@ -23,6 +34,17 @@ const decreaseTemp = () => {
   state.temp -= 1;
   const tempContainer = document.getElementById('current_temp');
   tempContainer.textContent = `Current temp: ${state.temp}`;
+  if (state.temp < 50) {
+    tempContainer.className = 'teal';
+  } else if (state.temp < 60) {
+    tempContainer.className = 'green';
+  } else if (state.temp < 70) {
+    tempContainer.className = 'yellow';
+  } else if (state.temp < 80) {
+    tempContainer.className = 'orange';
+  } else {
+    tempContainer.className = 'red';
+  }
   changeBackground(state.temp);
 };
 
