@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="styles/snow.css">
     <link rel="stylesheet" href="styles/rain_sun.css">
     <link rel="stylesheet" href="styles/clouds.css">
+    <!-- bootstrap for buttons -->
+    <link rel="stylesheet" href="styles/bootstrap 2/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="styles/bootstrap 2/css/bootstrap.css">
+
 
     <title>Weather Report</title>
 </head>
@@ -31,18 +35,18 @@
             <div id="main__intro">
                 <div id="main__intro__left">
                     <div class="block__left">
-                        <h3 id="temperature">Temperature</h3>
+                        <h3 id="temperature">Current temperature</h3>
                         <div id="switchBtnFarenheitCelsius">
-                            <button id="switchBtnFC">°C/°F</button>
+                            <button type="button" class="btn btn-info btn-lg active" id="switchBtnFC">°C/°F</button>
                         </div>
-                        <button id="increaseTempButton">⬆️</button>
-                        <h3 id="current_temp">Current temp: 55°F</h3>
-                        <button id="decreaseTempButton">⬇️</button>
+                        <button type="button" class="btn btn-info" id="increaseTempButton">⬆️</button>
+                        <h3 id="current_temp">55 °F</h3>
+                        <button type="button" class="btn btn-info" id="decreaseTempButton">⬇️</button>
                     </div>
-                    <div class="block__left">
-                        <h3 id="sky">Sky</h3>
-                        <label for="sky-select">Choose sky:</label>
-                            <select name="skies" id="sky-select">
+                    <div class="block__left form-group">
+                        <h3 id="sky">Choose sky</h3>
+                        <label for="sky-select" for="sort" class="d-inline-block"> </label>
+                            <select name="skies" class="form-control" id="sky-select">
                                 <option value="">--Please choose an option--</option>
                                 <option value="sun">Sunny</option>
                                 <option value="cloud">Cloudy</option>
@@ -53,8 +57,8 @@
                     <div class="block__left">
                         <h3>Enter City Name:</h3>
                         <form id="form">
-                            <input id="enter_city">
-                            <button type="reset">Reset Name</button>
+                            <input type="input" class="form-label btn-block" id="enter_city">
+                            <button class="btn btn-info btn-lg" type="reset">Reset Name</button>
                         </form>
                     </div>
                 </div>
@@ -64,6 +68,10 @@
                         <h4>Weather Garden</h4>
                         ✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴✴
                     </div>
+                </div>
+                <div id="main__intro__forecast">
+                    <h3>Forecast</h3>
+
                 </div>
             </div><!-- main__intro -->
         </div><!-- container -->

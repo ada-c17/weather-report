@@ -11,8 +11,8 @@ const increaseTemp = () => {
   state.temp += 1;
   const tempContainer = document.getElementById('current_temp');
   tempContainer.textContent = flagFahrenheit
-    ? `Current temp: ${Math.trunc(state.temp)}°F`
-    : `Current temp: ${Math.trunc(state.temp)}°C`;
+    ? `${Math.trunc(state.temp)}°F`
+    : `${Math.trunc(state.temp)}°C`;
   changeBackground(state.temp);
 };
 
@@ -26,8 +26,8 @@ const decreaseTemp = () => {
   state.temp -= 1;
   const tempContainer = document.getElementById('current_temp');
   tempContainer.textContent = flagFahrenheit
-    ? `Current temp: ${Math.trunc(state.temp)}°F`
-    : `Current temp: ${Math.trunc(state.temp)}°C`;
+    ? `${Math.trunc(state.temp)}°F`
+    : `${Math.trunc(state.temp)}°C`;
   changeBackground(state.temp);
 };
 
@@ -106,8 +106,8 @@ const changeMetricForTemp = () => {
   }
   const tempContainer = document.getElementById('current_temp');
   tempContainer.textContent = flagFahrenheit
-    ? `Current temp: ${Math.trunc(state.temp)}°F`
-    : `Current temp: ${Math.trunc(state.temp)}°C`;
+    ? `${Math.trunc(state.temp)}°F`
+    : `${Math.trunc(state.temp)}°C`;
   changeBackground(state.temp);
 };
 
