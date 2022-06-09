@@ -1,12 +1,12 @@
 'use strict';
 
-const state = {
-  temp: 0,
-};
+// const state = {
+//   temp: 0,
+// };
 
 const changeColorAndLand = (t) => {
   const tempContainer = document.getElementById('temperature');
-  const landScape = document.getElementById('picture');
+  const landScape = document.getElementById('land');
   if (t >= 80) {
     tempContainer.className = 'hottest';
     landScape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
@@ -66,7 +66,7 @@ const getLatandLong = (query) => {
       getRealTemp(latitude, longitude);
     })
     .catch((error) => {
-      console.log('error in findLatitudeAndLongitude!');
+      console.log('Error in get latitude and longitude of location!');
     });
 };
 
@@ -89,12 +89,46 @@ const getRealTemp = (latitude, longitude) => {
       changeColorAndLand(tempF);
 
       //return tempF;
+    })
+    .catch((error) => {
+      console.log('Error in get real time temperature!');
     });
 };
 
 const displayRealTemp = () => {
   const currentCity = document.getElementById('city').innerHTML;
   getLatandLong(currentCity);
+};
+
+const changeSky = () => {
+  const selector = document.getElementById('skys');
+  const currentSky = document.getElementById('sky');
+
+  switch (selector.value) {
+    case 'default':
+      currentSky.innerHTML = '🌞🌎🌞🌍🌞🌏🌞';
+      break;
+    case 'sunny':
+      currentSky.innerHTML = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+      break;
+    case 'cloudy':
+      currentSky.innerHTML = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+      break;
+    case 'rainy':
+      currentSky.innerHTML = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+      break;
+    case 'snowy':
+      currentSky.innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+      break;
+  }
+};
+
+const resetCityName = () => {
+  const cityContainer = document.getElementById('city');
+  cityContainer.innerHTML = 'Seattle';
+  const inputContainer = document.getElementById('city-name');
+  inputContainer.value = '';
+  displayRealTemp();
 };
 
 const registerEventHandlers = () => {
@@ -112,6 +146,12 @@ const registerEventHandlers = () => {
 
   const displayTemp = document.getElementById('real-time');
   displayTemp.addEventListener('click', displayRealTemp);
+
+  const selector = document.getElementById('skys');
+  selector.addEventListener('change', changeSky);
+
+  const resetButton = document.getElementById('reset');
+  resetButton.addEventListener('click', resetCityName);
 };
 
 if (document.readyState !== 'loading') {
