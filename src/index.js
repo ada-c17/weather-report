@@ -2,6 +2,14 @@ const state = {
   temp: 79,
 };
 
+//document.getElementById("myText").value = "Johnny Bravo";
+
+const getNewCity = () => {
+  const cityName = document.getElementById('city-name').value;
+  const cityContainer = document.querySelector('#city');
+  cityContainer.textContent = cityName;
+};
+
 const tempIncrease = () => {
   state.temp += 1;
   const tempContainer = document.querySelector('#temp');
@@ -21,6 +29,9 @@ const registerEventHandlers = () => {
   tempIncreaseButton.addEventListener('click', tempIncrease);
   const tempDecreaseButton = document.querySelector('#decrease');
   tempDecreaseButton.addEventListener('click', tempDecrease);
+
+  const inputElement = document.querySelector('#city-name');
+  inputElement.addEventListener('change', getNewCity);
 };
 
 const changeTempColorAndGarden = (temperature) => {
