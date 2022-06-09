@@ -64,25 +64,40 @@ const getRealTemp = () => {
 };
 
 const apiCalls = () => {
-  const currentCity = document.getElementById('current-city').innerHTML; // axios
+  const currentCity = document.getElementById('current-city').innerHTML;
+  axios
+    .get('http://localhost:5000/location', {
+      params: { q: currentCity },
+    })
+    .then((response) => {
+      const lat = response.data[0].lat;
+      const lon = response.data[0].lon;
+      console.log(lat, lon);
+      axios
+        .get('http://localhost5000/weather', {
+          params: { lat: lat, lon: lon },
+        })
+        .then((response) => {
+          console.log(response);
+        });
+    });
 };
-
 const selectSky = () => {
   const skyCondition = document.getElementById('sky-condition');
-  
-  // Add select options to the sky selector 
+
+  // Add select options to the sky selector
   const rainy = document.createElement('option');
-  rainy.value = 'rainy'
-  rainy.text = 'Rainy'
+  rainy.value = 'rainy';
+  rainy.text = 'Rainy';
   const cloudy = document.createElement('option');
-  cloudy.value = 'cloudy'
-  cloudy.text = 'Cloudy'
+  cloudy.value = 'cloudy';
+  cloudy.text = 'Cloudy';
   const snowy = document.createElement('option');
-  snowy.value = 'snowy'
-  snowy.text = 'Snowy'
+  snowy.value = 'snowy';
+  snowy.text = 'Snowy';
   const sunny = document.createElement('option');
-  sunny.value = 'sunny'
-  sunny.text = 'Sunny'
+  sunny.value = 'sunny';
+  sunny.text = 'Sunny';
   skyCondition.add(rainy);
   skyCondition.add(cloudy);
   skyCondition.add(snowy);
@@ -90,14 +105,14 @@ const selectSky = () => {
 
   // Listen for new sky selection
   skyCondition.addEventListener('change', () => {
-    changeSky(skyCondition)
+    changeSky(skyCondition);
   });
-}
+};
 
 const changeSky = (skyCondition) => {
   const selectedSky = skyCondition.options[skyCondition.selectedIndex].value;
   console.log(selectedSky);
-}
+};
 
 // note for refactoring: curious if the following calls could be made into one call
 document.addEventListener('DOMContentLoaded', setTemp);
