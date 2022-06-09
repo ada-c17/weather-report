@@ -5,11 +5,12 @@
 const state = {
   temp: 55,
 };
+let flagFahrenheit = true;
 
 const increaseTemp = () => {
   state.temp += 1;
   const tempContainer = document.getElementById('current_temp');
-  tempContainer.textContent = `Current temp: ${state.temp}`;
+  tempContainer.textContent = `Current temp: ${Math.trunc(state.temp)}`;
   changeBackground(state.temp);
 };
 
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 const decreaseTemp = () => {
   state.temp -= 1;
   const tempContainer = document.getElementById('current_temp');
-  tempContainer.textContent = `Current temp: ${state.temp}`;
+  tempContainer.textContent = `Current temp: ${Math.trunc(state.temp)}`;
   changeBackground(state.temp);
 };
 
@@ -36,6 +37,9 @@ document.addEventListener('DOMContentLoaded', registerEventHandlersDecrease);
 
 const changeBackground = (temp) => {
   const element = document.getElementById('main__intro__right');
+  if (!flagFahrenheit) {
+    temp = (9 / 5) * temp + 32;
+  }
   if (temp >= 80) {
     element.classList.remove(element.className);
     element.classList.add('summer');
@@ -60,7 +64,7 @@ message.addEventListener('input', function () {
   result.textContent = this.value.toUpperCase();
 });
 
-// 5. Selection Changes Sky
+// 5. Selection Changes Sky Background
 
 function changeModeSky(event) {
   const element = document.body;
@@ -91,3 +95,22 @@ document.addEventListener('DOMContentLoaded', registerEventHandlersReset);
 // using the mode query param
 // For temperature in Fahrenheit use units=imperial
 // For temperature in Celsius use units=metric
+
+const changeMetricForTemp = () => {
+  flagFahrenheit = !flagFahrenheit;
+  if (!flagFahrenheit) {
+    state.temp = (5 / 9) * (state.temp - 32);
+  } else {
+    state.temp = (9 / 5) * state.temp + 32;
+  }
+  const tempContainer = document.getElementById('current_temp');
+  tempContainer.textContent = `Current temp: ${Math.trunc(state.temp)}`;
+  changeBackground(state.temp);
+};
+
+const registerEventHandlersFarenheit = () => {
+  const switchFC = document.getElementById('switchBtnFC');
+  switchFC.addEventListener('click', changeMetricForTemp);
+};
+
+document.addEventListener('DOMContentLoaded', registerEventHandlersFarenheit);
