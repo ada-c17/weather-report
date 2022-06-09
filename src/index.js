@@ -97,7 +97,7 @@ message.addEventListener('input', function () {
 const getRealTemp = () => {
   let coords;
   axios
-    .get('http://127.0.0.1:5000', {
+    .get('http://127.0.0.1:5000/location', {
       params: {
         q: document.getElementById('enter_city').value,
       },
