@@ -100,11 +100,29 @@ A text input element that allows the user to change the city name
 
 */
 
+// const inputValueHandler = () => {
+//   const inputCity=document.querySelector("#city-input")
+  // inputCity.addEventListener("input", inputCity.value)
+// }
+// document.addEventListener("DOMContentLoaded", inputValueHandler);
+
+const cityWeatherHandler = () => {
+        const weatherReport=document.querySelector("#weather-report")
+        const cityName=document.createElement("p");
+        weatherReport.appendChild(cityName);
+        const inputCity=document.querySelector("#city-input");
+        console.log(inputCity.value)
+        inputCity.addEventListener("input", ()=> {
+          cityName.textContent=`For the city of ${inputCity.value}`
+        })
+
+}
+document.addEventListener("DOMContentLoaded", cityWeatherHandler);
 
 
 /** Wave4
   Calling API
- 
+
  */
 
 
