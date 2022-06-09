@@ -16,13 +16,13 @@ const updateTempBackground = () => {
     landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂🍳';
   } else if (state.temp >= 80 && state.temp < 90) {
     document.getElementById('temp').style.backgroundColor = 'orange';
-    landscape.textContent = '🌴🌳🌿__🍁🌴__🐶🦮__🤾🏼‍♀️__🏊🏻‍♀️_🌴🌳🌿';
+    landscape.textContent = '🌴🏊🏻‍♀️_🌿_⚽️🥅🌴_🦮🌿🤾🏼‍♀️🏊🏻‍♀️🌿🌳';
   } else if (state.temp >= 70 && state.temp < 80) {
     document.getElementById('temp').style.backgroundColor = 'green';
     landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (state.temp >= 55 && state.temp < 70) {
     document.getElementById('temp').style.backgroundColor = 'teal';
-    landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    landscape.textContent = '🌾_🏃🏼‍♀️🍃_🏃🏼‍♀️_🛤_🏃🏼‍♀️🌾__🏃🏼‍♀️🍃';
   } else if (state.temp < 55) {
     document.getElementById('temp').style.backgroundColor = '#F2EBE9';
     landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
@@ -93,6 +93,7 @@ const registerEventHandlers = (event) => {
   cityChageButton.addEventListener('click', changeCity);
   const getRealTempButton = document.querySelector('#getRealTimeTemp');
   getRealTempButton.addEventListener('click', apiRequests);
+  getRealTempButton.addEventListener('click', updateTempBackground);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
