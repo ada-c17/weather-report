@@ -52,16 +52,16 @@ const changeLandscape = (temp) => {
 };
 
 const changeCity = (event) => {
-  const inputCity = document.querySelector('#inputCity');
-  inputCity.textContent = docutment.getElementById.name.value;
-}
+  const inputCity = document.getElementById('inputCity');
+  inputCity.textContent = document.getElementById('city').value;
+};
 
 const registerEventHandlers = (event) => {
   const upButton = document.querySelector('#upButton');
   const downButton = document.querySelector('#downButton');
   upButton.addEventListener('click', addTemp);
   downButton.addEventListener('click', subtractTemp);
-  const submitButton = document.querySelector('#submitButton');
+  const submitButton = document.getElementById('submitButton');
   submitButton.addEventListener('click', changeCity);
 };
 
