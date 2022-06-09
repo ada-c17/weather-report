@@ -23,3 +23,7 @@ img {
 #display {
   grid-column: 2/3;
 }
+
+#updateTemperature {
+  color: blue;
+}
