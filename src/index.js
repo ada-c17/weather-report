@@ -47,16 +47,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-//wave 3
+// wave 3
+
 const updateCityName = () => {
   const cityElement = document.getElementById('chosen-city');
   cityElement.innerText = document.querySelector('#input-city').value;
 };
 
-const enterCityButton = document.getElementById('enterCitybutton');
+document.addEventListener('DOMContentLoaded', () => {
+  const enterCityButton = document.getElementById('enterCitybutton');
 
-enterCityButton.addEventListener('click', () => {
-  updateCityName();
+  enterCityButton.addEventListener('click', () => {
+    updateCityName();
+  });
 });
 
 //wave 5
@@ -83,10 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //wave 6
-const resetCityButton = document.getElementById('resetCitybutton');
+document.addEventListener('DOMContentLoaded', () => {
+  const resetCityButton = document.getElementById('resetCitybutton');
 
-resetCityButton.addEventListener('click', () => {
-  const defaultCity = 'Seattle';
-  document.querySelector('#input-city').value = defaultCity;
-  document.getElementById('chosen-city').innerText = defaultCity;
+  resetCityButton.addEventListener('click', () => {
+    const defaultCity = 'Seattle';
+    document.querySelector('#input-city').value = defaultCity;
+    document.getElementById('chosen-city').innerText = defaultCity;
+  });
 });
