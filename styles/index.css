@@ -1,7 +1,7 @@
 html, body {
     width: 90%;
     height: 100%;
-    background-color: #6699FF;
+    background-color: #003A84;
     margin: 0 auto;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -10,7 +10,7 @@ html, body {
 
 header{
     padding: 30px;
-    color: #A8E673;
+    color: #FFCC66;
 }
 
 .box-container{
@@ -24,21 +24,7 @@ header{
     margin: 10px;    
 }
 
-#real-temp-button{
-    position:absolute;
-    bottom: 290px;
-    left: 310px;
-    width: 20%;
-    height: 2.4%;
-}
 
-#drop-down{
-    position:absolute; 
-    bottom: 490px;
-    left: 870px;
-    width: 10%;
-    height: 2.4%; 
-}
 
 #temperature, #sky, #city{
     width: 300px;
@@ -46,7 +32,63 @@ header{
     display:flex;
     justify-content:center;
     align-items:center;
-    background-color:#E6B173
+    background-color:#f2c88e;
+    position:relative; /*parent set to relative*/
+}
+
+#real-temp-button{
+    position:absolute; /*parent set to absolute*/
+    bottom: 250px;
+    left: 230px;
+    width: 15%;
+    height: 5%;
+    border-style: none;
+}
+
+#left-arrow-btn{
+    position:absolute;
+    left: 250px;
+    border-style: none;
+    width: 20px;
+}
+
+#right-arrow-btn{
+    position:absolute;
+    left: 410px;
+    border-style: none;
+    width: 20px;
+}
+
+#drop-down{
+    position:absolute; 
+    bottom: 250px;
+    left: 600px;
+    width: 15%;
+    height: 5%;
+    border-style: none;
+}
+
+#city-input {
+    position:absolute; 
+    bottom: 250px;
+    left: 980px;
+    width: 15%;
+    height: 5%;
+    border-style: none;
+}
+
+#reset-btn{
+    position:absolute; 
+    bottom: 250px;
+    right: 230px;
+    width: 5%;
+    height: 5%;
+    border-style: none;
+}
+
+#temperature .left-arrow {
+    position: absolute;
+    left: 200px;
     
 }
 
@@ -56,5 +98,5 @@ header{
 
 footer {
     padding: 10px;
-    color: #A8E673;
+    color: #FFCC66;
 }
