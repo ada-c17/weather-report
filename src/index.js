@@ -92,9 +92,35 @@ message.addEventListener('input', function () {
   result.textContent = this.value;
 });
 
+// 4. idk what it's called
+
+const getRealTemp = () => {
+  let coords;
+  axios.get('http://127.0.0.1:5000', {
+    params: {
+      q: document.getElementById('enter_city').value
+    }
+    })
+  .then((response) => {
+    coords = [response.data[0].lat, response.data[0].lon]
+    console.log('success!', response.data);  
+  })
+  .catch((error) => {
+    console.log('error!', error.response);
+  });
+
+}
+
+const registerEventHandlersReal = () => {
+  const getRealTempBtn = document.getElementById('get__real__temp');
+  getRealTempBtn.addEventListener('click', getRealTemp);
+};
+document.addEventListener('DOMContentLoaded', registerEventHandlersReal);
+
+
 // 5. Selection Changes Sky Background
 
-function changeModeSky(event) {
+const changeModeSky = (event) => {
   const skyMode = document.getElementById('sky-select');
   const skyText = skyMode.options[skyMode.selectedIndex].text;
   const element = document.querySelector('#block__right__name > h4');
