@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+.wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 20vh 60vh 20vh;
+    margin: 0;
+    padding: 0;
+}
+
+.sky{
+    grid-row: 1/2;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: bottom; 
+}
+
+.mid{
+    grid-row: 2/3;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-size:cover;
+    background-position: top; 
+}
+
+.temp{
+    grid-row: 3/4;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position:top; 
+}
