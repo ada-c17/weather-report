@@ -1,146 +1,134 @@
 body {
-    background-color: cornflowerblue;
+    background-image: url('/assets/weather-background.jpg');
+    opacity: 70;
 }
 
 #main {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    column-gap: 1vw;
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(10, 10%);
     row-gap: 3vh;
+    column-gap: 3vw;
 }
 
 #gardenBox {
+    grid-column: 2/span 6;
     display: flex;
     flex-flow: column nowrap;
     background-color: azure;
     border-radius: 2vw;
-    width: 45%;
-    height: 35vh;
     justify-content: center;
     align-items: center;
 }
 
-#gardenData {
+#weatherData {
     height: 20vh;
+    width: 80%;
 }
 
 #landscape {
     display: flex;
     flex-flow: row nowrap;
-    width: 85%;
-    height: 20vh;
+    width: 75%;
     justify-content: center;
     align-items: flex-end;
 }
 
 #tempBox {
+    grid-column: 2/span 2;
+    grid-row-start: 2;
     background-color: azure;
     border-radius: 2vw;
-    display: grid;
-    grid-template-columns: 10% 10% 10% 10% 10% 10% 1fr;
-    grid-template-rows: 20% 10% 10% 10% 10% 20% 10% 10%;
-    width: 30vw;
-    height: 35vh;
-}
-
-#cityBox, #skyBox {
-    background-color: azure;
-    border-radius: 2vw;
+    height: 60%;
     display: flex;
     flex-flow: column nowrap;
-    width: 30vw;
-    height: 25vh;
-    row-gap: 3vh;
-    align-items: center;
-}
-
-#tempControls {
-    grid-row-start: 3;
-    grid-column-start: 5;
-    display: flex;
-    flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
 }
 
-#tempDisplay {
-    width: 5vw;
-    height: 10vh;
-    font-size: 4vw;
-    padding-top: 5vh;
-    text-align: center;
+#tempControls {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
     align-self: center;
+    height: 30%;
+    margin-top: 10%;
+}
+
+#tempDisplay {
+    font-size: 1.5rem;
 }
 
 #leftArrow, #rightArrow {
-    color: blue;
-    width: 5vw;
-    height: 5vh;
+    width: 30%;
+    height: 45%;
 }
 
 #realTempButton {
-    width: 25vw;
     text-align: center;
     border-radius: 2vw;
     color: azure;
     background-color: darkblue;
-    grid-row: 6/7;
-    grid-column-start: 2;
-    margin-bottom: 2vh;
+}
+
+#skyBox {
+    grid-column: 4/span 2;
+    grid-row-start: 2;
+    background-color: azure;
+    border-radius: 2vw;
+    height: 65%;
 }
 
 #skySelector {
     margin-top: 6%;
+    margin-left: 5%;
     width: 20vw;
-    height: 5vh;
+    height: 4vh;
     border-radius: 2vw;
     text-align: center;
     color: azure;
     background-color: darkblue;
-    font-weight: bolder;
+}
+
+#cityBox {
+    grid-column: 6/span 2;
     grid-row-start: 2;
-    grid-column-start: 3;
+    background-color: azure;
+    border-radius: 2vw;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+    align-items: center;
 }
 
 #cityForm {
-    margin-top: 3vh;
     display: flex;
-    flex-flow: row nowrap;
+    align-content: center;
+    justify-content: center;
 }
 
 #city {
-    width: 10vw;
+    width: 80%;
 }
 
-#resetButton, #submitButton {
+#resetButton {
     border-radius: 2vw;
+    height: 3vh;
+    width: 15vw;    
     color: azure;
     background-color: darkblue;
 }
 
-#submitButton {
-    height: 4vh;
-    width: 8vw;
-}
-
-#resetButton {
-    height: 5vh;
-    width: 15vw;
-}
-
 h1 {
-    font-size: 120%;
     text-align: center;
 }
 
 h2 {
     font-size: 120%;
     text-align: center;
-    margin: 0vh;
-    grid-column-start: 4;
+    margin: 0px;
 }
 
 .teal {
@@ -164,17 +152,17 @@ h2 {
 }
 
 .sunny {
-    background-image: url('/assets/sun-background.jpg');
+    background: linear-gradient(to bottom right, whitesmoke, yellow);  
 }
 
 .cloudy {
-    background-image: url('/assets/clouds-background.jpg');
+    background: linear-gradient(to bottom right, whitesmoke, slategray);
 }
 
 .rainy {
-    background-image: url('/assets/rain-background.jpg');
+    background: linear-gradient(to bottom right, whitesmoke, cornflowerblue);
 }
 
 .snowy {
-    background-image: url('/assets/snow-background.jpg');
+    background: linear-gradient(to bottom right, white, lightyellow);
 }

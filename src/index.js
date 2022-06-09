@@ -1,3 +1,13 @@
+let description = '';
+let currTemp = 0;
+let openWeatherIcon = '';
+
+const convertToFarenheit = temp => {
+  let newTemp = 0;
+  newTemp = Math.floor(1.8 * (temp - 273) + 32);
+  return newTemp;
+};
+
 const setColor = temp => {
   let color = 'orange';
 
@@ -36,10 +46,6 @@ const state = {
   tempCount: 0
 };
 
-const updateWeather = (latitude, longitude) => {
-  console.log(`City data: ${latitude}, ${longitude}`)
-};
-
 const changeCityHeader = () => {
   const city = document.querySelector("#city").value;
   let newGreeting = document.createElement("h1");
@@ -60,13 +66,36 @@ const searchCity = () => {
   const city = document.querySelector("#city").value;
 
   axios
-    .get("/proxy_bp/location", {
+    .get("http://localhost:5000/location", {
       params: {
       q: city,
-  },
+  }
+    })
+.then(response => {
+  const lat = response.data[0].lat
+  const lon = response.data[0].lon
+  // const lat = 33.1247
+  // const lon = -117.0808
+  updateWeather(lat, lon)
 });
-  updateWeather(latitude, longitude)
-}
+};
+
+const updateWeather = (lat, lon) => {
+  axios
+    .get("http://localhost:5000/weather", {
+      params: {
+      lat: lat,
+      lon: lon
+    }
+  })
+  .then(response => {
+    description = response.data.current.weather[0].description;
+    currTemp = response.data.current.temp;
+    farenheitTemp = convertToFarenheit(currTemp);    
+
+    document.querySelector("#weatherData").innerHTML = `<h2>${description}: ${farenheitTemp}</h2>`;
+  });
+};
 
 const lowerTemp = event => {
   let temp = document.querySelector("#tempDisplay").innerHTML;
@@ -100,7 +129,6 @@ const setSky = () => {
   const newSky = document.getElementById("skySelector");
   const currSky = newSky.options[newSky.selectedIndex].text;
   let sky = ''
-  console.log(`Sky: ${currSky}`);
 
   if (currSky === 'Sunny') {
     sky = 'sunny';
@@ -131,6 +159,9 @@ const registerEventHandlers = (event) => {
 
   const skySelector = document.querySelector("#skySelector");
   skySelector.addEventListener("change", setSky);
+
+  const realTempButton = document.querySelector('#realTempButton');
+  realTempButton.addEventListener("click", searchCity)
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
