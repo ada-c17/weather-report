@@ -1,9 +1,5 @@
 'use strict';
 
-axios
-  .get('http://127.0.0.1:5000/') {
-}
-
 const tempColor = (temp) => {
   const colorCode = document.getElementById('tempCount');
   if (temp >= 80) {
@@ -63,6 +59,13 @@ const registerEventHandlers = (event) => {
 
   const cityNameid = document.querySelector('#cityNameid');
   cityNameid.addEventListener('input', updateCityname);
+
+  // const realCityWeather = document.querySelector('#realCityWeather');
+  // realCityWeather.addEventListener('click', getLocation);
+
+  const getRealWeather = document.querySelector('#realCityWeather');
+  getRealWeather.addEventListener('click', getWeather);
+
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
@@ -72,12 +75,53 @@ const defaultCity = {
 };
 const updateCityname = () => {
   const nameOfCity = document.getElementById('cityNameid').value;
-  console.log(nameOfCity);
+  //console.log(nameOfCity);
   const cityContainer = document.querySelector('#amazingCity');
 
   cityContainer.textContent = `The amazing city of ${nameOfCity}`;
 
-  console.log(nameOfCity);
+  //console.log(nameOfCity);
 };
 
 
+const getLocation =() => {
+  const nameOfCity = document.getElementById('cityNameid').value;
+  axios.get('http://127.0.0.1:5000/location', {
+      params: {
+        q: nameOfCity,
+        format: 'json',
+      },
+  })
+  .then((response) => {
+    const cityLocationLat = response.data[0].lat;
+    const cityLocationLon = response.data[0].lon;
+  })
+    // const realWeatherTemp =  
+    // .then
+  };
+  // console.log("hi");
+  // console.log(nameOfCity);
+  // console.log(cityLocation);
+  // console.log(cityLocation.value);
+  // console.log(cityLocation.data);
+  //return cityLocation;
+  //getWeather();
+  // console.log("hi");
+  // console.log(nameOfCity);
+  // console.log(cityLocation);
+
+const getWeather =() => {
+  const cityLocation = getLocation(); //response
+  // const cityWeather = axios
+  //   .get('http://127.0.0.1:5000/weather', {
+  //     params: {
+  //       "lat": cityLocation.data[0].lat, 
+  //       "lon": cityLocation.data[0].lon,
+  //     },
+  // })
+  console.log(cityLocation);
+  console.log(cityLocation.data);
+  // console.log("hello");
+  //return cityWeather;
+
+}
