@@ -97,6 +97,26 @@ const changeHeader = (cityname) => {
   subheader.textContent = `What The Weather Is Actually Like in ${cityname}`;
 };
 
+const changeSkyRealtime = (id) => {
+  const background = document.getElementById('center-section');
+
+  if (id >= 200 && id < 300) {
+    background.className = 'thunderstorm-background';
+  } else if (id >= 300 && id < 400) {
+    background.className = 'drizzle-background';
+  } else if (id >= 500 && id < 600) {
+    background.className = 'rainy-background';
+  } else if (id >= 600 && id < 700) {
+    background.className = 'snowy-background';
+  } else if (id >= 700 && id < 800) {
+    background.className = 'atmosphere-background';
+  } else if (id === 800) {
+    background.className = 'clear-background';
+  } else if (id > 800) {
+    background.className = 'cloudy-background';
+  }
+};
+
 let changeWeather = () => {
   let newCity = getCity();
   if (newCity) {
@@ -106,17 +126,14 @@ let changeWeather = () => {
   weatherPromise.then((weather) => {
     newTemp = convertKToF(weather.temp);
     state.temperature = newTemp;
-    // This gives id for what weather is like
-    //console.log(weather.weather[0].id);
+    let weatherID = weather.weather[0].id;
+    // console.log(weatherID);
     changeHeader(state.city);
     getTempAndChangeStyle();
     changeLandscape();
+    changeSkyRealtime(weatherID);
   });
 };
-
-// Change background picture depending on current conditions
-// Change header to reflect current city name and what the weather is actually like
-// Change landscape (can already do)
 
 const changeSky = (event) => {
   const background = document.getElementById('center-section');

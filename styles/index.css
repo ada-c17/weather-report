@@ -54,7 +54,9 @@ p {
     padding: 10px;
 }
 
-.background, .cloudy-background, .sunny-background, .rainy-background, .snowy-background {
+.background, .cloudy-background, .sunny-background, 
+.rainy-background, .snowy-background, .atmosphere-background, 
+.thunderstorm-background, .clear-background, .drizzle-background {
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -68,11 +70,27 @@ p {
 }
 
 .rainy-background {
-    background-image: url(../images/rainy.jpg);
+    background-image: url(../images/heavy_rain.jpg);
 }
 
 .snowy-background {
-    background-image: url(../images/snowy.jpg) ;
+    background-image: url(../images/snowy.jpg);
+}
+
+.thunderstorm-background {
+    background-image: url(../images/thunderstorm.jpg);
+}
+
+.atmosphere-background {
+    background-image: url(../images/atmosphere.jpg);
+}
+
+.clear-background {
+    background-image: url(../images/clear.jpg);
+}
+
+.drizzle-background {
+    background-image: url(../images/drizzle.jpg);
 }
 
 #temp {
