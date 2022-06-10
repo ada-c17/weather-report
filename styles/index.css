@@ -55,6 +55,9 @@ label {
 .item:nth-child(3n) {
     border: yellow solid 5px;
     width: 30%;
+    height: 200px;
+    text-align: center;
+    font-size: xx-large;
 }
 
 .item:nth-child(4n) {

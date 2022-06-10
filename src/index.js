@@ -52,12 +52,7 @@ const changeSky = () => {
     skyContainer.textContent = '❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨';
   }
 };
-// var skySelect = document.getElementById('skySelect');
 
-// skySelect.onchange = function() {
-//   var x = document.getElementById('skySelect').value;
-//   document.getElementById('skyContainer') = x
-// }
 const changeLandscape = (temp) => {
   const landscapeContainer = document.getElementById('landscapeContainer');
   landscapeContainer.textContent = state.landscape;
@@ -104,7 +99,7 @@ const changeCity = (event) => {
           // console.log(cityLat, cityLon, cityTemp);
           document.getElementById('city').value = '';
           const tempContainer = document.getElementById('tempContainer');
-          tempContainer.textContent = cityTemp;
+          tempContainer.textContent = `${cityTemp} °F`;
         })
         .catch((error) => {
           console.log('error!', error.response.status);
