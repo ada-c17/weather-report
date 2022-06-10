@@ -10,8 +10,8 @@
 <body class="container">
     <header class="header">
         <h1>Weather Report</h1>
-        <!-- Update [CITY] with city input -->
-        <h2 class="header-city">For the city of [CITY]</h2>
+        <!-- City updates to "city-input" text -->
+        <h2 id="header-city">For the city of Seattle</h2>
     </header>
     <aside>
         <section class="city">
@@ -20,11 +20,10 @@
             </div>
             <div class="city-name-container">
                 <div>
-                <input type="text">
+                <input type="text" id="city-input" value="Seattle">
                 </div>
                 <div>
-                <input type="reset">
-                <!-- <button id="reset">Reset</button> -->
+                <input type="reset" id="reset">
                 </div>
             </div>
             
@@ -33,20 +32,20 @@
             <h3>Temperature</h3>
             <div class="temp-container">
                 <div class="temp-button-container">
-                    <section>
+                    <div>
                         <button id="increase-temp">▲</button>
-                    </section>
-                    <section id="temp">
+                    </div>
+                    <!-- Temp adjusted when increase-temp or decrease-temp button clicked -->
+                    <div id="temp" class="temp-70">
                         75
-                    </section>
-                    <section>
+                    </div>
+                    <div>
                         <button id="decrease-temp">▼</button>
-                    </section>
+                    </div>
                 </div>
-                
-                <section>
+                <div>
                     <button id="realtime-temp">Get Realtime Temperature</button>
-                </section>
+                </div>
             </div>
             
         </section>
@@ -54,10 +53,10 @@
             <h3>Sky</h3>
 
         <select name="sky" id="sky">
-            <option value="sunny">sunny</option>
-            <option value="cloudy">cloudy</option>
-            <option value="rainy">rainy</option>
-            <option value="snowy">snowy</option>
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
         </select>
         </section>
 
@@ -65,10 +64,9 @@
     <main>
         <section class="garden">
             <h3>Garden</h3>
-            <div id="sky">
-
-            </div>
-            <div id="land-scape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div>
+            <div id="sky">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</div>
+            <!-- Landscape changes when temperature is in a certain range -->
+            <div id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div>
         </section>
     </main>
     <footer class="footer">
