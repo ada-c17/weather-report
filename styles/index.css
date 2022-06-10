@@ -18,6 +18,11 @@
     color: teal;
 }
 
+* {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 1vh;
+
+}
 .stats-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -29,21 +34,74 @@
 background-color:white;
 border-radius: 15px;
 text-align:left;
-/* padding-top: 10px; */
 padding-top: 10px;
 padding-left: 30px;
 padding-bottom: 20px;
 padding-right: 30px;
-color: #a8b2d1;
-margin:3vh;
+color:black;
+margin:2vh;
 }
-
-.stats-container article h1 {
-    font-size: larger;
-
-}
-
 
 body {
     background-color:dodgerblue;
+}
+
+button {
+        color: black;
+        background-color:aliceblue;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 1.25rem 1.5rem;
+        margin-top: 30px;
+        text-align: left;
+        cursor: pointer;
+}
+
+#resetButton {
+padding: 0.2rem 1.1rem;
+}
+button:hover {
+background-color:lightblue;
+}  
+#weather-garden-container {
+    background-color:transparent;
+    margin-top: 100px;
+    padding-bottom: 0;
+    text-align: center;
+    color:white
+
+}
+#sky, #landscape {
+    font-size:x-large;
+    text-align: center;
+}
+
+#landscape {
+    margin-top:1in;
+}
+h1 {
+    font-size: larger;
+}
+
+#title {
+    font-size: xx-large;
+}
+
+#tempValue {
+    font-size: x-large;
+    font-weight: 500;
+}
+
+#garden-emoji-container {
+    background-color:honeydew;
+}
+
+header {
+    display:flex;
+    gap: 20px;
+    margin-top:3vh
+}
+
+#cityName {
+    font-style: italic;
 }
