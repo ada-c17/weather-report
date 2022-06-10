@@ -17,8 +17,11 @@ body {
 }
 .header {
     grid-area: header;
-    align-self: center;
-    justify-self: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-self: flex-start;
+    margin-left: 20px;
 }
 
 .city {
@@ -75,6 +78,8 @@ body {
 .temp-container {
     display: flex;
     flex-direction: row;
+    align-items: centert;
+    justify-content: flex-start;
 }
 
 .temp-button-container {
