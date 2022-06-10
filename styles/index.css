@@ -8,6 +8,8 @@ button {
 #weatherFrame {
     display: flex;
     flex-direction: row;
+    gap: 50px;
+    align-items: flex-start;
 }
 
 #clickables{
@@ -35,6 +37,13 @@ button {
     color:lightgray;
 }
 
-/* #gardenBlock {
-    grid-column: 2 3;
-} */
+#garden {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    background: lightgreen;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
