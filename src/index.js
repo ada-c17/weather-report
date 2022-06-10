@@ -10,7 +10,10 @@
 3. temperature range changes garden emoji at bottom
 */
 
+// const { default: axios } = require("axios");
+
 // const res = require("express/lib/response");
+// const axios = require("axios")
 
 const state = {
   tempIncrement: 77,
@@ -122,6 +125,46 @@ document.addEventListener('DOMContentLoaded', cityWeatherHandler);
 /** Wave4 Calling API 
   when click get real-time temp button, displays city name and temp accordingly
 */
+
+LIQ_API = "https://us1.locationiq.com/v1/search.php"
+WO_API = "https://api.openweathermap.org/data/2.5/onecall"
+const getRealTimeTemp = () => {
+  const inputCity = document.querySelector('#city-input');
+  const latitude = "" ;
+  const longtitude ="" ;
+  const currentTemp = "";
+  axios.get(`${LIQ_API}/location`, {
+        params: {'q': inputCity.value}}) //pass in html city input, API key is calling through proxy server
+       .then((response) => {
+        latitude = response.data[0].lat;
+        longtitude = response.data[0].lon;
+         console.log(response.data[0].lat);
+         console.log(response.data[0].log);
+        
+        axios.get(`${WO_API}/weather`, {
+          params: { //pass in lat and long got from previous call
+            'lat':latitude,
+            'lon': longtitude }})
+             .then((response) => {
+              currentTemp = response.data["current"]["temp"];
+              console.log(currentTemp)
+             })
+       })
+       .catch((error) => {
+         console.log("The city not exists.");
+       });
+};
+
+const getRealTimeTempBtnHandler = () => {
+  const realTimeTempBtn = document.getElementById("real-temp-button");
+  realTimeTempBtn.addEventListener("click", getRealTimeTemp);
+}
+
+document.addEventListener('DOMContentLoaded', getRealTimeTempBtnHandler);
+
+
+ 
+
 
 
 
