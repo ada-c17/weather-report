@@ -1,40 +1,36 @@
 /* WEATHER REPORT JAVASCRIPT FILE */
 
-
-
-
-
-
 //////////*    API CALLS & ASSIGNING API VALUES    *///////////////////////////
 
-const serverAddress = "http://127.0.0.1:5000";
+const serverAddress = 'http://127.0.0.1:5000';
 
-const populateWeatherReport = function(weatherData) {
+const populateWeatherReport = function (weatherData) {
   const tempKelvin = weatherData.current.temp;
-  const tempFahrenheit = Math.floor(((tempKelvin-273.15)*1.8)+32);
+  const tempFahrenheit = Math.floor((tempKelvin - 273.15) * 1.8 + 32);
   const skyDescription = weatherData.current.weather[0].description;
   //const cloudCoverage = `${weatherData.current.clouds}%`;
 
   //populate sky and temp variables with api data
   state.temp = tempFahrenheit;
-
-
+  colorTempChange();
 };
 
-const cityCallWeather = function(serverAddress, city) {
-  axios.get(`${serverAddress}/location`, {
+const cityCallWeather = function (serverAddress, city) {
+  axios
+    .get(`${serverAddress}/location`, {
       params: {
-        q:city,
+        q: city,
       },
     })
     .then((response) => {
       let longitude = response.data[0].lon;
       let latitude = response.data[0].lat;
 
-      axios.get(`${serverAddress}/weather`, {
+      axios
+        .get(`${serverAddress}/weather`, {
           params: {
-            lat:latitude,
-            lon:longitude,
+            lat: latitude,
+            lon: longitude,
           },
         })
         .then((response) => {
@@ -42,20 +38,14 @@ const cityCallWeather = function(serverAddress, city) {
         })
         .catch((response) => {
           console.log(response.status);
-          console.log("There was an issue with the request [weather API].")
+          console.log('There was an issue with the request [weather API].');
         });
-
     })
     .catch((response) => {
       console.log(response.status);
-      console.log("There was an issue with the request [location API].");
-    })
-  };
-
-
-
-
-
+      console.log('There was an issue with the request [location API].');
+    });
+};
 
 //////////*    CITY NAME ENTRY    *////////////////////////////////////////////
 
@@ -64,7 +54,6 @@ const inputElement = document.querySelector('#userInput');
 const resetInput = () => {
   inputElement.value = '';
   cityName.textContent = 'Seattle';
-
 };
 
 const changeCityName = (event) => {
@@ -74,12 +63,8 @@ const changeCityName = (event) => {
   cityCallWeather(serverAddress, cityName.textContent);
 };
 
-
-
-
-
 //////////*    TEMPERATURE DIFFERENCE    */////////////////////////////////////
-'use strict';
+('use strict');
 const state = {
   temp: 50,
 };
@@ -138,15 +123,11 @@ const changeSky = () => {
   gardenSky.textContent = sky;
 };
 
-
-
-/*    EVENT HANDLERS, OTHER MISC    *//////////////////////////////////////////
-
-
+/*    EVENT HANDLERS, OTHER MISC    */ /////////////////////////////////////////
 
 const registerEventHandlers = () => {
   cityCallWeather(serverAddress, 'Seattle');
-  colorTempChange();
+
   const upArrow = document.querySelector('#increaseTemp');
   upArrow.addEventListener('click', increaseTemp);
 
