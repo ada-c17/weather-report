@@ -41,7 +41,7 @@
     padding-top: 5em;
 }
 
-#weatherIcon {
+#skyIcon {
     max-height: auto;
     max-width: 5em;
     object-fit: contain;

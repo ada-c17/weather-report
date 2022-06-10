@@ -79,13 +79,17 @@ const skyVariations = [
     src: './weather-icons/thunder.png',
   },
 ];
+
 let tempUpButton;
 let tempDownButton;
 let tempDisplay;
+let tempRealTimeButton;
 let gardenDisplay;
 let inputText;
 let cityDisplay;
-let tempRealTimeButton;
+let skyIcon;
+let gardenSky;
+let skyDropdown;
 
 const increaseTemp = () => {
   state.temp += 1;
@@ -120,6 +124,17 @@ const updateCity = () => {
   let newCity = inputText.value;
   cityDisplay.textContent = newCity;
   inputText.value = '';
+};
+
+const updateSky = () => {
+  const skyValue = skyDropdown.value;
+  for (let sky of skyVariations) {
+    if (sky.sky === skyValue) {
+      gardenSky.textContent = sky.garden;
+      skyIcon.src = sky.src;
+      skyIcon.alt = sky.alt;
+    }
+  }
 };
 
 const convertFromKToF = (num) => {
@@ -179,6 +194,9 @@ const lookUpElements = () => {
   inputText = document.getElementById('cityInput');
   cityDisplay = document.getElementById('cityDisplay');
   tempRealTimeButton = document.getElementById('realTime');
+  skyIcon = document.getElementById('skyIcon');
+  gardenSky = document.getElementById('gardenSky');
+  skyDropdown = document.getElementById('skySelect');
 };
 
 const registerEventHandlers = () => {
@@ -186,6 +204,7 @@ const registerEventHandlers = () => {
   tempDownButton.addEventListener('click', decreaseTemp);
   inputText.addEventListener('change', updateCity);
   tempRealTimeButton.addEventListener('click', getLatLong);
+  skyDropdown.addEventListener('change', updateSky);
 };
 
 const initializePage = () => {
