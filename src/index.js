@@ -11,18 +11,20 @@ const state = {
 const kelvinToFahrenheit = (temperature) =>
   (temperature - 273.15) * (9 / 5) + 32;
 
-const incrementTemp = () => {
-  state.tempValue += 1;
+const updateTemp = () => {
   const tempValue = document.querySelector('.tempValue');
   tempValue.textContent = state.tempValue;
   helperTempDependentLayout(state.tempValue, tempValue);
 };
 
+const incrementTemp = () => {
+  state.tempValue += 1;
+  updateTemp();
+};
+
 const decrementTemp = () => {
   state.tempValue -= 1;
-  const tempValue = document.querySelector('.tempValue');
-  tempValue.textContent = state.tempValue;
-  helperTempDependentLayout(state.tempValue, tempValue);
+  updateTemp();
 };
 
 const helperTempDependentLayout = (temp, el) => {
@@ -94,9 +96,7 @@ const getCityWeather = () => {
             kelvinToFahrenheit(response.data.current.temp)
           );
           console.log(state.tempValue);
-          const tempValue = document.querySelector('.tempValue');
-          tempValue.textContent = state.tempValue;
-          helperTempDependentLayout(state.tempValue, tempValue);
+          updateTemp();
         });
     });
 };
