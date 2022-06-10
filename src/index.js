@@ -2,7 +2,7 @@
 
 const state = {
   temp: 50,
-  sky: ""
+  sky: '',
 };
 ///////Temperature Buttons////////////
 const addTemp = (event) => {
@@ -39,25 +39,25 @@ const changeTempColor = (temp) => {
   }
 };
 
-const changeSky = (sky) => {
-  const skyContainer = document.getElementById('skyContainer')
-  state.sky = document.getElementById('sky-select').value
-  if (state.sky == "Sunny") {
-    skyContainer.textContent = "☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️"
-  } else if (state.sky == "Partly Cloudy") {
-    skyContainer.textContent = "🌤 ☁️🌤 ☁️🌤 ☁️🌤 ☁️🌤 ☁️🌤 ☁️"
-  } else if (state.sky == "Rainy") {
-    skyContainer.textContent = "🌧🌈⛈🌧🌧💧⛈🌧🌦💧⛈🌧🌦"
-} else (state.sky == "Snowy") {
-  skyContainer.textContent = "❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨"
-}
+const changeSky = () => {
+  const skyContainer = document.getElementById('skyContainer');
+  state.sky = document.getElementById('sky-select').value;
+  if (state.sky == 'Sunny') {
+    skyContainer.textContent = '☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️';
+  } else if (state.sky == 'Partly Cloudy') {
+    skyContainer.textContent = '🌤 ☁️🌤 ☁️🌤 ☁️🌤 ☁️🌤 ☁️🌤 ☁️';
+  } else if (state.sky == 'Rainy') {
+    skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦💧⛈🌧🌦';
+  } else {
+    skyContainer.textContent = '❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨';
+  }
 };
-var skySelect = document.getElementById('skySelect');
+// var skySelect = document.getElementById('skySelect');
 
-skySelect.onchange = function() {
-  var x = document.getElementById('skySelect').value;
-  document.getElementById('skyContainer') = x
-}
+// skySelect.onchange = function() {
+//   var x = document.getElementById('skySelect').value;
+//   document.getElementById('skyContainer') = x
+// }
 const changeLandscape = (temp) => {
   const landscapeContainer = document.getElementById('landscapeContainer');
   landscapeContainer.textContent = state.landscape;
@@ -87,7 +87,7 @@ const changeCity = (event) => {
     })
     .then((response) => {
       const searchResult = response.data[0];
-      console.log(response)
+      console.log(response);
       cityLat = searchResult.lat;
       cityLon = searchResult.lon;
 
@@ -111,7 +111,7 @@ const changeCity = (event) => {
         });
     })
     .catch((error) => {
-      console.log(error)
+      console.log(error);
       // console.log('error!', error.response.status);
     });
 };
@@ -123,6 +123,8 @@ const registerEventHandlers = (event) => {
   downButton.addEventListener('click', subtractTemp);
   const submitButton = document.getElementById('submitButton');
   submitButton.addEventListener('click', changeCity);
+  const skySelect = document.getElementById('sky-select');
+  skySelect.addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
