@@ -1,6 +1,7 @@
 const temp = {
   fahrenheit: 55,
   emojis: '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲',
+  city: 'Seattle',
 };
 
 const tempCheck = (element) => {
@@ -34,6 +35,7 @@ const emojiCheck = (element) => {
 
 const cityNameReset = () => {};
 
+
 const loadElements = () => {
   // load temp number
   const tempUl = document.getElementById('tempDisplay');
@@ -42,11 +44,22 @@ const loadElements = () => {
   tempUl.appendChild(tempLi);
   tempCheck(tempLi);
 
+  const cityInput = document.getElementById("cityInput");
+  cityInput.addEventListener("input", () => {
+    temp.city = cityInput.value;
+    cityHead.textContent = temp.city;
+  });
+
   // load weather garden
   const emojiUl = document.getElementById('weatherGarden');
   const emojiLi = document.createElement('li');
   emojiLi.textContent = temp.emojis;
   emojiUl.appendChild(emojiLi);
+
+  const citySec = document.getElementById('cityName');
+  const cityHead = document.createElement('h3');
+  cityHead.textContent = temp.city;
+  citySec.appendChild(cityHead);
 
   const loadTempButtons = () => {
     const upUl = document.getElementById('increaseTempButton');
