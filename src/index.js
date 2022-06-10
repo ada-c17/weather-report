@@ -20,10 +20,14 @@ const tempCheck = (element) => {
     // landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
   }
 };
-
-const cityNameReset = () => {
-    
+const increaseTemp = () => {
+  temp.fahrenheit += 1;
 }
+
+const decraeseTemp = () => {
+  temp.fahrenheit -= 1;
+}
+
 
 const getTemp = () => {
   const tempUl = document.getElementById('tempDisplay');
@@ -33,7 +37,6 @@ const getTemp = () => {
   tempCheck(tempLi);
 
   const upUl = document.getElementById('increaseTempButton');
-  const upLi = document.createElement('li');
   upLi.textContent = '⬆️';
   upLi.addEventListener('click', () => {
     tempLi.textContent = temp.fahrenheit += 1;
@@ -50,6 +53,10 @@ const getTemp = () => {
   });
   downUl.appendChild(downLi);
 };
+
+
+
+
 
 if (document.readyState !== 'loading') {
   getTemp();
