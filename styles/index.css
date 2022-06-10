@@ -16,3 +16,17 @@ button, select, input {
     color: red;
 }
 
+#page-layout {
+    display: grid;
+    
+}
+
+#weather-container {
+    grid-column-start: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+}
+
+#weather-garden {
+    height: 150px;
+}

@@ -10,6 +10,7 @@
 <body>
     <h1>Weather Report</h1>
     <p>For the city of <span id="city">Seattle</span></p>
+    <div id="page-layout">
     <article id="temperature-container">
         <h2>Temperature</h2>
         <button id="increase">Up</button>
@@ -31,11 +32,14 @@
         <input type="text" id="city-name" name="city-name">
         <button id="reset">Reset</button>
     </article>
-    <h2>Weather Garden</h2>
-    <article id="weather-garden">
+    <div id="weather-container">
+        <h2>Weather Garden</h2>
+        <article id="weather-garden">
         <p>Sky to be modified</p>
         <p id="landscape">Landscape to be modified</p>
-    </article>
+        </article>
+    </div>
+</div>
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
