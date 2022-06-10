@@ -10,21 +10,22 @@
 <body>
     <h1>Weather Report</h1>
     <h2 id="cityheader">Current Weather for Seattle</h2>
-    <button onclick="getCurrentTemp()">Get Current Temperature</button>
-    <br/>
-    <label for="cityname">City:</label>
     <input type="text" placeholder="Enter a city" id="cityname">
-    <button onclick="resetCity()">Reset City Name</button>
-    <section id="garden-display">
-        <section id="sky"><br/></section>
-        <article id="temperature">temperature</article>
-        <section id="landscape">Landscape</section>
-
+    <br/>
+    <button onclick="getCurrentTemp()">Get Temperature</button>
+    <button onclick="resetCity()">Reset City</button>
+    <section id="garden">
+        <section id="garden-display">
+            <!-- <section id="sky"><br/></section> -->
+            <img id="sky" src="./assets/sun.webp">
+            <article id="temperature">temperature</article>
+            <section id="landscape">Landscape</section>
+        </section>
     </section>
-    <button onclick="increaseTemp()">Increase Temperature</button>
-    <button onclick="decreaseTemp()">Decrease Temperature</button>
+    <button onclick="increaseTemp()">Increase Temp</button>
+    <button onclick="decreaseTemp()">Decrease Temp</button>
     <select name="skytype" id="skytype-select">
-        <option value="">Select a Sky Type</option>
+        <option value="">Select a Sky</option>
         <option value="cloudy">Cloudy</option>
         <option value="rainy">Rainy</option>
         <option value="snowy">Snowy</option>

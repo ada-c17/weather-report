@@ -38,8 +38,6 @@ const getCurrentTemp = function () {
           const fahrenheit = (9 / 5) * (kelvin - 273) + 32;
           temperature = Math.round(fahrenheit);
           newTemperature();
-          // const skyType = response.data.current.weather[0].main;
-          // console.log(skyType);
         })
         .catch((error) => {
           console.log('errorrrr');
@@ -74,8 +72,8 @@ const changeSky = function () {
   const input = document.querySelector('#skytype-select');
 
   input.addEventListener('change', (event) => {
-    const skyOutput = document.querySelector('#sky');
-    skyOutput.textContent = getSky(event.target.value);
+    const skyImage = document.querySelector('#sky');
+    skyImage.src = getSky(event.target.value);
   });
 };
 
@@ -89,13 +87,13 @@ const setTextColorLandscapeBasedOnTemp = function () {
   let landscape = 'landscape';
   let tempColor = '';
   if (temperature >= 80) {
-    tempColor = 'red';
+    tempColor = 'maroon';
     landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (temperature >= 70) {
-    tempColor = 'orange';
+    tempColor = 'coral';
     landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (temperature >= 60) {
-    tempColor = 'yellow';
+    tempColor = 'goldenrod';
     landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (temperature >= 50) {
     tempColor = 'green';
@@ -110,37 +108,14 @@ const setTextColorLandscapeBasedOnTemp = function () {
 
 const getSky = function (skyType) {
   let sky = '';
-  if (skyType == 'cloudy') {
-    sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  } else if (skyType == 'rainy') {
-    sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else if (skyType == 'snowy') {
-    sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
-  } else if (skyType == 'sunny') {
-    sky = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  if (skyType === 'cloudy') {
+    sky = './assets/cloud.webp';
+  } else if (skyType === 'rainy') {
+    sky = './assets/rain.png';
+  } else if (skyType === 'snowy') {
+    sky = './assets/snow.png';
+  } else if (skyType === 'sunny') {
+    sky = './assets/sun.webp';
   }
   return sky;
 };
-
-// const setSky = function () {
-//   const input = document.querySelector('#skytype-select');
-
-//   input.addEventListener('change', (event) => {
-//     const skyOutput = document.querySelector('#sky');
-//     skyOutput.textContent = getSky(event.target.value);
-//   });
-// };
-
-// const getSky2 = function (skyType) {
-//   let sky = '';
-//   if (skyType == 'cloudy') {
-//     sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-//   } else if (skyType == 'rainy') {
-//     sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-//   } else if (skyType == 'snowy') {
-//     sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
-//   } else if (skyType == 'sunny') {
-//     sky = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-//   }
-//   return sky;
-// };
