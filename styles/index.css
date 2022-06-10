@@ -117,3 +117,17 @@ body {
     color: lightgoldenrodyellow;
     background-color: palegreen
 }
+
+#garden-sky {
+    margin-bottom: 50px;
+    text-align: center;
+}
+#land-scape, h3 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
