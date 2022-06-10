@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles/index.css" rel="stylesheet" />
+
     <title>Weather Report</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div id="title">
+      <h1>Weather Report</h1>
+      <h4>For the city of</h4>
+      <h2 id="current-city">Seattle</h2>
+    </div>
+    <div id="weather-features-container">
+      <section class="weather-features" id="temp">
+        <h3>Temperature</h3>
+        <button id="up-button">⬆️</button>
+        <p id="fahrenheit">50</p>
+        <button id="down-button">⬇️</button>
+        <button id="API-button">Get Realtime Temp</button>
+      </section>
+      <!-- end of temp section -->
+      <section class="weather-features" id="sky-selector">
+        <h3>Sky</h3>
+        <select id="sky-condition"></select>
+      </section>
+      <!-- end of sky selector section -->
+      <section class="weather-features" id="city">
+        <h3>City Name</h3>
+        <label for="city-selector">Select a City</label>
+        <input type="text" id="city-selector" onfocus="this.value=''" value="Seattle"/>
+        <button id="reset">Reset</button>
+      </section>
+      <!-- end of city section -->
+      <section id="visual">
+        <img id="sky-gif" src="images/rainy-gif.webp"></img>
+        <p id="landscape">🌲⛄️🌲⛄️🍂🌲🍁🌲⛄️🍂🌲</p>
+        <!-- placeholder text -->
+      </section>
+      <!-- end of visual -->
+    </div>
+    <!-- end of weather features container -->
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+  </body>
 </html>
