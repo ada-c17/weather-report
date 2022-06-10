@@ -50,17 +50,13 @@ const changeBackground = (temp) => {
     temp = (9 / 5) * temp + 32;
   }
   if (temp >= 80) {
-    element.classList.remove(element.className);
-    element.classList.add('summer');
+    element.className = 'summer';
   } else if (temp < 80 && temp >= 70) {
-    element.classList.remove(element.className);
-    element.classList.add('spring');
+    element.className = 'spring';
   } else if (temp < 70 && temp >= 60) {
-    element.classList.remove(element.className);
-    element.classList.add('autumn');
+    element.className = 'autumn';
   } else {
-    element.classList.remove(element.className);
-    element.classList.add('winter');
+    element.className = 'winter';
   }
 };
 // Temperature Ranges Change Temperature
@@ -194,8 +190,7 @@ document.addEventListener('DOMContentLoaded', registerEventHandlersSky);
 
 const changeModeSkyBackground = (event) => {
   const element = document.body;
-  element.classList.remove(element.className);
-  element.classList.add(`${event.target.value}`);
+  element.className = event.target.value;
 };
 
 const registerEventHandlersSkybackground = () => {
