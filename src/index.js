@@ -1,4 +1,6 @@
-let currentTemp = 80;
+const state = {
+  currentTemp: 80,
+};
 
 const tempColor = function (temperature) {
   if (temperature >= 100) {
@@ -31,7 +33,7 @@ const tempPic = function (temperature) {
 const changeTempUp = function () {
   const tempDisplay = document.getElementById('tempDisplay');
   const landScape = document.getElementById('landScape');
-  currentTemp += 1;
+  state.currentTemp += 1;
   const color = tempColor(currentTemp);
   const imgFileName = tempPic(currentTemp);
   tempDisplay.innerHTML = `<p style="${color}">Current Temperature: ${currentTemp} F</p>`;
@@ -41,7 +43,7 @@ const changeTempUp = function () {
 const changeTempDown = function () {
   const tempDisplay = document.getElementById('tempDisplay');
   const landScape = document.getElementById('landScape');
-  currentTemp -= 1;
+  state.currentTemp -= 1;
   const color = tempColor(currentTemp);
   const imgFileName = tempPic(currentTemp);
   tempDisplay.innerHTML = `<p style="${color}">Current Temperature: ${currentTemp} F</p>`;
