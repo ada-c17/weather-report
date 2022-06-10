@@ -19,24 +19,7 @@ const landscapeChanger = (temp) => {
   }
 };
 
-const sky = document.getElementById('top-landscape');
-//function to change sky
-const updateSky = (opt) => {
-  // let skyContainer = document.getElementById(‘top-landscape’);
-  if (skyOption.value === 'sunny') {
-    sky.innerHTML = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️";
-  } else if (skyOption.value === 'cloudy') {
-    sky.innerHTML = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
-  } else if (skyOption.value === 'mostly cloudy') {
-    sky.innerHTML = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
-  } else if (skyOption.value === 'rainy') {
-    sky.innerHTML = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧";
-  } else if (skyOption.value === 'snowy') {
-    sky.innerHTML = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨";
-  }
-};
-//add event listener for sky dropdown menu
-skyOption.addEventListener('change', updateSky);
+
 
 // //function to change sky
 // const skyOption = document.getElementById("sky-options").value;
@@ -130,3 +113,23 @@ function resetCityName() {
 
 //event listener for reseting the city name
 resetCityButton.addEventListener('click', resetCityName);
+
+
+const sky = document.getElementById('top-landscape');
+//function to change sky
+const updateSky = (opt) => {
+  // let skyContainer = document.getElementById(‘top-landscape’);
+  if (skyOption.value === 'sunny') {
+    sky.innerHTML = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️";
+  } else if (skyOption.value === 'cloudy') {
+    sky.innerHTML = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
+  } else if (skyOption.value === 'mostly cloudy') {
+    sky.innerHTML = "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️";
+  } else if (skyOption.value === 'rainy') {
+    sky.innerHTML = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧";
+  } else if (skyOption.value === 'snowy') {
+    sky.innerHTML = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨";
+  }
+};
+//add event listener for sky dropdown menu
+skyOption.addEventListener('change', updateSky);
