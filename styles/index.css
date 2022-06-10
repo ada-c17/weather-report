@@ -2,37 +2,62 @@ body {
     margin: 0;
 }
 .wrapper {
-    width: 100%;
+    /* width: 100%; */
+    /* height: 100%; */
     display: grid;
     grid-template-columns: 100vw;
     grid-template-rows: 20vh 60vh 20vh;
-    margin: 0;
-    padding: 0;
 }
 
-.sky{
-    grid-row: 1/2;
+/* SKY */
+#sky{
+    grid-row: 1;
     width: 100%;
-    margin: 0;
-    padding: 0;
-    background-size: cover;
+    /* margin: 0; */
+    /* background-size: cover; */
     background-position: bottom; 
+    background-image: url('/assets/sky/clear\ 1920x360.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.mid{
-    grid-row: 2/3;
+#select-sky-wrapper{
+    border-radius:36px;
+    display:inline-block;
+    overflow:hidden;
+}
+
+#select-sky-box{
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    width:140px;
+    height:40px;
+    border:none;
+    outline:none;
+    background-color: rgba(255, 255, 255, .5);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* MID */
+#mid{
+    grid-row: 2;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    /* margin: 0; */
     background-size:cover;
     background-position: top; 
+    background-image: url('/assets/jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpeg');
 }
 
-.temp{
-    grid-row: 3/4;
+
+/* TEMP */
+#temp{
+    grid-row: 3;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    /* margin: 0; */
     background-size: cover;
     background-position:top; 
+    background-image: url('/assets/temp/default\ 1920x360.jpg')
 }
