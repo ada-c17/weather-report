@@ -27,7 +27,7 @@ const colorTempChange = () => {
   const tempDisplay = document.querySelector('#tempValue');
   tempDisplay.textContent = `${state.temp}`;
   tempDisplay.className = color;
-  const gardenLandscape = document.querySelector('#garden');
+  const gardenLandscape = document.querySelector('#landscape');
   gardenLandscape.textContent = landscape;
 };
 
@@ -41,16 +41,39 @@ const decreaseTemp = () => {
   colorTempChange();
 };
 
+const changeSky = () => {
+  const skySelect = document.getElementById('skySelect').value;
+  let sky = '';
+  if (skySelect === 'Sunny') {
+    sky = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (skySelect === 'Cloudy') {
+    sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skySelect === 'Rainy') {
+    sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skySelect === 'Snowy') {
+    sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+  const gardenSky = document.getElementById('sky');
+  gardenSky.textContent = sky;
+};
+
 const inputElement = document.querySelector('#userInput');
 
 const registerEventHandlers = () => {
+  colorTempChange();
   const upArrow = document.querySelector('#increaseTemp');
-  const downArrow = document.querySelector('#decreaseTemp');
   upArrow.addEventListener('click', increaseTemp);
+
+  const downArrow = document.querySelector('#decreaseTemp');
   downArrow.addEventListener('click', decreaseTemp);
+
   inputElement.addEventListener('change', changeCityName);
   const resetButton = document.querySelector('#resetButton');
   resetButton.addEventListener('click', resetInput);
+
+  changeSky();
+  const skyControls = document.getElementById('skySelect');
+  skyControls.addEventListener('change', changeSky);
 };
 
 const changeCityName = (event) => {
