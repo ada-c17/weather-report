@@ -60,12 +60,8 @@ const registerEventHandlers = (event) => {
   const cityNameid = document.querySelector('#cityNameid');
   cityNameid.addEventListener('input', updateCityname);
 
-  // const realCityWeather = document.querySelector('#realCityWeather');
-  // realCityWeather.addEventListener('click', getLocation);
-
   const getRealWeather = document.querySelector('#realCityWeather');
-  getRealWeather.addEventListener('click', getWeather);
-
+  getRealWeather.addEventListener('click', getLocation);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
@@ -79,49 +75,40 @@ const updateCityname = () => {
   const cityContainer = document.querySelector('#amazingCity');
 
   cityContainer.textContent = `The amazing city of ${nameOfCity}`;
-
-  //console.log(nameOfCity);
 };
 
-
-const getLocation =() => {
+const getLocation = () => {
   const nameOfCity = document.getElementById('cityNameid').value;
-  axios.get('http://127.0.0.1:5000/location', {
+  axios
+    .get('http://127.0.0.1:5000/location', {
       params: {
         q: nameOfCity,
         format: 'json',
       },
-  })
-  .then((response) => {
-    const cityLocationLat = response.data[0].lat;
-    const cityLocationLon = response.data[0].lon;
-  })
-    // const realWeatherTemp =  
-    // .then
-  };
-  // console.log("hi");
-  // console.log(nameOfCity);
-  // console.log(cityLocation);
-  // console.log(cityLocation.value);
-  // console.log(cityLocation.data);
-  //return cityLocation;
-  //getWeather();
-  // console.log("hi");
-  // console.log(nameOfCity);
-  // console.log(cityLocation);
+    })
+    .then((response) => {
+      //console.log(response);
+      const cityLocationLat = response.data[0].lat;
+      const cityLocationLon = response.data[0].lon;
+      console.log(cityLocationLat); //this works
+      console.log(cityLocationLon); //this works
+      axios
+        .get('http://127.0.0.1:5000/weather', {
+          params: {
+            lat: cityLocationLat,
+            lon: cityLocationLon,
+          },
+        })
+        .then((response) => {
+          const cityLocationWeather = response.data.current.temp;
+          //console.log(cityLocationWeather);
+          const realCityTemp = document.getElementById('tempCount');
+          realCityTemp.textContent = cityLocationWeather;
+          //console.log(realCityTemp);
+        });
+    });
+};
 
-const getWeather =() => {
-  const cityLocation = getLocation(); //response
-  // const cityWeather = axios
-  //   .get('http://127.0.0.1:5000/weather', {
-  //     params: {
-  //       "lat": cityLocation.data[0].lat, 
-  //       "lon": cityLocation.data[0].lon,
-  //     },
-  // })
-  console.log(cityLocation);
-  console.log(cityLocation.data);
-  // console.log("hello");
-  //return cityWeather;
-
-}
+const convertKtoF = (Kelvin) => {
+  Fahrenheit = (Kelvin - 273.15) * 1.8 + 32;
+};
