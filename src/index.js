@@ -89,7 +89,7 @@ const changeColorTemp = (temp) => {
 const message = document.getElementById('enter_city');
 const result = document.getElementById('city_name');
 message.addEventListener('input', function () {
-  result.textContent = this.value;
+  result.textContent = this.value.charAt(0).toUpperCase() + this.value.slice(1);
 });
 
 // 4. calling APIs LocationIQ and OpenWeather

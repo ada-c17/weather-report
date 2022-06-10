@@ -82,6 +82,7 @@ h3{margin: 0;}
     width:100%;
     border-radius: 10px;
     background: var(--white);
+    color: var(--dark);
     width:250px;
     padding:40px;
     margin:30px;
@@ -114,17 +115,18 @@ h3{margin: 0;}
 }
 #day__forecast{
     padding:0;
+
 }
 li.date{
     background-color: bisque;
     font-weight:bold;
     list-style-type: none;
+
 }
 li.data{
     font-weight:lighter;
     list-style-type: none;
     background-color:aliceblue;
-
 }
 
 .teal {
