@@ -15,7 +15,7 @@ const increaseTemp = () => {
   tempContainer.textContent = flagFahrenheit
     ? `${Math.trunc(state.temp)}°F`
     : `${Math.trunc(state.temp)}°C`;
-  changeColorTemp();
+  changeColorTemp(state.temp);
   changeBackground(state.temp);
 };
 
@@ -32,7 +32,7 @@ const decreaseTemp = () => {
   tempContainer.textContent = flagFahrenheit
     ? `${Math.trunc(state.temp)}°F`
     : `${Math.trunc(state.temp)}°C`;
-  changeColorTemp();
+  changeColorTemp(state.temp);
   changeBackground(state.temp);
 };
 
@@ -40,6 +40,7 @@ const registerEventHandlersDecrease = () => {
   const increaseTempButton = document.getElementById('decreaseTempButton');
   increaseTempButton.addEventListener('click', decreaseTemp);
 };
+document.addEventListener('DOMContentLoaded', registerEventHandlersDecrease);
 
 // Temperature Ranges Change Landscape
 
@@ -64,18 +65,18 @@ const changeBackground = (temp) => {
 };
 // Temperature Ranges Change Temperature
 
-const changeColorTemp = () => {
+const changeColorTemp = (temp) => {
   const tempContainer = document.getElementById('current_temp');
   if (!flagFahrenheit) {
-    state.temp = (9 / 5) * temp + 32;
+    temp = (9 / 5) * temp + 32;
   }
-  if (state.temp < 50) {
+  if (temp < 50) {
     tempContainer.className = 'teal';
-  } else if (state.temp < 60) {
+  } else if (temp >= 50 && temp < 60) {
     tempContainer.className = 'green';
-  } else if (state.temp < 70) {
+  } else if (temp >= 60 && temp < 70) {
     tempContainer.className = 'yellow';
-  } else if (state.temp < 80) {
+  } else if (temp >= 70 && temp < 80) {
     tempContainer.className = 'orange';
   } else {
     tempContainer.className = 'red';
@@ -94,7 +95,6 @@ message.addEventListener('input', function () {
 // 4. calling APIs LocationIQ and OpenWeather
 
 const getRealTemp = () => {
-  let coords;
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
@@ -102,11 +102,8 @@ const getRealTemp = () => {
       },
     })
     .then((response) => {
-      console.log('success!', response.data[0].display_name);
       const forecastFor = document.getElementById('forecast');
       forecastFor.textContent = `Forecast for: ${response.data[0].display_name}`;
-      coords = [response.data[0].lat, response.data[0].lon];
-      console.log('im in first response');
       axios
         .get('http://127.0.0.1:5000/weather', {
           params: {
@@ -115,45 +112,7 @@ const getRealTemp = () => {
           },
         })
         .then((response) => {
-          console.log('success!', response.data);
-          flagFahrenheit = true;
-          state.temp = response.data.current.temp;
-          const tempContainer = document.getElementById('current_temp');
-          tempContainer.textContent = `${Math.trunc(state.temp)}°F`;
-          changeColorTemp();
-          changeBackground(state.temp);
-          console.log('im in second response');
-          const taskList = document.getElementById('day__forecast');
-          taskList.innerHTML = '';
-
-          // forecast for a week
-          for (let i = 1; i <= 7; i++) {
-            console.log('im in forloop');
-            const listItem = document.createElement('li');
-            today.setDate(today.getDate() + 1);
-
-            listItem.textContent = today.toDateString();
-            listItem.className = 'date';
-            taskList.appendChild(listItem);
-
-            const list = document.createElement('ol');
-            listItem.appendChild(list);
-
-            const dayTemp = document.createElement('li');
-            dayTemp.textContent = `day temp: ${response.data.daily[i].temp.day}°F`;
-            dayTemp.className = 'data';
-            list.appendChild(dayTemp);
-
-            const nightTemp = document.createElement('li');
-            nightTemp.textContent = `night temp: ${response.data.daily[i].temp.night}°F`;
-            nightTemp.className = 'data';
-            list.appendChild(nightTemp);
-
-            const description = document.createElement('li');
-            description.textContent = `${response.data.daily[i]['weather'][0].description}`;
-            description.className = 'data';
-            list.appendChild(description);
-          }
+          Forecast(response.data);
         })
         .catch((error) => {
           console.log('error!', error.response);
@@ -169,6 +128,44 @@ const registerEventHandlersReal = () => {
   getRealTempBtn.addEventListener('click', getRealTemp);
 };
 document.addEventListener('DOMContentLoaded', registerEventHandlersReal);
+
+const Forecast = (data) => {
+  flagFahrenheit = true;
+  state.temp = data.current.temp;
+  const tempContainer = document.getElementById('current_temp');
+  tempContainer.textContent = `${Math.trunc(state.temp)}°F`;
+  changeColorTemp(state.temp);
+  changeBackground(state.temp);
+  const taskList = document.getElementById('day__forecast');
+  taskList.innerHTML = '';
+  // forecast for a week
+  for (let i = 1; i <= 7; i++) {
+    const listItem = document.createElement('li');
+    today.setDate(today.getDate() + 1);
+
+    listItem.textContent = today.toDateString();
+    listItem.className = 'date';
+    taskList.appendChild(listItem);
+
+    const list = document.createElement('ol');
+    listItem.appendChild(list);
+
+    const dayTemp = document.createElement('li');
+    dayTemp.textContent = `day temp: ${data.daily[i].temp.day}°F`;
+    dayTemp.className = 'data';
+    list.appendChild(dayTemp);
+
+    const nightTemp = document.createElement('li');
+    nightTemp.textContent = `night temp: ${data.daily[i].temp.night}°F`;
+    nightTemp.className = 'data';
+    list.appendChild(nightTemp);
+
+    const description = document.createElement('li');
+    description.textContent = `${data.daily[i]['weather'][0].description}`;
+    description.className = 'data';
+    list.appendChild(description);
+  }
+};
 
 // 5. Selection Changes Sky Background
 
@@ -236,8 +233,8 @@ const changeMetricForTemp = () => {
   tempContainer.textContent = flagFahrenheit
     ? `${Math.trunc(state.temp)}°F`
     : `${Math.trunc(state.temp)}°C`;
+  changeColorTemp(state.temp);
   changeBackground(state.temp);
-  changeColorTemp();
 };
 
 const registerEventHandlersFarenheit = () => {
