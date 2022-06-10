@@ -1,7 +1,3 @@
-// const { default: axios } = require('axios');
-
-// const { default: axios } = require('axios');
-
 const state = {
   temperature: 75,
   city: 'Brownsville',
@@ -63,7 +59,7 @@ const increaseTemp = () => {
 
 const getCity = () => {
   const cityInput = document.querySelector('input');
-  return (newCity = cityInput.value);
+  return cityInput.value;
 };
 
 const changeCity = () => {

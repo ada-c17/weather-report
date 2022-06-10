@@ -40,6 +40,10 @@ input {
     height: 25px;
 }
 
+option {
+    font-family: VarelaRound;
+}
+
 .arrow {
     width: 50px;
     padding: 10px;
@@ -102,4 +106,15 @@ input {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+#sky-select {
+    width: 60%;
+    align-self: center;
+    height: 50px;
+    text-align: center;
+    font-family: VarelaRound;
+    font-size: 16pt;
+    color: #503b06;
+
 }
