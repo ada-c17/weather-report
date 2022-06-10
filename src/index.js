@@ -15,7 +15,7 @@ const increaseTemp = () => {
   tempContainer.textContent = flagFahrenheit
     ? `${Math.trunc(state.temp)}°F`
     : `${Math.trunc(state.temp)}°C`;
-  changeColorTemp(state.temp);
+  changeColorTemp();
   changeBackground(state.temp);
 };
 
@@ -32,7 +32,7 @@ const decreaseTemp = () => {
   tempContainer.textContent = flagFahrenheit
     ? `${Math.trunc(state.temp)}°F`
     : `${Math.trunc(state.temp)}°C`;
-  changeColorTemp(state.temp);
+  changeColorTemp();
   changeBackground(state.temp);
 };
 
@@ -64,10 +64,10 @@ const changeBackground = (temp) => {
 };
 // Temperature Ranges Change Temperature
 
-const changeColorTemp = (temp) => {
-  const element = document.getElementById('current_temp');
+const changeColorTemp = () => {
+  const tempContainer = document.getElementById('current_temp');
   if (!flagFahrenheit) {
-    temp = (9 / 5) * temp + 32;
+    state.temp = (9 / 5) * temp + 32;
   }
   if (state.temp < 50) {
     tempContainer.className = 'teal';
@@ -120,8 +120,8 @@ const getRealTemp = () => {
           state.temp = response.data.current.temp;
           const tempContainer = document.getElementById('current_temp');
           tempContainer.textContent = `${Math.trunc(state.temp)}°F`;
-          // changeColorTemp(state.temp);
-          // changeBackground(state.temp);
+          changeColorTemp();
+          changeBackground(state.temp);
           console.log('im in second response');
           const taskList = document.getElementById('day__forecast');
           taskList.innerHTML = '';
@@ -237,6 +237,7 @@ const changeMetricForTemp = () => {
     ? `${Math.trunc(state.temp)}°F`
     : `${Math.trunc(state.temp)}°C`;
   changeBackground(state.temp);
+  changeColorTemp();
 };
 
 const registerEventHandlersFarenheit = () => {
