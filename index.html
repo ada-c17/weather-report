@@ -10,8 +10,8 @@
 <body class="container">
     <header class="header">
         <h1>Weather Report</h1>
-        <!-- Update [CITY] with city input -->
-        <h2 id="header-city">for the city of Seattle</h2>
+        <!-- City updates to "city-input" text -->
+        <h2 id="header-city">For the city of Seattle</h2>
     </header>
     <aside>
         <section class="city">
@@ -20,7 +20,7 @@
             </div>
             <div class="city-name-container">
                 <div>
-                <input id="city-name" type="text" placeholder="Seattle">
+                <input id="city-input" type="text" placeholder="Seattle">
                 </div>
                 <div>
                 <input type="reset" id="reset-btn">
@@ -33,20 +33,20 @@
             <h3>Temperature</h3>
             <div class="temp-container">
                 <div class="temp-button-container">
-                    <section>
+                    <div>
                         <button id="increase-temp">▲</button>
-                    </section>
-                    <section id="temp">
+                    </div>
+                    <!-- Temp adjusted when increase-temp or decrease-temp button clicked -->
+                    <div id="temp" class="temp-70">
                         75
-                    </section>
-                    <section>
+                    </div>
+                    <div>
                         <button id="decrease-temp">▼</button>
-                    </section>
+                    </div>
                 </div>
-                
-                <section>
-                    <button id="realtime-temp">Realtime Temperature</button>
-                </section>
+                <div>
+                    <button id="realtime-temp">Get Realtime Temperature</button>
+                </div>
             </div>
             
         </section>
