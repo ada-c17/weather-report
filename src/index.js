@@ -1,3 +1,9 @@
+const GARDENSKIES = {
+  sunny: '☁️ ☁️ ☁️ ☀️ ☁️ ☁️',
+  cloudy: '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️',
+  rainy: '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧',
+  snowy: '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨',
+};
 const state = {
   tempValue: 60,
 };
@@ -49,6 +55,10 @@ const updateTitleCity = () => {
 const resetCity = () => {
   document.querySelector('#titleCity').textContent = 'Seattle';
   document.querySelector('#cityName').value = '';
+const updateWeatherGardenSky = () => {
+  let gardenSky = document.querySelector('#gardenSky');
+  console.log(`${weatherSelector.value}`);
+  gardenSky.textContent = GARDENSKIES[weatherSelector.value];
 };
 
 const registerEventHandlers = () => {
@@ -56,6 +66,8 @@ const registerEventHandlers = () => {
   cityInput.addEventListener('input', updateTitleCity);
   const resetBtn = document.querySelector('#resetBtn');
   resetBtn.addEventListener('click', resetCity);
+  const weatherSelector = document.querySelector('#weatherSelector');
+  weatherSelector.addEventListener('change', updateWeatherGardenSky);
   const incrementButton = document.querySelector('#tempUp');
   incrementButton.addEventListener('click', incrementTemp);
   const decrementButton = document.querySelector('#tempDown');
