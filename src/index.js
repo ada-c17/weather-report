@@ -70,5 +70,19 @@ const changeLandscape = () => {
   }
 };
 
+const changeCityName = () => {
+  const currentCity = document.querySelector("#current-city");
+  const cityInput = document.querySelector("#input-city");
+  const resetButton = document.querySelector(".reset-button");
+  cityInput.addEventListener('input', (e) => {
+    currentCity.textContent = e.target.value;
+  })
+  resetButton.addEventListener('click', () => {
+    currentCity.textContent = "Seattle, WA";
+    cityInput.value = ""
+  })
+}; 
+
 document.addEventListener('DOMContentLoaded', changeTemp);
 document.addEventListener('DOMContentLoaded', changeLandscape);
+document.addEventListener('DOMContentLoaded', changeCityName);
