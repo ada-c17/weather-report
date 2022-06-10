@@ -2,13 +2,69 @@ html {
     cursor: pointer;
 }
 
+h1 {
+    font-size: 4em;
+}
+
 section {
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     text-align: center;
+    /* background-color: rgba(191, 191, 191, .4);
+    border-radius: 25%; */
+}
+
+html {
+    /* background-image: url('../images/bgrImg.avif');
+    background-size: cover; */
 }
 
 body {
-    background-color: rgb(59, 150, 164);
+    background-image: url('../images/bgrImg.avif');
+    background-size: cover;
+    /* background-color: rgb(59, 150, 164); */
+    /* background-image: url('../images/bgrImg.avif'); */
+    /* background-repeat: no-repeat; */
+}
+
+button {
+    font-size: 1.3rem;
+    background-color: #c2e1e7; /* Green */
+    border: none;
+    /* color: white; */
+    border-radius: 8px;
+}
+
+span, label {
+    font-size: 1.5rem;
+    color: antiquewhite;
+}
+
+#reset {
+    margin: 1% 1% 0 0;
+}
+
+#realTime {
+    margin: 1% 0 0 1%;
+}
+
+/* main {
+    border: 1px solid black;
+    background-image: url('../images/bgrImg.avif');
+    background-size: cover;
+} */
+
+#container {
+    width: 40%;
+    /* height: 30vh; */
+    /* border: 2px solid red; */
+    position: absolute;
+    /* top: 50%; */
+    left: 30%;
+    background-color: rgba(191, 191, 191, .7);
+    border-radius: 10%;
+    padding-bottom: 2%;
+    
+    /* margin: -25px 0 0 -25px; */
 }
 
 #tValue {
@@ -17,6 +73,23 @@ body {
 
 #temperature, #bottom, #sky, #city {
     padding-bottom: 1%;
+}
+
+#tempBack {
+    font-size: 3rem;
+}
+
+#reflectCity, #inputCity {
+    color:rgb(227, 23, 87);
+    font-size: 2rem;
+}
+
+#skyPic {
+    font-size: 3rem;
+}
+
+.def {
+    color: teal;
 }
 
 .red {

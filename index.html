@@ -10,46 +10,52 @@
 <body>
     <header></header>
     <main>
-        <section>
-            <h1>Weather report</h1>
-            <div id="city">
-                <span>
-                    Lovely city: Redmond, WA
-                </span>
-            </div>
-        </section>
-        <section id="skySection">
-            <h2>Beautiful sky</h2>
-            <div id="sky">
-                <select>
-                    <option value="sunny">Sunny</option>
-                    <option value="cloudy">Cloudy</option>
-                    <option value="rainy">Rainy</option>
-                    <option value="snowy">Snowy</option>
-                </select>
-            </div>
-        </section>
-        <section id="imageSection">
-            <h2>Sky</h2>
-            <img src="images/sunny.png" alt="sunny" />
-        </section>
-        <section id="tSection">
-            <div id="temperature">
-                <!-- <span id="increase">⬆️</span> -->
-                <!-- <span id="decrease">⬇️</span> -->
-                <button id="increase">⬆️</button>
-                <span id="tValue">65</span>
-                <button id="decrease">⬇️</button>
-                <button>Get realtime temperature</button>
-            </div>
-        </section>
-        <section id="cityNameSection">
-            <h2>City name:</h2>
-            <div id="bottom">
-                <label for="inputCity">My lovely city:</label>
-                <input type="text" id="inputCity" name="inputCity" value="Redmond, WA">
-                <button>Reset City</button>
-            </div>
+        <section id="container">
+            <section>
+                <h1>Weather report</h1>
+                <div id="city">
+                    <span>
+                        Place: <span id="reflectCity">Mauna Kea</span>
+                    </span>
+                </div>
+            </section>
+            <section id="skySection">
+                <h2>Beautiful sky</h2>
+                <div id="sky">
+                    <select id="skySelect">
+                        <option value="sunny">Sunny</option>
+                        <option value="cloudy">Cloudy</option>
+                        <option value="rainy">Rainy</option>
+                        <option value="snowy">Snowy</option>
+                    </select>
+                </div>
+            </section>
+            <section id="imageSection">
+                <h2>Sky</h2>
+                <section id="skyPic">
+                    <img id="img" src="images/sunny.png" alt="sunny" />
+                </section>
+            </section>
+            <section>
+                <h2>Temperature background</h2>
+                <span id="tempBack">☃️☃️☃️</span>
+            </section>
+            <section id="tSection">
+                <div id="temperature">
+                    <button id="decrease">⬇️</button>
+                    <span class = 'def' id="tValue">35</span>
+                    <button id="increase">⬆️</button>
+                </div>
+            </section>
+            <section id="cityNameSection">
+                <h2>Place name:</h2>
+                <div id="bottom">
+                    <label for="inputCity">My lovely place:</label>
+                    <input type="text" id="inputCity" name="inputCity" value="Mauna Kea">
+                </div>
+                <button id="reset">Reset Place</button>
+                <button id="realTime">Realtime temperature</button>
+            </section>
         </section>
     </main>
     <footer></footer>
