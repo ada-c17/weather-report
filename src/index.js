@@ -1,5 +1,18 @@
+const axios = require('axios');
+
 const state = {
   currentTemp: 80,
+  lat: 40.594,
+  lon: 74.6049,
+};
+
+const tempConvert = function (K) {
+  F = ((K - 273.15) * 9) / 5 + 32;
+  return F;
+};
+
+const setCurrentTemp = function (temp) {
+  state.currentTemp = tempConvert(temp);
 };
 
 const tempColor = function (temperature) {
@@ -30,13 +43,25 @@ const tempPic = function (temperature) {
   }
 };
 
+const getTemp = function () {
+  const p = {
+    params: {
+      lat: state.lat,
+      lon: state.lon,
+    },
+  };
+  const currentWeather = axios
+    .get('http://127.0.0.1:5000/weather', p)
+    .then(setCurrentTemp(response.current.temp));
+};
+
 const changeTempUp = function () {
   const tempDisplay = document.getElementById('tempDisplay');
   const landScape = document.getElementById('landScape');
   state.currentTemp += 1;
-  const color = tempColor(currentTemp);
-  const imgFileName = tempPic(currentTemp);
-  tempDisplay.innerHTML = `<p style="${color}">Current Temperature: ${currentTemp} F</p>`;
+  const color = tempColor(state.currentTemp);
+  const imgFileName = tempPic(state.currentTemp);
+  tempDisplay.innerHTML = `<p style="${color}">Current Temperature: ${state.currentTemp} F</p>`;
   landScape.innerHTML = `<img alt="Nice Landscape" src="assets/${imgFileName}">`;
 };
 
@@ -44,9 +69,9 @@ const changeTempDown = function () {
   const tempDisplay = document.getElementById('tempDisplay');
   const landScape = document.getElementById('landScape');
   state.currentTemp -= 1;
-  const color = tempColor(currentTemp);
-  const imgFileName = tempPic(currentTemp);
-  tempDisplay.innerHTML = `<p style="${color}">Current Temperature: ${currentTemp} F</p>`;
+  const color = tempColor(state.currentTemp);
+  const imgFileName = tempPic(state.currentTemp);
+  tempDisplay.innerHTML = `<p style="${color}">Current Temperature: ${state.currentTemp} F</p>`;
   landScape.innerHTML = `<img alt="summer-beach" src="assets/${imgFileName}">`;
 };
 
