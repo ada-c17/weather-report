@@ -108,53 +108,6 @@ let changeWeather = () => {
   });
 };
 
-// const getLatAndLong = (cityname) => {
-//   return axios
-//     .get('http://localhost:5000/location', {
-//       params: { q: cityname },
-//     })
-//     .then((response) => {
-//       const lat = response.data[0].lat;
-//       const lon = response.data[0].lon;
-//       // console.log(lat, lon);
-//       getWeatherData(lat, lon);
-//     })
-//     .catch((error) => {
-//       console.log('Location data could not be retrieved', error.data);
-//     });
-// };
-
-// const getWeatherData = (lat, lon) => {
-//   axios
-//     .get('http://localhost:5000/weather', {
-//       params: {
-//         lat: lat,
-//         lon: lon,
-//       },
-//     })
-//     .then((response) => {
-//       // console.log(response.data);
-//       return response.data.current;
-//     });
-// };
-
-// const changeWeather = async (newCity) => {
-//   let weatherPromise = await getLatAndLong(newCity);
-//   weatherPromise.then((weather) => console.log(weather));
-// };
-
-// changeWeather('Brownsville');
-
-// Get input value
-// Make API call with that input value
-// Update temperature. Need to call getTempandChangeStyle
-// Event Listener? Get Realtime Weather Button!
-
-// let newCity = getLatAndLong('Brownsville');
-// newCity.then((response) => {
-//   console.log(response);
-// });
-
 const registerEventHandlers = () => {
   const leftArrow = document.getElementById('left-arrow');
   leftArrow.addEventListener('click', decreaseTemp);
