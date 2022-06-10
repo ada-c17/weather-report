@@ -17,3 +17,33 @@
 .tempTeal {
     color: teal;
 }
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding-top: 20px;
+}
+
+.stats-container article {
+background-color:white;
+border-radius: 15px;
+text-align:left;
+/* padding-top: 10px; */
+padding-top: 10px;
+padding-left: 30px;
+padding-bottom: 20px;
+padding-right: 30px;
+color: #a8b2d1;
+margin:3vh;
+}
+
+.stats-container article h1 {
+    font-size: larger;
+
+}
+
+
+body {
+    background-color:dodgerblue;
+}
