@@ -9,18 +9,23 @@ const state = {
   tempValue: 60,
 };
 
-const incrementTemp = () => {
-  state.tempValue += 1;
+const kelvinToFahrenheit = (temperature) =>
+  (temperature - 273.15) * (9 / 5) + 32;
+
+const updateTemp = () => {
   const tempValue = document.querySelector('.tempValue');
   tempValue.textContent = state.tempValue;
   helperTempDependentLayout(state.tempValue, tempValue);
 };
 
+const incrementTemp = () => {
+  state.tempValue += 1;
+  updateTemp();
+};
+
 const decrementTemp = () => {
   state.tempValue -= 1;
-  const tempValue = document.querySelector('.tempValue');
-  tempValue.textContent = state.tempValue;
-  helperTempDependentLayout(state.tempValue, tempValue);
+  updateTemp();
 };
 
 const helperTempDependentLayout = (temp, el) => {
@@ -49,7 +54,7 @@ const helperTempDependentLayout = (temp, el) => {
 
 const updateTitleCity = () => {
   let titleCity = document.querySelector('#titleCity');
-  console.log(cityName.value);
+  // console.log(cityName.value);
   titleCity.textContent = `${cityName.value}`;
 };
 
@@ -64,6 +69,39 @@ const updateWeatherGardenSky = () => {
   gardenSky.textContent = GARDENSKIES[weatherSelector.value];
 };
 
+const getCityWeather = () => {
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: { q: `${cityName.value}` },
+    })
+    .then((response) => {
+      // console.log(response.data);
+      axios
+        .get('http://127.0.0.1:5000/weather', {
+          params: {
+            lat: response.data[0]['lat'],
+            lon: response.data[0]['lon'],
+          },
+        })
+        .then((response) => {
+          // console.log(response.data);
+          console.log(
+            `temp in ${cityName.value} is ${response.data.current.temp}`
+          );
+          console.log(
+            `temp in ${cityName.value} is ${Math.round(
+              kelvinToFahrenheit(response.data.current.temp)
+            )}`
+          );
+          state.tempValue = Math.round(
+            kelvinToFahrenheit(response.data.current.temp)
+          );
+          console.log(state.tempValue);
+          updateTemp();
+        });
+    });
+};
+
 const registerEventHandlers = () => {
   const cityInput = document.querySelector('#cityName');
   cityInput.addEventListener('input', updateTitleCity);
@@ -75,6 +113,8 @@ const registerEventHandlers = () => {
   incrementButton.addEventListener('click', incrementTemp);
   const decrementButton = document.querySelector('#tempDown');
   decrementButton.addEventListener('click', decrementTemp);
+  const getTempButton = document.querySelector('#getTemp');
+  getTempButton.addEventListener('click', getCityWeather);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
