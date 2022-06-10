@@ -15,49 +15,44 @@ const parseWeatherReport = function(weatherData) {
   const cloudCoverage = `${weatherData.current.clouds}%`;
 
 
-  console.log("temp in Fahrenheit:  ", Math.floor(tempFahrenheit));
-  console.log("weather description:  ", skyDescription);
-  console.log("cloud cover:  ", cloudCoverage);
+  return {"temp":tempFahrenheit, "sky":skyDescription};
 };
 
 //axios call for long and lat
-axios.get(`${serverAddress}/location`, {
-    params: {
-      q:city,
-    },
-  })
-  .then((response) => {
-    console.log(response.status);
-    longitude = response.data[0].lon;
-    latitude = response.data[0].lat;
+const cityCallWeather = function(serverAddress, city) {
+  axios.get(`${serverAddress}/location`, {
+      params: {
+        q:city,
+      },
+    })
+    .then((response) => {
+      console.log(response.status);
+      longitude = response.data[0].lon;
+      latitude = response.data[0].lat;
 
+      axios.get(`${serverAddress}/weather`, {
+          params: {
+            lat:latitude,
+            lon:longitude,
+          },
+        })
+        .then((response) => {
+          console.log(response.status);
+          parseWeatherReport(response.data);
+        })
+        .catch((response) => {
+          console.log(response.status);
+          console.log("Mother fucking fuck")
+        });
 
+    })
+    .catch((response) => {
+      console.log(response.status);
+      console.log("You FUCKED UP");
+    })
+    .finally(() => {
+      console.log("okay all done! ^-^7");
+    });
+  };
 
-
-
-    axios.get(`${serverAddress}/weather`, {
-        params: {
-          lat:latitude,
-          lon:longitude,
-        },
-      })
-      .then((response) => {
-        console.log(response.status);
-        parseWeatherReport(response.data);
-      })
-      .catch((response) => {
-        console.log(response.status);
-        console.log("Mother fucking fuck")
-      });
-
-
-
-
-  })
-  .catch((response) => {
-    console.log(response.status);
-    console.log("You FUCKED UP");
-  })
-  .finally(() => {
-    console.log("okay all done! ^-^7");
-  });
+console.log(cityCallWeather(serverAddress, city))
