@@ -106,37 +106,23 @@ A text input element that allows the user to change the city name
 
 */
 
-// const inputValueHandler = () => {
-//   const inputCity=document.querySelector("#city-input")
-// inputCity.addEventListener("input", inputCity.value)
-// }
-// document.addEventListener("DOMContentLoaded", inputValueHandler);
-
 const cityWeatherHandler = () => {
-  const weatherReport=document.querySelector("#weather-report")
-  const cityName=document.createElement("p");
-  cityName.className = "cityWeather";
+  const weatherReport = document.querySelector('#weather-report');
+  const cityName = document.createElement('p');
+  cityName.className = 'cityWeather';
   weatherReport.appendChild(cityName);
-  const inputCity=document.querySelector("#city-input");
-  inputCity.addEventListener("input", ()=> {
-    cityName.textContent=`For the city of ${inputCity.value}`
-  })
-}
-
-
-document.addEventListener("DOMContentLoaded", cityWeatherHandler);
-
+  const inputCity = document.querySelector('#city-input');
   inputCity.addEventListener('input', () => {
     cityName.textContent = `For the city of ${inputCity.value}`;
   });
+};
+
 document.addEventListener('DOMContentLoaded', cityWeatherHandler);
 
 /** Wave4
   Calling API
 
  */
-
-  
 
 /** Wave5
 Option	Sky
@@ -172,15 +158,17 @@ document.addEventListener('DOMContentLoaded', dropDownSelection);
 
 /** Wave6 Resetting the City Name */
 
+//bug to remove city when pushing the reset button
+
 const resetBtnHandler = () => {
-  const resetBtn = document.getElementById("reset-btn");
-  const inputBox = document.getElementById("city-input");
-  const cityWeather = document.getElementsByClassName("cityWeather");
-  
-  resetBtn.addEventListener("click", () => {
-    inputBox.value = "";
-    cityWeather.textContent = "";
+  const resetBtn = document.getElementById('reset-btn');
+  const inputBox = document.getElementById('city-input');
+  const cityWeather = document.getElementsByClassName('cityWeather');
+
+  resetBtn.addEventListener('click', () => {
+    inputBox.value = '';
+    cityWeather.textContent = '';
   });
 };
 
-document.addEventListener("DOMContentLoaded", resetBtnHandler);
+document.addEventListener('DOMContentLoaded', resetBtnHandler);
