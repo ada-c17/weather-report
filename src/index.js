@@ -10,6 +10,8 @@
 3. temperature range changes garden emoji at bottom
 */
 
+// const res = require("express/lib/response");
+
 const state = {
   tempIncrement: 77,
 }
@@ -107,16 +109,17 @@ A text input element that allows the user to change the city name
 // document.addEventListener("DOMContentLoaded", inputValueHandler);
 
 const cityWeatherHandler = () => {
-        const weatherReport=document.querySelector("#weather-report")
-        const cityName=document.createElement("p");
-        weatherReport.appendChild(cityName);
-        const inputCity=document.querySelector("#city-input");
-        console.log(inputCity.value)
-        inputCity.addEventListener("input", ()=> {
-          cityName.textContent=`For the city of ${inputCity.value}`
-        })
-
+  const weatherReport=document.querySelector("#weather-report")
+  const cityName=document.createElement("p");
+  cityName.className = "cityWeather";
+  weatherReport.appendChild(cityName);
+  const inputCity=document.querySelector("#city-input");
+  inputCity.addEventListener("input", ()=> {
+    cityName.textContent=`For the city of ${inputCity.value}`
+  })
 }
+
+
 document.addEventListener("DOMContentLoaded", cityWeatherHandler);
 
 
@@ -135,7 +138,17 @@ document.addEventListener("DOMContentLoaded", cityWeatherHandler);
 */
 
 
-/** Wave6
-  Resetting the City Name
+/** Wave6 Resetting the City Name */
+
+const resetBtnHandler = () => {
+  const resetBtn = document.getElementById("reset-btn");
+  const inputBox = document.getElementById("city-input");
+  const cityWeather = document.getElementsByClassName("cityWeather");
   
- */
+  resetBtn.addEventListener("click", () => {
+    inputBox.value = "";
+    cityWeather.textContent = "";
+});
+};
+
+document.addEventListener("DOMContentLoaded", resetBtnHandler);
