@@ -4,10 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+    <style></style>
+    <link 
+        rel=""stylesheet 
+        href="/styles/index.css">
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" 
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
+    <title>Hope's Weather Report</title>
 </head>
 <body>
-    Weather Report
+    <div>Multidimensional Weather Report</div> 
+
+    <section id = "temperature">
+        <button id="increaseTemp">
+        <!-- <button onclick="increaseTemp()"> -->
+            <i class="fa fa-angle-double-up" aria-hidden="false"></i>
+        </button>
+        
+            <h3 id="currentTemperature">0</h3>
+            
+            <button>
+                Local Temperature 
+            </button>
+
+        <button id="decreaseTemp">
+        <!-- <button onclick="decreaseTemp()"> -->
+            <i class="fa fa-angle-double-down" aria-hidden="false"></i>
+        </button>
+    </section>
+
+
 </body>
 <script src="/src/index.js"></script>
 <script src="./node_modules/axios/dist/axios.min.js"></script>
