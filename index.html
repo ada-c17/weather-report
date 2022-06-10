@@ -9,12 +9,12 @@
 </head>
 <body>
     <header>
-       <div id="clock">
-           clock
-       </div> 
-       <div id="title">
-           <h1 id="weather-report"> Weather Report</h1>
-       </div>
+        <div id="clock">
+            clock
+        </div> 
+        <div id="title">
+            <h1 id="weather-report"> Weather Report</h1>
+        </div>
     </header>
     <main>
         <div class="info" id="temp-display">
@@ -46,22 +46,25 @@
                     <h3>Sky</h3>
                 </div>
                 <div class="box-content">
-                    <div class="drop-search-bar">
-                        drop down menu
-                    </div>  
+                    <select onchange="changeSkyBackground(this);" class="drop-search-bar" id="sky-selector">
+                        <option>--Sky--</option>
+                        <option>Sunny</option>
+                        <option>Cloudy</option>
+                        <option>Rainy</option>
+                        <option>Snowy</option>
+                        <option>Windy</option>
+                    </select>  
                 </div>
-                <div class="box-button">
-                    button
-                </div>
+                <!-- <div class="box-button"></div> -->
             </div>
             <div class="control-panel" id="city-box">
                 <div class="box-name">
                     <h3>City</h3>
                 </div>
                 <div class="box-content">
-                    <div class="drop-search-bar">
-                        city searching bar
-                    </div>
+                    <p>Enter a city here</p>
+                    <input class="drop-search-bar" id="enterCity" type="text">
+                    </input>
                 </div>
                 <div class="box-button">
                     <button class="button" id="reset-city">Reset City</button>
