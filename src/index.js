@@ -1,32 +1,21 @@
 const temp = {
   fahrenheit: 55,
+  emojis: '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲',
 };
+
 const tempCheck = (element) => {
-//   let landscape = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
   if (element.textContent >= 80) {
     element.className = 'veryHot';
-    // landscape = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
   } else if (element.textContent >= 70) {
     element.className = 'hot';
-    // landscape = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
   } else if (element.textContent >= 60) {
     element.className = 'warm';
-    // landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"
   } else if (element.textContent >= 50) {
     element.className = 'cool';
-    // landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"
   } else {
     element.className = 'cold';
-    // landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
   }
 };
-const increaseTemp = () => {
-  temp.fahrenheit += 1;
-}
-
-const decraeseTemp = () => {
-  temp.fahrenheit -= 1;
-}
 
 
 const getTemp = () => {
@@ -36,22 +25,36 @@ const getTemp = () => {
   tempUl.appendChild(tempLi);
   tempCheck(tempLi);
 
-  const upUl = document.getElementById('increaseTempButton');
-  upLi.textContent = '⬆️';
-  upLi.addEventListener('click', () => {
-    tempLi.textContent = temp.fahrenheit += 1;
-    tempCheck(tempLi);
-  });
-  upUl.appendChild(upLi);
+  // load weather garden
+  const emojiUl = document.getElementById('weatherGarden');
+  const emojiLi = document.createElement('li');
+  emojiLi.textContent = temp.emojis;
+  emojiUl.appendChild(emojiLi);
 
-  const downUl = document.getElementById('decreaseTempButton');
-  const downLi = document.createElement('li');
-  downLi.textContent = '⬇️';
-  downLi.addEventListener('click', () => {
-    tempLi.textContent = temp.fahrenheit -= 1;
-    tempCheck(tempLi);
-  });
-  downUl.appendChild(downLi);
+  const loadTempButtons = () => {
+    const upUl = document.getElementById('increaseTempButton');
+    const upLi = document.createElement('li');
+    upLi.textContent = '⬆️';
+    upLi.addEventListener('click', () => {
+      tempLi.textContent = temp.fahrenheit += 1;
+      tempCheck(tempLi);
+      emojiLi.textContent = emojiCheck(tempLi);
+    });
+    upUl.appendChild(upLi);
+
+    const downUl = document.getElementById('decreaseTempButton');
+    const downLi = document.createElement('li');
+    downLi.textContent = '⬇️';
+    downLi.addEventListener('click', () => {
+      tempLi.textContent = temp.fahrenheit -= 1;
+      tempCheck(tempLi);
+      emojiLi.textContent = emojiCheck(tempLi);
+    });
+    downUl.appendChild(downLi);
+  };
+
+  loadTempButtons();
+  loadWeatherGarden();
 };
 
 
@@ -59,7 +62,7 @@ const getTemp = () => {
 
 
 if (document.readyState !== 'loading') {
-  getTemp();
+  loadElements();
 } else {
-  document.addEventListener('DOMContentLoaded', getTemp);
+  document.addEventListener('DOMContentLoaded', loadElements);
 }
