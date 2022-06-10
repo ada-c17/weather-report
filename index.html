@@ -9,11 +9,22 @@
 </head>
 <body>
     <main class="wrapper">
-        <section class="sky" style="background-image: url('/assets/sky/clear\ 1920x360.jpg')">
+        <section id="sky">
+            <div id="select-sky-wrapper">
+                <select id="select-sky-box">
+                <option value="none" selected disabled hidden>select sky</option>
+                <option value="cloudy">cloudy</option>
+                <option value="rainy">rainy</option>
+                <option value="snowy">snowy</option>
+                <option value="sunny">sunny</option>
+                </select>
+            </div>
         </section>
-        <section class="mid" style="background-image: url('/assets/jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpeg')">
+
+        <section id="mid">
         </section>
-        <section class="temp" style="background-image: url('/assets/temp/default\ 1920x360.jpg')">
+
+        <section id="temp">
         </section>
     </main>
     <script src="/src/index.js"></script>
