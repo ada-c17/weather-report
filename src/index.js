@@ -81,6 +81,7 @@ const getWeather = async (cityName) => {
         lon: lon,
       },
     });
+    // console.log(weather.data.current.weather[0]);
     return weather.data.current;
   } catch (error) {
     console.log(error);
@@ -89,6 +90,11 @@ const getWeather = async (cityName) => {
 
 const convertKToF = (temp) => {
   return Math.round(temp * 1.8 - 459.67);
+};
+
+const changeHeader = (cityname) => {
+  let subheader = document.getElementById('subheader');
+  subheader.textContent = `What The Weather Is Actually Like in ${cityname}`;
 };
 
 let changeWeather = () => {
@@ -100,9 +106,17 @@ let changeWeather = () => {
   weatherPromise.then((weather) => {
     newTemp = convertKToF(weather.temp);
     state.temperature = newTemp;
+    // This gives id for what weather is like
+    //console.log(weather.weather[0].id);
+    changeHeader(state.city);
     getTempAndChangeStyle();
+    changeLandscape();
   });
 };
+
+// Change background picture depending on current conditions
+// Change header to reflect current city name and what the weather is actually like
+// Change landscape (can already do)
 
 const changeSky = (event) => {
   const background = document.getElementById('center-section');
