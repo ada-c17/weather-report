@@ -35,7 +35,7 @@ axios
 
 const state = {
   temp: 78,
-  defaultCity: 'Seattle, WA',
+  city: 'Seattle, WA',
 };
 
 const changeColor = () => {
@@ -119,21 +119,31 @@ const changePlaceholderText = () => {
   }
 };
 
-const changeCity = () => {};
+const changeCity = () => {
+  state.city = document.getElementById('city_input_box').value;
+  document.querySelector('h2').textContent = state.city;
+};
 
 const registerEventHandlers = (event) => {
+  // Increase temp when click up arrow
   const upArrowBtn = document.getElementById('up_arrow_btn');
   upArrowBtn.addEventListener('click', increaseTemp);
 
+  // Decrease temp with down arrow
   const downArrowBtn = document.getElementById('down_arrow_btn');
   downArrowBtn.addEventListener('click', decreaseTemp);
 
+  // Show input with magnifier
   const magnBtn = document.getElementById('magn_btn');
   magnBtn.addEventListener('click', showInputBox);
 
+  // On focus/blur, update placeholder
   const openInputBox = document.getElementById('city_input_box');
   openInputBox.addEventListener('focus', changePlaceholderText);
   openInputBox.addEventListener('focusout', changePlaceholderText);
+
+  //On text box keyup, update city name
+  openInputBox.addEventListener('keyup', changeCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
