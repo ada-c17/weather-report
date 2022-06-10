@@ -123,10 +123,11 @@ const cityWeatherHandler = () => {
 document.addEventListener("DOMContentLoaded", cityWeatherHandler);
 
 
-/** Wave4
-  Calling API
+/** Wave4 Calling API 
+  when click get real-time temp button, displays city name and temp accordingly
+*/
 
- */
+
 
 
 /** Wave5
