@@ -16,9 +16,8 @@
 }
 
 #subSectionContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template: 100% / 1fr 1fr 1fr;
 }
 
 .subSection {
@@ -36,11 +35,14 @@
     font-size: 2em;
     padding-top: .75em;
     padding-bottom: .75em;
+    max-width: 7em;
+    overflow-wrap: break-word;
+    padding-left: .7em;
+    padding-right: .7em;
 }
 
 #garden {
     padding-top: 5em;
-    background-color: ;
 }
 
 /* Temp Classes */
