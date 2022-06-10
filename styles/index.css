@@ -9,3 +9,8 @@ main {
 section {
     border: solid;
 }
+
+#current-temp {
+    color: green;
+    font-size: 3em;
+}
