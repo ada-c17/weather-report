@@ -12,20 +12,10 @@ const increaseTemp = () => {
   state.temp += 1;
   const tempContainer = document.getElementById('current_temp');
   tempContainer.textContent = `Current temp: ${state.temp}`;
-  if (state.temp < 50) {
-    tempContainer.className = 'teal';
-  } else if (state.temp < 60) {
-    tempContainer.className = 'green';
-  } else if (state.temp < 70) {
-    tempContainer.className = 'yellow';
-  } else if (state.temp < 80) {
-    tempContainer.className = 'orange';
-  } else {
-    tempContainer.className = 'red';
-  }
   tempContainer.textContent = flagFahrenheit
     ? `${Math.trunc(state.temp)}°F`
     : `${Math.trunc(state.temp)}°C`;
+  changeColorTemp(state.temp);
   changeBackground(state.temp);
 };
 
@@ -33,26 +23,15 @@ const registerEventHandlers = () => {
   const increaseTempButton = document.getElementById('increaseTempButton');
   increaseTempButton.addEventListener('click', increaseTemp);
 };
-document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 const decreaseTemp = () => {
   state.temp -= 1;
   const tempContainer = document.getElementById('current_temp');
   tempContainer.textContent = `Current temp: ${state.temp}`;
-  if (state.temp < 50) {
-    tempContainer.className = 'teal';
-  } else if (state.temp < 60) {
-    tempContainer.className = 'green';
-  } else if (state.temp < 70) {
-    tempContainer.className = 'yellow';
-  } else if (state.temp < 80) {
-    tempContainer.className = 'orange';
-  } else {
-    tempContainer.className = 'red';
-  }
   tempContainer.textContent = flagFahrenheit
     ? `${Math.trunc(state.temp)}°F`
     : `${Math.trunc(state.temp)}°C`;
+  changeColorTemp(state.temp);
   changeBackground(state.temp);
 };
 
@@ -60,7 +39,6 @@ const registerEventHandlersDecrease = () => {
   const increaseTempButton = document.getElementById('decreaseTempButton');
   increaseTempButton.addEventListener('click', decreaseTemp);
 };
-document.addEventListener('DOMContentLoaded', registerEventHandlersDecrease);
 
 // Temperature Ranges Change Landscape
 
@@ -83,24 +61,25 @@ const changeBackground = (temp) => {
     element.classList.add('winter');
   }
 };
+// Temperature Ranges Change Color
 
-// const changeColorTemp = (temp) => {
-//   const element = document.getElementById('current_temp');
-//   if (!flagFahrenheit) {
-//     temp = (9 / 5) * temp + 32;
-//   }
-//   if (state.temp < 50) {
-//     tempContainer.className = 'teal';
-//   } else if (state.temp < 60) {
-//     tempContainer.className = 'green';
-//   } else if (state.temp < 70) {
-//     tempContainer.className = 'yellow';
-//   } else if (state.temp < 80) {
-//     tempContainer.className = 'orange';
-//   } else {
-//     tempContainer.className = 'red';
-//   }
-// };
+const changeColorTemp = (temp) => {
+  const element = document.getElementById('current_temp');
+  if (!flagFahrenheit) {
+    temp = (9 / 5) * temp + 32;
+  }
+  if (state.temp < 50) {
+    tempContainer.className = 'teal';
+  } else if (state.temp < 60) {
+    tempContainer.className = 'green';
+  } else if (state.temp < 70) {
+    tempContainer.className = 'yellow';
+  } else if (state.temp < 80) {
+    tempContainer.className = 'orange';
+  } else {
+    tempContainer.className = 'red';
+  }
+};
 
 // 3. Naming the City
 //! used different syntax here
@@ -111,10 +90,11 @@ message.addEventListener('input', function () {
   result.textContent = this.value;
 });
 
-// 4. idk what it's called
+// 4. calling APIs LocationIQ and OpenWeather
 
 const getRealTemp = () => {
   let coords;
+  let city;
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
@@ -122,6 +102,8 @@ const getRealTemp = () => {
       },
     })
     .then((response) => {
+      console.log('success!', response.data[0].display_name);
+      city = response.data[0].display_name;
       coords = [response.data[0].lat, response.data[0].lon];
       axios
         .get('http://127.0.0.1:5000/weather', {
@@ -132,10 +114,14 @@ const getRealTemp = () => {
         })
         .then((response) => {
           console.log('success!', response.data);
+          const forecastFor = document.getElementById('forecast');
+          //! forecastFor.textContent = "Forecast for";
+
           flagFahrenheit = true;
           state.temp = response.data.current.temp;
           const tempContainer = document.getElementById('current_temp');
           tempContainer.textContent = `${Math.trunc(state.temp)}°F`;
+          changeColorTemp(state.temp);
           changeBackground(state.temp);
 
           const taskList = document.getElementById('day__forecast');
@@ -182,7 +168,6 @@ const registerEventHandlersReal = () => {
   const getRealTempBtn = document.getElementById('get__real__temp');
   getRealTempBtn.addEventListener('click', getRealTemp);
 };
-document.addEventListener('DOMContentLoaded', registerEventHandlersReal);
 
 // 5. Selection Changes Sky Background
 
@@ -207,7 +192,6 @@ const registerEventHandlersSky = () => {
   const skyMode = document.getElementById('sky-select');
   skyMode.addEventListener('change', changeModeSky);
 };
-document.addEventListener('DOMContentLoaded', registerEventHandlersSky);
 
 const changeModeSkyBackground = (event) => {
   const element = document.body;
@@ -219,10 +203,6 @@ const registerEventHandlersSkybackground = () => {
   const skyMode = document.getElementById('back-select');
   skyMode.addEventListener('change', changeModeSkyBackground);
 };
-document.addEventListener(
-  'DOMContentLoaded',
-  registerEventHandlersSkybackground
-);
 
 // 6.Resetting the City Name
 
@@ -235,7 +215,6 @@ const registerEventHandlersReset = () => {
   const form = document.querySelector('#form');
   form.addEventListener('reset', ResetCity);
 };
-document.addEventListener('DOMContentLoaded', registerEventHandlersReset);
 
 // 7. convert the temperature between Celsius and Fahrenheit
 
@@ -257,4 +236,13 @@ const registerEventHandlersFarenheit = () => {
   const switchFC = document.getElementById('switchBtnFC');
   switchFC.addEventListener('click', changeMetricForTemp);
 };
-document.addEventListener('DOMContentLoaded', registerEventHandlersFarenheit);
+document.addEventListener(
+  'DOMContentLoaded',
+  registerEventHandlersFarenheit,
+  registerEventHandlersDecrease,
+  registerEventHandlers,
+  registerEventHandlersReal,
+  registerEventHandlersSky,
+  registerEventHandlersSkybackground,
+  registerEventHandlersReset
+);
