@@ -9,18 +9,26 @@
 </head>
 <body>
     <header>
-        <p id="sky-emoji">☁️ ☁️ ☁️ ☀️ ☁️ ☁️☁️ ☁️ ☁️ ☀️ ☁️ ☁️☁️ ☁️ ☁️ ☀️ ☁️ ☁️ ☀️ ☁️ ☁️☁️ ☁️ ☁️ ☀️ ☁️ ☁️</p>
+        <p id="sky-emoji">☁️ ☁️ ☁️ ☀️ ☁️ ☁️ ☀️ ☁️ ☁️ ☀️ ☁️ ☁️ ☁️</p>
         <h1 id="weather-report">Weather Report</h1>
         
     </header>
     <main >
         <ul class="box-container">
-            <li id="temperature">77 °C</li> 
+            <li id="temp-title">Temperature</li>
+            <li id="temperature">77 °F</li> 
                 <button id="left-arrow-btn">+</button> 
                 <button id="right-arrow-btn">-</button>
                 <button id="real-temp-button">Get Real Time Temperature</button>
            <li id="sky">Sky</li>
-                <select id="drop-down">Sunny</select>
+                <select id="drop-down">
+                    <option value="">Select...</option>
+                    <option value="Sunny">Sunny</option>
+                    <option value="Cloudy">Cloudy</option>
+                    <option value="Rainy">Rainy</option>
+                    <option value="Snowy">Snowy</option>
+                  </select>
+                
            <li id="city" placeholder="city name">City </li> 
                 <input type=text id="city-input">
                 <button id="reset-btn">Reset</button>

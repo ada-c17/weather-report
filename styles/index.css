@@ -24,6 +24,14 @@ header{
     margin: 10px;    
 }
 
+#temp-title {
+    position:absolute; /*parent set to absolute*/
+    top: 400px;
+    left: 230px;
+    width: 15%;
+    height: 5%;
+    border-style: none;
+}
 
 
 #temperature, #sky, #city{
@@ -66,7 +74,10 @@ header{
     width: 15%;
     height: 5%;
     border-style: none;
+    color:black
 }
+
+
 
 #city-input {
     position:absolute; 
