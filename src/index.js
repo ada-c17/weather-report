@@ -1,3 +1,4 @@
+// Wave 2
 let state = {
   temp: 75,
 };
@@ -12,7 +13,6 @@ const changColor = () => {
     '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲',
   ];
 
-  console.log('hello world');
   if (state.temp > 79) {
     tempColor.className = 'temp-80';
     console.log(tempColor.className);
@@ -52,6 +52,17 @@ const registerEventHandlers = (event) => {
 
   const decreaseTempButton = document.querySelector('#decrease-temp');
   decreaseTempButton.addEventListener('click', decreaseTemp);
+
+  const cityName = document.getElementById('city-name');
+  cityName.addEventListener('input', getCityName);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+
+// Wave 3
+
+const getCityName = () => {
+  const cityName = document.getElementById('city-name').value;
+  const changeCity = document.getElementById('header-city');
+  changeCity.textContent = `for the city of ${cityName}`;
+};
