@@ -122,17 +122,6 @@ const colorTempChange = () => {
   gardenLandscape.textContent = landscape;
 };
 
-
-
-<<<<<<< HEAD
-
-
-/*    EVENT HANDLERS, OTHER MISC    *//////////////////////////////////////////
-
-
-const registerEventHandlers = () => {
-  cityCallWeather(serverAddress, 'Seattle');
-=======
 const changeSky = () => {
   const skySelect = document.getElementById('skySelect').value;
   let sky = '';
@@ -149,11 +138,16 @@ const changeSky = () => {
   gardenSky.textContent = sky;
 };
 
+
+
+/*    EVENT HANDLERS, OTHER MISC    *//////////////////////////////////////////
+
+
 const inputElement = document.querySelector('#userInput');
 
 const registerEventHandlers = () => {
+  cityCallWeather(serverAddress, 'Seattle');
   colorTempChange();
->>>>>>> 4b5732931f79971e8fdaddd4e6e48b43200fde09
   const upArrow = document.querySelector('#increaseTemp');
   upArrow.addEventListener('click', increaseTemp);
 
