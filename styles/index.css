@@ -93,22 +93,22 @@ body {
 }
 
 .temp-80 {
-    color: rgb(238, 69, 69);
-    background-color: lightcyan;
+    color: red;
+    background-color: lightpink;
 }
 .temp-70 {
-    color: goldenrod;
+    color: orange;
     background-color: lavender;
 }
 .temp-60 {
-    color: rgba(163, 11, 163, 0.776);
+    color:rgba(163, 11, 163, 0.776);
     background-color: powderblue;
 }
 .temp-50 {
-    color: darkgreen;
-    background-color: lightsalmon;
+    color: green;
+    background-color: lightyellow;
 }
 .temp-49 {
-    color: lightgoldenrodyellow;
-    background-color: palegreen
+    color: teal;
+    background-color: lightcyan;
 }
