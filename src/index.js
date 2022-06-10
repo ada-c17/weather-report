@@ -1,13 +1,7 @@
+// Wave 2
 let state = {
   temp: 75,
   city: 'Seattle',
-};
-
-const updateCity = () => {
-  const cityInput = document.getElementById('city-input').value;
-  const headerCity = document.getElementById('header-city');
-  state.city = cityInput;
-  headerCity.textContent = `For the city of ${state.city}`;
 };
 
 const changeColor = () => {
@@ -20,7 +14,6 @@ const changeColor = () => {
     '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲',
   ];
 
-  console.log('hello world');
   if (state.temp > 79) {
     tempColor.className = 'temp-80';
     console.log(tempColor.className);
@@ -66,3 +59,18 @@ const registerEventHandlers = (event) => {
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+
+// Wave 3
+
+// const getCityName = () => {
+//   const cityName = document.getElementById('city-name').value;
+//   const changeCity = document.getElementById('header-city');
+//   changeCity.textContent = `for the city of ${cityName}`;
+// };
+
+const updateCity = () => {
+  const cityInput = document.getElementById('city-input').value;
+  const headerCity = document.getElementById('header-city');
+  state.city = cityInput;
+  headerCity.textContent = `For the city of ${state.city}`;
+};
