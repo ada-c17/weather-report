@@ -148,7 +148,7 @@ const resetBtnHandler = () => {
   resetBtn.addEventListener("click", () => {
     inputBox.value = "";
     cityWeather.textContent = "";
-});
+  });
 };
 
 document.addEventListener("DOMContentLoaded", resetBtnHandler);
