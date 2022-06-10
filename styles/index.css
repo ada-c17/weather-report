@@ -149,10 +149,11 @@ body {
 .emoji-wrapper {
   display: flex;
   flex-direction: column;
-  /*   border: 3px solid green; */
+  border: 3px solid green;
   margin: auto;
-  width: 50%;
-  height: 70%;
+  width: 70%;
+  height: 95%;
+  /* align-items: baseline; */
 }
 
 #upArrow {
@@ -167,15 +168,23 @@ body {
   cursor: pointer;
   background-color: #ffffff;
   font-size: 27px;
-  /*   border: 3px solid green; */
+    border: 3px solid green;
 }
 
-.temperature {
-  /*   border: 3px solid green; */
+/* .temperature {
+  border: 3px solid green;
+  font-size: 50px;
+  text-align: center;
+  font-weight: bold;
+} */
+
+#currentTemp {
+    border: 3px solid green;
   font-size: 50px;
   text-align: center;
   font-weight: bold;
 }
+
 
 
 /* cloud block style */
@@ -263,7 +272,7 @@ input{
 }
 
 .yellow {
-  color: #def10d;
+  color: #FFE63D;
 }
 
 .green {

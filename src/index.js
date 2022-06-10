@@ -26,23 +26,32 @@ const registerEventHandlers = () => {
 
 const tempColor = () => {
   let temperatureValue = document.getElementById('currentTemp').textContent;
-  console.log(temperatureValue);
+
   let temperatureContainer = document.getElementById('currentTemp');
-  console.log(temperatureContainer);
-  // temperatureContainer.className = 'green';
+  // console.log(temperatureValue);
   // console.log(temperatureContainer);
+
+  let gardenBottomValue = document.getElementById('ground').textContent;
+  let gardenBottomValueContainer = document.getElementById('ground');
+  console.log(gardenBottomValue);
+  console.log(gardenBottomValueContainer);
 
   if (temperatureValue > 80) {
     temperatureContainer.className = 'red';
+    gardenBottomValueContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
     console.log(temperatureContainer);
   } else if (temperatureValue >= 70 && temperatureValue <= 79) {
     temperatureContainer.className = 'orange';
+    gardenBottomValueContainer.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (temperatureValue >= 60 && temperatureValue <= 69) {
     temperatureContainer.className = 'yellow';
+    gardenBottomValueContainer.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (temperatureValue >= 50 && temperatureValue <= 59) {
     temperatureContainer.className = 'green';
+    gardenBottomValueContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else if (temperatureValue <= 49) {
     temperatureContainer.className = 'teal';
+    gardenBottomValueContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
 };
 
