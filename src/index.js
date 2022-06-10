@@ -118,6 +118,14 @@ const changeSky = (event) => {
   }
 };
 
+const resetCity = () => {
+  const cityInput = document.querySelector('input');
+  cityInput.value = '';
+  state.city = 'Brownsville';
+  const subheader = document.getElementById('subheader');
+  subheader.textContent = `What I Wish The Weather Was Like in ${state.city}`;
+};
+
 const registerEventHandlers = () => {
   const leftArrow = document.getElementById('left-arrow');
   leftArrow.addEventListener('click', decreaseTemp);
@@ -133,6 +141,9 @@ const registerEventHandlers = () => {
 
   const skySelection = document.getElementById('sky-select');
   skySelection.addEventListener('change', changeSky);
+
+  const resetButton = document.getElementById('reset-button');
+  resetButton.addEventListener('click', resetCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
