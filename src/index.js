@@ -6,6 +6,7 @@ const state = {
   temp: 55,
 };
 let flagFahrenheit = true;
+const today = new Date();
 
 const increaseTemp = () => {
   state.temp += 1;
@@ -83,6 +84,24 @@ const changeBackground = (temp) => {
   }
 };
 
+// const changeColorTemp = (temp) => {
+//   const element = document.getElementById('current_temp');
+//   if (!flagFahrenheit) {
+//     temp = (9 / 5) * temp + 32;
+//   }
+//   if (state.temp < 50) {
+//     tempContainer.className = 'teal';
+//   } else if (state.temp < 60) {
+//     tempContainer.className = 'green';
+//   } else if (state.temp < 70) {
+//     tempContainer.className = 'yellow';
+//   } else if (state.temp < 80) {
+//     tempContainer.className = 'orange';
+//   } else {
+//     tempContainer.className = 'red';
+//   }
+// };
+
 // 3. Naming the City
 //! used different syntax here
 
@@ -120,30 +139,34 @@ const getRealTemp = () => {
           changeBackground(state.temp);
 
           const taskList = document.getElementById('day__forecast');
+          taskList.innerHTML = '';
+
           // forecast for a week
           for (let i = 1; i <= 7; i++) {
             const listItem = document.createElement('li');
+            today.setDate(today.getDate() + 1);
+
+            listItem.textContent = today.toDateString();
+            listItem.className = 'date';
+            taskList.appendChild(listItem);
+
+            const list = document.createElement('ol');
+            listItem.appendChild(list);
 
             const dayTemp = document.createElement('li');
-            dayTemp.textContent = `${response.data.daily[i].temp.day}`;
-            listItem.appendChild(dayTemp);
+            dayTemp.textContent = `day temp: ${response.data.daily[i].temp.day}°F`;
+            dayTemp.className = 'data';
+            list.appendChild(dayTemp);
 
             const nightTemp = document.createElement('li');
-            nightTemp.textContent = `${response.data.daily[i].temp.night}`;
-            listItem.appendChild(nightTemp);
+            nightTemp.textContent = `night temp: ${response.data.daily[i].temp.night}°F`;
+            nightTemp.className = 'data';
+            list.appendChild(nightTemp);
 
             const description = document.createElement('li');
             description.textContent = `${response.data.daily[i]['weather'][0].description}`;
-            listItem.appendChild(description);
-
-            taskList.appendChild(listItem);
-
-            console.log('success!', response.data.daily[i].temp.day);
-            console.log('success!', response.data.daily[i].temp.night);
-            console.log(
-              'success!',
-              response.data.daily[i]['weather'][0].description
-            );
+            description.className = 'data';
+            list.appendChild(description);
           }
         })
         .catch((error) => {
