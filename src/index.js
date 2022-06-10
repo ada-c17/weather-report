@@ -6,24 +6,16 @@ const state = {
 
 const tempColor = () => {
   const currentTemp = document.getElementById('temp-display');
-  switch (Math.floor(state.temp / 10)) {
-    case 10:
-    case 9:
-    case 8:
-      currentTemp.style.backgroundColor = 'red';
-      break;
-    case 7:
-      currentTemp.style.backgroundColor = 'orange';
-      break;
-    case 6:
-      currentTemp.style.backgroundColor = 'yellow';
-      break;
-    case 5:
-      currentTemp.style.backgroundColor = 'green';
-      break;
-    default:
-      currentTemp.style.backgroundColor = 'teal';
-      break;
+  if (state.temp >= 80) {
+    currentTemp.style.backgroundColor = 'red';
+  } else if (state.temp >= 70) {
+    currentTemp.style.backgroundColor = 'orange';
+  } else if (state.temp >= 60) {
+    currentTemp.style.backgroundColor = 'yellow';
+  } else if (state.temp >= 50) {
+    currentTemp.style.backgroundColor = 'green';
+  } else {
+    currentTemp.style.backgroundColor = 'teal';
   }
 };
 
