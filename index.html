@@ -7,19 +7,40 @@
     <title>Weather Report</title>
     <link href="styles/index.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <header>
             <h1>website title</h1>
         </header>
     
-        <section id="current-city"></section>
-        <section id="temperature-display"></section>
-        <section id="city-search"></section>
-        <section id="reset-city-or-temp"></section>
-        <section id="sky-and-landscape"></section>
+        <section id="current-city">
+            <h2>The temperature in XXXX is:</h2>
+        </section>
+
+        <section id="temperature-display">
+            <button>-</button>
+            <h2>TEMP</h2>
+            <button>+</button>
+        </section>
+
+        <section id="city-search">
+            <h2>Show me the weather in: XXXX</h2>
+            <button>➝</button>
+        </section>
+
+        <section id="reset-city-or-temp">
+            <button><h2>RESET CITY</h2></button>
+            <button><h2>SHOW CURRENT TEMPERATURE</h2></button>
+        </section>
+
+        <section id="sky-and-landscape">
+            <figure id="sky"></figure>
+            <button><h2>CHANGE SKY</h2></button>
+            <figure id="landscape"></figure>
+        </section>
     
-        <footer></footer>
+        <footer>© 2022 Tiffini Hyatt</footer>
     </div>
 
     <script src="src/index.js" type="text/javascript"></script>
