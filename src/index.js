@@ -143,7 +143,6 @@ const changeSky = () => {
 /*    EVENT HANDLERS, OTHER MISC    *//////////////////////////////////////////
 
 
-const inputElement = document.querySelector('#userInput');
 
 const registerEventHandlers = () => {
   cityCallWeather(serverAddress, 'Seattle');
