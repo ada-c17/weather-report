@@ -89,7 +89,9 @@ const setCity = (city) => {
     })
     .then((response) => {
       console.log('weather response', response.data);
-      const temp = response.data.current.temp;
+
+      // Convert to fahrenheit from kelvin
+      const temp = 1.8 * (response.data.current.temp - 273) + 32;
       setTemperature(temp);
     })
     .catch((error) => {
