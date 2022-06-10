@@ -1,8 +1,9 @@
 h1 {
     font-size: 40;
+    color: teal;
 }
 
-.smallcontainer {
+/* .smallcontainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 2fr 1fr;
@@ -27,4 +28,12 @@ h1 {
 
 .smallcontainer h3 {
     justify-self: center;
+} */ */
+
+#landscape-container img {
+    display: none;
 }
+
+/* #winter-dog {
+    display: none;
+} */

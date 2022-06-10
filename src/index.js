@@ -6,7 +6,7 @@ const state = {
 
 const changeTempColor = () => {
   const currentTemp = document.getElementById('display-temp');
-  if (state.temp > 80) {
+  if (state.temp >= 80) {
     currentTemp.style.color = 'red';
   } else if (state.temp >= 70) {
     currentTemp.style.color = 'orange';
@@ -35,4 +35,28 @@ const changeTemp = () => {
   });
 };
 
+
+
+// Logic to change landscape based on temperature input
+
+const changeLandscape = () => {
+  const currentTemp = document.getElementById('display-temp');
+  const currentLandscape = document.getElementById('landscape-container');
+  const winterDog = document.getElementById('winter-dog');
+  const hotDog = document.getElementById('hot-dog');
+  const autumnDog = document.getElementById('autumn-dog');
+  const springDog = document.getElementById('spring-dog');
+  // currentLandscape.style.display = 'none';
+  if (state.temp >= 80) {
+    hotDog.style.display = 'block';
+  } else if (state.temp >= 70) {
+    springDog.style.display = 'block';
+  } else if (state.temp >= 60) {
+    autumnDog.style.display = 'block';
+  } else if (state.temp <= 50) {
+    winterDog.style.display = 'block';
+}
+};
+
 document.addEventListener('DOMContentLoaded', changeTemp);
+document.addEventListener('DOMContentLoaded', changeLandscape);
