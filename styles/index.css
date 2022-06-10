@@ -4,7 +4,6 @@ button {
     border-radius: 25px;
 }
 
-
 #weatherFrame {
     display: flex;
     flex-direction: row;
@@ -26,8 +25,37 @@ button {
     flex-direction: row;
 }
 
-#tempChanger p {
+.tempValue {
     font-size: 50px;
+    color: yellow;
+}
+
+/* .tempValue--red {
+    color: red;
+}
+
+.tempValue--orange {
+    color: orange;
+}
+
+.tempValue--yellow {
+    color: yellow;
+}
+
+.tempValue--green {
+    color: green;
+}
+
+.tempValue--teal {
+    color: teal;
+} */
+
+#cityBlock ::placeholder{
+    color:lightgray;
+}
+
+#tempButtonLayout {
+    justify-content: space-around;
 }
 
 /* #skyBlock {
@@ -35,9 +63,6 @@ button {
     grid-row: 2 3;
 } */
 
-#cityBlock ::placeholder{
-    color:lightgray;
-}
 
 /* #gardenBlock {
     grid-column: 2 3;
