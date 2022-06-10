@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/index.css">
-    <script src="/src/index.js"></script>
     <title>Weather Report</title>
 </head>
 <body>
@@ -18,11 +17,10 @@
         </button>
     </header>
     <main id="main-container">
-        <div>
-            <!-- grid for city/temp/sky boxes -->
+        <div id="box-contatiner">
             <ul>
-                <li id="city">
-                    <h2 class="grid-box-names">
+                <li id="city-box">
+                    <h2 class="box-names">
                         City
                     </h2>
                     <input type="text" id="input-city" name="input-city">
@@ -36,12 +34,12 @@
                         reset to Seattle, WA
                     </button>
                 </li>
-                <li id="temperature">
-                    <h2 class="grid-box-names">
+                <li id="temperature-box">
+                    <h2 class="box-names">
                         Temperature
                     </h2>
-                    <div id="display-temp">
-                        current temp will be shown here
+                    <div id="temp-container">
+                        <span id="display-temp">50</span>
                     </div>
                     <div id="arrow-container">
                         <button type="button" id="arrow-up">
@@ -58,11 +56,10 @@
                         reset to current temperature
                     </button>
                 </li>
-                <li id="sky">
-                    <h2 class="grid-box-names">
+                <li id="sky-box">
+                    <h2 class="box-names">
                         Sky Coverage
                     </h2>
-                    <!-- info on select https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select -->
                     <select name="skys" id="sky-select">
                         <option value="" selected>
                             --current sky--
