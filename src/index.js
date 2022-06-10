@@ -101,6 +101,11 @@ const changeSky = () => {
 
 }
 
+
+
+
+
+// function calls for all defined functions
 document.addEventListener('DOMContentLoaded', changeTemp);
 document.addEventListener('DOMContentLoaded', changeLandscape);
 document.addEventListener('DOMContentLoaded', changeCityName);
