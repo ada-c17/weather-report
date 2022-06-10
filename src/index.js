@@ -66,9 +66,11 @@ const defaultCity = {
   cityName: 'The amazing city of ...',
 };
 const updateCityname = () => {
-  //const input = document.querySelector('input');
   const nameOfCity = document.getElementById('cityNameid').value;
+  console.log(nameOfCity);
   const cityContainer = document.querySelector('#amazingCity');
 
   cityContainer.textContent = `The amazing city of ${nameOfCity}`;
+
+  console.log(nameOfCity);
 };
