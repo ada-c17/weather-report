@@ -108,7 +108,12 @@ const resetCity = () => {
 };
 
 //Wave 4
-//const axios = require('axios');
+// Convert Kelvins -> Fahrenheit
+const convertKtoF = (tempK) => {
+  const tempF = Math.round(((tempK - 273.15) * 9) / 5 + 3);
+  return tempF;
+};
+
 const getRealtimeTemp = () => {
   const cityName = document.getElementById('city-name').value;
   console.log(cityName);
@@ -134,7 +139,8 @@ const getRealtimeTemp = () => {
           console.log(tempResponse);
           const currentTemp = tempResponse.data.current.temp;
           const temp = document.getElementById('temp');
-          temp.textContent = `${currentTemp}`;
+          const tempF = convertKtoF(currentTemp);
+          temp.textContent = `${tempF}`;
         })
         .catch((e) => {
           console.log(e);
