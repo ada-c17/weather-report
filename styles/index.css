@@ -24,12 +24,36 @@ header {
     justify-self: center;
 }
 
-#temperature-display {
+/* #temperature-display {
     grid-column-start: 2;
     grid-column-end: span 3;
     grid-row-start: 3;
     grid-row-end: 4;
     justify-self: center;
+} */
+
+#decrease-temp {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    justify-self: right;
+}
+
+#temperature {
+    grid-column-start: 3;
+    grid-column-end: span 1;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    justify-self: center;
+}
+
+#increase-temp {
+    grid-column-start: 4;
+    grid-column-end: span 1;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    justify-self: left;
 }
 
 #city-search {
