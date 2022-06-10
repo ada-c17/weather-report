@@ -6,7 +6,7 @@ body {
     /* height: 100%; */
     display: grid;
     grid-template-columns: 100vw;
-    grid-template-rows: 20vh 60vh 20vh;
+    grid-template-rows: 25vh 50vh 25vh;
 }
 
 /* SKY */
@@ -17,24 +17,39 @@ body {
     /* background-size: cover; */
     background-position: bottom; 
     background-image: url('/assets/sky/clear\ 1920x360.jpg');
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    display: grid;
+    grid-template-columns: 30% auto 30%;
+}
+#sky--middle-column{
+    height: 100%;
+    grid-column: 2/3;
+    display: grid;
 }
 
-/* #sky img{
+#sky--grey-box{
     display: flex;
     align-content: center;
     justify-content: center;
-} */
+}
+
+#sky-box{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-image: url(/assets/sections/grey_box_sky.png);
+
+    align-items: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
 
 #select-sky-wrapper{
     border-radius:36px;
     display:inline-block;
     overflow:hidden;
 }
-
 
 #select-sky-box{
     text-align: center;
@@ -46,9 +61,7 @@ body {
     outline:none;
     background-color: rgba(255, 255, 255, .5);
     text-transform: uppercase;
-
     font-family: 'Poppins', Helvetica, sans-serif;
-
     font-weight: bold;
 }
 
@@ -59,8 +72,6 @@ body {
     /* margin: 0; */
     background-size:cover;
     background-position: top; 
-
-    /* background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0)), url('/assets/jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpeg'); */
     background-image: url('/assets/jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpeg');
     display: grid;
     grid-template-columns: 50% 50%;
@@ -113,7 +124,6 @@ body {
 }
 
 
-
 /* TEMP */
 #temp{
     grid-row: 3;
@@ -123,8 +133,25 @@ body {
     background-position:top; 
     background-image: url('/assets/temp/default\ 1920x360.jpg');
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
 }
 
+.arrow-increase {
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent; 
+    
+    border-right:20px solid #707070;     
+}
+
+.arrow-decrease {
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent; 
+    
+    border-left:20px solid #707070;     
+}
 
