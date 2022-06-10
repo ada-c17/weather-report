@@ -4,11 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" src="styles/index.css" />
+    <link rel="stylesheet" href="styles/index.css" />
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <section id="city-display">
+        <h1>Make weather for the city of <span id="city-name">Seattle</span></h1>
+    </section>
+    <div id="sky-selector">
+
+    </div>
+    <section id="temp-display">
+        <div class="temp-control" id="heat">^</div>
+        <h1>72</h1>
+        <div class="temp-control" id="cool">^</div>
+    </section>
+    <div id="buttons">
+        <button id="reality-check">Check the actual weather</button>
+        <button id="city-reset">Reset City</button>
+    </div>
+    <section id="landscape">
+        <h1>🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂</h1>
+    </section>
 </body>
 <script src="src/index.js"></script>
 <script src="./node_modules/axios/dist/axios.min.js"></script>

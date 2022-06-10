@@ -1,0 +1,107 @@
+@font-face {
+    font-family: "oddly-calming";
+    src: url('../assets/oddly-calming-font/OddlyCalmingRegular-7B89V.ttf');
+}
+
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(18px + .3vw);
+    --hot: rgb(169, 14, 22);
+    --warm: rgb(103, 51, 13);
+    --goldilocks: rgb(0, 0, 0);
+    --cool: rgb(8, 36, 97);
+    --cold: rgb(38, 100, 234);
+}
+
+body {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#city-display {
+    width: 90vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+#city-name {
+    font-style: italic;
+}
+
+#city-name:hover {
+    border: solid 1px black;
+    background-color: aqua;
+    color: rgba(23, 20, 23, 0.5);
+    cursor:pointer;
+}
+
+#sky-selector {
+    width: 40vw;
+    min-width: 500px;
+    height: 5rem;
+    background-color: aqua;
+}
+
+#temp-display {
+    width: 30vw;
+    min-width: 200px;
+    background-color: bisque;
+    font-family: "oddly-calming";
+    display:flex;
+    flex-direction: column;
+    align-items: space-around;
+    margin-left: 8vw;
+    margin-right: 8vw;
+}
+
+.hot {
+    color: var(--hot);
+}
+
+.warm {
+    color: var(--warm);
+}
+
+.goldilocks {
+    color: var(--goldilocks);
+}
+
+.cool {
+    color: var(--cool);
+}
+
+.cold {
+    color: var(--cold);
+}
+
+#temp-display h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    margin: 0.1rem 0;
+}
+
+.temp-control {
+    font-size: 3.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+#cool {
+    transform: rotate(180deg);
+}
+
+#buttons {
+    width: 100vw;
+    display: flex;
+    flex-wrap: row wrap;
+}
+
+button {
+    min-width: 300px; 
+}
+
+#landscape {
+    width: 100vw;
+}
