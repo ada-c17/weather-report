@@ -1,5 +1,3 @@
-console.log('conneted');
-
 const temperature = document.querySelector('#temp-value');
 const landscape = document.querySelector('#temp-display');
 
@@ -41,7 +39,7 @@ const changeLandscape = () => {
 
 const decreaseButton = document.querySelector('#temp-down');
 decreaseButton.addEventListener('click', () => {
-  let value = parseInt(temperature.innerText);
+  const value = parseInt(temperature.innerText);
   temperature.innerText = value - 1;
   changeTempTextColor();
   changeLandscape();
@@ -49,7 +47,7 @@ decreaseButton.addEventListener('click', () => {
 
 const increaseButton = document.querySelector('#temp-up');
 increaseButton.addEventListener('click', () => {
-  let value = parseInt(temperature.innerText);
+  const value = parseInt(temperature.innerText);
   temperature.innerText = value + 1;
   changeTempTextColor();
   changeLandscape();
