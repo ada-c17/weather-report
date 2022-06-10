@@ -104,6 +104,20 @@ let changeWeather = () => {
   });
 };
 
+const changeSky = (event) => {
+  const background = document.getElementById('center-section');
+
+  if (event.target.value == 'cloudy') {
+    background.className = 'cloudy-background';
+  } else if (event.target.value == 'rainy') {
+    background.className = 'rainy-background';
+  } else if (event.target.value == 'snowy') {
+    background.className = `snowy-background`;
+  } else {
+    background.className = 'background';
+  }
+};
+
 const registerEventHandlers = () => {
   const leftArrow = document.getElementById('left-arrow');
   leftArrow.addEventListener('click', decreaseTemp);
@@ -114,8 +128,11 @@ const registerEventHandlers = () => {
   const cityInput = document.querySelector('input');
   cityInput.addEventListener('input', changeCity);
 
-  const getWeatherButton = document.getElementById('get-weather-button');
-  getWeatherButton.addEventListener('click', changeWeather);
+  const weatherButton = document.getElementById('get-weather-button');
+  weatherButton.addEventListener('click', changeWeather);
+
+  const skySelection = document.getElementById('sky-select');
+  skySelection.addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);

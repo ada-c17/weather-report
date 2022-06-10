@@ -49,6 +49,27 @@ option {
     padding: 10px;
 }
 
+.background, .cloudy-background, .sunny-background, .rainy-background, .snowy-background {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background {
+    background-image: url(../images/sunny.jpg);
+}
+
+.cloudy-background {
+    background-image: url(../images/cloudy.jpg);
+}
+
+.rainy-background {
+    background-image: url(../images/rainy.jpg);
+}
+
+.snowy-background {
+    background-image: url(../images/snowy.jpg) ;
+}
+
 #temp {
     padding: 10px;
     color: #F5B070;
@@ -62,9 +83,6 @@ option {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    background-image: url(../images/sunny.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 720px;
     border-radius: 100px;
 }
