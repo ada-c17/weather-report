@@ -4,21 +4,25 @@ const temperature = document.getElementById('tempDisplay');
 console.log(typeof parseInt(temperature.textContent));
 
 const state = {
-  clickCount: parseInt(temperature.textContent),
+  ClickCount: parseInt(temperature.textContent),
 };
 
 const increaseTemp = () => {
   const temperature = document.getElementById('tempDisplay');
-  state.clickCount += 1;
-  temperature.textContent = state.clickCount;
+  state.ClickCount += 1;
+  temperature.textContent = `${state.ClickCount}°`;
+};
+const decreaseTemp = () => {
+  const temperature = document.getElementById('tempDisplay');
+  state.ClickCount -= 1;
+  temperature.textContent = `${state.ClickCount}°`;
 };
 
-// if button up clicked, textcontet +=1
-//  if down clicked, textcontent -= 1
-
 const registerEventHandlers = () => {
-  const upButton = document.getElementById('up');
+  const upButton = document.getElementById('upButton');
   upButton.addEventListener('click', increaseTemp);
+  const downButton = document.getElementById('downButton');
+  downButton.addEventListener('click', decreaseTemp);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
