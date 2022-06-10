@@ -20,6 +20,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 /* #sky img{
@@ -34,6 +35,7 @@ body {
     overflow:hidden;
 }
 
+
 #select-sky-box{
     text-align: center;
     align-content: center;
@@ -44,7 +46,9 @@ body {
     outline:none;
     background-color: rgba(255, 255, 255, .5);
     text-transform: uppercase;
+
     font-family: 'Poppins', Helvetica, sans-serif;
+
     font-weight: bold;
 }
 
@@ -55,6 +59,7 @@ body {
     /* margin: 0; */
     background-size:cover;
     background-position: top; 
+
     /* background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0)), url('/assets/jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpeg'); */
     background-image: url('/assets/jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpeg');
     display: grid;
@@ -108,6 +113,7 @@ body {
 }
 
 
+
 /* TEMP */
 #temp{
     grid-row: 3;
@@ -120,4 +126,5 @@ body {
     align-content: center;
     justify-content: center;
 }
+
 
