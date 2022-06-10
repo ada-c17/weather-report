@@ -49,19 +49,20 @@ const landscapeImage = () => {
 
 const increaseTemp = () => {
   state.temp += 1;
-  const currentTemp = document.getElementById('temp-display');
-  currentTemp.textContent = `${state.temp}`;
-  tempColor();
-  landscapeImage();
+  updateTheme();
 };
 
 const decreaseTemp = () => {
   state.temp -= 1;
+  updateTheme();
+};
+
+const updateTheme = () => {
   const currentTemp = document.getElementById('temp-display');
   currentTemp.textContent = `${state.temp}`;
   tempColor();
   landscapeImage();
-};
+}
 
 const registerEventHandlers = () => {
   const tempIncreaseButton = document.getElementById('increase');
