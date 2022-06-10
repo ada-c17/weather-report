@@ -1,49 +1,72 @@
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+
 body{
     background-color: rgb(242, 255, 226);
-    /*background-color: rgb(171, 220, 83);*/
+    color: #89CFF0;
+    font-size: fsemeric, arial, san-serif;
+
 }
 
 
 header {
-    border: blue solid 3px;
+    background: rgba(177, 212, 190, 0.539);
+    color: white;
+    text-shadow: -1px -1px 1px #333, 1px -1px 1px #333, -1px 1px 1px #333, 1px 1px 1px #333;
+    font-size: 30px;
 }
 
+header h1, #city{
+    text-align: center;
+}
+
+#city{
+    font-size: 39px;
+}
 section {
-    border: red solid 3px;
     width: 100%;
-    height: 500px;
+    height: fit-content;
     display: flex;
     flex-direction: row;
-    /*grid-template-columns:  40vw,60vw;
-    grid-gap: 0.5rem;*/
 }
 
 #left-container {
-    border: orange solid 3px;
-    display: grid;
-    grid-gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 2rem;
     width: 40%;
+    padding: 10px;
     
 }
 
 #right-container {
-    border: purple solid 3px;
     width: 60%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
+    padding: 10px;
 }
 
 #card1 {
-    border: black solid 3px;
+    border:rgb(31, 165, 120) solid 3px;
     display: flex;
     flex-direction: row;
+    border-radius: 20px;
 }
 
 #card1-left {
-    border: blue solid 3px;
-    display: grid;
-    width: 50%;
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #temperature {
@@ -54,34 +77,53 @@ section {
 
 #up, #down {
     width: 80px;
-    
-
 }
 
 
-#card1-right {
-    border: blue solid 3px;
+#card1-right{
     width: 50%;
+    padding: 15px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#card1-right h1{
+    align-self: baseline;
 }
 
 #real-time{
-    background-color:rgb(31, 165, 120)
+    background-color:rgb(31, 165, 120);
+    font-size: 18px; 
+    align-items: center;
+    flex-direction: column;
+    padding:25px;
+    border-radius: 10px;
 }
 
 #card2{
-    border: black solid 3px;
+    border: rgb(31, 165, 120) solid 3px;
+    padding: 20px;
+    border-radius: 20px;
+
 }
 
 #card3{
-    border: black solid 3px;
+    border: rgb(31, 165, 120) solid 3px;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 
 #land-scape{
-    border: black solid 3px;
-    width: 70%;
-    height: 90%;
-    
+    border: rgb(118, 176, 85) solid 3px;
+    width: 90%;
+    height: 80%;
+    font-size: 25px;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
 }
 
 .hottest {
@@ -102,4 +144,47 @@ section {
 
 .freeze {
     color: teal;
+}
+
+#land{
+    margin-top: auto;
+}
+
+footer{
+    width: 100%;
+    margin-top: 150px;
+    position: relative;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color:#333;
+}
+
+#kat{
+    width: 50%;
+    padding-right: 30px;
+    text-align: center;
+}
+
+#andrea{
+    width: 50%;
+    padding-left: 30px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    #card1 {
+        flex-direction: column;
+        
+    }
+
+    #real-time {
+        font-size: 12px; 
+    }
+
+    #card1-left{
+        width: 100%;
+    }
+
 }

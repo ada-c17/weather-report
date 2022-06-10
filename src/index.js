@@ -3,6 +3,7 @@
 // const state = {
 //   temp: 0,
 // };
+// Wather Garden title is missing
 
 const changeColorAndLand = (t) => {
   const tempContainer = document.getElementById('temperature');
@@ -10,13 +11,13 @@ const changeColorAndLand = (t) => {
   if (t >= 80) {
     tempContainer.className = 'hottest';
     landScape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
-  } else if (t >= 70 && t < 79) {
+  } else if (t >= 70 && t <= 79) {
     tempContainer.className = 'warm';
     landScape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-  } else if (t >= 60 && t < 69) {
+  } else if (t >= 60 && t <= 69) {
     tempContainer.className = 'fresh';
     landScape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
-  } else if (t >= 50 && t < 59) {
+  } else if (t >= 50 && t <= 59) {
     tempContainer.className = 'cool';
     landScape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else {
