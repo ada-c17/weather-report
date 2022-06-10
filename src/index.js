@@ -2,18 +2,28 @@ const temp = {
   fahrenheit: 55,
 };
 const tempCheck = (element) => {
+//   let landscape = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
   if (element.textContent >= 80) {
     element.className = 'veryHot';
+    // landscape = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
   } else if (element.textContent >= 70) {
     element.className = 'hot';
+    // landscape = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
   } else if (element.textContent >= 60) {
     element.className = 'warm';
+    // landscape = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"
   } else if (element.textContent >= 50) {
     element.className = 'cool';
+    // landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"
   } else {
     element.className = 'cold';
+    // landscape = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
   }
 };
+
+const cityNameReset = () => {
+    
+}
 
 const getTemp = () => {
   const tempUl = document.getElementById('tempDisplay');
