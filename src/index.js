@@ -1,42 +1,11 @@
 'use strict';
-// import 'dotenv/config';
-// import express from 'express';
-
-// require('dotenv').config();
-
-/* from reading
-
-
-
-const axios = require('axios');
-
-const printSucess = (response) => {
-  console.log('success', response.data);
-};
-
-const printError = (error) => {
-  console.log('error', error.response.data);
-};
-
-axios
-  .get('https://us1.locationiq.com/v1/search.php', {
-    params: {
-      key: process.env['API_KEY'],
-      q: 'Seattle, Washington, USA',
-      format: 'json',
-    }
-  })
-  .then(printSuccess)
-  .catch(printError)
-  .finally(() => {
-    console.log('this is always exectued, no matter what!)
-  })
-  */
 
 const state = {
   temp: 78,
   city: 'Seattle, WA',
 };
+
+// export { state };
 
 const changeColor = () => {
   const tempCityBox = document.getElementById('temp_city_box_grid');
@@ -124,6 +93,38 @@ const changeCity = () => {
   document.querySelector('h2').textContent = state.city;
 };
 
+const submitCitySearchRequest = () => {
+  if (KeyboardEvent.key === 'Enter') {
+    console.log('Enter was pushed!');
+    getLatAndLong();
+  }
+};
+
+const getLatAndLong = () => {
+  console.log('The fx ran!');
+  let latitude, longitude;
+
+  axios
+    .get('http://localhost:5000/location', {
+      params: {
+        // key: LOCATIONIQ_KEY,
+        q: state.city,
+        // format: 'json',
+      },
+    })
+    .then((response) => {
+      latitude = response.data[0].lat;
+      longitude = response.data[0].lon;
+      console.log(
+        `For ${state.city}, longitude is ${longitude} and latitude is ${latitude}.`
+      );
+    })
+
+    .catch((error) => {
+      console.log('Encountered an error with getLatAndLong.');
+    });
+};
+
 const registerEventHandlers = (event) => {
   // Increase temp when click up arrow
   const upArrowBtn = document.getElementById('up_arrow_btn');
@@ -144,6 +145,12 @@ const registerEventHandlers = (event) => {
 
   //On text box keyup, update city name
   openInputBox.addEventListener('keyup', changeCity);
+
+  // Search city name on enter or get real temp btn
+  openInputBox.addEventListener('keyup', submitCitySearchRequest);
+
+  const getRealTempBtn = document.getElementById('real_temp_btn');
+  getRealTempBtn.addEventListener('click', submitCitySearchRequest);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
