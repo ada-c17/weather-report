@@ -4,9 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet" />
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <header>
+        <h1 id="greeting">Weather Report for San Diego</h1>
+    </header>
+
+    <main id="main">
+
+        <section id="gardenBox">
+            <h2>Weather Garden</h2>
+            <p id="weatherData"></p>
+            <button id="realTempButton">Get Realtime Temperature</button>
+            <p id="landscape">🌸🌿🌼_🌷🌻🌿☘️🌱🌻🌷🌸🌿🌼🌷🌻🌿☘️🌱</p>
+        </section>
+        
+        <section id="tempBox"> 
+            <h2>Temp</h2>           
+            <div id="tempControls">
+                <img id="leftArrow" alt="left arrow" src="assets/left-arrow-blue.jpg"  />
+                <p id="tempDisplay" class="orange">70</p>
+                <img id="rightArrow" alt="right arrow" src="assets/right-arrow-blue.jpg"  />
+            </div>
+        </section>
+        
+        <section id="skyBox">
+            <h2>Sky</h2>
+            <select id="skySelector">
+                <option value="Sunny" selected="selected">Sunny</option>
+                <option value="Cloudy">Cloudy</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Snowy">Snowy</option>
+            </select>
+        </section>
+
+        <section id="cityBox">
+            <h2>City</h2>
+            <form id="cityForm">
+                <input type="text" id="city" name="city" value="San Diego">
+            </form> 
+            <button id="resetButton">Reset</button>
+        </section>
+    </main>
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
