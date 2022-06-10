@@ -1,0 +1,17 @@
+body {
+    background-color: black;
+    color: blanchedalmond
+}
+
+main {
+    display: grid;
+    grid-template: 100%/1fr 1fr 1fr;
+}
+
+section {
+    border: 2px solid blue;
+}
+
+#currentTemperature {
+    background-color: green;
+}
