@@ -14,6 +14,15 @@ article {
 
 button, select, input {
     padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #023047;
+}
+
+button:hover {
+    background:#8ecae6;
+    cursor: pointer;
 }
 
 #page-layout {
@@ -27,7 +36,7 @@ button, select, input {
     grid-row: 1 / span 3;
     align-self: center;
     column-gap: 30px;
-    height: 150px;
+    height: 200px;
     text-align: center;
 }
 
@@ -41,11 +50,12 @@ button, select, input {
 #temp {
     font-size: 30px;
     font-weight: bold;
+    padding: 7px 0px;
 }
 
 #temperature-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
 }
@@ -65,8 +75,25 @@ button, select, input {
 h2 {
     /* color: #fb8500; */
     color: #ffb703;
+    font-size: 30px;
 }
 
 #get-temp {
     width: 50%;
+    height: 40px;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: 'Joan', serif;
+}
+
+#italic-font{
+    font-style: italic;
+    font-size: 20px;
+}
+
+#sky, #landscape {
+    font-size: 25px;
+    line-height: 50px;
 }

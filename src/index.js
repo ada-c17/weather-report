@@ -133,6 +133,7 @@ const defaultSettings = () => {
   changeTempColorAndGarden(state.temp);
   const skyContainer = document.getElementById('sky');
   skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  getCityTemp();
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
