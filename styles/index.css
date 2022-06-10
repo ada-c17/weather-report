@@ -23,6 +23,10 @@ header {
     font-size: 30px;
 }
 
+header p {
+    padding-left: 20px;
+}
+
 header h1, #city{
     text-align: center;
 }
@@ -130,22 +134,59 @@ section {
     color: red;
 }
 
+.hottest-background {
+    background-color: blue;
+}
+
 .warm {
     color: orange;
+}
+
+.warm-background{
+    background-color: blue;
 }
 
 .fresh {
     color: yellow;
 }
 
+.fresh-background {
+    background-color: blue;
+}
 .cool {
     color: green;
+}
+.cool-background {
+    background-color: blue;
 }
 
 .freeze {
     color: teal;
 }
 
+.freeze-background {
+    background-color: blue;
+}
+
+.default-background {
+    background-color: red;
+}
+
+.sunny-background {
+    background-color: red;
+}
+
+.cloudy-background {
+    background-color: red;
+}
+
+.rainy-background {
+    background-color: red;
+}
+
+.snowy-background {
+    background-color: red;
+}
 #land{
     margin-top: auto;
 }
@@ -188,3 +229,4 @@ footer{
     }
 
 }
+

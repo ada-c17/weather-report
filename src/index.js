@@ -1,50 +1,44 @@
 'use strict';
 
-// const state = {
-//   temp: 0,
-// };
-// Wather Garden title is missing
-
 const changeColorAndLand = (t) => {
   const tempContainer = document.getElementById('temperature');
   const landScape = document.getElementById('land');
   if (t >= 80) {
     tempContainer.className = 'hottest';
+    document.body.className = 'hottest-background';
     landScape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (t >= 70 && t <= 79) {
     tempContainer.className = 'warm';
+    document.body.className = 'warm-background';
     landScape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (t >= 60 && t <= 69) {
     tempContainer.className = 'fresh';
+    document.body.className = 'fresh-background';
     landScape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (t >= 50 && t <= 59) {
     tempContainer.className = 'cool';
+    document.body.className = 'cool-background';
     landScape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else {
     tempContainer.className = 'freeze';
+    document.body.className = 'freeze-background';
     landScape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
 };
 
 const increaseTemp = () => {
-  //state.temp += 1;
   const tempContainer = document.getElementById('temperature');
   let currentTemp = parseInt(tempContainer.innerHTML);
   currentTemp += 1;
-  //tempContainer.textContent = `${state.temp}`;
   tempContainer.textContent = currentTemp;
-  //changeColorAndLand(state.temp);
   changeColorAndLand(currentTemp);
 };
 
 const decreaseTemp = () => {
-  //state.temp -= 1;
   const tempContainer = document.getElementById('temperature');
   let currentTemp = parseInt(tempContainer.innerHTML);
   currentTemp -= 1;
-  //tempContainer.textContent = `${state.temp}`;
   tempContainer.textContent = currentTemp;
-  //changeColorAndLand(state.temp);
   changeColorAndLand(currentTemp);
 };
 
@@ -86,10 +80,8 @@ const getRealTemp = (latitude, longitude) => {
       tempF = Math.floor(((tempK - 273.15) * 9) / 5 + 32);
 
       const tempContainer = document.getElementById('temperature');
-      tempContainer.textContent = `${tempF}`;
+      tempContainer.textContent = `${tempF}` + ' F';
       changeColorAndLand(tempF);
-
-      //return tempF;
     })
     .catch((error) => {
       console.log('Error in get real time temperature!');
@@ -108,18 +100,23 @@ const changeSky = () => {
   switch (selector.value) {
     case 'default':
       currentSky.innerHTML = '🌞🌎🌞🌍🌞🌏🌞';
+      document.body.className = 'default-background';
       break;
     case 'sunny':
       currentSky.innerHTML = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+      document.body.className = 'sunny-background';
       break;
     case 'cloudy':
       currentSky.innerHTML = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+      document.body.className = 'cloudy-background';
       break;
     case 'rainy':
       currentSky.innerHTML = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+      document.body.className = 'rainy-background';
       break;
     case 'snowy':
       currentSky.innerHTML = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+      document.body.className = 'snowy-background';
       break;
   }
 };
@@ -132,6 +129,16 @@ const resetCityName = () => {
   displayRealTemp();
 };
 
+const farenToC = () => {
+  const currentTemp = document.getElementById('temperature');
+  currentTemp.innerHTML =
+    Math.floor(((parseInt(currentTemp.innerHTML) - 32) * 5) / 9) + ' °C';
+};
+
+const celToF = () => {
+  displayRealTemp();
+};
+
 const registerEventHandlers = () => {
   const upButton = document.getElementById('up');
   upButton.addEventListener('click', increaseTemp);
@@ -141,9 +148,6 @@ const registerEventHandlers = () => {
 
   const userInput = document.getElementById('city-name');
   userInput.addEventListener('keyup', displayCity);
-  //userInput.addEventListener('change', displayCity);
-  //const searchButton = document.getElementById('search');
-  //searchButton.addEventListener('click', displayCity);
 
   const displayTemp = document.getElementById('real-time');
   displayTemp.addEventListener('click', displayRealTemp);
@@ -153,6 +157,12 @@ const registerEventHandlers = () => {
 
   const resetButton = document.getElementById('reset');
   resetButton.addEventListener('click', resetCityName);
+
+  const celButton = document.getElementById('celcius');
+  celButton.addEventListener('click', farenToC);
+
+  const farenButton = document.getElementById('faren');
+  farenButton.addEventListener('click', celToF);
 };
 
 if (document.readyState !== 'loading') {
