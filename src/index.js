@@ -1,7 +1,3 @@
-let description = '';
-let currTemp = 0;
-let openWeatherIcon = '';
-
 const convertToFarenheit = temps => {
   let temp = 0;
   let newTemp = 0;
@@ -27,8 +23,7 @@ const setColor = temp => {
     color = 'orange';
   } else if (temp >= 80) {
     color = 'red';
-  }
-  
+  }  
   return color;
 };
 
@@ -65,7 +60,7 @@ const resetHeader = () => {
   greeting.appendChild(newGreeting);
   greeting.innerHTML = `Weather Report for San Diego`;
   
-  document.querySelector("#city").value = '';
+  document.querySelector("#city").value = 'San Diego';
 }
 
 const searchCity = () => {
@@ -97,7 +92,7 @@ const updateWeather = (lat, lon) => {
     let currTemp = response.data.current.temp;
     let minTemp = response.data.daily[0].temp.min;
     let maxTemp = response.data.daily[0].temp.max;
-    const temps = [currTemp, minTemp, maxTemp]
+    const temps = [currTemp, minTemp, maxTemp];
     let farenheitTemps = convertToFarenheit(temps);    
 
     document.querySelector("#weatherData").innerHTML = `<p>Current conditions: ${description} <br> Current temp: ${farenheitTemps[0]}&#x2109; <br> Minimum Temp: ${farenheitTemps[1]}&#x2109; <br> Maximum Temp: ${farenheitTemps[2]}&#x2109; </p>`;
@@ -115,19 +110,19 @@ const changeTemp = event => {
   };
 
   const displayCounter = document.querySelector("#tempDisplay");
-  let tempColor = setColor(state.tempCount)
+  let tempColor = setColor(state.tempCount);
   displayCounter.className = tempColor;
   displayCounter.textContent = `${state.tempCount}`;
 
   const landscape = document.querySelector("#landscape");
-  let tempLandscape = setLandscape(state.tempCount)
+  let tempLandscape = setLandscape(state.tempCount);
   landscape.textContent = `${tempLandscape}`;  
 };
 
 const setSky = () => {
   const newSky = document.getElementById("skySelector");
   const currSky = newSky.options[newSky.selectedIndex].text;
-  let sky = ''
+  let sky = '';
 
   if (currSky === 'Sunny') {
     sky = 'sunny';
@@ -160,7 +155,7 @@ const registerEventHandlers = (event) => {
   skySelector.addEventListener("change", setSky);
 
   const realTempButton = document.querySelector('#realTempButton');
-  realTempButton.addEventListener("click", searchCity)
+  realTempButton.addEventListener("click", searchCity);
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
