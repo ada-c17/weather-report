@@ -118,12 +118,13 @@ const colorTempChange = () => {
   const tempDisplay = document.querySelector('#tempValue');
   tempDisplay.textContent = `${state.temp}`;
   tempDisplay.className = color;
-  const gardenLandscape = document.querySelector('#garden');
+  const gardenLandscape = document.querySelector('#landscape');
   gardenLandscape.textContent = landscape;
 };
 
 
 
+<<<<<<< HEAD
 
 
 /*    EVENT HANDLERS, OTHER MISC    *//////////////////////////////////////////
@@ -131,13 +132,41 @@ const colorTempChange = () => {
 
 const registerEventHandlers = () => {
   cityCallWeather(serverAddress, 'Seattle');
+=======
+const changeSky = () => {
+  const skySelect = document.getElementById('skySelect').value;
+  let sky = '';
+  if (skySelect === 'Sunny') {
+    sky = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (skySelect === 'Cloudy') {
+    sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skySelect === 'Rainy') {
+    sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skySelect === 'Snowy') {
+    sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+  const gardenSky = document.getElementById('sky');
+  gardenSky.textContent = sky;
+};
+
+const inputElement = document.querySelector('#userInput');
+
+const registerEventHandlers = () => {
+  colorTempChange();
+>>>>>>> 4b5732931f79971e8fdaddd4e6e48b43200fde09
   const upArrow = document.querySelector('#increaseTemp');
-  const downArrow = document.querySelector('#decreaseTemp');
   upArrow.addEventListener('click', increaseTemp);
+
+  const downArrow = document.querySelector('#decreaseTemp');
   downArrow.addEventListener('click', decreaseTemp);
+
   inputElement.addEventListener('change', changeCityName);
   const resetButton = document.querySelector('#resetButton');
   resetButton.addEventListener('click', resetInput);
+
+  changeSky();
+  const skyControls = document.getElementById('skySelect');
+  skyControls.addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
