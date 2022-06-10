@@ -40,6 +40,7 @@ const changeTempColor = (temp) => {
 
 const changeLandscape = (temp) => {
   const landscapeContainer = document.getElementById('landscapeContainer');
+  landscapeContainer.textContent = state.landscape;
   if (temp >= 80) {
     landscapeContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (temp >= 70 && temp <= 79) {
@@ -79,7 +80,10 @@ const changeCity = (event) => {
         .then((response) => {
           const searchResult2 = response.data;
           cityTemp = searchResult2.current.temp;
-          console.log(cityLat, cityLon, cityTemp);
+          // console.log(cityLat, cityLon, cityTemp);
+          document.getElementById('city').value = '';
+          const tempContainer = document.getElementById('tempContainer');
+          tempContainer.textContent = cityTemp;
         })
         .catch((error) => {
           console.log('error!', error.response.status);
