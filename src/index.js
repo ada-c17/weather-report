@@ -80,25 +80,31 @@ const skyVariations = [
   },
 ];
 
+// initialize all variables
 let tempUpButton;
 let tempDownButton;
 let tempDisplay;
 let tempRealTimeButton;
 let gardenDisplay;
-let inputText;
+let cityInput;
 let cityDisplay;
+let cityResetButton;
 let skyIcon;
 let gardenSky;
 let skyDropdown;
 
+// temp functions
 const increaseTemp = () => {
   state.temp += 1;
-  tempDisplay.textContent = `${state.temp}°F`;
-  changeTempClass();
+  updateTemp();
 };
 
 const decreaseTemp = () => {
   state.temp -= 1;
+  updateTemp();
+};
+
+const updateTemp = () => {
   tempDisplay.textContent = `${state.temp}°F`;
   changeTempClass();
 };
@@ -120,14 +126,42 @@ const changeTempClass = () => {
   gardenDisplay.textContent = tempClassInfo.garden;
 };
 
+// city functions
 const updateCity = () => {
-  let newCity = inputText.value;
+  let newCity = cityInput.value;
   cityDisplay.textContent = newCity;
-  inputText.value = '';
+  cityInput.value = '';
 };
 
+const resetCity = () => {
+  cityDisplay.textContent = 'Rochester, NY';
+  cityInput.value = '';
+};
+
+// I thought about having the reset city button reset the temp and sky info as well
+// but since they're not otherwise linked, I ended up removing the functionality
+// left the code here just in case I wanted to refer to how I did it another time.
+
+// const resetTempToDefault = () => {
+//   state.temp = 75;
+//   updateTemp()
+// };
+
+// const resetSkyToDefault = () => {
+//   skyDropdown.value = 'default';
+//   updateSky()
+// };
+
+// sky functions
 const updateSky = () => {
   const skyValue = skyDropdown.value;
+
+  if (skyValue === 'default') {
+    gardenSky.textContent = skyVariations[0].garden;
+    skyIcon.src = skyVariations[0].src;
+    skyIcon.alt = skyVariations[0].alt;
+  }
+
   for (let sky of skyVariations) {
     if (sky.sky === skyValue) {
       gardenSky.textContent = sky.garden;
@@ -137,6 +171,7 @@ const updateSky = () => {
   }
 };
 
+// realtime temperature functions
 const convertFromKToF = (num) => {
   const tempInF = Math.round(1.8 * (num - 273) + 32);
   return tempInF;
@@ -153,9 +188,8 @@ const getRealTimeTemp = (locationData) => {
     })
     .then((response) => {
       let tempInKelvin = response.data.current.temp;
-      realTimeTemp = convertFromKToF(tempInKelvin);
-      state.temp = realTimeTemp;
-      tempDisplay.textContent = `${state.temp}°F`;
+      state.temp = convertFromKToF(tempInKelvin);
+      updateTemp();
     })
     .catch((error) => {
       console.log(
@@ -186,25 +220,29 @@ const getLatLong = () => {
     });
 };
 
+// set variables to html elements
 const lookUpElements = () => {
   tempUpButton = document.getElementById('tempUp');
   tempDownButton = document.getElementById('tempDown');
   tempDisplay = document.getElementById('tempNum');
   gardenDisplay = document.getElementById('garden');
-  inputText = document.getElementById('cityInput');
+  cityInput = document.getElementById('cityInput');
   cityDisplay = document.getElementById('cityDisplay');
   tempRealTimeButton = document.getElementById('realTime');
   skyIcon = document.getElementById('skyIcon');
   gardenSky = document.getElementById('gardenSky');
   skyDropdown = document.getElementById('skySelect');
+  cityResetButton = document.getElementById('resetCity');
 };
 
+// register events
 const registerEventHandlers = () => {
   tempUpButton.addEventListener('click', increaseTemp);
   tempDownButton.addEventListener('click', decreaseTemp);
-  inputText.addEventListener('change', updateCity);
+  cityInput.addEventListener('change', updateCity);
   tempRealTimeButton.addEventListener('click', getLatLong);
   skyDropdown.addEventListener('change', updateSky);
+  cityResetButton.addEventListener('click', resetCity);
 };
 
 const initializePage = () => {
