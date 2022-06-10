@@ -1,3 +1,4 @@
+'use strict';
 const state = {
   temp: 50,
 };
@@ -40,7 +41,7 @@ const decreaseTemp = () => {
   colorTempChange();
 };
 
-const inputElement = document.querySelector('#myInput');
+const inputElement = document.querySelector('#userInput');
 
 const registerEventHandlers = () => {
   const upArrow = document.querySelector('#increaseTemp');
