@@ -1,19 +1,47 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: lightblue;
+    color: white;
+    background: url(../assets/weather_background.avif);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 80px;
+    margin-top: 50px;
+}
+
+h2 {
+
+}
+
+#temperature {
+    font-size: 75px;
+}
+
+#cityname {
+    /* border-radius: 10px; */
+    outline: none;
+    padding: 15px 5%;
+    border-radius: 20px;
+    border: none;
+    background: rgba(250, 250, 250, 0.80);
+}
+
+#garden-display {
+    width: 30%;
+    border: 2px solid grey;
+    border-radius: 20px;
+    background-color: rgba(111, 107, 107, 0.7);
+    /* display: flex; */
+    /* align-self: center; */
 }
 
 button {
-    background-color: blue;
-    border-radius: 25px;
+    background-color: rgba(122, 119, 119, 0.8);
     color: white;
-    padding: 10px;
+    padding: 3px 10px;
+    border: none;
+    border-radius: 10px;
 }
-
-/* #temperature[color="red"] {
-    color: red;
-}
-
-#temperature[color="orange"] {
-    color: orange;
-} */

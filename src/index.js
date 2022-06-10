@@ -1,14 +1,14 @@
 'use strict';
-// const axios = require('axios');
+
+let city = 'Seattle';
+let temperature = 79;
 
 window.onload = function () {
   newTemperature();
   changeCity();
   changeSky();
+  getCurrentTemp();
 };
-
-let city = 'Seattle';
-let temperature = 79;
 
 const increaseTemp = function () {
   temperature += 1;
@@ -38,6 +38,8 @@ const getCurrentTemp = function () {
           const fahrenheit = (9 / 5) * (kelvin - 273) + 32;
           temperature = Math.round(fahrenheit);
           newTemperature();
+          // const skyType = response.data.current.weather[0].main;
+          // console.log(skyType);
         })
         .catch((error) => {
           console.log('errorrrr');
@@ -78,7 +80,7 @@ const changeSky = function () {
 };
 
 const newTemperature = function () {
-  const temperatureMessage = 'Temperature: ' + temperature + '\u00B0F';
+  const temperatureMessage = temperature + '\u00B0F';
   document.getElementById('temperature').innerHTML = temperatureMessage;
   setTextColorLandscapeBasedOnTemp();
 };
@@ -88,7 +90,6 @@ const setTextColorLandscapeBasedOnTemp = function () {
   let tempColor = '';
   if (temperature >= 80) {
     tempColor = 'red';
-    // document.getElementById('temperature').style.color = 'red';
     landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (temperature >= 70) {
     tempColor = 'orange';
@@ -120,3 +121,26 @@ const getSky = function (skyType) {
   }
   return sky;
 };
+
+// const setSky = function () {
+//   const input = document.querySelector('#skytype-select');
+
+//   input.addEventListener('change', (event) => {
+//     const skyOutput = document.querySelector('#sky');
+//     skyOutput.textContent = getSky(event.target.value);
+//   });
+// };
+
+// const getSky2 = function (skyType) {
+//   let sky = '';
+//   if (skyType == 'cloudy') {
+//     sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+//   } else if (skyType == 'rainy') {
+//     sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+//   } else if (skyType == 'snowy') {
+//     sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+//   } else if (skyType == 'sunny') {
+//     sky = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+//   }
+//   return sky;
+// };

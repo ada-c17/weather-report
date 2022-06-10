@@ -10,13 +10,17 @@
 <body>
     <h1>Weather Report</h1>
     <h2 id="cityheader">Current Weather for Seattle</h2>
-    <article id="temperature">temperature</article>
     <button onclick="getCurrentTemp()">Get Current Temperature</button>
     <br/>
     <label for="cityname">City:</label>
     <input type="text" placeholder="Enter a city" id="cityname">
     <button onclick="resetCity()">Reset City Name</button>
-    <section id="landscape">Landscape</section>
+    <section id="garden-display">
+        <section id="sky"><br/></section>
+        <article id="temperature">temperature</article>
+        <section id="landscape">Landscape</section>
+
+    </section>
     <button onclick="increaseTemp()">Increase Temperature</button>
     <button onclick="decreaseTemp()">Decrease Temperature</button>
     <select name="skytype" id="skytype-select">
@@ -26,7 +30,6 @@
         <option value="snowy">Snowy</option>
         <option value="sunny">Sunny</option>
     </select>
-    <section id="sky"><br/></section>
     <script src="./src/index.js" type="text/javascript"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
