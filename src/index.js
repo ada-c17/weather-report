@@ -29,22 +29,28 @@ const tempColor = () => {
 
 const landscapeImage = () => {
   const landscape = document.getElementById('landscape');
-  switch (Math.floor(state.temp / 10)) {
-    case 10:
-    case 9:
-    case 8:
-      landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
-      break;
-    case 7:
-      landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-      break;
-    case 6:
-      landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
-      break;
-    default:
-      landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
-      break;
+  let pic;
+  if (state.temp >= 80) {
+    pic =
+      "url('/Users/daniellewhyte/Developer/projects/weather-report/assets/desert.jpg')";
+  } else if (state.temp >= 70) {
+    pic =
+      "url('/Users/daniellewhyte/Developer/projects/weather-report/assets/flowers.jpg')";
+  } else if (state.temp >= 60) {
+    pic =
+      "url('/Users/daniellewhyte/Developer/projects/weather-report/assets/grass.jpg')";
+  } else {
+    pic =
+      "url('/Users/daniellewhyte/Developer/projects/weather-report/assets/snow.jpg')";
   }
+  landscape.style.backgroundImage = pic;
+};
+
+const updateTheme = () => {
+  const currentTemp = document.getElementById('temp-display');
+  currentTemp.textContent = `${state.temp}`;
+  tempColor();
+  landscapeImage();
 };
 
 const increaseTemp = () => {
@@ -56,13 +62,6 @@ const decreaseTemp = () => {
   state.temp -= 1;
   updateTheme();
 };
-
-const updateTheme = () => {
-  const currentTemp = document.getElementById('temp-display');
-  currentTemp.textContent = `${state.temp}`;
-  tempColor();
-  landscapeImage();
-}
 
 const registerEventHandlers = () => {
   const tempIncreaseButton = document.getElementById('increase');
