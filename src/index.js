@@ -17,8 +17,25 @@ const tempCheck = (element) => {
   }
 };
 
+const emojiCheck = (element) => {
+  if (element.textContent >= 80) {
+    temp.emojis = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (element.textContent >= 70) {
+    temp.emojis = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (element.textContent >= 60) {
+    temp.emojis = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (element.textContent >= 50) {
+    temp.emojis = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  } else {
+    temp.emojis = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  }
+  return temp.emojis;
+};
 
-const getTemp = () => {
+const cityNameReset = () => {};
+
+const loadElements = () => {
+  // load temp number
   const tempUl = document.getElementById('tempDisplay');
   const tempLi = document.createElement('li');
   tempLi.textContent = temp.fahrenheit;
@@ -56,10 +73,6 @@ const getTemp = () => {
   loadTempButtons();
   loadWeatherGarden();
 };
-
-
-
-
 
 if (document.readyState !== 'loading') {
   loadElements();
