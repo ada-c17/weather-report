@@ -54,5 +54,14 @@ const downEvent = () => {
   downButton.addEventListener('click', decreaseTemp);
 };
 
+const cityInput = document.getElementById('city-input');
+const cityName = document.getElementById('city-name');
+
+
+const updateValue = (cityInput) => {
+	cityName.textContent = cityInput.target.value;
+}
+
+cityInput.addEventListener('change', updateValue);
 document.addEventListener('DOMContentLoaded', upEvent);
 document.addEventListener('DOMContentLoaded', downEvent);
