@@ -11,7 +11,7 @@ const serverAddress = "http://127.0.0.1:5000";
 
 const populateWeatherReport = function(weatherData) {
   const tempKelvin = weatherData.current.temp;
-  const tempFahrenheit = ((tempKelvin-273.15)*1.8)+32;
+  const tempFahrenheit = Math.floor(((tempKelvin-273.15)*1.8)+32);
   const skyDescription = weatherData.current.weather[0].description;
   //const cloudCoverage = `${weatherData.current.clouds}%`;
 
