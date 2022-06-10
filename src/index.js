@@ -27,15 +27,15 @@ const changeTemp = () => {
     state.temp += 1;
     currentTemp.textContent = state.temp;
     changeTempColor();
+    changeLandscape();
   });
   arrowDownButton.addEventListener('click', () => {
     state.temp -= 1;
     currentTemp.textContent = state.temp;
     changeTempColor();
+    changeLandscape();
   });
 };
-
-
 
 // Logic to change landscape based on temperature input
 
@@ -49,13 +49,25 @@ const changeLandscape = () => {
   // currentLandscape.style.display = 'none';
   if (state.temp >= 80) {
     hotDog.style.display = 'block';
+    springDog.style.display = 'none';
+    autumnDog.style.display = 'none';
+    winterDog.style.display = 'none';
   } else if (state.temp >= 70) {
+    hotDog.style.display = 'none';
     springDog.style.display = 'block';
+    autumnDog.style.display = 'none';
+    winterDog.style.display = 'none';
   } else if (state.temp >= 60) {
+    hotDog.style.display = 'none';
+    springDog.style.display = 'none';
     autumnDog.style.display = 'block';
+    winterDog.style.display = 'none';
   } else if (state.temp <= 50) {
+    hotDog.style.display = 'none';
+    springDog.style.display = 'none';
+    autumnDog.style.display = 'none';
     winterDog.style.display = 'block';
-}
+  }
 };
 
 document.addEventListener('DOMContentLoaded', changeTemp);
