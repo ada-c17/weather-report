@@ -24,7 +24,7 @@ const getSelectedSky = (backgrounds) => {
   return background;
 };
 
-const skyBackground = document.querySelector('#sky-box');
+const skyBackground = document.querySelector('body');
 const changeSkyBackground = () => {
   const imgs = [
     '/assets/defaultSky.jpeg',
@@ -37,6 +37,10 @@ const changeSkyBackground = () => {
   const img = getSelectedSky(imgs);
   skyBackground.style.backgroundImage = `url(${img})`;
 };
+
+skyBackground.addEventListener('change',() =>{
+  changeSkyBackground();
+});
 
 const temperature = document.querySelector('#temp-value');
 const getEffectByTempRange = (effects) => {
@@ -90,4 +94,22 @@ increaseButton.addEventListener('click', () => {
   temperature.innerText = value + 1;
   changeTempTextColor();
   changeLandscape();
+});
+
+const cityName = document.querySelector('#temp-display h1');
+const changeCityName = (city) => {
+  cityName.innerText = city;
+};
+
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const city = form.elements.query.value;
+  changeCityName(city);
+});
+
+const resetCityButton = document.querySelector('#reset-city');
+resetCityButton.addEventListener('click',() => {
+  changeCityName('Seattle');
+  form.elements.query.value="";
 });

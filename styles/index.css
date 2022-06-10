@@ -77,12 +77,12 @@ header {
     transition: 1s ease-in-out;
 }
 
-#sky-box {
+body {
     background-image: url(../assets/defaultSky.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: 1s ease-in-out;
+    transition: 500ms ease-in-out;
 }
 
 #control-container {
@@ -98,7 +98,6 @@ header {
 }
 
 #temp-box .box-content {
-    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -115,3 +114,6 @@ header {
     width: 100%;
 }
 
+#city-box #box-content {
+    flex-direction: column;
+}
