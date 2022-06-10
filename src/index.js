@@ -1,5 +1,10 @@
+// const { default: axios } = require('axios');
+
+// const { default: axios } = require('axios');
+
 const state = {
   temperature: 75,
+  city: 'Brownsville',
 };
 
 const getNewColor = () => {
@@ -56,12 +61,99 @@ const increaseTemp = () => {
   changeLandscape();
 };
 
-const changeCity = () => {
+const getCity = () => {
   const cityInput = document.querySelector('input');
-  let newCity = cityInput.value;
-  let subheader = document.getElementById('subheader');
-  subheader.textContent = `What I Wish The Weather Was Like in ${newCity}`;
+  return (newCity = cityInput.value);
 };
+
+const changeCity = () => {
+  state.city = getCity();
+  let subheader = document.getElementById('subheader');
+  subheader.textContent = `What I Wish The Weather Was Like in ${state.city}`;
+};
+
+const getWeather = async (cityName) => {
+  try {
+    response = await axios.get('http://localhost:5000/location', {
+      params: { q: cityName },
+    });
+    let lat = response.data[0].lat;
+    let lon = response.data[0].lon;
+    weather = await axios.get('http://localhost:5000/weather', {
+      params: {
+        lat: lat,
+        lon: lon,
+      },
+    });
+    return weather.data.current;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const convertKToF = (temp) => {
+  return Math.round(temp * 1.8 - 459.67);
+};
+
+let changeWeather = () => {
+  let newCity = getCity();
+  if (newCity) {
+    state.city = newCity;
+  }
+  let weatherPromise = getWeather(state.city);
+  weatherPromise.then((weather) => {
+    newTemp = convertKToF(weather.temp);
+    state.temperature = newTemp;
+    getTempAndChangeStyle();
+  });
+};
+
+// const getLatAndLong = (cityname) => {
+//   return axios
+//     .get('http://localhost:5000/location', {
+//       params: { q: cityname },
+//     })
+//     .then((response) => {
+//       const lat = response.data[0].lat;
+//       const lon = response.data[0].lon;
+//       // console.log(lat, lon);
+//       getWeatherData(lat, lon);
+//     })
+//     .catch((error) => {
+//       console.log('Location data could not be retrieved', error.data);
+//     });
+// };
+
+// const getWeatherData = (lat, lon) => {
+//   axios
+//     .get('http://localhost:5000/weather', {
+//       params: {
+//         lat: lat,
+//         lon: lon,
+//       },
+//     })
+//     .then((response) => {
+//       // console.log(response.data);
+//       return response.data.current;
+//     });
+// };
+
+// const changeWeather = async (newCity) => {
+//   let weatherPromise = await getLatAndLong(newCity);
+//   weatherPromise.then((weather) => console.log(weather));
+// };
+
+// changeWeather('Brownsville');
+
+// Get input value
+// Make API call with that input value
+// Update temperature. Need to call getTempandChangeStyle
+// Event Listener? Get Realtime Weather Button!
+
+// let newCity = getLatAndLong('Brownsville');
+// newCity.then((response) => {
+//   console.log(response);
+// });
 
 const registerEventHandlers = () => {
   const leftArrow = document.getElementById('left-arrow');
@@ -72,6 +164,9 @@ const registerEventHandlers = () => {
 
   const cityInput = document.querySelector('input');
   cityInput.addEventListener('input', changeCity);
+
+  const getWeatherButton = document.getElementById('get-weather-button');
+  getWeatherButton.addEventListener('click', changeWeather);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
