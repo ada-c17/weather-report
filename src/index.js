@@ -4,6 +4,7 @@ const GARDENSKIES = {
   rainy: '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧',
   snowy: '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨',
 };
+
 const state = {
   tempValue: 60,
 };
@@ -40,7 +41,7 @@ const helperTempDependentLayout = (temp, el) => {
     landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else if (temp < 50) {
     color = 'teal';
-    landscape = '❄️🌲⛄️🌲❄️❄️🏂⛄️🌲❄️⛷🌲❄️❄️🌲';
+    landscape = '❄️🌲⛄️🌲❄️🏂⛄️🌲❄️⛷🌲❄️🌲';
   }
   el.style.color = color;
   landscapeLayout.textContent = landscape;
@@ -55,6 +56,8 @@ const updateTitleCity = () => {
 const resetCity = () => {
   document.querySelector('#titleCity').textContent = 'Seattle';
   document.querySelector('#cityName').value = '';
+};
+
 const updateWeatherGardenSky = () => {
   let gardenSky = document.querySelector('#gardenSky');
   console.log(`${weatherSelector.value}`);
