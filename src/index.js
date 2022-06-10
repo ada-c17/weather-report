@@ -2,10 +2,16 @@ let description = '';
 let currTemp = 0;
 let openWeatherIcon = '';
 
-const convertToFarenheit = temp => {
+const convertToFarenheit = temps => {
+  let temp = 0;
   let newTemp = 0;
-  newTemp = Math.floor(1.8 * (temp - 273) + 32);
-  return newTemp;
+  let tempVals = [];
+
+  for (temp of temps) {
+    newTemp = Math.floor(1.8 * (temp - 273) + 32);
+    tempVals.push(newTemp);
+  }
+  return tempVals;
 };
 
 const setColor = temp => {
@@ -66,7 +72,7 @@ const searchCity = () => {
   const city = document.querySelector("#city").value;
 
   axios
-    .get("http://localhost:5000/location", {
+    .get(" https://weather-report-proxy-server.herokuapp.com/location", {
       params: {
       q: city,
   }
@@ -74,8 +80,6 @@ const searchCity = () => {
 .then(response => {
   const lat = response.data[0].lat
   const lon = response.data[0].lon
-  // const lat = 33.1247
-  // const lon = -117.0808
   updateWeather(lat, lon)
 });
 };
@@ -89,31 +93,26 @@ const updateWeather = (lat, lon) => {
     }
   })
   .then(response => {
-    description = response.data.current.weather[0].description;
-    currTemp = response.data.current.temp;
-    farenheitTemp = convertToFarenheit(currTemp);    
+    let description = response.data.current.weather[0].description;
+    let currTemp = response.data.current.temp;
+    let minTemp = response.data.daily[0].temp.min;
+    let maxTemp = response.data.daily[0].temp.max;
+    const temps = [currTemp, minTemp, maxTemp]
+    let farenheitTemps = convertToFarenheit(temps);    
 
-    document.querySelector("#weatherData").innerHTML = `<h2>${description}: ${farenheitTemp}</h2>`;
+    document.querySelector("#weatherData").innerHTML = `<p>Current conditions: ${description} <br> Current temp: ${farenheitTemps[0]}&#x2109; <br> Minimum Temp: ${farenheitTemps[1]}&#x2109; <br> Maximum Temp: ${farenheitTemps[2]}&#x2109; </p>`;
   });
 };
 
-const lowerTemp = event => {
+const changeTemp = event => {
+  let direction = event.target.id;
   let temp = document.querySelector("#tempDisplay").innerHTML;
-  state.tempCount = parseInt(temp, 10) - 1;
 
-  const displayCounter = document.querySelector("#tempDisplay");
-  let tempColor = setColor(state.tempCount)
-  displayCounter.className = tempColor;
-  displayCounter.textContent = `${state.tempCount}`;
-
-  const landscape = document.querySelector("#landscape");
-  let tempLandscape = setLandscape(state.tempCount)
-  landscape.textContent = `${tempLandscape}`;  
-};
-
-const raiseTemp = event => {
-  let temp = document.querySelector("#tempDisplay").innerHTML;
-  state.tempCount = parseInt(temp, 10) + 1;
+  if (direction === 'leftArrow') {
+    state.tempCount = parseInt(temp, 10) - 1;
+  } else {
+    state.tempCount = parseInt(temp, 10) + 1;
+  };
 
   const displayCounter = document.querySelector("#tempDisplay");
   let tempColor = setColor(state.tempCount)
@@ -146,10 +145,10 @@ const setSky = () => {
 
 const registerEventHandlers = (event) => {
   const leftArrow = document.querySelector("#leftArrow");
-  leftArrow.addEventListener("click", lowerTemp);    
+  leftArrow.addEventListener("click", changeTemp);    
 
   const rightArrow = document.querySelector("#rightArrow");
-  rightArrow.addEventListener("click", raiseTemp); 
+  rightArrow.addEventListener("click", changeTemp); 
 
   const city = document.querySelector("#city");
   city.addEventListener("keyup", changeCityHeader);
