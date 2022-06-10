@@ -71,7 +71,6 @@ const defaultCity = {
 };
 const updateCityname = () => {
   const nameOfCity = document.getElementById('cityNameid').value;
-  //console.log(nameOfCity);
   const cityContainer = document.querySelector('#amazingCity');
 
   cityContainer.textContent = `The amazing city of ${nameOfCity}`;
@@ -87,11 +86,9 @@ const getLocation = () => {
       },
     })
     .then((response) => {
-      //console.log(response);
       const cityLocationLat = response.data[0].lat;
       const cityLocationLon = response.data[0].lon;
-      console.log(cityLocationLat); //this works
-      console.log(cityLocationLon); //this works
+
       axios
         .get('http://127.0.0.1:5000/weather', {
           params: {
@@ -101,14 +98,11 @@ const getLocation = () => {
         })
         .then((response) => {
           const cityLocationWeather = response.data.current.temp;
-          //console.log(cityLocationWeather);
           const realCityTemp = document.getElementById('tempCount');
-          realCityTemp.textContent = cityLocationWeather;
-          //console.log(realCityTemp);
+          const tempFahren = (cityLocationWeather - 273.15) * 1.8 + 32;
+          realCityTemp.textContent = (cityLocationWeather - 273.15) * 1.8 + 32;
+          gardenLayout(tempFahren);
+          tempColor(tempFahren);
         });
     });
-};
-
-const convertKtoF = (Kelvin) => {
-  Fahrenheit = (Kelvin - 273.15) * 1.8 + 32;
 };
