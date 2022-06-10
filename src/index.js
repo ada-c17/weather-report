@@ -83,6 +83,25 @@ const changeCityName = () => {
   })
 }; 
 
+const changeSky = () => {
+  const currentSky = document.querySelector("#sky-select");
+  const backgroundColor = document.querySelector('body');
+  currentSky.addEventListener('change', () => {
+    if (currentSky.value === "sunny") {
+      backgroundColor.style.backgroundColor = 'goldenrod'
+    } else if (currentSky.value === "cloudy") {
+      backgroundColor.style.backgroundColor = 'grey'
+    } else if (currentSky.value === "raining") {
+      backgroundColor.style.backgroundColor = 'blue'
+    } else if (currentSky.value === "snowing") {
+      backgroundColor.style.backgroundColor = 'white'
+    }
+  
+  })
+
+}
+
 document.addEventListener('DOMContentLoaded', changeTemp);
 document.addEventListener('DOMContentLoaded', changeLandscape);
 document.addEventListener('DOMContentLoaded', changeCityName);
+document.addEventListener('DOMContentLoaded', changeSky);

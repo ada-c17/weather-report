@@ -1,8 +1,12 @@
 h1 {
     font-size: 40;
-    color: teal;
+    color: black;
 }
 
+body {
+    background-color: rgb(145, 226, 226);
+    background-size: cover;
+}
 /* .smallcontainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
