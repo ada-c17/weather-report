@@ -61,6 +61,7 @@ const changeCityName = (event) => {
 
 const resetInput = () => {
   inputElement.value = '';
+  cityName.textContent = 'Seattle';
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
