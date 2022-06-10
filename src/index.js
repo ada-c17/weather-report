@@ -1,5 +1,6 @@
 const state = {
   temp: 79,
+  city: 'Seattle',
 };
 
 const getWeather = (lat, lon) => {
@@ -76,9 +77,17 @@ const registerEventHandlers = () => {
   const getTempButton = document.querySelector('#get-temp');
   getTempButton.addEventListener('click', getCityTemp);
 
-  //wave 5
+  // wave 5
   const getSkyChanged = document.querySelector('select');
   getSkyChanged.addEventListener('change', changeSky);
+
+  // wave 6
+  const resetButton = document.getElementById('reset');
+  resetButton.addEventListener('click', defaultSettings);
+
+  // const settingsOnLoad = document.querySelectorAll;
+  // settingsOnLoad.addEventListener('load', defaultSettings);
+  // document.addEventListener('onload', defaultSettings);
 };
 
 const changeTempColorAndGarden = (temperature) => {
@@ -114,6 +123,17 @@ const changeSky = () => {
   } else if (skyValue === 'snowy') {
     skyContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
+};
+
+const defaultSettings = () => {
+  const cityContainer = document.getElementById('city');
+  cityContainer.textContent = state.city;
+  state.temp = 79;
+  changeTempColorAndGarden(state.temp);
+  const cityName = document.getElementById('city-name');
+  cityName.value = '';
+  const skyContainer = document.getElementById('sky');
+  skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
