@@ -1,9 +1,10 @@
 h1 { 
-  margin-left: 1%;
+  margin-left: 2%;
+  margin-top: 2%;
 }
 
 .city-header {
-  font-size: 12px;
+  font-size: 19px;
 }
 
 body {
@@ -38,18 +39,19 @@ body {
 }
 
 .garden-container {
-  width: 50%;
-  height: 50%;
-  border: 2px solid red;
+  width: 70%;
+  height: 70%;
+  /* border: 2px solid red; */
 }
 
 .garden-block {
   display: flex;
-  border: red 2px dotted;
-  background-color: #a4f1f8;
-  border-radius: 25px;
+  /* border: red 2px dotted; */
+  background-color: #dbfbfc;
+  border-radius: 20px;
   align-items: center;
   justify-content: space-around;
+  height: 200px;
 }
 
 .garden-content {
@@ -59,6 +61,7 @@ body {
 
 .garden-heading {
   text-align: center;
+  font-size: 16px;
 }
 
 .nav {
@@ -88,10 +91,13 @@ body {
 #ground {
   color: #000000;
   text-emphasis: bolder;
+  font-size: 40px;
+  /* margin-top: 25%; */
 }
 
 #sky {
-  margin-bottom: 40%;
+  margin-bottom: 10%;
+  font-size: 40px;
 }
 
 /* temperature block style */
@@ -188,8 +194,8 @@ body {
 } */
 
 .selection-wrapper{
-  /* border: blue 2px dotted; */
-  /* margin: auto; */
+  /* border: blue 2px dotted;
+  margin: auto; */
   margin-left: 98px;
   width: 270px;
   padding: 10px;
@@ -197,9 +203,11 @@ body {
 }
 
 select {
+    font-size: 10px;
     width:  100%;
     height: 32px;
-    font-size: 15px;
+    cursor: pointer;
+    
 }
 
 
@@ -225,19 +233,19 @@ select {
   margin-right: 180px;
 }
 
-.header-in-city-name{
-/*   border: green 2px solid; */
-}
+/* .header-in-city-name{
+  border: green 2px solid;
+} */
 
 input{
 /*   border: blue 2px solid; */
   cursor: pointer;
-  font-size: 15px;
+  font-size: 17px;
   border-radius: 7px;
 }
 
 #input_button {
- background-color: #34e5eb;
+  background-color: #34e5eb;
 }
 
 #input_button:hover {
