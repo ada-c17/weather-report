@@ -15,20 +15,58 @@
                 <span id="city-name"> ✨ Some city ✨ </span>            
             </span>
         </header>
+
         <nav class="nav">
-    <!--     <h1> My sidebar<h1> -->
-        <div class = "nav-wrapper">
-            <section class = "white-block">
-                <h2>Temperature</h2>
+            <div class="nav-wrapper">
+            <section class="white-block">
+                <div class="temperature-wrapper">
+                    <h2 class="header-in-template">Temperature</h2>
+                    <div class="bottom-wrapper">
+                        <div class="number-wrapper">
+                        <div class="emoji-wrapper">
+                            <button type="button" id="up-arrow"> ⬆️ </button>
+                            <div class="temperature"> 42 </div>
+                            <button type="button" id="down-arrow"> ⬇️ </button>
+                        </div>
+                        </div>
+                        <button type="button" class="button-getrealtime-wrapper">
+                        <p class="button-text"> Get Realtime Temperature </p>
+                        </button>
+                    </div>
+                </div>
             </section>
-            <section class ="white-block">
-                <h2>Sky</h2>
+
+            <section class="white-block">
+                <div class = "sky-wrapper">
+                <h2 class= "header-in-sky">Sky</h2>
+                <div class = "selection-wrapper">
+                    <form action="/action_page.php">
+                    <select name="sky" id="sky">
+                        <option value="sunny">Sunny</option>
+                        <option value="cloudy">Cloudy</option>
+                        <option value="rainy">Rainy</option>
+                        <option value="snowy">Snowy</option>
+                    </select>
+                    </form>
+                </div>
+                </div>
             </section>
-            <section class = "white-block">
-                <h2>City Name</h2>
+            
+            <section class="white-block">
+                <div class = "city-wrapper">
+                    <h2 class= "header-in-city-name">City Name</h2>
+                    <div class = "input-city-wrapper">
+                        <form>
+                            <input type="text" id="cname" name="cname"><br>
+                        </form>
+                        <input id = "input_button" type="reset">
+                    </div>
+                </div>
             </section>
-        </div>
+            </div>
         </nav>
+
+
         <div class="content">
             <div class= 'garden-container'>
                 <div class="garden-heading"> 
