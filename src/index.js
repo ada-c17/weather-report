@@ -1,4 +1,6 @@
 'use strict';
+import 'regenerator-runtime/runtime';
+import axios from 'axios';
 
 // 2. Change temperature by clicking on an arrow
 
