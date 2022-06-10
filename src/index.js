@@ -46,9 +46,16 @@ const updateTitleCity = () => {
   titleCity.textContent = `${cityName.value}`;
 };
 
+const resetCity = () => {
+  document.querySelector('#titleCity').textContent = 'Seattle';
+  document.querySelector('#cityName').value = '';
+};
+
 const registerEventHandlers = () => {
   const cityInput = document.querySelector('#cityName');
   cityInput.addEventListener('input', updateTitleCity);
+  const resetBtn = document.querySelector('#resetBtn');
+  resetBtn.addEventListener('click', resetCity);
   const incrementButton = document.querySelector('#tempUp');
   incrementButton.addEventListener('click', incrementTemp);
   const decrementButton = document.querySelector('#tempDown');
