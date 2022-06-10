@@ -62,23 +62,19 @@ const registerEventHandlers = (event) => {
 
   const changeReset = document.getElementById('reset-btn');
   changeReset.addEventListener('click', resetCity);
+
+  const realTemp = document.getElementById('realtime-temp');
+  realTemp.addEventListener('click', getRealtimeTemp);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 // Wave 3
 
-// const getCityName = () => {
-//   const cityName = document.getElementById('city-name').value;
-//   const changeCity = document.getElementById('header-city');
-//   changeCity.textContent = `for the city of ${cityName}`;
-// };
-
-const updateCity = () => {
-  const cityInput = document.getElementById('city-input').value;
-  const headerCity = document.getElementById('header-city');
-  state.city = cityInput;
-  headerCity.textContent = `For the city of ${state.city}`;
+const getCityName = () => {
+  const cityName = document.getElementById('city-name').value;
+  const changeCity = document.getElementById('header-city');
+  changeCity.textContent = `for the city of ${cityName}`;
 };
 
 // Wave 5
@@ -115,33 +111,33 @@ const resetCity = () => {
 //const axios = require('axios');
 const getRealtimeTemp = () => {
   const cityName = document.getElementById('city-name').value;
+  console.log(cityName);
   axios
-    .get('https://us1.locationiq.com/v1/search', {
+    .get('http://127.0.0.1:5000/location', {
       params: {
-        key: process.env['LOCATION_KEY'],
         q: cityName,
-        format: 'json',
       },
     })
     .then((response) => {
       const searchLocation = response.data[0];
+      console.log(response);
       const latitudeCity = searchLocation.lat;
-      const longtitudeCity = searchLocation.longtitudeCity;
+      const longitudeCity = searchLocation.lon;
       axios
-        .get('https://api.openweathermap.org/data/2.5/onecall', {
+        .get('http://127.0.0.1:5000/weather', {
           params: {
-            key: process.env['WEATHER_KEY'],
             lat: latitudeCity,
-            lon: longtitudeCity,
-            format: 'json',
+            lon: longitudeCity,
           },
         })
-        .then((temResponse) => {
-          const currentTemp = temResponse.current.temp;
+        .then((tempResponse) => {
+          console.log(tempResponse);
+          const currentTemp = tempResponse.data.current.temp;
           const temp = document.getElementById('temp');
           temp.textContent = `${currentTemp}`;
-          const realTemp = document.getElementById('realtime-temp');
-          realTemp.addEventListener('click', getRealtimeTemp);
+        })
+        .catch((e) => {
+          console.log(e);
         });
     })
     .catch((error) => {
