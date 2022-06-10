@@ -58,8 +58,6 @@ const changeColor = () => {
 };
 
 const changeBgImg = () => {
-  let bodyBackground = document.body.style.backgroundImage;
-
   if (state.temp >= 80) {
     document.body.style.backgroundImage =
       "url('assets/courtney-cook-HClKQKUodF4-unsplash.jpg')";
@@ -97,25 +95,18 @@ const decreaseTemp = () => {
   changeBgImg();
 };
 
-const createNewInput = () => {
-  const inputBoxDiv = document.getElementById('holds_input_box');
-
-  if (inputBoxDiv.childNodes.length === 0) {
-    const newInput = document.createElement('input');
-    inputBoxDiv.appendChild(newInput);
-    newInput.setAttribute('id', 'new_input_box');
-    newInput.setAttribute('type', 'text');
-    newInput.setAttribute('placeholder', 'Type...');
-    // newInput.setAttribute('class', 'open');
+const showInputBox = () => {
+  const inputBox = document.getElementById('city_input_box');
+  if (inputBox.getAttribute('type') === 'hidden') {
+    inputBox.setAttribute('type', 'text');
   } else {
-    const openInputBox = inputBoxDiv.lastElementChild;
-    inputBoxDiv.removeChild(openInputBox);
-    // openInputBox.setAttribute('class', 'closed');
+    inputBox.setAttribute('type', 'hidden');
   }
 };
 
 const changePlaceholderText = () => {
-  const openInputBox = document.getElementById('new_input_box');
+  const openInputBox = document.getElementById('city_input_box');
+  console.log(openInputBox);
   const placeholderText = openInputBox.getAttribute('placeholder');
   console.log(placeholderText);
   if (placeholderText === 'Type...') {
@@ -138,11 +129,11 @@ const registerEventHandlers = (event) => {
   downArrowBtn.addEventListener('click', decreaseTemp);
 
   const magnBtn = document.getElementById('magn_btn');
-  magnBtn.addEventListener('click', createNewInput);
+  magnBtn.addEventListener('click', showInputBox);
 
-  const openInputBox = document.getElementById('new_input_box');
-  openInputBox.addEventListener('onfocus', changePlaceholderText);
-  openInputBox.addEventListener('onblur', changePlaceholderText);
+  const openInputBox = document.getElementById('city_input_box');
+  openInputBox.addEventListener('focus', changePlaceholderText);
+  openInputBox.addEventListener('focusout', changePlaceholderText);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
