@@ -102,7 +102,7 @@ const changeCity = (event) => {
           const searchResult2 = response.data;
           cityTemp = searchResult2.current.temp;
           // console.log(cityLat, cityLon, cityTemp);
-          document.getElementById('city').value = '';
+          // document.getElementById('city').value = '';
           const tempContainer = document.getElementById('tempContainer');
           tempContainer.textContent = cityTemp;
         })
