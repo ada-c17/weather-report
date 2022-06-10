@@ -3,6 +3,7 @@
 axios
   .get('http://127.0.0.1:5000/') {
 }
+
 const tempColor = (temp) => {
   const colorCode = document.getElementById('tempCount');
   if (temp >= 80) {
@@ -78,3 +79,5 @@ const updateCityname = () => {
 
   console.log(nameOfCity);
 };
+
+

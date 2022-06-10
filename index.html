@@ -32,14 +32,16 @@
 
         <section id="sky">
             <p> Sky</p>
-            <details> 
-                <summary> Pick Sky</summary>
-                <ul>
-                    <li>Sunny</li>
-                    <li>Cloudly</li>
-                    <li> Snowy</li>
-                </ul>
-            </details>
+            <select name="sky" id="skySelect">
+                <!-- the value is the input that Javascript 
+                will receive. if not given, itll use the text
+                contained  -->
+            <option value="">--Please choose an option--</option>
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+            </select>
         </section>
 
         <section id="cityName">
