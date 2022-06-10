@@ -1,5 +1,3 @@
-
-
 .gridContainer {
     width: 100vw;
     height: 100vh;
@@ -24,8 +22,6 @@
     padding: 20px;
 }
 
-
-
 #tempNum {
     font-size: 3em;
     text-shadow: .5px 0 0 #000, 0 -.5px 0 #000, 0 .5px 0 #000, -.5px 0 0 #000;
@@ -45,6 +41,14 @@
     padding-top: 5em;
 }
 
+#weatherIcon {
+    max-height: auto;
+    max-width: 5em;
+    object-fit: contain;
+    padding-top: 1em;
+    padding-bottom: .75em;
+}
+
 /* Temp Classes */
 
 .tooHot {
@@ -60,8 +64,6 @@
 }
 
 .mild {
-    /* color: #6BAA75; */
-    /* color: #00916E */
     color: #52A675;
 }
 
@@ -74,6 +76,5 @@
 }
 
 .tooCold {
-    /* color: #4C366A; */
     color: #AEA3B0;
 }

@@ -41,6 +41,44 @@ const tempVariations = [
   },
 ];
 
+const skyVariations = [
+  {
+    sky: 'sunny',
+    garden: '☀️',
+    alt: 'a black and white icon of the sun',
+    src: './weather-icons/sunny.png',
+  },
+  {
+    sky: 'cloudy',
+    garden: '☁️ ☁️ ☁️   ☁️ ☁️  ☁️   ☁️ ☁️  ☁️  ☁️ ☁️ ☁️  🌥',
+    alt: 'a black and white icon of clouds',
+    src: './weather-icons/cloudy.png',
+  },
+  {
+    sky: 'rainy',
+    garden: '🌧 🌧 🌧 🌧 💧 💧 🌧 💧 💧 🌧 🌧 🌧 🌧',
+    alt: 'a black and white icon of a raincloud',
+    src: './weather-icons/rainy.png',
+  },
+  {
+    sky: 'snowy',
+    garden: '🌨 🌨 🌨 ❄️ 🌨 ❄️ 🌨 ❄️ 🌨 🌨 🌨',
+    alt: 'a black and white icon of snow falling from a cloud',
+    src: './weather-icons/snowy.png',
+  },
+  {
+    sky: 'windy',
+    garden: '🌬     💨 💨 💨 ',
+    alt: 'a black and white icon of a cloud and wind',
+    src: './weather-icons/windy.png',
+  },
+  {
+    sky: 'thunderstorms',
+    garden: '🌩 ⛈ ⛈ 🌩 ⛈ ⛈ 🌩',
+    alt: 'a black and white icon of a thundercloud',
+    src: './weather-icons/thunder.png',
+  },
+];
 let tempUpButton;
 let tempDownButton;
 let tempDisplay;

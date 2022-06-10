@@ -39,9 +39,8 @@
                 <h2 class="subHeading" id="skyHeading">
                     Sky Info
                 </h2>
-                <p id="skyIcon">
-                    image here
-                </p>
+                <img id="weatherIcon" src="./weather-icons/sunny.png" alt="a black and white icon of the sun">
+                <br>
                 <label for="skySelect">Select weather:</label>
                 <select name="weatherPatterns" id="skySelect">
                     <option value="">-Select weather for the garden-</option>
@@ -56,11 +55,12 @@
         </section>
         <section id="gardenSection">
             <h2 id="gardenHeading">Weather Garden</h2>
+            <p id="sky">☀️                    </p>
             <p id="garden" class="tempStyled warm">🌳 🌱 🌱 🌷 🌱 🌳 🌳 🌱 🌻 🌹 🌱 ⚽️  🌳 🌱 🐿 🌱</p>
         </section>
     </main>
     <footer class="centerColumn">
-        <section>copyright info or something here</section>
+        <section>Sky weather icons courtesy of the Noun Project; creator sripfoto</section>
     </footer>
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
