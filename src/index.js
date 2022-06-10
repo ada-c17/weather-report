@@ -4,6 +4,12 @@ const state = {
   temp: 50,
   sky: '',
 };
+const resetCity = () => {
+  document.getElementById('city').value = '';
+  document.getElementById('inputCity').textContent = 'Seattle';
+  document.getElementById('tempContainer').textContent = '°F';
+
+};
 ///////Temperature Buttons////////////
 const addTemp = (event) => {
   // Temp Behavior
@@ -96,8 +102,6 @@ const changeCity = (event) => {
         .then((response) => {
           const searchResult2 = response.data;
           cityTemp = searchResult2.current.temp;
-          // console.log(cityLat, cityLon, cityTemp);
-          // document.getElementById('city').value = '';
           const tempContainer = document.getElementById('tempContainer');
           tempContainer.textContent = `${cityTemp} °F`;
         })
@@ -106,8 +110,7 @@ const changeCity = (event) => {
         });
     })
     .catch((error) => {
-      console.log(error);
-      // console.log('error!', error.response.status);
+      console.log('error!', error.response.status);
     });
 };
 
@@ -120,6 +123,8 @@ const registerEventHandlers = (event) => {
   submitButton.addEventListener('click', changeCity);
   const skySelect = document.getElementById('sky-select');
   skySelect.addEventListener('change', changeSky);
+  const resetButton = document.querySelector('#resetButton');
+  resetButton.addEventListener('click', resetCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
