@@ -34,23 +34,6 @@ const getCityTemp = () => {
       const latitude = parseFloat(response.data[0].lat);
       const longitude = parseFloat(response.data[0].lon);
       getWeather(latitude, longitude);
-      // axios
-      //   .get('http://127.0.0.1:5000/weather', {
-      //     params: {
-      //       lat: parseFloat(latitude),
-      //       lon: parseFloat(longitude),
-      //     },
-      //   })
-      //   .then((response) => {
-      //     state.temp = response.current.temp;
-      //     console.log(temp);
-      //     // const tempContainer = document.querySelector('#temp');
-      //     // tempContainer.textContent = state.temp;
-      //     // changeTempColorAndGarden(state.temp);
-      //   })
-      //   .catch((error) => {
-      //     console.log("Couldn't get city temperature");
-      //   });
     })
 
     .catch((error) => {
@@ -92,6 +75,10 @@ const registerEventHandlers = () => {
   // wave 4
   const getTempButton = document.querySelector('#get-temp');
   getTempButton.addEventListener('click', getCityTemp);
+
+  //wave 5
+  const getSkyChanged = document.querySelector('select');
+  getSkyChanged.addEventListener('change', changeSky);
 };
 
 const changeTempColorAndGarden = (temperature) => {
@@ -112,6 +99,20 @@ const changeTempColorAndGarden = (temperature) => {
   } else if (temperature < 50) {
     tempContainer.style.color = 'white';
     landscapeEmojis.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  }
+};
+
+const changeSky = () => {
+  const skyContainer = document.getElementById('sky');
+  const skyValue = document.querySelector('select').value;
+  if (skyValue === 'sunny') {
+    skyContainer.textContent = '☀️ ☀️ ☀️ ☀️ ☀️ ☀️ ☀️ ☀️';
+  } else if (skyValue === 'cloudy') {
+    skyContainer.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skyValue === 'rainy') {
+    skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skyValue === 'snowy') {
+    skyContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
 
