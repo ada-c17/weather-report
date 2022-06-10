@@ -15,6 +15,7 @@ h2 {
 
 body {
     width: 100vw;
+    background-image: url(../images/background.jpg);
     background-color: #B4F4D9;
     font-family: VarelaRound;
     color:#503b06;
@@ -42,6 +43,10 @@ input {
 
 option {
     font-family: VarelaRound;
+}
+
+p {
+    text-align:center;
 }
 
 .arrow {
