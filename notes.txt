@@ -1,0 +1,5 @@
+Need to set a character limit on the input box
+
+Need to get the form submitting the text inputted so I can send it to location IQ
+
+Then use the data location IQ 
