@@ -155,14 +155,14 @@ body {
   height: 70%;
 }
 
-#up-arrow {
+#upArrow {
   border: none;
   cursor: pointer;
   background-color: #ffffff;
   font-size: 27px;
 }
 
-#down-arrow {
+#downArrow {
   border: none;
   cursor: pointer;
   background-color: #ffffff;
@@ -250,4 +250,26 @@ input{
 
 #input_button:hover {
   background: #37faf7;
+}
+
+/* Changing button behavior */
+
+.red {
+  color: #f71111;
+}
+
+.orange {
+  color: #fc9803;
+}
+
+.yellow {
+  color: #def10d;
+}
+
+.green {
+  color: #109f19;
+}
+
+.teal {
+  color: #008080;
 }
