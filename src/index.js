@@ -39,5 +39,5 @@ const changeSkyBackground = () => {
     '/assets/windy.jpeg'
   ];
   const img = getSelectedSky(imgs);
-  skyBackground.style.background = `url(${img})`;
+  skyBackground.style.backgroundImage = `url(${img})`;
 };

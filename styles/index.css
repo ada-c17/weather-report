@@ -75,7 +75,7 @@ header {
 
 #sky-box {
     background-image: url(../assets/defaultSky.jpeg);
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
