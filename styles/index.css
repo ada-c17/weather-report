@@ -12,7 +12,7 @@ body {
 
 footer {
     grid-column: 1 / span 3;
-    grid-row: 4 / span 1;
+    grid-row: 5 / span 1;
 }
 
 h1 {
@@ -29,17 +29,19 @@ h1 {
 
 #container_grid {
     display: grid;
-    grid-template-rows: 10% 15rem auto 2rem;
-    grid-template-columns: 5% 15rem 78%;
+    grid-template-rows: 10% 5rem 10rem auto 2rem;
+    grid-template-columns: 5% 15rem 1fr 1fr;
     height: 100vh;
 }
+
 #temp_box {
     grid-column: 1 / 2;
     grid-row: 2 / 4;
 }
+
 #main_title {
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-end: 5;
     justify-content: center;
     text-align: center;
 }
@@ -47,9 +49,10 @@ h1 {
 #temp_city_box_grid {
     grid-column-start: 2;
     grid-column-end: 3;
+    grid-row: 2 / 4;
     display: grid;
     grid-template-columns: auto 15%;
-    grid-template-rows: 30% 30% 30%;
+    grid-template-rows: 33.3% 33.3% 33.3%;
     height: 100%;
     min-height: 100%;
     align-items: center;
@@ -61,6 +64,11 @@ h1 {
 #city {
     grid-column: 1 / 2;
     text-align: center;
+}
+
+#holds_input_box {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
 }
 
 #temp {
@@ -107,3 +115,43 @@ Want to change it so that the background color of the temp city box is accessed,
     grid-column: 2 / 3;
     grid-row: 1 / 2;
 }
+
+#holds_input_box {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    display: flex;
+    /* align-content: center; */
+    /* justify-content: center; */
+    align-items: center;
+
+}
+
+#new_input_box {
+    height: 30%;
+    /* align-content: center; */
+    /* text-align: center; */
+    /* line-height: 75px; */
+    font-size: 100%;
+    padding-left: 2%;
+
+}
+
+input {
+    transition: width 0.4s ease-in-out;
+    width: 40%;
+}
+
+/* input .open {
+    width: 100%; 
+    transition: width 0.4s ease-in-out;
+} */
+
+input:focus {
+    border: 3px solid #555;
+    width: 100%;
+}
+
+/* input .closed {
+    width: 1%;
+    transition: width 0.4s ease-in-out;
+} */

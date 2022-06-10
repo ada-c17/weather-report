@@ -97,6 +97,37 @@ const decreaseTemp = () => {
   changeBgImg();
 };
 
+const createNewInput = () => {
+  const inputBoxDiv = document.getElementById('holds_input_box');
+
+  if (inputBoxDiv.childNodes.length === 0) {
+    const newInput = document.createElement('input');
+    inputBoxDiv.appendChild(newInput);
+    newInput.setAttribute('id', 'new_input_box');
+    newInput.setAttribute('type', 'text');
+    newInput.setAttribute('placeholder', 'Type...');
+    // newInput.setAttribute('class', 'open');
+  } else {
+    const openInputBox = inputBoxDiv.lastElementChild;
+    inputBoxDiv.removeChild(openInputBox);
+    // openInputBox.setAttribute('class', 'closed');
+  }
+};
+
+const changePlaceholderText = () => {
+  const openInputBox = document.getElementById('new_input_box');
+  const placeholderText = openInputBox.getAttribute('placeholder');
+  console.log(placeholderText);
+  if (placeholderText === 'Type...') {
+    openInputBox.setAttribute(
+      'placeholder',
+      'Type in a location and press Enter'
+    );
+  } else {
+    openInputBox.setAttribute('placeholder', 'Type...');
+  }
+};
+
 const changeCity = () => {};
 
 const registerEventHandlers = (event) => {
@@ -107,7 +138,11 @@ const registerEventHandlers = (event) => {
   downArrowBtn.addEventListener('click', decreaseTemp);
 
   const magnBtn = document.getElementById('magn_btn');
-  magnBtn.addEventListener('click', changeCity);
+  magnBtn.addEventListener('click', createNewInput);
+
+  const openInputBox = document.getElementById('new_input_box');
+  openInputBox.addEventListener('onfocus', changePlaceholderText);
+  openInputBox.addEventListener('onblur', changePlaceholderText);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
