@@ -29,6 +29,25 @@ const updateTempBackground = () => {
   }
 };
 
+const addSky = () => {
+  const skyContainer = document.querySelector('#skyContainer');
+  // const optionChosen = document.querySelector('#skyOptionsButton').value;
+  const optionChosen =
+    document.querySelector('#skyOptionsButton').options[skyOption.selectedIndex] //this doesn't work...
+      .value;
+  // Need to fix this... how do I get at the option selected
+  console.log(`This is the option selected: ${optionChosen}`);
+  if ((optionChosen = 'sunny')) {
+    skyContainer.textContent = '🌞😎🌤🌞😎🌤🌞😎🌤🌞😎🌤';
+  } else if ((optionChosen = 'cloudy')) {
+    skyContainer.textContent = '☁️🌁🌥🌤☁️☁️🌁🌥🌤☁️☁️🌁🌥🌤☁️';
+  } else if ((optionChosen = 'rainy')) {
+    skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if ((optionChosen = 'snowy')) {
+    skyContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+};
+
 const tempUp = () => {
   state.temp += 1;
   const currentTemp = document.querySelector('#temp');
@@ -94,6 +113,10 @@ const registerEventHandlers = (event) => {
   const getRealTempButton = document.querySelector('#getRealTimeTemp');
   getRealTempButton.addEventListener('click', apiRequests);
   getRealTempButton.addEventListener('click', updateTempBackground);
+  const skyOption =
+    document.querySelector('#skyOptionsButton').options[skyOption.selectedIndex]
+      .value;
+  skyOption.addEventListener('change', addSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
