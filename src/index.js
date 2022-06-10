@@ -1,6 +1,7 @@
 'use strict';
-// const axios = require('axios');
+const axios = require('axios');
 
+// changing color of temperature value
 const tempColor = (temp) => {
 	if (temp >= 80) {
 		document.getElementById('temp-value').style.color = "red";
@@ -15,6 +16,8 @@ const tempColor = (temp) => {
 	}
 }
 
+
+// changing landscape emojis
 const landscapeChange = (temp) => {
 	if (temp >= 80) {
 		document.getElementById('landscape').textContent = `"🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"`;
@@ -27,6 +30,7 @@ const landscapeChange = (temp) => {
 	}
 }
 
+// increasing/decreasing temperature value
 const increaseTemp = () => {
   let temp = parseInt(document.getElementById('temp-value').textContent);
   temp++;
@@ -54,13 +58,25 @@ const downEvent = () => {
   downButton.addEventListener('click', decreaseTemp);
 };
 
+// update city
 const cityInput = document.getElementById('city-input');
 const cityName = document.getElementById('city-name');
-
 
 const updateValue = (cityInput) => {
 	cityName.textContent = cityInput.target.value;
 }
+
+// proxy server GET for locationIQ
+axios
+	.get(`http://127.0.0.1:5000/location?q=${cityName.textContent}`)
+	.then((response) => {
+		console.log(response.data[0].lat, response.data[0].lon);
+	}).catch((error) => {
+		console.log('This is an error');
+	})
+
+
+
 
 cityInput.addEventListener('change', updateValue);
 document.addEventListener('DOMContentLoaded', upEvent);
