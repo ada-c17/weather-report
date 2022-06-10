@@ -51,16 +51,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const updateCityName = () => {
   const cityElement = document.getElementById('chosen-city');
-  cityElement.innerText = document.querySelector('#input-city').value;
+  const cityName = document.querySelector('#input-city').value;
+  cityElement.innerText = cityName;
+
+  setCity(cityName);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  const enterCityButton = document.getElementById('enterCitybutton');
+  const enterCityButton = document.getElementById('enter-city-button');
 
   enterCityButton.addEventListener('click', () => {
     updateCityName();
   });
 });
+
+// wave 4
+const setCity = (city) => {
+  axios
+    .get('http://localhost:5000/location', {
+      params: {
+        q: city,
+        format: 'json',
+      },
+    })
+    .then((response) => {
+      const searchResult = response.data[0];
+      console.log(`lat ${searchResult.lat} lon ${searchResult.lon}`);
+      return { lat: searchResult.lat, lon: searchResult.lon };
+    })
+    .then((coords) => {
+      return axios.get('http://localhost:5000/weather', {
+        params: {
+          lat: coords.lat,
+          lon: coords.lon,
+        },
+      });
+    })
+    .then((response) => {
+      console.log('weather response', response.data);
+      const temp = response.data.current.temp;
+      setTemperature(temp);
+    })
+    .catch((error) => {
+      console.log('error!', error.response.data);
+    });
+};
 
 //wave 5
 const skyArt = (sky) => {
@@ -88,10 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
 //wave 6
 document.addEventListener('DOMContentLoaded', () => {
   const resetCityButton = document.getElementById('resetCitybutton');
+  setCity('Seattle');
 
   resetCityButton.addEventListener('click', () => {
     const defaultCity = 'Seattle';
     document.querySelector('#input-city').value = defaultCity;
     document.getElementById('chosen-city').innerText = defaultCity;
+    setCity(defaultCity);
   });
 });
