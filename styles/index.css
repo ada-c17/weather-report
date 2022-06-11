@@ -40,3 +40,33 @@ section{
 #landscape{
     grid-area: 3 / 1 / 4 / 4;
 }
+
+/* 80+ */
+#red{
+    color: red;
+
+}
+
+
+/* 70-79 */
+#orange{
+    color: orange;
+
+}
+
+/* 80+ */
+#yellow{
+    color: yellow;
+}
+
+/* 80+ */
+#green{
+    color: green;
+
+}
+
+/* 80+ */
+#teal{
+    color: teal;
+
+}
