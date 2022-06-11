@@ -65,6 +65,7 @@ const loadElements = () => {
         console.log(response.data);
         temp.lat = response.data[0].lat;
         temp.lon = response.data[0].lon;
+        temp.city = location;
         getWeather(temp.lat, temp.lon);
       })
       .catch((error) => {
@@ -86,6 +87,8 @@ const loadElements = () => {
       .then((response) => {
         temp.fahrenheit = convertKtoF(response.data.current.temp);
         tempLi.textContent = temp.fahrenheit;
+        emojiLi.textContent = emojiCheck(tempLi);
+        tempCheck(tempLi);
       })
       .catch((error) => {
         console.log('Error finding current temperature:', error.response);
@@ -130,7 +133,15 @@ const loadElements = () => {
   const resetButton = document.getElementById('resetButton');
   resetButton.addEventListener('click', () => {
     cityInput.value = '';
+    temp.city = 'Seattle'
     cityHead.textContent = temp.city;
+    temp.fahrenheit = 55;
+    tempLi.textContent = temp.fahrenheit;
+    temp.lat = 47.6038321;
+    temp.lon= -122.3300624;
+    temp.emojis = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    emojiLi.textContent = temp.emojis;
+    tempCheck(tempLi);
   });
 
 
