@@ -28,6 +28,26 @@ const gardenLayout = (temp) => {
   }
 };
 
+// var select = document.getElementById('language');
+// var value = select.options[select.selectedIndex].value;
+// console.log(value);
+
+const skyLayout = () => {
+  const skyEmojisContainer = document.querySelector('#skyEmojis');
+  const skySelect = document.getElementById('skySelect');
+  const skyValue = skySelect.options[skySelect.selectedIndex].value;
+
+  if (skyValue === 'sunny') {
+    skyEmojisContainer.textContent = '🔅🔅🔅🔅🔅🔅🔅🔅';
+  } else if (skyValue === 'cloudy') {
+    skyEmojisContainer.textContent = '☁️🌥️☁️🌥️☁️🌥️☁️🌥️☁️🌥️☁️🌥️';
+  } else if (skyValue === 'rainy') {
+    skyEmojisContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skyValue === 'snowy') {
+    skyEmojisContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+};
+
 const state = {
   tempCount: 65,
 };
@@ -62,6 +82,9 @@ const registerEventHandlers = (event) => {
 
   const getRealWeather = document.querySelector('#realCityWeather');
   getRealWeather.addEventListener('click', getLocation);
+
+  const changeSky = document.querySelector('#skySelect');
+  changeSky.addEventListener('change', skyLayout);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
