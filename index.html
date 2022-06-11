@@ -5,8 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="/styles/index.css" rel="stylesheet" />
 </head>
 <body>
+    <header>
+        <p id="sky-emoji">☁️ ☁️ ☁️ ☀️ ☁️ ☁️ ☀️ ☁️ ☁️ ☀️ ☁️ ☁️ ☁️</p>
+        <h1 id="weather-report">Weather Report</h1>
+        
+    </header>
+    <main >
+        <ul class="box-container">
+            <li id="temp-title">Temperature</li>
+            <li id="temperature">77 °F</li> 
+                <button id="right-arrow-btn">+</button>
+                <button id="left-arrow-btn">-</button> 
+                <button id="real-temp-button">Get Real Time Temperature</button>
+           <li id="sky">Sky</li>
+                <select id="drop-down">
+                    <option value="">Select...</option>
+                    <option value="Sunny">Sunny</option>
+                    <option value="Cloudy">Cloudy</option>
+                    <option value="Rainy">Rainy</option>
+                    <option value="Snowy">Snowy</option>
+                  </select>
+                
+           <li id="city" placeholder="city name">City </li> 
+                <input type=text id="city-input">
+                <button id="reset-btn">Reset</button>
+        </ul>
     
+    </main>
+    <div>
+        <p id="temp-emoji">🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵🌵</p>
+    </div>
+    <footer>
+        <p >Designed and developed by M & L ©2022</p>
+    </footer>
+    <script src="/src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>

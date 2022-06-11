@@ -1,0 +1,136 @@
+html, body {
+    width: 90%;
+    height: 100%;
+    background-color: #003A84;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+header{
+    padding: 30px;
+    color: #edeae4;
+}
+
+.box-container{
+    /* border: 1px solid white; */
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    padding: 10px;
+    margin: 10px;    
+}
+
+#temp-title {
+    position:absolute; /*parent set to absolute*/
+    top: 400px;
+    left: 230px;
+    width: 15%;
+    height: 5%;
+    border-style: none;
+}
+
+
+#temperature, #sky, #city{
+    width: 300px;
+    height: 350px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:#eed4b0;
+    position:relative; /*parent set to relative*/
+    border-radius: 20px;
+    font-size:larger ;
+}
+
+#real-temp-button{
+    position:absolute; /*parent set to absolute*/
+    bottom: 250px;
+    left: 230px;
+    width: 15%;
+    height: 5%;
+    border-style: none;
+    background-color: white;
+}
+
+#real-temp-button:hover {
+    background-color:rgb(235, 146, 113);
+    transition: all 0.6s ease;
+    transform: scale(1.2);
+    transform-origin: center;
+}
+
+#left-arrow-btn{
+    position:absolute;
+    left: 250px;
+    border-style: none;
+    width: 20px;
+    background-color: white;
+}
+
+#right-arrow-btn{
+    position:absolute;
+    left: 410px;
+    border-style: none;
+    width: 20px;
+    background-color: white;
+}
+
+#drop-down{
+    position:absolute; 
+    bottom: 250px;
+    left: 600px;
+    width: 15%;
+    height: 5%;
+    border-style: none;
+    color:black
+}
+
+
+
+#city-input {
+    position:absolute; 
+    bottom: 250px;
+    left: 980px;
+    width: 15%;
+    height: 5%;
+    border-style: none;
+}
+
+#reset-btn{
+    position:absolute; 
+    bottom: 250px;
+    right: 230px;
+    width: 5%;
+    height: 5%;
+    border-style: none;
+    background-color: rgb(230, 229, 219);
+}
+
+#temperature .left-arrow {
+    position: absolute;
+    left: 200px;
+    
+}
+
+#temp-emoji{
+    margin: 50px;
+    font-size: 29px;
+}
+
+footer {
+    padding: 10px;
+    color: #f8f7f7;    
+}
+
+#sky-emoji {
+    font-size: 40px;
+}
+
+#cityWeather {
+    font-size: smaller;
+    font-weight:lighter;
+}
