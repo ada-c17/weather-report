@@ -7,6 +7,58 @@
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Current Weather</h1>
+        <h2 id="myLocation">Irvine</h2>
+        <h3>Anticipating outside, while comfortably inside ...</h3>
+    </header>
+    <main>
+        <section id="sky" class="container">
+            <h2>Today's Sky</h2>
+            <h3>Gaze out the window!</h3>
+            <div>
+                <label for="skys">It looks:</label>
+                <select name="skys" id="sky_dropdown">
+                    <option value="sunny">Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                    <option value="night">Night</option>
+                </select>
+            </div>
+        </section>
+        <section id="location" class="container">
+            <h2>My Location</h2>
+            <h3>Where are you?</h3>
+            <div>
+                <form action="#">
+                    <label for="loc">I'm in:</label><br>
+                    <input type="text" id="locationInput" name="loc"><br>
+                </form>
+            </div>
+        </section>
+        <section id="feel" class="container">
+            <h2>The Feel</h2>
+            <h3>Outside feels like:</h3>
+            <div>
+                <image id="landscape"
+                src="/images/pluto.png" />           
+            </div>
+        </section>
+        <section id="temperature" class="container">
+            <h2>The Temperature</h2>
+            <h3>Adjust as needed.</h3> 
+            <div>
+                <button id="decreaseTemp">Decrease</button> 
+                <p id="currentTemp">Current Temperature: 0</p>
+                <button id="increaseTemp">Increase</button> 
+                <div>
+                    <button id="realTime">Get Realtime Temperature Data</button>
+                </div>
+            </div>               
+        </section>
+
+    </main>
 </body>
+<script src="src/index.js"></script>
 </html>
