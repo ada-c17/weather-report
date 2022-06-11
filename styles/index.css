@@ -47,6 +47,8 @@ header {
     grid-row-start: 3;
     grid-row-end: 4;
     justify-self: center;
+
+    font-size: 2em;
 }
 
 #increase-temp {
