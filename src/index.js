@@ -2,6 +2,8 @@ const temp = {
   fahrenheit: 55,
   emojis: '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲',
   city: 'Seattle',
+  lat: 47.6038321,
+  long: -122.3300624,
 };
 
 const tempCheck = (element) => {
@@ -31,6 +33,24 @@ const emojiCheck = (element) => {
   return temp.emojis;
 };
 
+const findLatAndLong = () => {
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: temp.city,
+      },
+    })
+    .then((response) => {
+      console.log(response.data);
+      temp.lat = response.data[0].lat;
+      temp.long = response.data[0].lon;
+      getWeather();
+    })
+    .catch((error) => {
+      console.log('Error finding the latitude and longitude:', error.response);
+    });
+};
+
 
 const updateSky = () => {
   const inputSky = document.getElementById('skySelect').value;
@@ -55,6 +75,10 @@ const loadElements = () => {
   tempLi.textContent = temp.fahrenheit;
   tempUl.appendChild(tempLi);
   tempCheck(tempLi);
+
+  findLatAndLong();
+  const currentTempButton = document.getElementById('currentTempButton');
+  currentTempButton.addEventListener('click', findLatAndLong);
 
   const cityInput = document.getElementById('cityInput');
   cityInput.addEventListener('input', () => {
