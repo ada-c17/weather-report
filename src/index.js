@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // wave 3
-
 const updateCityName = () => {
   const cityElement = document.getElementById('chosen-city');
   const cityName = document.querySelector('#input-city').value;
@@ -91,7 +90,7 @@ const setCity = (city) => {
       console.log('weather response', response.data);
 
       // Convert to fahrenheit from kelvin
-      const temp = 1.8 * (response.data.current.temp - 273) + 32;
+      const temp = Math.round(1.8 * (response.data.current.temp - 273) + 32);
       setTemperature(temp);
     })
     .catch((error) => {
