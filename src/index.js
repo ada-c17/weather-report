@@ -51,9 +51,9 @@ const changeBackground = (temp) => {
   }
   if (temp >= 80) {
     element.className = 'summer';
-  } else if (temp < 80 && temp >= 70) {
+  } else if (temp < 80 && temp >= 54) {
     element.className = 'spring';
-  } else if (temp < 70 && temp >= 60) {
+  } else if (temp < 54 && temp >= 34) {
     element.className = 'autumn';
   } else {
     element.className = 'winter';
