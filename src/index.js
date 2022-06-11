@@ -44,6 +44,7 @@ const findLatAndLong = (location) => {
       console.log(response.data);
       temp.lat = response.data[0].lat;
       temp.lon = response.data[0].lon;
+      getWeather(temp.lat, temp.lon);
     })
     .catch((error) => {
       console.log('Error finding the latitude and longitude:', error.response);
@@ -98,7 +99,6 @@ const loadElements = () => {
   const currentTempButton = document.getElementById('currentTempButton');
   currentTempButton.addEventListener('click', () => {
     findLatAndLong(cityInput.value);
-    getWeather(temp.lat, temp.lon);
   });
 
   // update the sky emojis
