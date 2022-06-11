@@ -78,9 +78,7 @@ const controlInputBox = () => {
 // Change placeholder text in input box
 const changePlaceholderText = () => {
   const openInputBox = document.getElementById('city_input_box');
-  console.log(openInputBox);
   const placeholderText = openInputBox.getAttribute('placeholder');
-  console.log(placeholderText);
   if (placeholderText === 'Type...') {
     openInputBox.setAttribute(
       'placeholder',
@@ -96,15 +94,6 @@ const changeCity = () => {
   state.city = document.getElementById('city_input_box').value;
   document.querySelector('h2').textContent = state.city;
 };
-
-// const submitCitySearchRequest = (event) => {
-//   console.log({ event });
-//   event.preventDefault();
-//   if (KeyboardEvent.key === 'Enter') {
-//     console.log('Enter was pushed!');
-//     getLatAndLong();
-//   }
-// };
 
 const updateTemp = (lat, lon) => {
   axios
@@ -124,7 +113,6 @@ const updateTemp = (lat, lon) => {
 
 const getLatAndLong = () => {
   const location = state.city;
-  console.log(`${location}`);
 
   let latitude, longitude;
   axios
@@ -136,15 +124,10 @@ const getLatAndLong = () => {
     .then((response) => {
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
-      console.log(
-        `For ${state.city}, longitude is ${longitude} and latitude is ${latitude}.`
-      );
       const coord = { latitude, longitude };
-      // console.log({ coord });
       return coord;
     })
     .then((response) => {
-      // console.log(response);
       axios
         .get('http://localhost:5000/weather', {
           params: {
@@ -155,7 +138,6 @@ const getLatAndLong = () => {
         .then((response) => {
           const tempKelvin = response.data.current.temp;
           state.temp = Math.round((tempKelvin - 273.15) * (9 / 5) + 32);
-          console.log(`State.temp is ${state.temp}`);
           changeTemp();
           changeColor();
           changeBgImg();
@@ -173,7 +155,6 @@ const getLatAndLong = () => {
 const changeSky = () => {
   const select = document.getElementById('sky_drop_down');
   const option = select.options[select.selectedIndex].text;
-  console.log(option);
   if (option === 'Sunny') {
     const h1 = document.querySelector('h1');
     h1.textContent = '☀️ 🌞 🔆 Weather App ☀️ 🌞 🔆';
@@ -192,7 +173,23 @@ const changeSky = () => {
   }
 };
 
-const resetInfo = () => window.location.reload();
+const resetDropdown = () => {
+  const select = document.getElementById('sky_drop_down');
+  console.log(`select.value: ${select.value}`);
+  const option = document.getElementById('select_title');
+  select.value = option.value;
+  console.log('sky reset?');
+};
+
+const resetInfo = () => {
+  state.city = 'Seattle, WA';
+  state.temp = 70;
+  resetDropdown();
+  changeSky();
+  document.querySelector('h2').textContent = state.city;
+  changePlaceholderText();
+  changeTemp();
+};
 
 const registerEventHandlers = (event) => {
   // Increase temp when click up arrow

@@ -79,7 +79,7 @@ h1 {
     grid-column: 1 / 2;
     grid-row: 1 / 3 ;
     text-align: center;
-    font-size: 1.8em;
+    font-size: 2em;
 }
 
 #holds_input_box {
@@ -89,7 +89,7 @@ h1 {
 
 #temp {
     text-align: center;
-    font-size: 6.5em;
+    font-size: 5em;
 }
 
 
