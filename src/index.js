@@ -97,12 +97,14 @@ const changeCity = () => {
   document.querySelector('h2').textContent = state.city;
 };
 
-const submitCitySearchRequest = () => {
-  if (KeyboardEvent.key === 'Enter') {
-    console.log('Enter was pushed!');
-    getLatAndLong();
-  }
-};
+// const submitCitySearchRequest = (event) => {
+//   console.log({ event });
+//   event.preventDefault();
+//   if (KeyboardEvent.key === 'Enter') {
+//     console.log('Enter was pushed!');
+//     getLatAndLong();
+//   }
+// };
 
 const updateTemp = (lat, lon) => {
   axios
@@ -192,19 +194,20 @@ const registerEventHandlers = (event) => {
   // Search city name on enter or get real temp btn
   openInputBox.addEventListener('keyup', (event) => {
     if (event.key === 'Enter') {
-      event.preventDefault();
-      console.log('Enter was pushed!');
+      controlInputBox();
       getLatAndLong();
-      event.preventDefault();
     }
   });
 
   //
   const getRealTempBtn = document.getElementById('real_temp_btn');
   getRealTempBtn.addEventListener('click', () => {
-    console.log("It's the weekend");
+    controlInputBox();
     getLatAndLong();
   });
+
+  const form = document.getElementById('holds_input_box');
+  form.addEventListener('submit', (event) => event.preventDefault());
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
