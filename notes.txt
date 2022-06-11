@@ -26,3 +26,5 @@ Wave 4---
 
 
 ---Maybe move the reset button to the bottom right of the temp box and go back to seattle, wa being in alignment with the search button and smaller than the temp text
+
+--capitalize city

@@ -18,8 +18,6 @@ const changeColor = () => {
     tempCityBox.style.backgroundColor = 'rgba(255, 255, 0, 0.7)';
   } else if (state.temp >= 50) {
     tempCityBox.style.backgroundColor = 'rgba(0, 255, 0, 0.7)';
-  } else if (state.temp >= 50) {
-    tempCityBox.style.backgroundColor = 'rgba(0, 255, 0, 0.7)';
   } else if (state.temp >= 40) {
     tempCityBox.style.backgroundColor = 'rgba(0, 204, 255, 0.7)';
   } else {
@@ -95,22 +93,6 @@ const changeCity = () => {
   document.querySelector('h2').textContent = state.city;
 };
 
-const updateTemp = (lat, lon) => {
-  axios
-    .get('http://localhost:5000/weather', {
-      params: {
-        lat: lat,
-        lon: lon,
-      },
-    })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(`Encountered an error: ${error}`);
-    });
-};
-
 const getLatAndLong = () => {
   const location = state.city;
 
@@ -122,10 +104,16 @@ const getLatAndLong = () => {
       },
     })
     .then((response) => {
+      // console.log(response.data);
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
-      const coord = { latitude, longitude };
-      return coord;
+      const displayName = response.data[0].display_name;
+
+      const nameArray = displayName.split(',');
+      const apiCityName = `${nameArray[0]}, ${nameArray[2]}`;
+      state.city = apiCityName;
+      document.querySelector('h2').textContent = state.city;
+      return { latitude, longitude };
     })
     .then((response) => {
       axios
@@ -136,6 +124,7 @@ const getLatAndLong = () => {
           },
         })
         .then((response) => {
+          console.log(response.data);
           const tempKelvin = response.data.current.temp;
           state.temp = Math.round((tempKelvin - 273.15) * (9 / 5) + 32);
           changeTemp();
@@ -155,21 +144,23 @@ const getLatAndLong = () => {
 const changeSky = () => {
   const select = document.getElementById('sky_drop_down');
   const option = select.options[select.selectedIndex].text;
+  const h1 = document.querySelector('h1');
   if (option === 'Sunny') {
-    const h1 = document.querySelector('h1');
     h1.textContent = '☀️ 🌞 🔆 Weather App ☀️ 🌞 🔆';
+    h1.style.backgroundColor = 'rgba(255, 255, 0, 0.7)';
   } else if (option === 'Cloudy') {
-    const h1 = document.querySelector('h1');
     h1.textContent = '☁️🌤 ☁️ Weather App ☁️🌤 ☁️ ';
+    h1.style.backgroundColor = 'rgba(174, 171, 171, 0.7)';
   } else if (option === 'Rainy') {
-    const h1 = document.querySelector('h1');
     h1.textContent = '🌧 ⛈ 🌧 Weather App 🌧 ⛈ 🌧 ';
+    h1.style.backgroundColor = 'rgba(0, 204, 255, 0.7)';
   } else if (option === 'Snowy') {
-    const h1 = document.querySelector('h1');
     h1.textContent = '❄️ 🌨 ❄️ Weather App ❄️ 🌨 ❄️';
+    h1.style.backgroundColor = 'white';
   } else if (option === 'Choose a Sky') {
     const h1 = document.querySelector('h1');
     h1.textContent = 'Weather App';
+    h1.style.backgroundColor = 'rgba(174, 171, 171, 0.7)';
   }
 };
 
@@ -223,7 +214,8 @@ const registerEventHandlers = (event) => {
   //
   const getRealTempBtn = document.getElementById('real_temp_btn');
   getRealTempBtn.addEventListener('click', () => {
-    controlInputBox();
+    const inputBox = document.getElementById('city_input_box');
+    inputBox.setAttribute('type', 'hidden');
     getLatAndLong();
   });
 
