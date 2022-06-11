@@ -29,9 +29,29 @@ header h2 {
 header h1 {
     color: #38040e;
     align-self: flex-end;
-    padding-right: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 0.25vh;
+    margin-top: 0.25vh;
+    background-color: #f8edeb;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #38040e;
+    padding: 2vw;
 }
 
 #skySelector ul {
     list-style: none;
 }
+#skySelector, #cityInput,
+#weatherGarden, #tempAdjust, 
+#layerReport {
+    background-color: #f8edeb;
+    border-color: #38040e;
+    border-width: 1px;
+    border-style:solid;
+    padding-left: 1vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
