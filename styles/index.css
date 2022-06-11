@@ -23,7 +23,7 @@ li {
     grid-row: 2;
     border-radius: 8px;
     padding: 2rem;
-    background-color:aqua;
+    background-color: #546b76;
 }
 
 body {
@@ -31,6 +31,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #25211e;
+    color: white;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto auto auto;
@@ -68,20 +69,20 @@ h1, span {
     grid-row: 3;
     border-radius: 8px;
     padding: 2rem;
-    background-color:antiquewhite;
+    background-color: #a08186;
 }
 
 .temperatureSection {
     grid-row: 2;
     border-radius: 8px;
     padding: 2rem;
-    background-color: white;
+    background-color: #caced2;
 }
 
 .citySection {
     grid-row: 2;
     border-radius: 8px;
     padding: 2rem;
-    background-color:lavender;
+    background-color:#fda084;
 }
 
