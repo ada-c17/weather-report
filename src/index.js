@@ -39,23 +39,23 @@ const decTemp = () => {
 // change colors based on temp
 const changeColorTemp = () => {
   if (state.temp >= 80) {
-    state.color.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
+    state.color.style.backgroundColor = 'rgba(140,114,89, 0.5)';
     document.getElementById('landscape').style.background =
       "url('/assets/temp/80 plus 1920x360.jpg')";
   } else if (state.temp >= 70) {
-    state.color.style.backgroundColor = 'rgba(0, 255, 0, 0.5)';
+    state.color.style.backgroundColor = 'rgba(252,67,29, 0.5)';
     document.getElementById('landscape').style.background =
       "url('/assets/temp/70 to 79 1920x360.jpg')";
   } else if (state.temp >= 60) {
-    state.color.style.backgroundColor = 'rgba(0, 0, 255, 0.5)';
+    state.color.style.backgroundColor = 'rgba(238,170,60, 0.5)';
     document.getElementById('landscape').style.background =
       "url('/assets/temp/60 to 69  1920x360.jpg')";
   } else if (state.temp >= 50) {
-    state.color.style.backgroundColor = 'rgba(255, 255, 0, 0.5)';
+    state.color.style.backgroundColor = 'rgba(135,160,180, 0.5)';
     document.getElementById('landscape').style.background =
       "url('/assets/temp/50 to below 1920x360.jpg')";
   } else {
-    state.color.style.backgroundColor = 'rgba(0, 255, 255, 0.5)';
+    state.color.style.backgroundColor = 'rgba(193,205,215, 0.5)';
   }
 };
 
