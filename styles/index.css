@@ -73,28 +73,18 @@ header {
     justify-self: center;
 }
 
-#sky-with-caption {
+#sky-and-landscape {
     grid-column-start: 2;
-    grid-column-end: span 1;
-    grid-row-start: 6;
-    grid-row-end: 7;
-    justify-self: end;
-}
-
-#sky-dropdown {
-    grid-column-start: 3;
-    grid-column-end: span 1;
+    grid-column-end: span 3;
     grid-row-start: 6;
     grid-row-end: 7;
     justify-self: center;
-}
 
-#landscape-with-caption {
-    grid-column-start: 4;
-    grid-column-end: span 1;
-    grid-row-start: 6;
-    grid-row-end: 7;
-    justify-self: start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 img {
