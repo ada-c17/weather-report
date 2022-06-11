@@ -139,8 +139,8 @@ const resetCity = () => {
 };
 
 // I thought about having the reset city button reset the temp and sky info as well
-// but since they're not otherwise linked, I ended up removing the functionality
-// left the code here just in case I wanted to refer to how I did it another time.
+// but since they're not otherwise linked, I ended up removing the functionality.
+// I left the code here just in case I wanted to refer to how I did it another time.
 
 // const resetTempToDefault = () => {
 //   state.temp = 75;
@@ -178,7 +178,6 @@ const convertFromKToF = (num) => {
 };
 
 const getRealTimeTemp = (locationData) => {
-  let realTimeTemp;
   axios
     .get('http://localhost:5000/weather', {
       params: {
@@ -225,13 +224,13 @@ const lookUpElements = () => {
   tempUpButton = document.getElementById('tempUp');
   tempDownButton = document.getElementById('tempDown');
   tempDisplay = document.getElementById('tempNum');
+  tempRealTimeButton = document.getElementById('realTime');
+  skyIcon = document.getElementById('skyIcon');
+  skyDropdown = document.getElementById('skySelect');
+  gardenSky = document.getElementById('gardenSky');
   gardenDisplay = document.getElementById('garden');
   cityInput = document.getElementById('cityInput');
   cityDisplay = document.getElementById('cityDisplay');
-  tempRealTimeButton = document.getElementById('realTime');
-  skyIcon = document.getElementById('skyIcon');
-  gardenSky = document.getElementById('gardenSky');
-  skyDropdown = document.getElementById('skySelect');
   cityResetButton = document.getElementById('resetCity');
 };
 
@@ -239,10 +238,10 @@ const lookUpElements = () => {
 const registerEventHandlers = () => {
   tempUpButton.addEventListener('click', increaseTemp);
   tempDownButton.addEventListener('click', decreaseTemp);
-  cityInput.addEventListener('change', updateCity);
   tempRealTimeButton.addEventListener('click', getLatLong);
-  skyDropdown.addEventListener('change', updateSky);
+  cityInput.addEventListener('change', updateCity);
   cityResetButton.addEventListener('click', resetCity);
+  skyDropdown.addEventListener('change', updateSky);
 };
 
 const initializePage = () => {
