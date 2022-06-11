@@ -1,0 +1,182 @@
+:root {
+    --very-hot: #EA5C2B;
+    /* 80+ */
+
+    --warm: #F7FD04;
+    /* 70 -79 */
+
+    /* --perfection: #FFB830; */
+    /* alternative for  70 -99 */
+
+    --cool: #cbf86bde;
+    /* 60 -69 */
+
+    --chilly: #50b9a4;
+    /* 50 -59 */
+  
+    --cold: #55D8C1;
+    /* 49 or below */
+
+    --light-grey: #F1EEE9;
+       
+  }
+
+body{
+    margin: 0;
+    font-family: 'Shadows Into Light', Helvetica, sans-serif, cursive;
+    padding: 0;    
+}
+
+
+.very-hot{
+    background-color: var(--very-hot);
+    /* 80+ */
+}
+
+.warm{
+    background-color: var(--warm);
+      /* 70 -79 */
+}
+
+
+
+.cool{
+    background-color: var(--cool);
+      /* 60 -69 */
+}
+
+.chilly{
+    background-color: var(--chilly);
+        /* 50 -59 */
+}
+
+.cold{
+    background-color: var(--cold);
+        /* 49 or below */
+}
+
+
+.container{
+    display: flex;
+    margin-left: 100px;
+}
+
+h1{
+    color: indigo;
+
+}
+
+
+#cityName{
+    font-size: 40px;
+    margin-right: 50px;
+}
+#location{
+    margin: 30px;
+    height: 25px;
+    width: 150px;
+    /* background-color: rgb(183, 146, 209); */
+   
+}
+#getRealTime{
+    width: 200px;
+    height: 30px;
+    font-family: 'Lucida Grande';
+    font-size: 16px;
+    color: whitesmoke;
+    background-color: indigo;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
+.container2{
+    display: flex;
+}
+#sky-box{
+    margin-left: 40px;
+}
+
+#tempTextDisplay{
+    font-size: 100px;
+    color: darkgreen;
+    margin: 30px 70px;
+    height: 2.8em;
+    width: 3em;
+    padding: 10px;
+    /* background-color: darkgreen;
+    border: 2px darkgreen solid; */
+    background: url("./images/seattleCoverPhoto.jpeg") right center;
+}
+
+#temperature{
+    font-size: 115px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+#tempColor{
+    margin: 0 auto;
+    height: 4px;
+    width: 180px;
+    padding: 8px;
+    border-radius: 10%;
+    
+}
+
+
+#colorBox{
+    height: 20px;
+    background-color:whitesmoke ;
+    width: 200px;
+    border-radius: 10%;
+    /* background-color: var(--warm); */
+}
+
+#tempText{
+    font-size: 30px;
+}
+
+
+#btn-increase {
+    margin-top: 150px;
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: var(--light-grey) ;
+}
+#btn-decrease{
+    margin-top: 40px;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: var(--light-grey) ;
+}
+
+#weatherBoard{
+    /* background: url("./images/brightSunnyDay.webp") right center; */
+     background-color: darkgreen;
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .8;
+}
+
+#tempTextDisplay.seattleCloudy{
+    background: url("./images/cloudySeattle.jpeg") center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+
+}
+
+#tempTextDisplay.seattleSunny{
+        background: url("./images/sunnySeattle.jpeg") center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      
+    }

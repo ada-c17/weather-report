@@ -1,12 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
-</head>
+   
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather Report</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
 <body>
-    
+   
+    <header class = "container">
+        <div id=" header"> 
+            <h1>Weather Today</h1>
+        </div>
+        <div>
+            <input id="getRealTime" type="button" value=" Get Real-Time">
+        </div>
+    </header>
+
+    <main id = "weatherBoard">
+        <div class = "container">
+            <div >
+                <h1 id = "cityName">
+                    Seattle
+                </h1>
+            </div>
+            <div>
+                <input type="text" name="Change Location" placeholder="City Name" id="location">
+                 <button id = "btn-changeLocation">Click To Change City</button>
+            </div>
+        </div>
+        <div class = "container">
+          
+            <div class=" container2">
+                <div>
+                    <p id = "temperature">75°</p>
+                    <div id = "colorBox">
+                        <div id = "tempColor"></div>
+                    </div>
+                </div>
+                <div class = "button">
+                    <button id = "btn-increase">+</button>
+                    <button id = "btn-decrease" >-</button>
+                </div>
+            </div>
+            <div id = "sky-box">
+                <form id = "selectSkyForm">
+                    <p>Select Sky</p>
+                    <select name="" id="skyOptions">
+                        <option value="Sunny">Sunny</option>
+                        <option selected value="Partly Sunny">Partly Sunny</option>
+                        <option value="Rain">Rain</option>
+                        <option value="Cloudy">Cloudy</option>
+                    </select>
+                    <button id = "btn-skySelect">Click Here</button>
+                </form>
+            </div>
+            <div id = "tempTextDisplay">
+                
+                <h3 id = "tempText"> Partly Sunny 🌤</h3>
+            </div>
+        </div>
+    </main>
+    <script src="src/index.js">
+    </script>
 </body>
 </html>
