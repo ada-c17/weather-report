@@ -9,16 +9,17 @@
 </head>
 <body>
     <h1>Weather Report</h1>
+    <span>For the lovely city of 
+        <span id="cityName" class="headerCity"></span>
+    </span>
     
-    <section>
+    <section class="temperatureSection">
         <h2>Temperature</h2>
-            <ul id="increaseTempButton"></ul>
-            <ul id="tempDisplay"></ul>
-            <ul id="decreaseTempButton"></ul>
-
-        
+            <div id="increaseTempButton"></div>
+            <div id="tempDisplay"></div>
+            <div id="decreaseTempButton"></div>
     </section>
-    <section>
+    <section class="skySection">
         <h2>Sky</h2>
         <select id="skySelect">
             <option>Sunny</option>
@@ -30,16 +31,13 @@
     <section id="cityName">
         <input type="text" id="cityInput" name="city">
     </section>
-    <section>
+    <section class="gardenSection">
         <h2>Weather Garden</h2>
-        <div>
-            <ul id="sky"></ul>
-            <ul id="weatherGarden"></ul>
+        <div id="gardenContent" class="gardens">
+            <div id="sky"></div>
+            <div id="weatherGarden"></div>
         </div>
     </section>
-
-
-    
 
     <footer></footer>
     <script src="./src/index.js"></script>
