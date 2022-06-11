@@ -1,0 +1,206 @@
+/* ALL ITEMS */
+* {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* NAVIGATION */
+.nav {
+    background: #1F6284;
+    height: 80px;
+}
+
+.navContainer {
+    display: grid;
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    " header "
+    "content content";
+}
+
+#navHeaderOne {
+    font-size: 30px;
+    background: -webkit-linear-gradient(#277BA5 40%, #FFE570 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#navHeaderThree {
+    color: #FFE570;
+    justify-self: center;
+}
+
+#cityName {
+    color: #FFE570;
+}
+
+
+/* MAIN */
+.main {
+    background: #1F6284;
+}
+
+.mainContainer {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+#sky {
+    background-image: linear-gradient(#1F6284, #FFDA33);
+}
+
+#mainImage{
+    display: flex;
+    flex-wrap: wrap;
+    height: 550px;
+    width: 400px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+#image1 {
+    height: 50%;
+    width: 50%;
+    border-top-left-radius: 10%;
+}
+
+#image2 {
+    height: 50%;
+    width: 50%;
+    border-top-right-radius: 10%;
+}
+
+#image3 {
+    height: 50%;
+    width: 50%;
+    border-bottom-left-radius: 10%;
+}
+
+#image4 {
+    height: 50%;
+    width: 50%;
+    border-bottom-right-radius: 10%;
+}
+
+#tempContainer {
+    display: grid;
+    background: rgba(255, 255, 255, 0.5);
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+#tempHeaderThree {
+    color: #1F6284;
+}
+
+#temp {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+#increaseTemp{
+    background-image: linear-gradient(to top, #FFE570 20%, #FFD20A 80%);
+    border: 0;
+    box-shadow: none;
+    border-radius: 0px;
+    border-radius: 10%;
+}
+
+#decreaseTemp {
+    background-image: linear-gradient(to top, #1F6284 20%, #49A6D4 80%);
+    border: 0;
+    box-shadow: none;
+    border-radius: 0px;
+    border-radius: 10%;
+}
+
+#increaseTemp:hover,
+#decreaseTemp:hover {
+    cursor: pointer;
+}
+
+
+/* CITY */
+.city {
+    display: grid;
+    background: #FFDA33;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#cityHeaderThree {
+    color: #1F6284;
+    justify-self: center;
+}
+
+#cityForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+}
+
+#city {
+    display: grid;
+    grid-column-start: span 2;
+}
+
+#resetBtn {
+    background-color: #1F6284;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: #fff;
+}
+
+#realTempBtn {
+    background-color: #1F6284;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: #fff;
+}
+
+#resetBtn:hover {
+    cursor: pointer;
+}
+
+/* SKY CONTAINER */
+.skyContainer {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background: #FFDA33;
+    padding: 10px;
+}
+
+#changeSky {
+    color: #1F6284;
+}
+
+
+/* FOOTER */
+.footer {
+    background: #FFDA33;
+}
+
+.footerContainer {
+    display: flex;
+}
+
+#allRightsReserved {
+    color: #277BA5;
+}
+
