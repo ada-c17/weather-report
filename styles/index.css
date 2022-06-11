@@ -70,8 +70,9 @@ section {
     width: 45%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
 }
 
 #temperature {
@@ -99,6 +100,10 @@ section {
     align-items: center;
 }
 
+#convert{
+    margin-top:15%;
+}
+
 #card1-right h1{
     align-self: baseline;
 }
@@ -106,10 +111,11 @@ section {
 #real-time{
     background-color:rgb(31, 165, 120);
     font-size: 18px; 
-    align-items: center;
+    align-items:flex-end;
     flex-direction: column;
-    padding:25px;
-    border-radius: 10px;
+    padding:20px;
+    border-radius: 15px;
+    margin-top:20%;
 }
 
 #card2{
