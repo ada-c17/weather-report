@@ -92,7 +92,7 @@ message.addEventListener('input', function () {
 
 const getRealTemp = () => {
   axios
-    .get('http://127.0.0.1:5000/location', {
+    .get('https://secret-citadel-42185.herokuapp.com/location', {
       params: {
         q: document.getElementById('enter_city').value,
       },
@@ -101,7 +101,7 @@ const getRealTemp = () => {
       const forecastFor = document.getElementById('forecast');
       forecastFor.textContent = `Forecast for: ${response.data[0].display_name}`;
       axios
-        .get('http://127.0.0.1:5000/weather', {
+        .get('https://secret-citadel-42185.herokuapp.com/weather', {
           params: {
             lat: response.data[0].lat,
             lon: response.data[0].lon,

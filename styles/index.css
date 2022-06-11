@@ -43,7 +43,11 @@ nav {
 
 h1{font-size: 3rem;}
 h4{font-size: 2rem;}
-h3{margin: 0;}
+
+h3{margin: 5px;
+    border: #0e1538;
+border-color: var(--dark);
+}
 
 
 #current_temp{
@@ -70,8 +74,19 @@ h3{margin: 0;}
     padding:40px;
     margin:30px;
 }  
+#enter_city{
+    background-color:rgb(174, 211, 222);
+    color: var(--dark);
+    padding: 12px;
+    width: 220px;
+    border: none;
+    font-size: 20px;
+    margin:5px;
+    box-shadow: 1px 5px 25px rgba(0, 0, 0, 0.2);
+    appearance: button;
+}
 #main__intro__right{
-    width:550px;
+    width:100%;
     border-radius: 10px;
     margin:30px;
     text-align: center;
@@ -134,19 +149,19 @@ li.data{
 }
 
 .green {
-    color: green;
+    color:darkolivegreen;
 }
 
 .yellow {
-    color: yellow;
+    color:darkgoldenrod;
 }
 
 .orange {
-    color: orange;
+    color:darksalmon;
 }
 
 .red {
-    color: red;
+    color:chocolate;
 }
 
 footer {
