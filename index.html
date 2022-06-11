@@ -12,71 +12,71 @@
 
 <body>
     <main>
-        <header id="main"> 
-            <h1>Weather Report</h1>
-        </header>
+        <div id="grid-container">
+            <header id="main"> 
+                <h1>Weather Report</h1>
+            </header>
 
-        <section id="city">
-            <p id="city-sentence">For the lovely city of &#10024;</p><p id="city-name-display">Seattle</p><p id="city-sparkle">&#10024;</p>
-        </section>
+            <section id="city-name-container">
+                <span id="city-sentence">For the lovely city of &#10024;</span><span id="city-name-display">Seattle</span><span id="city-sparkle">&#10024;</span>
+            </section>
 
-        <section id="temperature-container">
-            <p>
-                <label id="temp-label">Temperature</label>
-                <section id="temp-buttons">
-                    <button id="adjust-temp-up" onclick="raiseTemp()">&#11014;</button>
-                    <p id="display-temp">77</p>
-                    <button id="adjust-temp-down" onclick="lowerTemp()">&#11015;</button>
+            <div id="main-container">
+                <section id="temperature-container">
+                    <label id="temp-label">Temperature in Fahrenheit</label>
+                    <div>
+                        <section id="temp-buttons">
+                            <button id="adjust-temp-up" onclick="raiseTemp()">&#11014;</button>
+                            <p id="display-temp">77</p>
+                            <button id="adjust-temp-down" onclick="lowerTemp()">&#11015;</button>
+                        </section>
+                    </div>
+                    <button id="real-time-temp" onclick="realTimeTemp()">Get Realtime Temperature</button>
                 </section>
-            </p>
-            <button id="real-time-temp" onclick="realTimeTemp()">Get Realtime Temperature</button>
-        </section>
 
-        <section>
-            <div id="sky-container">
-            <!-- <span id="sky-emojis"></span> -->
-            <p>
-            <label id="sky-label">Choose a Sky
-            </p>
-                <select id="sky" onchange="changeSky()">
-                    <option value="">Please Choose~</option>
-                    <option value="sunny">Sunny</option>
-                    <option value="cloudy">Cloudy</option>
-                    <option value="rainy">Rainy</option>
-                    <option value="snowy">Snowy</option>
-                </select>
-            </label>
-            <span id="sky-emojis"></span>
+                <section id="city-container"> 
+                    <label id="city-label">City Name</label>
+                        <input type="text" placeholder="Enter City Name" onkeyup="updateCityName()" onclick="clearInputField()" id="city-name">
+                        <p id="display-real-time-temp"></p>
+                    <button id="reset-button" onclick="resetCityName()">Reset</button>
+                </section>
+
+                <section>
+                    <div id="sky-container">
+                        <label id="sky-label">Choose a Sky
+                        <select id="sky" onchange="changeSky()">
+                            <option value="">Please Choose~</option>
+                            <option value="sunny">Sunny</option>
+                            <option value="cloudy">Cloudy</option>
+                            <option value="rainy">Rainy</option>
+                            <option value="snowy">Snowy</option>
+                        </select>
+                        </label>
+                    </div>
+                </section>
             </div>
-        </section>
 
-        <section id="city-container"> 
-            <p>
-                <label id="city-label">City Name</label>
-            </p>
-            <p>
-                <input type="text" placeholder="Enter City Name" onkeyup="updateCityName()" onclick="clearInputField()" id="city-name">
-                <div>
-                    <p id="display-real-time-temp"></p>
+            <section id="weather-garden-container"> 
+                <p>
+                    <label id="weather-garden-label">Weather Garden</label>
+                </p>
+                <div id="landscape-container">
+                    <section>
+                        <span id="sky-emojis"></span>
+                    </section>
+                    <span id="landscape" >🌸🌿🌼🍀🌷🌻🌿🍀🌱🍀🌻🌷</span>
                 </div>
-            </p>
-            <button id="reset-button" onclick="resetCityName()">Reset</button>
-        </section>
+            </section>
 
-        <section id="weather-garden-container"> 
-            <p>
-                <label id="weather-garden-label">Weather Garden</label>
-            </p>
-            <div id="landscape-container">
-                <span id="landscape" >🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</span>
+            <div>
+                <footer class="copyright">
+                    <section id="img-source-container">
+                        <span id="img-source">Image source: Vecteezy</span>
+                    </section>
+                    <span id="made-by">Natascha Jenkins ©2022</span>
+                </footer>
             </div>
-        </section>
-
-        <div>
-            <footer class="copyright">
-            <p class="footer">Natascha Jenkins ©2022</p>
-            </footer>
-        </div>
+        </div>    
     </main>
 </body>
 

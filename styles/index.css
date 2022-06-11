@@ -1,14 +1,79 @@
-/* * {border:1px solid red} */
+html { 
+    background-image: url('../assets/minimalist-plant.webp'); 
+    min-height: 100%; 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 body { 
     font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 100%; 
+}
+
+h1, #city-name-container {  
+    justify-content: center;
+    text-align: center; 
+} 
+
+#city-name-container { 
+    font-size: large; 
 }
 
 #display-temp { 
-    color: orange; 
+    color: blue; 
+} 
+
+#temperature-container {  
+    text-align: center; 
+    padding: 10px; 
 }
 
-#city-sentence, #city-name-display, #city-sparkle { 
-    display:inline-block; 
-    vertical-align:top; 
+#temp-buttons { 
+    padding: 10px; 
+    font-size: large;
+}
+
+#city-container { 
+    text-align: center; 
+    padding: 10px; 
+}  
+
+#sky-container { 
+    text-align: center; 
+    padding: 10px; 
+}
+
+#weather-garden-container { 
+    text-align: center; 
+    padding: 10px; 
+    font-size: larger;
+}
+
+#landscape-container { 
+    padding: 10px; 
+}
+
+#sky-emojis { 
+    padding: 20px; 
+    gap: 20px; 
+    margin-bottom: 10px;
+}
+
+#landscape { 
+    padding: 20px; 
+    gap: 20px; 
+    margin-top: 50px; 
+}
+
+#img-source-container { 
+    font-size: x-small; 
+    text-align: right;
+    justify-content: right;
+}  
+
+#made-by { 
+    font-size: smaller; 
+    bottom: 0;  
+    position: absolute; 
 }

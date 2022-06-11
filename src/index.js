@@ -18,9 +18,9 @@ const changeTempColor = () => {
   if (temperature.innerText >= 80) {
     temperature.style.color = 'red';
   } else if (temperature.innerText >= 70 && temperature.innerText <= 79) {
-    temperature.style.color = 'orange';
+    temperature.style.color = 'blue';
   } else if (temperature.innerText >= 60 && temperature.innerText <= 69) {
-    temperature.style.color = 'yellow';
+    temperature.style.color = 'purple';
   } else if (temperature.innerText >= 50 && temperature.innerText <= 59) {
     temperature.style.color = 'green';
   } else {
@@ -32,11 +32,11 @@ const changeLandscape = () => {
   const temperature = document.getElementById('display-temp'); // should I be using const or let - since it changes?
   let landscape = document.getElementById('landscape');
   if (temperature.innerText >= 80) {
-    landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    landscape.textContent = '🌵_🐍_🌴_🦂_🌴_🌵🌵_🌴_🐍_🏜_🌴_🦂';
   } else if (temperature.innerText >= 70 && temperature.innerText <= 79) {
-    landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    landscape.textContent = '🌸🌿🌼🍀🌷🌻🌿🍀🌱🍀🌻🌷';
   } else if (temperature.innerText >= 60 && temperature.innerText <= 69) {
-    landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    landscape.textContent = '🌾🌾🪴🍃🪴🪨🪴🛤🪴🌾🌾🌾🪴🍃';
   } else {
     landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
@@ -50,7 +50,6 @@ const updateCityName = () => {
 
 const realTimeTemp = () => {
   const updateWeatherCity = document.getElementById('city-name').value;
-  console.log(updateWeatherCity); // works
   let latitude, longitude;
   axios
     .get('http://127.0.0.1:5000/location', {
@@ -61,9 +60,7 @@ const realTimeTemp = () => {
     .then((response) => {
       const locationResult = response.data[0];
       latitude = locationResult.lat;
-      console.log(latitude); // works
       longitude = locationResult.lon;
-      console.log(longitude); // works
 
       axios
         .get('http://127.0.0.1:5000/weather', {
@@ -75,13 +72,20 @@ const realTimeTemp = () => {
         })
         .then((response) => {
           const weatherResult = response.data.current['temp'];
-          console.log(weatherResult); // works, just returns in Kelvin
-          document.getElementById('display-real-time-temp').textContent =
-            weatherResult;
+          document.getElementById('display-temp').textContent =
+            Math.round(weatherResult);
+          changeTempColor();
+          changeLandscape();
         });
     })
     .catch((error) => {
-      console.log('error', error.response.data);
+      if (error instanceof TypeError) {
+        alert('Please enter a valid city.');
+        return false;
+      } else {
+        console.log('error:', error.response.data);
+        throw error;
+      }
     });
 };
 
@@ -91,13 +95,13 @@ const changeSky = () => {
     skySelection.options[skySelection.selectedIndex].textContent;
   let skyDisplay = document.getElementById('sky-emojis');
   if (chosenSky === 'Sunny') {
-    skyDisplay.textContent = 'sunny emojis';
+    skyDisplay.textContent = '🌈🌤🌈🌤🌈🌤🌈🌤🌈';
   } else if (chosenSky === 'Cloudy') {
-    skyDisplay.textContent = 'cloudy emojis';
+    skyDisplay.textContent = '🌤🌥🌤🌥🌤🌥🌤🌥🌤🌥';
   } else if (chosenSky === 'Rainy') {
-    skyDisplay.textContent = 'rainy emojis';
+    skyDisplay.textContent = '🌧🌦🌧🌦🌧🌦🌧🌦🌧🌦';
   } else if (chosenSky === 'Snowy') {
-    skyDisplay.textContent = 'snowy emojis';
+    skyDisplay.textContent = '🌨🌨🌨🌨🌨🌨🌨🌨🌨🌨';
   }
 };
 
