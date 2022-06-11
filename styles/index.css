@@ -35,6 +35,31 @@ body {
     cursor:pointer;
 }
 
+#city-input {
+    /* display: none; */
+    width: 0;
+    transition: all 1s ease-in-out;
+}
+
+#city-input input {
+    color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+#city-input.updating {
+    display: block;
+    position: absolute;
+    top: 40vh;
+    right: 40vw;
+    z-index: 10;
+    width: 50vw;
+}
+
+#city-input.updating input {
+    color: rgba(0, 0, 0, 0.7);
+    border: solid 1px black;
+}
+
 #sky-selector {
     width: 40vw;
     min-width: 500px;

@@ -10,6 +10,8 @@ const landscapes = {
 
 const weather = {
   temperature: 72,
+  city: 'Seattle',
+  updating: false,
 };
 
 const tempClass = (temp) => {
@@ -39,12 +41,34 @@ const changeTemp = (e) => {
     landscapes[tempClass(weather.temperature)];
 };
 
+const toggleUpdating = () => {
+  weather.updating = !weather.updating;
+  const inputArea = document.getElementById('city-input');
+  inputArea.classList = weather.updating ? 'updating' : '';
+};
+
+const updateCity = (e) => {
+  if (e.keyCode === 13) {
+    toggleUpdating();
+    document.activeElement.blur();
+  } else {
+    weather.city = `${e.target.value}${e.key}`;
+    document.getElementById('city-name').textContent = weather.city;
+  }
+};
+
 const registerEventHandlers = () => {
   const controls = document.getElementsByClassName('temp-control');
   for (const control of controls) {
     control.addEventListener('click', changeTemp);
   }
-  // document.getElementById("cool").addEventListener("click",decreaseTemp);
+  document
+    .getElementById('city-name')
+    .addEventListener('click', toggleUpdating);
+
+  document
+    .querySelector('#city-input input')
+    .addEventListener('keydown', updateCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
