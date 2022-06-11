@@ -5,6 +5,14 @@ const GARDENSKIES = {
   snowy: '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨',
 };
 
+const CONDITIONS = {
+  hot: { landscape: '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂', text: 'red' },
+  warm: { landscape: '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷', text: 'orange' },
+  moderate: { landscape: '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃', text: 'yellow' },
+  chilly: { landscape: '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲', text: 'green' },
+  cold: { landscape: '❄️🌲⛄️🌲❄️🏂⛄️🌲❄️⛷🌲❄️🌲', text: 'teal' },
+};
+
 const state = {
   tempValue: 60,
 };
@@ -13,9 +21,9 @@ const kelvinToFahrenheit = (temperature) =>
   (temperature - 273.15) * (9 / 5) + 32;
 
 const updateTemp = () => {
-  const tempValue = document.querySelector('.tempValue');
+  const tempValue = document.querySelector('#tempValue');
   tempValue.textContent = state.tempValue;
-  helperTempDependentLayout(state.tempValue, tempValue);
+  conditionLayout(state.tempValue, tempValue);
 };
 
 const incrementTemp = () => {
@@ -28,28 +36,22 @@ const decrementTemp = () => {
   updateTemp();
 };
 
-const helperTempDependentLayout = (temp, el) => {
+const conditionLayout = (temp, el) => {
   const landscapeLayout = document.querySelector('#gardenLandscape');
-  let color = '';
-  let landscape = '';
+  let currentCondition = '';
   if (temp >= 80) {
-    color = 'red';
-    landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    currentCondition = CONDITIONS.hot;
   } else if (temp < 80 && temp >= 70) {
-    color = 'orange';
-    landscape = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    currentCondition = CONDITIONS.warm;
   } else if (temp < 70 && temp >= 60) {
-    color = 'yellow';
-    landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    currentCondition = CONDITIONS.moderate;
   } else if (temp < 60 && temp >= 50) {
-    color = 'green';
-    landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    currentCondition = CONDITIONS.chilly;
   } else if (temp < 50) {
-    color = 'teal';
-    landscape = '❄️🌲⛄️🌲❄️🏂⛄️🌲❄️⛷🌲❄️🌲';
+    currentCondition = CONDITIONS.cold;
   }
-  el.style.color = color;
-  landscapeLayout.textContent = landscape;
+  el.style.color = currentCondition.text;
+  landscapeLayout.textContent = currentCondition.landscape;
 };
 
 const updateTitleCity = () => {

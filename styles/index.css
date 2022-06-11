@@ -27,7 +27,7 @@ button {
     flex-direction: row;
 }
 
-.tempValue {
+#tempValue {
     font-size: 50px;
     color: yellow;
 }
