@@ -158,7 +158,7 @@ const registerEventHandlers = () => {
   const resetButton = document.getElementById('reset');
   resetButton.addEventListener('click', resetCityName);
 
-  const celButton = document.getElementById('celcius');
+  const celButton = document.getElementById('celsius');
   celButton.addEventListener('click', farenToC);
 
   const farenButton = document.getElementById('faren');
