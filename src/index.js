@@ -1,117 +1,89 @@
+// --------------------------- Define state -----------------------
 const state = {
-  tempChange: 68,
-  cityChange: 'Sacramento',
-  skyChange: 'cyan',
+  temperature: 68,
+  tempColor: 'yellow',
+  city: 'Sacramento',
+  sky: 'cyan',
 };
 
-const updateColor = (temperature) => {
-  let color;
-  if (temperature >= 80) {
-    color = 'red';
-  } else if (70 <= temperature && temperature <= 79) {
-    color = 'orange';
-  } else if (60 <= temperature && temperature <= 69) {
-    color = 'yellow';
-  } else if (50 <= temperature && temperature <= 59) {
-    color = 'green';
+// ------------ Declare global vars and default state --------------
+const updateCityElement = document.querySelector('#headerCity');
+const updateTempElement = document.querySelector('#updateTemperature');
+const inputCity = document.querySelector('#inputCity');
+const updateBackgroundSky = document.querySelector('#skyBackground');
+updateTempElement.textContent = `${state.temperature} ℉`;
+updateCityElement.textContent = state.city;
+updateBackgroundSky.style.backgroundColor = state.sky;
+
+// ------------------------- Wave 2 --------------------------------
+const updateTempColor = () => {
+  if (state.temperature >= 80) {
+    state.tempColor = 'red';
+  } else if (70 <= state.temperature && state.temperature <= 79) {
+    state.tempColor = 'orange';
+  } else if (60 <= state.temperature && state.temperature <= 69) {
+    state.tempColor = 'yellow';
+  } else if (50 <= state.temperature && state.temperature <= 59) {
+    state.tempColor = 'green';
   } else {
-    color = 'blue';
+    state.tempColor = 'blue';
   }
-  return color;
+  updateTempElement.style.color = state.tempColor;
 };
 
-const updateImage = () => {
-  const newImage = document.querySelector('#landscape');
+const updateLandscape = () => {
+  const updateImageElement = document.querySelector('#landscape');
   let name;
   let description;
-  if (state.tempChange >= 80) {
+  if (state.temperature >= 80) {
     name = 'ada-project-docs/assets/hot_day.jpeg';
     description = 'a desert';
-  } else if (70 <= state.tempChange && state.tempChange <= 79) {
+  } else if (70 <= state.temperature && state.temperature <= 79) {
     name = 'ada-project-docs/assets/sunny_day.jpeg';
     description = 'a sunny day';
-  } else if (60 <= state.tempChange && state.tempChange <= 69) {
+  } else if (60 <= state.temperature && state.temperature <= 69) {
     name = 'ada-project-docs/assets/cloudy_day.jpeg';
     description = 'a cloudy day';
   } else {
     name = 'ada-project-docs/assets/snowy_day.jpeg';
     description = 'a snowy day';
   }
-  newImage.src = name;
-  newImage.alt = description;
-};
-
-const updateTempElement = document.querySelector('#updateTemperature');
-const updateTemperature = () => {
-  const updateTempElement = document.querySelector('#updateTemperature');
-  updateTempElement.textContent = state.tempChange;
-  updateTempElement.style.color = updateColor(state.tempChange);
-};
-
-const updateCity = () => {
-  const inputCity = document.querySelector('#inputCity');
-  state.cityChange = inputCity.value;
-  const updateCityElement = document.querySelector('#headerCity');
-  updateCityElement.textContent = state.cityChange;
+  updateImageElement.src = name;
+  updateImageElement.alt = description;
 };
 
 const increaseTemp = () => {
-  state.tempChange += 1;
-  updateTemperature();
-  updateImage();
+  state.temperature += 1;
+  updateTempElement.textContent = `${state.temperature} ℉`;
+  updateTempColor();
+  updateLandscape();
 };
 
 const decreaseTemp = () => {
-  state.tempChange -= 1;
-  updateTemperature();
-  updateImage();
+  state.temperature -= 1;
+  updateTempElement.textContent = `${state.temperature} ℉`;
+  updateTempColor();
+  updateLandscape();
 };
 
+// ------------------------- Wave 3 --------------------------------
+const updateCity = () => {
+  const inputCity = document.querySelector('#inputCity');
+  state.city = inputCity.value;
+  updateCityElement.textContent = state.city;
+};
+
+// ------------------------- Wave 4 --------------------------------
 const getRealTemp = () => {
   updateCity();
   getLatLon();
 };
 
-const changeSkyColor = () => {
-  const getSkySelector = document.querySelector('#skySelect');
-  const getBackgroundSky = document.querySelector('#skyBackground');
-  if (getSkySelector.value === 'default') {
-    state.skyChange = 'cyan';
-  } else if (getSkySelector.value === 'sunny') {
-    state.skyChange = 'lightblue';
-  } else if (getSkySelector.value === 'cloudy') {
-    state.skyChange = 'lightgrey';
-  } else if (getSkySelector.value === 'rainy') {
-    state.skyChange = 'blue';
-  } else if (getSkySelector.value === 'snowy') {
-    state.skyChange = 'grey';
-  }
-  getBackgroundSky.style.backgroundColor = state.skyChange;
-};
-
-const registerEventHandlers = () => {
-  const increaseButton = document.querySelector('#increaseButton');
-  increaseButton.addEventListener('click', increaseTemp);
-  const decreaseButton = document.querySelector('#decreaseButton');
-  decreaseButton.addEventListener('click', decreaseTemp);
-  const submitCityButton = document.querySelector('#submitCityButton');
-  submitCityButton.addEventListener('click', updateCity);
-  submitCityButton.addEventListener('click', getLatLon);
-  const getRealTempButton = document.querySelector('#realTempButton');
-  getRealTempButton.addEventListener('click', getRealTemp);
-  const getSkyButton = document.querySelector('#skySelect');
-  getSkyButton.addEventListener('change', changeSkyColor);
-};
-
-document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
-// API calls - Wave 4
-
 const getLatLon = () => {
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
-        q: state.cityChange,
+        q: state.city,
       },
     })
     .then((response) => {
@@ -138,12 +110,56 @@ const getTemp = (lat, lon) => {
       const tempKelvin = response.data['current']['temp'];
       const tempFaren = parseInt(((tempKelvin - 273.15) * 9) / 5 + 32);
       console.log('success in finding location weather!', tempFaren);
-      state.tempChange = tempFaren;
-      updateTempElement.textContent = state.tempChange;
-      updateTempElement.style.color = updateColor(state.tempChange);
+      state.temperature = tempFaren;
+      updateTempElement.textContent = state.temperature;
+      updateTempElement.style.color = updateColor(state.temperature);
       updateImage();
     })
     .catch((error) => {
       console.log('error in finding location weather!');
     });
 };
+
+// ------------------------- Wave 5 --------------------------------
+const changeSkyColor = () => {
+  const getSkySelector = document.querySelector('#skySelect');
+  const updateBackgroundSky = document.querySelector('#skyBackground');
+  if (getSkySelector.value === 'default') {
+    state.skyChange = 'cyan';
+  } else if (getSkySelector.value === 'sunny') {
+    state.skyChange = 'khaki';
+  } else if (getSkySelector.value === 'cloudy') {
+    state.skyChange = 'lightgrey';
+  } else if (getSkySelector.value === 'rainy') {
+    state.skyChange = 'blue';
+  } else if (getSkySelector.value === 'snowy') {
+    state.skyChange = 'grey';
+  }
+  updateBackgroundSky.style.backgroundColor = state.skyChange;
+};
+
+// ------------------------- Wave 6 --------------------------------
+const resetCity = () => {
+  inputCity.value = '';
+  state.city = 'Sacramento';
+  updateCityElement.textContent = state.city;
+};
+
+// ---------------- Register Event Handlers ------------------------
+const registerEventHandlers = () => {
+  const increaseButton = document.querySelector('#increaseButton');
+  increaseButton.addEventListener('click', increaseTemp);
+  const decreaseButton = document.querySelector('#decreaseButton');
+  decreaseButton.addEventListener('click', decreaseTemp);
+  const submitCityButton = document.querySelector('#submitCityButton');
+  submitCityButton.addEventListener('click', updateCity);
+  submitCityButton.addEventListener('click', getLatLon);
+  const getRealTempButton = document.querySelector('#realTempButton');
+  getRealTempButton.addEventListener('click', getRealTemp);
+  const getSkyButton = document.querySelector('#skySelect');
+  getSkyButton.addEventListener('change', changeSkyColor);
+  const resetCityButton = document.querySelector('#resetCityButton');
+  resetCityButton.addEventListener('click', resetCity);
+};
+
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
