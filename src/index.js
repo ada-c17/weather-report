@@ -1,3 +1,35 @@
+const getCityLoc = () => {
+  const API = 'http://127.0.0.1:5000';
+  const city = 'Seattle';
+  axios
+    .get(`${API}/location`, { params: { q: city, format: 'JSON' } })
+    .then((response) => {
+      console.log('Success');
+      console.log(response.data[0].lat);
+      getWeather(response.data[0].lat, response.data[0].lon);
+    })
+    .catch((error) => {
+      console.log('Error');
+      console.log(error.response.statusText);
+    });
+};
+
+const getWeather = async (lat, lon) => {
+  console.log(lat);
+  console.log(lon);
+  const response = await axios.get(`http://127.0.0.1:5000/weather`, {
+    params: {
+      lat: lat,
+      lon: lon,
+      format: 'JSON',
+    },
+  });
+  console.log('Weather!');
+  console.log(response.data.current.temp);
+};
+
+getCityLoc();
+
 let currentTemp = 41; //is could be hardcoded?
 
 const newTemp = (currentTemp) => {
@@ -19,6 +51,7 @@ const downTemp = () => {
 
 const tempTextColor = (currentTemp) => {
   const tempContainer = document.getElementById('currentTemp');
+  let textColor;
   if (currentTemp >= 80) {
     textColor = 'red';
   } else if (currentTemp >= 70) {
