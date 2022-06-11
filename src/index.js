@@ -48,7 +48,14 @@ const changeTemp = (e) => {
 const toggleUpdating = () => {
   weather.updating = !weather.updating;
   const inputArea = document.getElementById('city-input');
-  inputArea.classList = weather.updating ? 'updating' : '';
+  const inputBox = document.getElementById('input-box');
+  if (weather.updating) {
+    inputArea.classList = 'updating';
+    inputBox.value = '';
+    inputBox.focus();
+  } else {
+    inputArea.classList = '';
+  }
 };
 
 const updateCity = (e) => {
@@ -84,6 +91,10 @@ const realWeatherQuery = () => {
     .catch((e) => console.log(e));
 };
 
+const updateSky = (e) => {
+  document.getElementById('sky-selector').classList = e.target.value;
+};
+
 const registerEventHandlers = () => {
   const controls = document.getElementsByClassName('temp-control');
   for (const control of controls) {
@@ -98,8 +109,24 @@ const registerEventHandlers = () => {
     .addEventListener('keydown', updateCity);
 
   document
-    .querySelector('#reality-check')
+    .getElementById('reality-check')
     .addEventListener('click', realWeatherQuery);
+
+  document.getElementById('sky-selector').addEventListener('change', updateSky);
 };
+
+const createOption = (emoji) => {
+  const opt = document.createElement('option');
+  opt.textContent = emoji;
+  return opt;
+};
+
+const skyOptions = ['☀️', '🌤', '⛅️', '🌥', '🌦', '🌧', '⛈', '🌈'].map(
+  createOption
+);
+const skyMenu = document.getElementById('sky-selector');
+for (const skyOption of skyOptions) {
+  skyMenu.appendChild(skyOption);
+}
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);

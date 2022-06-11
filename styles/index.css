@@ -64,7 +64,6 @@ body {
     width: 40vw;
     min-width: 500px;
     height: 5rem;
-    background-color: aqua;
 }
 
 #temp-display {
@@ -129,4 +128,30 @@ button {
 
 #landscape {
     width: 100vw;
+}
+
+.☀️ {
+    background-color: rgb(255, 226, 82);
+}
+.🌤 {
+    background-color: rgb(227, 223, 160);
+}
+
+.⛅️ {
+    background-color: rgb(167, 164, 131);
+}
+.🌥 {
+    background-color: rgb(122, 122, 103);
+}
+.🌦 {
+    background-color: rgb(181, 209, 222);
+}
+.🌧 {
+    background-color: rgb(141, 243, 233);
+}
+.⛈ {
+    background-color: rgb(55, 115, 108);
+}
+.🌈 {
+    background: linear-gradient(90deg,red 0%, orange 20%, yellow 40%, green 60%, blue 80%, purple 100%);
 }
