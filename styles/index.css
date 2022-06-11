@@ -144,7 +144,7 @@ Want to change it so that the background color of the temp city box is accessed,
 
 input {
     transition: width 0.4s ease-in-out;
-    width: 40%;
+    width: 30%;
 }
 
 /* input .open {
@@ -155,6 +155,7 @@ input {
 input:focus {
     border: 3px solid #555;
     width: 100%;
+    max-width: 18rem;
 }
 
 /* input .closed {

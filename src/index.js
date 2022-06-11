@@ -7,6 +7,7 @@ const state = {
 
 // export { state };
 
+// Changes background color of temp box
 const changeColor = () => {
   const tempCityBox = document.getElementById('temp_city_box_grid');
   if (state.temp >= 80) {
@@ -26,6 +27,7 @@ const changeColor = () => {
   }
 };
 
+// Changes background landscape
 const changeBgImg = () => {
   if (state.temp >= 80) {
     document.body.style.backgroundImage =
@@ -48,23 +50,23 @@ const changeBgImg = () => {
   }
 };
 
-const increaseTemp = () => {
-  state.temp += 1;
+// Changes temp based on situation (button click or function call)
+const changeTemp = (event) => {
+  if (event === undefined) {
+    ('pass');
+  } else if (event.composedPath()[1].id === 'down_arrow_btn') {
+    state.temp -= 1;
+  } else if (event.composedPath()[1].id === 'up_arrow_btn') {
+    state.temp += 1;
+  }
   const tempText = document.getElementById('temp');
   tempText.textContent = `${state.temp}°`;
   changeColor();
   changeBgImg();
 };
 
-const decreaseTemp = () => {
-  state.temp -= 1;
-  const tempText = document.getElementById('temp');
-  tempText.textContent = `${state.temp}°`;
-  changeColor();
-  changeBgImg();
-};
-
-const showInputBox = () => {
+// Makes input box hidden or visible
+const controlInputBox = () => {
   const inputBox = document.getElementById('city_input_box');
   if (inputBox.getAttribute('type') === 'hidden') {
     inputBox.setAttribute('type', 'text');
@@ -73,6 +75,7 @@ const showInputBox = () => {
   }
 };
 
+// Change placeholder text in input box
 const changePlaceholderText = () => {
   const openInputBox = document.getElementById('city_input_box');
   console.log(openInputBox);
@@ -88,6 +91,7 @@ const changePlaceholderText = () => {
   }
 };
 
+// Update city in temp box with each keypress
 const changeCity = () => {
   state.city = document.getElementById('city_input_box').value;
   document.querySelector('h2').textContent = state.city;
@@ -100,16 +104,31 @@ const submitCitySearchRequest = () => {
   }
 };
 
-const getLatAndLong = () => {
-  console.log('The fx ran!');
-  let latitude, longitude;
+const updateTemp = (lat, lon) => {
+  axios
+    .get('http://localhost:5000/weather', {
+      params: {
+        lat: lat,
+        lon: lon,
+      },
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(`Encountered an error: ${error}`);
+    });
+};
 
+const getLatAndLong = () => {
+  const location = state.city;
+  console.log(`${location}`);
+
+  let latitude, longitude;
   axios
     .get('http://localhost:5000/location', {
       params: {
-        // key: LOCATIONIQ_KEY,
-        q: state.city,
-        // format: 'json',
+        q: location,
       },
     })
     .then((response) => {
@@ -118,25 +137,49 @@ const getLatAndLong = () => {
       console.log(
         `For ${state.city}, longitude is ${longitude} and latitude is ${latitude}.`
       );
+      const coord = { latitude, longitude };
+      // console.log({ coord });
+      return coord;
+    })
+    .then((response) => {
+      // console.log(response);
+      axios
+        .get('http://localhost:5000/weather', {
+          params: {
+            lat: parseFloat(response.latitude),
+            lon: parseFloat(response.longitude),
+          },
+        })
+        .then((response) => {
+          const tempKelvin = response.data.current.temp;
+          state.temp = Math.round((tempKelvin - 273.15) * (9 / 5) + 32);
+          console.log(`State.temp is ${state.temp}`);
+          changeTemp();
+          changeColor();
+          changeBgImg();
+        })
+        .catch((error) => {
+          console.log(`Encountered an error: ${error}`);
+        });
     })
 
     .catch((error) => {
-      console.log('Encountered an error with getLatAndLong.');
+      console.log(`Encountered an error with getLatAndLong: ${error}`);
     });
 };
 
 const registerEventHandlers = (event) => {
   // Increase temp when click up arrow
   const upArrowBtn = document.getElementById('up_arrow_btn');
-  upArrowBtn.addEventListener('click', increaseTemp);
+  upArrowBtn.addEventListener('click', changeTemp);
 
   // Decrease temp with down arrow
   const downArrowBtn = document.getElementById('down_arrow_btn');
-  downArrowBtn.addEventListener('click', decreaseTemp);
+  downArrowBtn.addEventListener('click', changeTemp);
 
   // Show input with magnifier
   const magnBtn = document.getElementById('magn_btn');
-  magnBtn.addEventListener('click', showInputBox);
+  magnBtn.addEventListener('click', controlInputBox);
 
   // On focus/blur, update placeholder
   const openInputBox = document.getElementById('city_input_box');
@@ -147,10 +190,21 @@ const registerEventHandlers = (event) => {
   openInputBox.addEventListener('keyup', changeCity);
 
   // Search city name on enter or get real temp btn
-  openInputBox.addEventListener('keyup', submitCitySearchRequest);
+  openInputBox.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      console.log('Enter was pushed!');
+      getLatAndLong();
+      event.preventDefault();
+    }
+  });
 
+  //
   const getRealTempBtn = document.getElementById('real_temp_btn');
-  getRealTempBtn.addEventListener('click', submitCitySearchRequest);
+  getRealTempBtn.addEventListener('click', () => {
+    console.log("It's the weekend");
+    getLatAndLong();
+  });
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
