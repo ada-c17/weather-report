@@ -18,23 +18,50 @@
       <nav><a href="./index.html">Weather Report</a></nav>
     </header>
     <main>
-      <div class="round-button">
+    <!-- three boxes -->
+      <div id="container">
+        <!-- city -->
         <div class="round-button-circle">
-          <nav href="#" class="round-button">Seattle</nav>
+          <section>
+            <div>
+              <input type="text" id="city" placeholder="choose the city"></input>
+            </div>
+          </section>
         </div>
-      </div>
-      <div class="round-button">
+        <!-- temp -->
         <div class="round-button-circle">
-          <nav href="#" class="round-button">57℉</nav>
+          <section>
+            <div>
+              <div>
+                <span><Input id="range" type="range" value="0" min="-130" max="150" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"></Input></span>
+              </div>
+              <div id="temp-range">
+                <span id="rangeValue">0</span>
+                <span>℉</span>
+              </div>
+          </div>
+          </script>
+          </section>
         </div>
-      </div>
-      <div class="round-button">
+        <!-- Sky -->
         <div class="round-button-circle">
-          <nav href="#" class="round-button">Sky</nav>
+          <section>
+            <div>
+              <div class="button" for="toggle">Sky</div>
+              <select class="nav" id="skySelect">
+                <option value="none" selected disabled hidden>select sky</option>
+                <option value="yellow">Sunny</option>
+                <option value="darkGrey">Cloudy</option>
+                <option value="grey">Rainy</option>
+                <option value="white">Snowy</option>
+              </select>
+            </div>
+          </section>
         </div>
       </div>
     </main>
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
+    
   </body>
 </html>
