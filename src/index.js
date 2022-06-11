@@ -7,7 +7,7 @@ const temp = {
 };
 
 const convertKtoF = (temp) => {
-  return (temp - 273.15) * (9 / 5) + 32;
+  return Math.round((temp - 273.15) * (9 / 5) + 32);
 };
 
 const tempCheck = (element) => {
@@ -37,41 +37,6 @@ const emojiCheck = (element) => {
   return temp.emojis;
 };
 
-const findLatAndLong = (location) => {
-  axios
-    .get('http://127.0.0.1:5000/location', {
-      params: {
-        q: location,
-      },
-    })
-    .then((response) => {
-      console.log(response.data);
-      temp.lat = response.data[0].lat;
-      temp.lon = response.data[0].lon;
-      getWeather(temp.lat, temp.lon);
-    })
-    .catch((error) => {
-      console.log('Error finding the latitude and longitude:', error.response);
-    });
-  
-};
-
-const getWeather = (lat, lon) => {
-  axios
-    .get('http://127.0.0.1:5000/weather', {
-      params: {
-        lat: lat,
-        lon: lon,
-      },
-    })
-    .then((response) => {
-      temp.fahrenheit = response.data.current.temp;
-    })
-    .catch((error) => {
-      console.log('Error finding current temperature:', error.response);
-    });
-};
-
 const updateSky = () => {
   const inputSky = document.getElementById('skySelect').value;
   const skyContainer = document.getElementById('sky');
@@ -89,6 +54,49 @@ const updateSky = () => {
 };
 
 const loadElements = () => {
+  const findLatAndLong = (location) => {
+    axios
+      .get('http://127.0.0.1:5000/location', {
+        params: {
+          q: location,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        temp.lat = response.data[0].lat;
+        temp.lon = response.data[0].lon;
+        temp.city = location;
+        getWeather(temp.lat, temp.lon);
+      })
+      .catch((error) => {
+        console.log(
+          'Error finding the latitude and longitude:', error.response);
+          reset();
+          alert("Please enter a valid city name")
+      });
+  };
+
+  const getWeather = (lat, lon) => {
+    axios
+      .get('http://127.0.0.1:5000/weather', {
+        params: {
+          lat: lat,
+          lon: lon,
+        },
+      })
+      .then((response) => {
+        temp.fahrenheit = convertKtoF(response.data.current.temp);
+        tempLi.textContent = temp.fahrenheit;
+        emojiLi.textContent = emojiCheck(tempLi);
+        tempCheck(tempLi);
+      })
+      .catch((error) => {
+        console.log('Error finding current temperature:', error.response);
+        reset();
+        alert("Could not find weather for entered location");
+      });
+  };
+
   // load temp number
   const tempUl = document.getElementById('tempDisplay');
   const tempLi = document.createElement('li');
@@ -104,13 +112,12 @@ const loadElements = () => {
   const currentTempButton = document.getElementById('currentTempButton');
   currentTempButton.addEventListener('click', () => {
     findLatAndLong(cityInput.value);
-    tempLi.textContent = temp.fahrenheit;
   });
 
   // update the sky emojis
   updateSky();
   const skySelect = document.getElementById('skySelect');
-  skySelect.addEventListener('change', updateSky); 
+  skySelect.addEventListener('change', updateSky);
 
   // load weather garden
   const emojiUl = document.getElementById('weatherGarden');
@@ -126,12 +133,7 @@ const loadElements = () => {
 
   // add reset button event listener
   const resetButton = document.getElementById('resetButton');
-  resetButton.addEventListener('click', () => {
-    cityInput.value = '';
-    cityHead.textContent = temp.city;
-  });
-
-
+  resetButton.addEventListener('click', () => {reset();});
 
   const loadTempButtons = () => {
     const upUl = document.getElementById('increaseTempButton');
@@ -154,6 +156,19 @@ const loadElements = () => {
     });
     downUl.appendChild(downLi);
   };
+
+  const reset = () => {
+    cityInput.value = '';
+    temp.city = 'Seattle';
+    cityHead.textContent = temp.city;
+    temp.fahrenheit = 55;
+    tempLi.textContent = temp.fahrenheit;
+    temp.lat = 47.6038321;
+    temp.lon = -122.3300624;
+    temp.emojis = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    emojiLi.textContent = temp.emojis;
+    tempCheck(tempLi);
+  }
 
   loadTempButtons();
 };
