@@ -1,7 +1,7 @@
 'use strict';
 
 const state = {
-  temp: 78,
+  temp: 70,
   city: 'Seattle, WA',
 };
 
