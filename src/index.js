@@ -96,7 +96,7 @@ const getLocationWeather = () => {
 };
 
 const getLocationName = () => {
-  state.location = document.getElementById('location-name').value;
+  state.location = document.getElementById('location-input').value;
   getLatLon();
 };
 
@@ -112,10 +112,12 @@ const registerEventHandlers = () => {
   const tempDec = document.getElementById('arrow-decrease');
   tempDec.addEventListener('click', decTemp);
   tempDec.addEventListener('click', changeColorTemp);
-  // change city
-  const locationInput = document.getElementById('location-name');
+  // change locaion
   const locationSubmit = document.getElementById('location-submit');
   locationSubmit.addEventListener('click', getLocationName);
+  // change location name
+  const locationInput = document.getElementById('location-input');
+  locationInput.addEventListener('change', getLocationName);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
