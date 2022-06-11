@@ -6,14 +6,37 @@ function rangeSlide(value) {
   document.getElementById('rangeValue').textContent = value;
   // onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"
 }
+const input = document.getElementById('range');
 
-// function skyClick(event) {
-//   // event.target.style.display = 'none';
-//   const skySelect = document.getElementById('skySelect');
-//   // skySelect.style.display = 'flex';
-//   skySelect.click();
-// }
-
+input.addEventListener('input', (event) => {
+  // const hopeWorks = () => {
+  if (input.value >= 80) {
+    document.getElementById('city-circle').style.background = 'red';
+    document.getElementById('temp-circle').style.background = 'red';
+    document.getElementById('sky-circle').style.background = 'red';
+    document.getElementById('weather').style.color = 'red';
+  } else if (input.value < 80 && input.value >= 70) {
+    document.getElementById('city-circle').style.background = 'purple';
+    document.getElementById('temp-circle').style.background = 'purple';
+    document.getElementById('sky-circle').style.background = 'purple';
+    document.getElementById('weather').style.color = 'purple';
+  } else if (input.value < 70 && input.value >= 60) {
+    document.getElementById('city-circle').style.background = 'yellow';
+    document.getElementById('temp-circle').style.background = 'yellow';
+    document.getElementById('sky-circle').style.background = 'yellow';
+    document.getElementById('weather').style.color = 'yellow';
+  } else if (input.value < 60 && input.value >= 50) {
+    document.getElementById('city-circle').style.background = 'green';
+    document.getElementById('temp-circle').style.background = 'green';
+    document.getElementById('sky-circle').style.background = 'green';
+    document.getElementById('weather').style.color = 'green';
+  } else if (input.value < 50) {
+    document.getElementById('city-circle').style.background = 'teal';
+    document.getElementById('temp-circle').style.background = 'teal';
+    document.getElementById('sky-circle').style.background = 'teal';
+  }
+});
+// console.log(document.getElementById('testJ').style.backgroundColor);
 const tempChange = () => {
   if (state.temp >= 80) {
     console.log(state.temp);
@@ -29,5 +52,4 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('skySelect').addEventListener('change', skyChange);
   const tempSlider = document.getElementById('range');
   tempSlider.addEventListener('change', tempChange);
-  // tempSlider.addEventListener('change', rangeSlide);
 });
