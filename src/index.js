@@ -170,6 +170,28 @@ const getLatAndLong = () => {
     });
 };
 
+const changeSky = () => {
+  const select = document.getElementById('sky_drop_down');
+  const option = select.options[select.selectedIndex].text;
+  console.log(option);
+  if (option === 'Sunny') {
+    const h1 = document.querySelector('h1');
+    h1.textContent = '☀️ 🌞 🔆 Weather App ☀️ 🌞 🔆';
+  } else if (option === 'Cloudy') {
+    const h1 = document.querySelector('h1');
+    h1.textContent = '☁️🌤 ☁️ Weather App ☁️🌤 ☁️ ';
+  } else if (option === 'Rainy') {
+    const h1 = document.querySelector('h1');
+    h1.textContent = '🌧 ⛈ 🌧 Weather App 🌧 ⛈ 🌧 ';
+  } else if (option === 'Snowy') {
+    const h1 = document.querySelector('h1');
+    h1.textContent = '❄️ 🌨 ❄️ Weather App ❄️ 🌨 ❄️';
+  } else if (option === 'Choose a Sky') {
+    const h1 = document.querySelector('h1');
+    h1.textContent = 'Weather App';
+  }
+};
+
 const registerEventHandlers = (event) => {
   // Increase temp when click up arrow
   const upArrowBtn = document.getElementById('up_arrow_btn');
@@ -208,6 +230,9 @@ const registerEventHandlers = (event) => {
 
   const form = document.getElementById('holds_input_box');
   form.addEventListener('submit', (event) => event.preventDefault());
+
+  const select = document.getElementById('sky_drop_down');
+  select.addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);

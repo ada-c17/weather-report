@@ -27,6 +27,8 @@ footer a {
 
 h1 {
     background-color: rgba(174, 171, 171, 0.7);
+    height: 40px;
+    /* padding-top: 5px; */
 }
 
 .change_with_temp {
@@ -62,7 +64,7 @@ h1 {
     grid-column-end: 3;
     grid-row: 2 / 4;
     grid-template-columns: auto 15%;
-    grid-template-rows: 33.3% 1fr 1fr 10%;
+    grid-template-rows: 1fr 1fr 1fr 10% 10%;
     height: 100%;
     min-height: 100%;
     align-items: center;
@@ -100,6 +102,8 @@ h1 {
     margin-left: 5%;
     margin-right: 5%;
     border-radius: 5px;
+    border: solid black 2px;
+
 }
 
 /* .btn:hover {
@@ -119,6 +123,7 @@ Want to change it so that the background color of the temp city box is accessed,
     grid-column: 2 / 3;
     grid-row: 3  / 4;
     align-self: start;
+    padding-top: 2px;
 }
 
 
@@ -174,6 +179,19 @@ input:focus {
     margin: 0 12%;
     border-radius: 10px;
     background-color: transparent;
+    border: solid black 2px;
+    cursor: pointer; /* Mouse pointer on hover */
+
+
     /* font-weight: bold; */
 }
 
+#sky_drop_down {
+    background-color: transparent;
+    border: solid black 2px;
+    grid-column: 1 / 3;
+    margin: 0 12%;
+    border-radius: 10px;
+    cursor: pointer; /* Mouse pointer on hover */
+
+}
