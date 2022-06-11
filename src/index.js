@@ -112,7 +112,7 @@ const loadElements = () => {
   // update the sky emojis
   updateSky();
   const skySelect = document.getElementById('skySelect');
-  skySelect.addEventListener('change', updateSky);
+  skySelect.addEventListener('change', updateSky); 
 
   // load weather garden
   const emojiUl = document.getElementById('weatherGarden');
@@ -132,6 +132,8 @@ const loadElements = () => {
     cityInput.value = '';
     cityHead.textContent = temp.city;
   });
+
+
 
   const loadTempButtons = () => {
     const upUl = document.getElementById('increaseTempButton');
