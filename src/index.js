@@ -1,6 +1,6 @@
 'use strict';
 
-const axios = require('axios');
+// const axios = require('axios');
 
 const state = {
   temperature: 0,
@@ -11,14 +11,14 @@ const increaseTemperature = () => {
   state.temperature += 1;
   const temperatureContainer = document.getElementById('temperature');
 
-  temperatureContainer.textContent = `${state.temperature}°`;
+  temperatureContainer.textContent = `${state.temperature}° F`;
 };
 
 const decreaseTemperature = () => {
   state.temperature -= 1;
   const temperatureContainer = document.getElementById('temperature');
 
-  temperatureContainer.textContent = `${state.temperature}°`;
+  temperatureContainer.textContent = `${state.temperature}° F`;
 };
 
 const registerEventHandlers = () => {
