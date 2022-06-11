@@ -19,14 +19,9 @@ const landscapeChanger = (temp) => {
   }
 };
 
-// Variable to track temperature
-var temperature = 0;
-
-// Display initial value
-currentTemp.innerHTML = temperature;
-
 // Function to increment temperature
 const handleTempIncrement = () => {
+  let temperature = currentTemp.innerHTML;
   temperature++;
   currentTemp.innerHTML = temperature;
   changeTempColor(temperature);
@@ -34,6 +29,7 @@ const handleTempIncrement = () => {
 };
 // Function to decrement temp
 const handleTempDecrement = () => {
+  let temperature = currentTemp.innerHTML;
   temperature--;
   currentTemp.innerHTML = temperature;
   changeTempColor(temperature);
@@ -68,7 +64,7 @@ const cityName = document.getElementById('city-name');
 function cityNameChanger(event) {
   cityNameValue = cityName.value;
   document.getElementById('top-city-name').innerHTML =
-    '💗 ' + cityNameValue + ' 💗';
+    '🌆 ' + cityNameValue + ' 🌆';
 }
 //comment
 //listener to change city name
@@ -81,7 +77,7 @@ const resetCityButton = document.getElementById('city-reset-button');
 function resetCityName() {
   cityName.value = '';
   document.getElementById('top-city-name').innerHTML =
-    '💗 ' + cityName.placeholder + ' 💗';
+    '🌆 ' + cityName.placeholder + ' 🌆';
 }
 
 //event listener for reseting the city name
@@ -107,3 +103,60 @@ const updateSky = (opt) => {
 };
 //add event listener for sky dropdown menu
 skyOption.addEventListener('change', updateSky);
+
+//const axios = require('axios');
+
+async function getLatLon(place) {
+  console.log(place);
+  const response = await axios.get('https://us1.locationiq.com/v1/search.php', {
+    params: {
+      key: 'pk.f06c8c89d5d21e12396df6e07fe686dd',
+      q: place,
+      format: 'json',
+    },
+  });
+
+  let resp = response.data;
+  const lat = resp[0].lat;
+  const long = resp[0].lon;
+  let latlong = {
+    lat: lat,
+    lon: long,
+  };
+
+  console.log(latlong);
+  return latlong;
+}
+
+async function getTemp(lat, long) {
+  const response = await axios.get(
+    'https://api.openweathermap.org/data/2.5/onecall',
+    {
+      params: {
+        lat: lat,
+        lon: long,
+        APPID: 'a63f76d71c284265bbebf86c9459a554',
+        units: 'metric',
+      },
+    }
+  );
+  let parsedresp = response.data;
+  let temp = parsedresp.current.temp;
+  return temp;
+}
+
+//get real reamp
+async function getRealTemperature() {
+  cityNameValue = cityName.value;
+  let latLon = await getLatLon(cityNameValue);
+  let temperatureValue = await getTemp(latLon.lat, latLon.lon);
+  temperatureValue = Math.round(temperatureValue);
+  currentTemp.innerHTML = temperatureValue;
+  updateSky(temperatureValue);
+  landscapeChanger(temperatureValue);
+  changeTempColor(temperatureValue);
+}
+const realTimeTempButton = document.getElementById('real-temp');
+realTimeTempButton.addEventListener('click', getRealTemperature);
+
+window.addEventListener('load', getRealTemperature);
