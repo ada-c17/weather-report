@@ -3,6 +3,8 @@ let currentTemp = 41; //is could be hardcoded?
 const newTemp = (currentTemp) => {
   let temperatureValue = document.getElementById('currentTemp');
   temperatureValue.textContent = currentTemp;
+  tempTextColor(currentTemp);
+  tempGround(currentTemp);
 };
 
 const upTemp = () => {
@@ -15,19 +17,25 @@ const downTemp = () => {
   newTemp(currentTemp);
 };
 
-const registerEventHandlers = () => {
-  const upButton = document.querySelector('#upArrow');
-  const downButton = document.querySelector('#downArrow');
-  upButton.addEventListener('click', upTemp);
-  downButton.addEventListener('click', downTemp);
-  upButton.addEventListener('click', tempColor);
-  downButton.addEventListener('click', tempColor);
+const tempTextColor = (currentTemp) => {
+  const tempContainer = document.getElementById('currentTemp');
+  if (currentTemp >= 80) {
+    textColor = 'red';
+  } else if (currentTemp >= 70) {
+    textColor = 'orange';
+  } else if (currentTemp >= 60) {
+    textColor = 'yellow';
+  } else if (currentTemp >= 50) {
+    textColor = 'green';
+  } else if (currentTemp <= 59) {
+    textColor = 'teal';
+  }
+  tempContainer.className = textColor;
 };
 
-const tempColor = () => {
-  let temperatureValue = document.getElementById('currentTemp').textContent;
-
-  let temperatureContainer = document.getElementById('currentTemp');
+const tempGround = (currentTemp) => {
+  // let temperatureValue = document.getElementById('currentTemp').textContent;
+  // let temperatureContainer = document.getElementById('currentTemp');
   // console.log(temperatureValue);
   // console.log(temperatureContainer);
 
@@ -36,27 +44,47 @@ const tempColor = () => {
   console.log(gardenBottomValue);
   console.log(gardenBottomValueContainer);
 
-  if (temperatureValue > 80) {
-    temperatureContainer.className = 'red';
+  if (currentTemp > 80) {
+    // temperatureContainer.className = 'red';
     gardenBottomValueContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
     console.log(temperatureContainer);
-  } else if (temperatureValue >= 70 && temperatureValue <= 79) {
-    temperatureContainer.className = 'orange';
+  } else if (currentTemp >= 70) {
+    // temperatureContainer.className = 'orange';
     gardenBottomValueContainer.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-  } else if (temperatureValue >= 60 && temperatureValue <= 69) {
-    temperatureContainer.className = 'yellow';
+  } else if (currentTemp >= 60) {
+    // temperatureContainer.className = 'yellow';
     gardenBottomValueContainer.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
-  } else if (temperatureValue >= 50 && temperatureValue <= 59) {
-    temperatureContainer.className = 'green';
+  } else if (currentTemp >= 50) {
+    // temperatureContainer.className = 'green';
     gardenBottomValueContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
-  } else if (temperatureValue <= 49) {
-    temperatureContainer.className = 'teal';
+  } else if (currentTemp <= 49) {
+    // temperatureContainer.className = 'teal';
     gardenBottomValueContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
 };
 
+const newCity = () => {
+  const cityValue = document.getElementById('cname').value;
+  const headerCity = document.getElementById('city-name');
+  headerCity.textContent = cityValue;
+};
+
+const registerEventHandlers = () => {
+  const newCityUpdate = document.getElementById('cname');
+  newCityUpdate.addEventListener('input', newCity);
+
+  newTemp(currentTemp);
+
+  const upButton = document.querySelector('#upArrow');
+  upButton.addEventListener('click', upTemp);
+  // upButton.addEventListener('click', tempColor);
+
+  const downButton = document.querySelector('#downArrow');
+  downButton.addEventListener('click', downTemp);
+  // downButton.addEventListener('click', tempColor);
+};
+
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
-newTemp(currentTemp);
 
 // Temperature (F)	Color
 // 80+	Red
