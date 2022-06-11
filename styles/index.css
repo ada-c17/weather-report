@@ -18,6 +18,7 @@ h1, #city-name-container {
 
 #city-name-container { 
     font-size: large; 
+    background-color: lightsalmon; 
 }
 
 #display-temp { 
@@ -46,7 +47,7 @@ h1, #city-name-container {
 
 #weather-garden-container { 
     text-align: center; 
-    padding: 10px; 
+    padding: 20px; 
     font-size: larger;
 }
 
