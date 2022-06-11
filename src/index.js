@@ -18,11 +18,11 @@ const tempColor = (temp) => {
 const gardenLayout = (temp) => {
   const floorEmojisContainer = document.querySelector('#floorEmojis');
   if (temp >= 80) {
-    floorEmojisContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    floorEmojisContainer.textContent = '🌵🦂🐍🏜🦂🏜🌵🌵🌵🐍_🏜_🦂';
   } else if (70 <= temp && temp <= 79) {
-    floorEmojisContainer.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    floorEmojisContainer.textContent = '🌸🌿🌼🌸🌿🌷🌻🌿🌱☘️🌱🌻🌷🌻🌷';
   } else if (60 <= temp && temp <= 69) {
-    floorEmojisContainer.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    floorEmojisContainer.textContent = '🌾🌾🍃🍃🛤🌾🛤🌾🌾🌾🍃🌾🍃🌾';
   } else if (50 <= temp && temp <= 59) {
     floorEmojisContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
@@ -34,14 +34,18 @@ const skyLayout = () => {
   const skyValue = skySelect.options[skySelect.selectedIndex].value;
 
   if (skyValue === 'sunny') {
-    skyEmojisContainer.textContent = '🔅🔅🔅🔅🔅🔅🔅🔅';
+    skyEmojisContainer.textContent = '🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅🔅';
   } else if (skyValue === 'cloudy') {
-    skyEmojisContainer.textContent = '☁️🌥️☁️🌥️☁️🌥️☁️🌥️☁️🌥️☁️🌥️';
+    skyEmojisContainer.textContent = '☁️🌥️☁️🌥️☁️🌥️☁️🌥️☁️🌥️☁️🌥️🌥️☁️🌥️';
   } else if (skyValue === 'rainy') {
     skyEmojisContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
   } else if (skyValue === 'snowy') {
-    skyEmojisContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    skyEmojisContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨❄️❄️🌨';
   }
+};
+
+const state = {
+  tempCount: 65,
 };
 
 const tempIncrease = () => {
@@ -77,7 +81,6 @@ const registerEventHandlers = () => {
 
   const changeSky = document.querySelector('#skySelect');
   changeSky.addEventListener('change', skyLayout);
-
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
@@ -85,14 +88,14 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 const clearCityName = () => {
   const nameOfCity = (document.getElementById('cityNameid').value = 'Seattle');
   const cityContainer = document.querySelector('#amazingCity');
-  cityContainer.textContent = `Welcome to ${nameOfCity}`;
+  cityContainer.textContent = `Welcome to ${nameOfCity}!`;
 };
 
 const updateCityname = () => {
   const nameOfCity = document.getElementById('cityNameid').value;
   const cityContainer = document.querySelector('#amazingCity');
 
-  cityContainer.textContent = `Welcome to ${nameOfCity}`;
+  cityContainer.textContent = `Welcome to ${nameOfCity}!`;
 };
 
 const getLocation = () => {
