@@ -22,7 +22,7 @@ header {
   padding: 25px 25px;
 }
 
-a {
+#weather {
   text-decoration: none;
   color: #4679bd;
 }
@@ -55,12 +55,33 @@ a {
   align-items: center;
   border-radius: 50%;
   border: 1vw solid #cfdcec;
-
-  background: #4679bd;
+  background-color: #4679bd;
   display: flex;
 }
 
 .round-button-circle section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e2eaf3;
+  font-size: 2.5vw;
+  font-weight: bold;
+  text-decoration: none;
+}
+#testJ {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1vw solid #cfdcec;
+  background-color: #4679bd;
+  display: flex;
+}
+
+#testJ section {
   width: 100%;
   display: flex;
   justify-content: center;
