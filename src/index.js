@@ -38,7 +38,7 @@ const changeSkyBackground = () => {
   skyBackground.style.backgroundImage = `url(${img})`;
 };
 
-skyBackground.addEventListener('change',() =>{
+skyBackground.addEventListener('change', () => {
   changeSkyBackground();
 });
 
@@ -109,7 +109,51 @@ form.addEventListener('submit', (event) => {
 });
 
 const resetCityButton = document.querySelector('#reset-city');
-resetCityButton.addEventListener('click',() => {
+resetCityButton.addEventListener('click', () => {
   changeCityName('Seattle');
-  form.elements.query.value="";
+  form.elements.query.value = '';
 });
+
+const getLocation = (city) => {
+  let lat, lon;
+  const getLatLon = (city) => {
+    const location = axios
+      .get(`http://localhost:5000/location?q=${city}`)
+      .then((response) => {
+        const location = response.data[0];
+        lat = location.lat;
+        lon = location.lon;
+      })
+      .catch((error) => {
+        console.log('ERROR');
+      });
+  };
+  return [lat, lon];
+};
+
+console.log(getLocation('Seattle'));
+
+// .then((response) => {
+//   const lat = response[0];
+//   const lon = response[1];
+//   axios
+//     .get(`http://localhost:5000/weather?lat=${lat}&lon=${lon}`)
+//     .then((response) => {
+//       console.log(response);
+//     });
+// })
+// .catch((error) => {
+//   console.log(error);
+// });
+
+const getWeather = (city) => {
+  const location = getLocation(city);
+  console.log(location);
+  const lat = location[0];
+  const lon = location[1];
+  axios
+    .get(`http://localhost:5000/weather?lat=${lat}&lon=${lon}`)
+    .then((response) => {
+      console.log(response);
+    });
+};
