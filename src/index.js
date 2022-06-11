@@ -6,6 +6,10 @@ const temp = {
   long: -122.3300624,
 };
 
+const convertKtoF = (temp) => {
+  return (temp - 273.15) * (9 / 5) + 32;
+};
+
 const tempCheck = (element) => {
   if (element.textContent >= 80) {
     element.className = 'veryHot';
@@ -50,7 +54,6 @@ const findLatAndLong = (location) => {
       console.log('Error finding the latitude and longitude:', error.response);
     });
 };
-
 
 const updateSky = () => {
   const inputSky = document.getElementById('skySelect').value;
