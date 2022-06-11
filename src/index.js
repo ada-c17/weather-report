@@ -1,5 +1,8 @@
 const state = {
   tempChange: 68,
+  cityChange: 'Sacramento',
+  lat: 0,
+  lon: 0,
 };
 
 const updateColor = (temperature) => {
@@ -39,6 +42,7 @@ const updateImage = () => {
   newImage.alt = description;
 };
 
+const updateTempElement = document.querySelector('#updateTemperature');
 const updateTemperature = () => {
   const updateTempElement = document.querySelector('#updateTemperature');
   updateTempElement.textContent = state.tempChange;
@@ -46,9 +50,10 @@ const updateTemperature = () => {
 };
 
 const updateCity = () => {
-  const updateCityElement = document.querySelector('#headerCity');
   const inputCity = document.querySelector('#inputCity');
-  updateCityElement.textContent = inputCity.value;
+  state.cityChange = inputCity.value;
+  const updateCityElement = document.querySelector('#headerCity');
+  updateCityElement.textContent = state.cityChange;
 };
 
 const increaseTemp = () => {
@@ -63,6 +68,11 @@ const decreaseTemp = () => {
   updateImage();
 };
 
+const getRealTemp = () => {
+  updateCity();
+  getLatLon();
+};
+
 const registerEventHandlers = () => {
   const increaseButton = document.querySelector('#increaseButton');
   increaseButton.addEventListener('click', increaseTemp);
@@ -70,6 +80,54 @@ const registerEventHandlers = () => {
   decreaseButton.addEventListener('click', decreaseTemp);
   const submitCityButton = document.querySelector('#submitCityButton');
   submitCityButton.addEventListener('click', updateCity);
+  submitCityButton.addEventListener('click', getLatLon);
+  const getRealTempButton = document.querySelector('#realTempButton');
+  getRealTempButton.addEventListener('click', getRealTemp);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+
+// API calls - Wave 4
+
+const getLatLon = () => {
+  // const response = await axios;
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: state.cityChange,
+      },
+    })
+    .then((response) => {
+      console.log(response.data);
+      const lat = response.data[0].lat;
+      const lon = response.data[0].lon;
+      console.log('success in finding lat and lon!', lat, lon);
+      getTemp(lat, lon);
+    })
+    .catch((error) => {
+      console.log('error in finding lat and lon!');
+    });
+};
+
+const getTemp = (lat, lon) => {
+  // const response = await axios;
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: lat,
+        lon: lon,
+      },
+    })
+    .then((response) => {
+      const tempKelvin = response.data['current']['temp'];
+      const tempFaren = parseInt(((tempKelvin - 273.15) * 9) / 5 + 32);
+      console.log('success in finding location weather!', tempFaren);
+      state.tempChange = tempFaren;
+      updateTempElement.textContent = state.tempChange;
+      updateTempElement.style.color = updateColor(state.tempChange);
+      updateImage();
+    })
+    .catch((error) => {
+      console.log('error in finding location weather!');
+    });
+};
