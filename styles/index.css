@@ -57,6 +57,12 @@ header {
     justify-self: start;
 }
 
+.temp-adjusters {
+    border-radius: 50%;
+    height: 6em;
+    width: 6em;
+}
+
 #city-search {
     grid-column-start: 2;
     grid-column-end: span 3;
