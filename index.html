@@ -32,13 +32,21 @@
             <button id="real-time-temp" onclick="realTimeTemp()">Get Realtime Temperature</button>
         </section>
 
-        <section id="sky-container">
+        <section>
+            <div id="sky-container">
+            <!-- <span id="sky-emojis"></span> -->
             <p>
-                <label id="sky-label">Sky</label>
+            <label id="sky-label">Choose a Sky
             </p>
-            <button id="dropdown"></button>
-            <div id="emoji-dropdown"> 
-                <p>Cloudy&#x2601;</p>
+                <select id="sky" onchange="changeSky()">
+                    <option value="">Please Choose~</option>
+                    <option value="sunny">Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                </select>
+            </label>
+            <span id="sky-emojis"></span>
             </div>
         </section>
 
@@ -64,11 +72,11 @@
             </div>
         </section>
 
-    <!-- <div>
-        <footer class="copyright">
-        <p class="footer">Tetiana Zakipna and Natascha Jenkins ©2022</p>
-        </footer>
-    </div> -->
+        <div>
+            <footer class="copyright">
+            <p class="footer">Natascha Jenkins ©2022</p>
+            </footer>
+        </div>
     </main>
 </body>
 

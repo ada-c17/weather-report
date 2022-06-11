@@ -85,11 +85,27 @@ const realTimeTemp = () => {
     });
 };
 
+const changeSky = () => {
+  let skySelection = document.getElementById('sky');
+  let chosenSky = skySelection.options[skySelection.selectedIndex].textContent;
+  let skyDisplay = document.getElementById('sky-emojis');
+  if (chosenSky === 'Sunny') {
+    skyDisplay.textContent = 'sunny emojis';
+  } else if (chosenSky === 'Cloudy') {
+    skyDisplay.textContent = 'cloudy emojis';
+  } else if (chosenSky === 'Rainy') {
+    skyDisplay.textContent = 'rainy emojis';
+  } else if (chosenSky === 'Snowy') {
+    skyDisplay.textContent = 'snowy emojis';
+  }
+};
+
 const registerEventHandlers = () => {
   const increaseTemp = document.getElementById('adjust-temp-up');
   const decreaseTemp = document.getElementById('adjust-temp-down');
   const cityName = document.querySelector('input');
   const cityRealTimeTemp = document.getElementById('real-time-temp');
+  const changingSky = document.getElementById('sky-emojis');
   increaseTemp.addEventListener('click', () => {
     raiseTemp();
   });
@@ -101,6 +117,9 @@ const registerEventHandlers = () => {
   });
   cityRealTimeTemp.addEventListener('click', () => {
     realTimeTemp();
+  });
+  changingSky.addEventListener('change', () => {
+    changeSky();
   });
 };
 
