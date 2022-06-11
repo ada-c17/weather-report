@@ -38,7 +38,7 @@ const changeSkyBackground = () => {
   skyBackground.style.backgroundImage = `url(${img})`;
 };
 
-skyBackground.addEventListener('change',() =>{
+skyBackground.addEventListener('change', () => {
   changeSkyBackground();
 });
 
@@ -98,6 +98,9 @@ increaseButton.addEventListener('click', () => {
 
 const cityName = document.querySelector('#temp-display h1');
 const changeCityName = (city) => {
+  if (city == '') {
+    city = 'seattle';
+  }
   cityName.innerText = city;
 };
 
@@ -109,7 +112,49 @@ form.addEventListener('submit', (event) => {
 });
 
 const resetCityButton = document.querySelector('#reset-city');
-resetCityButton.addEventListener('click',() => {
+resetCityButton.addEventListener('click', () => {
   changeCityName('Seattle');
-  form.elements.query.value="";
+  form.elements.query.value = '';
 });
+
+const convertTempKtoF = (tempK) => {
+  return Math.round(1.8 * (tempK - 273) + 32);
+};
+
+const getTempButton = document.querySelector('#get-temp');
+getTempButton.addEventListener('click', () => {
+  const city = form.elements.query.value;
+  updateTemp(city);
+  changeCityName(city);
+  const value = parseInt(temperature.innerText);
+  changeTempTextColor();
+  changeLandscape();
+});
+
+const updateTemp = (city) => {
+  if (city == '') {
+    city = 'seattle';
+  }
+  axios
+    .get(`http://127.0.0.1:5000/location?q=${city}`)
+    .then((response) => {
+      lat = response.data[0].lat;
+      lon = response.data[0].lon;
+      return [lat, lon];
+    })
+    .then((response) => {
+      axios
+        .get(
+          `http://127.0.0.1:5000/weather?lat=${response[0]}&lon=${response[1]}`
+        )
+        .then((response) => {
+          const tempValue = document.querySelector('#temp-value');
+          kTemp = response.data.current.temp;
+          FTemp = convertTempKtoF(kTemp);
+          tempValue.innerText = FTemp;
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
