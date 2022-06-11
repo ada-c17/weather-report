@@ -1,8 +1,7 @@
 const state = {
   tempChange: 68,
   cityChange: 'Sacramento',
-  lat: 0,
-  lon: 0,
+  skyChange: 'cyan',
 };
 
 const updateColor = (temperature) => {
@@ -73,6 +72,23 @@ const getRealTemp = () => {
   getLatLon();
 };
 
+const changeSkyColor = () => {
+  const getSkySelector = document.querySelector('#skySelect');
+  const getBackgroundSky = document.querySelector('#skyBackground');
+  if (getSkySelector.value === 'default') {
+    state.skyChange = 'cyan';
+  } else if (getSkySelector.value === 'sunny') {
+    state.skyChange = 'lightblue';
+  } else if (getSkySelector.value === 'cloudy') {
+    state.skyChange = 'lightgrey';
+  } else if (getSkySelector.value === 'rainy') {
+    state.skyChange = 'blue';
+  } else if (getSkySelector.value === 'snowy') {
+    state.skyChange = 'grey';
+  }
+  getBackgroundSky.style.backgroundColor = state.skyChange;
+};
+
 const registerEventHandlers = () => {
   const increaseButton = document.querySelector('#increaseButton');
   increaseButton.addEventListener('click', increaseTemp);
@@ -83,6 +99,8 @@ const registerEventHandlers = () => {
   submitCityButton.addEventListener('click', getLatLon);
   const getRealTempButton = document.querySelector('#realTempButton');
   getRealTempButton.addEventListener('click', getRealTemp);
+  const getSkyButton = document.querySelector('#skySelect');
+  getSkyButton.addEventListener('change', changeSkyColor);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
@@ -90,7 +108,6 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 // API calls - Wave 4
 
 const getLatLon = () => {
-  // const response = await axios;
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
@@ -110,7 +127,6 @@ const getLatLon = () => {
 };
 
 const getTemp = (lat, lon) => {
-  // const response = await axios;
   axios
     .get('http://127.0.0.1:5000/weather', {
       params: {
