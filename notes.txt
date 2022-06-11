@@ -19,3 +19,10 @@ Wave 4---
 
 
 --Need to fix h1 so that when I change the sky option you don't see it moving down
+
+--also want to have the h1 color change with the the sky choice
+
+-- also want to have the footer rotate through the different attributions I have, or just list them all in shorthand somehow
+
+
+---Maybe move the reset button to the bottom right of the temp box and go back to seattle, wa being in alignment with the search button and smaller than the temp text

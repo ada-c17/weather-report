@@ -192,6 +192,8 @@ const changeSky = () => {
   }
 };
 
+const resetInfo = () => window.location.reload();
+
 const registerEventHandlers = (event) => {
   // Increase temp when click up arrow
   const upArrowBtn = document.getElementById('up_arrow_btn');
@@ -233,6 +235,9 @@ const registerEventHandlers = (event) => {
 
   const select = document.getElementById('sky_drop_down');
   select.addEventListener('change', changeSky);
+
+  const resetBtn = document.getElementById('reset_btn');
+  resetBtn.addEventListener('click', resetInfo);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
