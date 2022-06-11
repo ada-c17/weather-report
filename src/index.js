@@ -33,11 +33,11 @@ const emojiCheck = (element) => {
   return temp.emojis;
 };
 
-const findLatAndLong = () => {
+const findLatAndLong = (location) => {
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
-        q: temp.city,
+        q: location,
       },
     })
     .then((response) => {
@@ -76,13 +76,15 @@ const loadElements = () => {
   tempUl.appendChild(tempLi);
   tempCheck(tempLi);
 
-  findLatAndLong();
-  const currentTempButton = document.getElementById('currentTempButton');
-  currentTempButton.addEventListener('click', findLatAndLong);
 
   const cityInput = document.getElementById('cityInput');
   cityInput.addEventListener('input', () => {
     cityHead.textContent = cityInput.value;
+  });
+
+  const currentTempButton = document.getElementById('currentTempButton');
+  currentTempButton.addEventListener('click', () => {
+    findLatAndLong(cityInput.value)
   });
 
   // update the sky emojis
