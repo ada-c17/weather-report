@@ -35,6 +35,22 @@ const emojiCheck = (element) => {
 
 const cityNameReset = () => {};
 
+const updateSky = () => {
+  const inputSky = document.getElementById('skySelect').value;
+  const skyContainer = document.getElementById('sky');
+ 
+  if (inputSky === 'Cloudy') {
+    sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (inputSky === 'Sunny') {
+    sky = '☁️     ☁️   ☁️ ☀️ ☁️  ☁️';
+  } else if (inputSky === 'Rainy') {
+    sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (inputSky === 'Snowy') {
+    sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+  skyContainer.textContent = sky;
+};
+
 
 const loadElements = () => {
   // load temp number
@@ -49,6 +65,11 @@ const loadElements = () => {
     temp.city = cityInput.value;
     cityHead.textContent = temp.city;
   });
+
+  // update the sky emojis
+  updateSky();
+  const skySelect = document.getElementById('skySelect');
+  skySelect.addEventListener('change', updateSky);
 
   // load weather garden
   const emojiUl = document.getElementById('weatherGarden');
