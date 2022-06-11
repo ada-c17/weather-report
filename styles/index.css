@@ -20,10 +20,10 @@ ul {
 }
 
 .skySection {
-    grid-row: 3;
+    grid-row: 2;
     border-radius: 8px;
     padding: 2rem;
-    background-color:cornflowerblue;
+    background-color:aqua;
 }
 
 body {
@@ -34,7 +34,7 @@ body {
     
     font-family: "Rubik", sans-serif;
     font-size: 18px;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     margin: 2rem;
     }
 
@@ -65,9 +65,16 @@ body {
 }
 
 .temperatureSection {
-    grid-row: 3;
+    grid-row: 2;
     border-radius: 8px;
     padding: 2rem;
     background-color: white;
+}
+
+.citySection {
+    grid-row: 2;
+    border-radius: 8px;
+    padding: 2rem;
+    background-color:lavender;
 }
 

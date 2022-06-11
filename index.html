@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./styles/index.css" rel="stylesheet" />
     <title>Weather Report</title>
+    <style>
+        body {
+            background-image: url('background.jpeg');
+        }
+    </style>
 </head>
 <body>
     <h1>Weather Report</h1>
@@ -28,7 +33,8 @@
             <option>Snowy</option>
         </select>
     </section>
-    <section id="cityName">
+    <section id="cityName" class="citySection">
+        <h2>City Name</h2>
         <input type="text" id="cityInput" name="city">
     </section>
     <section class="gardenSection">
@@ -39,7 +45,6 @@
         </div>
     </section>
 
-    <footer></footer>
     <script src="./src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
