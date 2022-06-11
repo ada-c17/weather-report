@@ -27,7 +27,7 @@ li {
 }
 
 body {
-    background-image: url('/background.jpeg');
+    background-image: url('../background.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #25211e;
