@@ -6,6 +6,11 @@ function rangeSlide(value) {
   document.getElementById('rangeValue').textContent = value;
 }
 
+const inputBox = document.getElementById('city');
+
+inputBox.onkeyup = function () {
+  document.getElementById('city-name').innerHTML = inputBox.value;
+};
 const input = document.getElementById('range');
 input.addEventListener('input', (event) => {
   if (input.value >= 80) {

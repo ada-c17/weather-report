@@ -27,6 +27,9 @@ header {
   color: #4679bd;
 }
 
+#city-name {
+  text-decoration: underline;
+}
 #container {
   display: flex;
   /* flex-direction: row; */
