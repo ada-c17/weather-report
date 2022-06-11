@@ -1,6 +1,17 @@
+const newCity = () => {
+  const cityValue = document.getElementById('cname').value;
+  console.log(cityValue);
+  const headerCity = document.getElementById('city-name');
+  headerCity.textContent = cityValue;
+};
+
+const API = 'http://127.0.0.1:5000';
+
 const getCityLoc = () => {
-  const API = 'http://127.0.0.1:5000';
-  const city = 'Seattle';
+  // const API = 'http://127.0.0.1:5000';
+  const city = document.getElementById('cname').value;
+  console.log(city);
+
   axios
     .get(`${API}/location`, { params: { q: city, format: 'JSON' } })
     .then((response) => {
@@ -17,7 +28,7 @@ const getCityLoc = () => {
 const getWeather = async (lat, lon) => {
   console.log(lat);
   console.log(lon);
-  const response = await axios.get(`http://127.0.0.1:5000/weather`, {
+  const response = await axios.get(`${API}/weather`, {
     params: {
       lat: lat,
       lon: lon,
@@ -28,7 +39,7 @@ const getWeather = async (lat, lon) => {
   console.log(response.data.current.temp);
 };
 
-getCityLoc();
+// getCityLoc();
 
 let currentTemp = 41; //is could be hardcoded?
 
@@ -96,12 +107,6 @@ const tempGround = (currentTemp) => {
   }
 };
 
-const newCity = () => {
-  const cityValue = document.getElementById('cname').value;
-  const headerCity = document.getElementById('city-name');
-  headerCity.textContent = cityValue;
-};
-
 const registerEventHandlers = () => {
   const newCityUpdate = document.getElementById('cname');
   newCityUpdate.addEventListener('input', newCity);
@@ -115,6 +120,9 @@ const registerEventHandlers = () => {
   const downButton = document.querySelector('#downArrow');
   downButton.addEventListener('click', downTemp);
   // downButton.addEventListener('click', tempColor);
+
+  const getCurrentTempButton = document.getElementById('realTempButton');
+  getCurrentTempButton.addEventListener('click', getCityLoc);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
