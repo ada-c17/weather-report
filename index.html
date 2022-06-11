@@ -9,24 +9,58 @@
 </head>
 <body>
     <main class="wrapper">
+        <!-- *****SKY***** -->
         <section id="sky">
-            <div id="select-sky-wrapper">
-                <select id="select-sky-box">
-                <option value="none" selected disabled hidden>select sky</option>
-                <option value="cloudy">cloudy</option>
-                <option value="rainy">rainy</option>
-                <option value="snowy">snowy</option>
-                <option value="sunny">sunny</option>
-                </select>
+            <div id="sky--middle-column">
+                <div id="sky--grey-box">
+                <!-- <img src="/assets/sections/grey_box_sky.png" alt="transparent grey light box with off set dark grey border with 'city' text" /> -->
+                    <div id="sky-box">
+                        <div id="select-sky-wrapper">
+                            <select id="select-sky-box">
+                            <option value="none" selected disabled hidden>select sky</option>
+                            <option value="cloudy">cloudy</option>
+                            <option value="rainy">rainy</option>
+                            <option value="snowy">snowy</option>
+                            <option value="sunny">sunny</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- *****MID***** -->
         <section id="mid">
+            <section id="mid--color">
+                <section id="weather">
+                    <h1>Weather Report</h1>
+                </section>
+                <section id="real-time">
+                    <img src="/assets/sections/grey_box_city.png" alt="transparent grey light box with off set dark grey border with 'real time weather' text" />
+                </section>
+                <section id="city-selector">
+                    <div id="city-selector--grey-box">
+                        <input id="location-name" type="text" placeholder="Location">
+                        <input id="location-submit" type="submit" value="Submit">
+                    </div>
+                    <!-- <img src="/assets/sections/grey_box_city.png" alt="transparent grey light box with off set dark grey border with 'city' text" /> -->
+                </section>
+            </section>
         </section>
-
-        <section id="temp">
+        
+        <!-- *****TEMP***** -->
+        <section id="landscape">
+            <div id="temp--box">
+                <!-- <img src="/assets/sections/grey_box_temp.png" alt="transparent grey light box with off set dark grey border with 'real time weather' text" /> -->
+                <section id="temp--holder">
+                    <div id="arrow-decrease"></div>
+                        <h2 id="temperature">70°</h2>
+                    <div id="arrow-increase"></div>
+                </section>
+            </div>
         </section>
     </main>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="/src/index.js"></script>
 </body>
 </html>
