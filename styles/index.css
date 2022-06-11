@@ -71,9 +71,16 @@ header {
     grid-row-start: 5;
     grid-row-end: 6;
     justify-self: center;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
 }
 
-#sky-and-landscape {
+#sky-and-landscape-container {
     grid-column-start: 2;
     grid-column-end: span 3;
     grid-row-start: 6;
