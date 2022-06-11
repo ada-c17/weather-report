@@ -95,6 +95,11 @@ const updateSky = (e) => {
   document.getElementById('sky-selector').classList = e.target.value;
 };
 
+const defaultCity = () => {
+  weather.city = 'Atlanta';
+  document.getElementById('city-name').textContent = weather.city;
+};
+
 const registerEventHandlers = () => {
   const controls = document.getElementsByClassName('temp-control');
   for (const control of controls) {
@@ -111,6 +116,8 @@ const registerEventHandlers = () => {
   document
     .getElementById('reality-check')
     .addEventListener('click', realWeatherQuery);
+
+  document.getElementById('city-reset').addEventListener('click', defaultCity);
 
   document.getElementById('sky-selector').addEventListener('change', updateSky);
 };
