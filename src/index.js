@@ -3,7 +3,7 @@ const temp = {
   emojis: '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲',
   city: 'Seattle',
   lat: 47.6038321,
-  long: -122.3300624,
+  lon: -122.3300624,
 };
 
 const convertKtoF = (temp) => {
@@ -47,18 +47,33 @@ const findLatAndLong = (location) => {
     .then((response) => {
       console.log(response.data);
       temp.lat = response.data[0].lat;
-      temp.long = response.data[0].lon;
-      getWeather();
+      temp.lon = response.data[0].lon;
     })
     .catch((error) => {
       console.log('Error finding the latitude and longitude:', error.response);
     });
 };
 
+const getWeather = (lat, lon) => {
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        lat: lat,
+        lon: lon,
+      },
+    })
+    .then((response) => {
+      tempKelvin = response.data[0].current.temp;
+    })
+    .catch((error) => {
+      console.log('Error finding current temperature:', error.response);
+    });
+};
+
 const updateSky = () => {
   const inputSky = document.getElementById('skySelect').value;
   const skyContainer = document.getElementById('sky');
- 
+
   if (inputSky === 'Cloudy') {
     sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
   } else if (inputSky === 'Sunny') {
@@ -79,7 +94,6 @@ const loadElements = () => {
   tempUl.appendChild(tempLi);
   tempCheck(tempLi);
 
-
   const cityInput = document.getElementById('cityInput');
   cityInput.addEventListener('input', () => {
     cityHead.textContent = cityInput.value;
@@ -87,7 +101,8 @@ const loadElements = () => {
 
   const currentTempButton = document.getElementById('currentTempButton');
   currentTempButton.addEventListener('click', () => {
-    findLatAndLong(cityInput.value)
+    findLatAndLong(cityInput.value);
+    getWeather(temp.lat, temp.lon);
   });
 
   // update the sky emojis
@@ -107,12 +122,12 @@ const loadElements = () => {
   cityHead.textContent = temp.city;
   citySec.appendChild(cityHead);
 
- // add reset button event listener
+  // add reset button event listener
   const resetButton = document.getElementById('resetButton');
   resetButton.addEventListener('click', () => {
     cityInput.value = '';
     cityHead.textContent = temp.city;
-  })
+  });
 
   const loadTempButtons = () => {
     const upUl = document.getElementById('increaseTempButton');
