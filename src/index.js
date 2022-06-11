@@ -31,17 +31,17 @@ const subtractTemp = (event) => {
 const changeTempColor = (temp) => {
   const tempColor = document.querySelector('#temp');
   if (temp >= 80) {
-    document.getElementById('temp').style.color = '#de554b';
+    document.getElementById('temp').style.color = '#cc3c18';
   } else if (temp >= 70 && temp <= 79) {
-    document.getElementById('temp').style.color = '#dec64b';
+    document.getElementById('temp').style.color = '#db7c00';
   } else if (temp >= 60 && temp <= 69) {
-    document.getElementById('temp').style.color = '#aacf76';
+    document.getElementById('temp').style.color = '#609c00';
   } else if (temp >= 50 && temp <= 59) {
-    document.getElementById('temp').style.color = '#89c9a3';
+    document.getElementById('temp').style.color = '##227846';
   } else if (temp >= 40 && temp <= 49) {
-    document.getElementById('temp').style.color = '#899bc9';
+    document.getElementById('temp').style.color = '#1552b3';
   } else {
-    document.getElementById('temp').style.color = '#9987a8';
+    document.getElementById('temp').style.color = '#4a3678';
   }
 };
 
