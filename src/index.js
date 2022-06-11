@@ -57,14 +57,15 @@ const findLatAndLong = (location) => {
 
 const getWeather = (lat, lon) => {
   axios
-    .get('http://127.0.0.1:5000/location', {
+    .get('http://127.0.0.1:5000/weather', {
       params: {
         lat: lat,
         lon: lon,
       },
     })
     .then((response) => {
-      tempKelvin = response.data[0].current.temp;
+      const tempKelvin = response.data;
+      temp.fahrenheit = Math.round(convertKtoF(tempKelvin.current.temp));
     })
     .catch((error) => {
       console.log('Error finding current temperature:', error.response);
@@ -108,7 +109,7 @@ const loadElements = () => {
   // update the sky emojis
   updateSky();
   const skySelect = document.getElementById('skySelect');
-  skySelect.addEventListener('change', updateSky);
+  skySelect.addEventListener('change', updateSky); 
 
   // load weather garden
   const emojiUl = document.getElementById('weatherGarden');
@@ -128,6 +129,8 @@ const loadElements = () => {
     cityInput.value = '';
     cityHead.textContent = temp.city;
   });
+
+
 
   const loadTempButtons = () => {
     const upUl = document.getElementById('increaseTempButton');
