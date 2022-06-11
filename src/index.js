@@ -51,7 +51,6 @@ const updateSky = () => {
   skyContainer.textContent = sky;
 };
 
-
 const loadElements = () => {
   // load temp number
   const tempUl = document.getElementById('tempDisplay');
