@@ -61,25 +61,47 @@ label {
 }
 
 .item:nth-child(4n) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     border: green solid 5px;
     width: 20%;
-    height: 200px;
+    height: 150px;
+    font-size: x-large;
+    align-items: center;
+    justify-content: center;
 }
-
+#sky-select {
+    margin-top: 10%;
+}
 .item:nth-child(5n) {
     border: lightseagreen solid 5px;
     color: rgb(102, 103, 106);
-    width: 20%;
-    height: 200px;
+    width: 22%;
+    height: 185px;
     text-align: center;
 }
-
 .item:nth-child(6n) {
+    border: rgb(35, 17, 59) solid 5px;
+    font-size: medium;
+    width: 26%;
+    height: 100px;
+    margin-top: 10%;
+}
+
+.item:nth-child(7n) {
     border: purple solid 5px;
     background-color: rgba(251, 240, 255, 0.835);
     width: 50%;
-    height: 0%;
+    height: 300px;
     text-align: center;
     font-size: xx-large;
-    justify-content:flex-end;
+    align-content: space-between;
+}
+
+#landscapeContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    padding-top: 10%;
 }
