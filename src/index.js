@@ -1,5 +1,5 @@
-const axios = require('axios');
-const LOCATIONIQ_KEY = os.environ.get(LOCATION_KEY);
+// import os from 'os';
+// const LOCATIONIQ_KEY = os.environ.get(LOCATION_KEY);
 
 console.log('Hello, World!');
 
@@ -25,7 +25,7 @@ const changeTempColor = () => {
 // Change landscape based on temperature input
 const changeLandscape = () => {
   const currentTemp = document.getElementById('display-temp');
-  const currentLandscape = document.getElementById('landscape-container');
+  const currentLandscape = document.getElementById('dog-container');
   const winterDog = document.getElementById('winter-dog');
   const hotDog = document.getElementById('hot-dog');
   const autumnDog = document.getElementById('autumn-dog');
@@ -72,14 +72,15 @@ const changeTemp = () => {
 };
 
 const changeCityName = () => {
+  document.querySelector('#input-city').value = '';
   const currentCity = document.querySelector('#current-city');
   const cityInput = document.querySelector('#input-city');
   const resetButton = document.querySelector('.reset-button');
   cityInput.addEventListener('input', (e) => {
-    currentCity.textContent = e.target.value;
+    currentCity.textContent = 'Weather for the city of: ' + e.target.value;
   });
   resetButton.addEventListener('click', () => {
-    currentCity.textContent = 'Seattle, WA';
+    currentCity.textContent = 'Weather for the city of: Seattle, WA';
     cityInput.value = '';
   });
 };

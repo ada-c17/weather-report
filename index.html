@@ -10,95 +10,91 @@
 <body>
     <header>
         <h1 id="page-title">
-            Clever Weather Title
+            Is it Raining in Seattle?
         </h1>
-        <div id="current-city">
-            Seattle
-        </div>
+        <p>
+            (probably.)
+        </p>
+        <h2 id="current-city">
+            Weather for the city of: Seattle, WA
+        </h2>
         <!-- <button type="reset" id="make-real">
             Make it real!
         </button> -->
     </header>
     <main id="main-container">
-        <div id="box-container">
-            <ul>
-                <li id="city-box">
-                    <h2 class="box-names">
-                        City
-                    </h2>
-                    <label for="input-city">
-                        Enter city name
-                    </label>
-                    <input type="text" id="input-city" name="input-city">
-                    <button type="submit" id="getWeatherforCity">
-                        Get the weather!
+        <ul id="box-container">
+            <li id="city-box">
+                <h3 class="box-names">
+                    City
+                </h3>
+                <input type="text" id="input-city" name="input-city" value="">
+                <label for="input-city">
+                    Enter city name
+                </label>
+                <button type="submit" id="get-city-weather">
+                    Get the weather!
+                </button>
+                <button type="reset" class="reset-button">
+                    reset to Seattle, WA
+                </button>
+            </li>
+            <li id="temperature-box">
+                <h3 class="box-names">
+                    Temperature
+                </h3>
+                <div id="temp-controls">
+                    <button type="button" class="arrow" id="arrow-up">
+                        ⬆️
                     </button>
-
-                    <button type="reset" class="reset-button">
-                        reset to Seattle, WA
-                    </button>
-                </li>
-                <li id="temperature-box">
-                    <h2 class="box-names">
-                        Temperature
-                    </h2>
                     <div id="temp-container">
                         <span id="display-temp">50</span>
                     </div>
-                    <div id="arrow-container">
-                        <button type="button" id="arrow-up">
-                            ⬆️
-                        </button>
-                        <button type="button" id="arrow-down">
-                            ⬇️
-                        </button>
-                    </div>
-                    <label for="display-temp">
-                        Adjust temperature with arrows
-                    </label>
-                    <button type="reset" class="reset-button">
-                        reset to current temperature
+                    <button type="button" class="arrow" id="arrow-down">
+                        ⬇️
                     </button>
-                </li>
-                <li id="sky-box">
-                    <h2 class="box-names">
-                        Sky Coverage
-                    </h2>
-                    <select name="skys" id="sky-select">
-                        <option value="" selected>
-                            --current sky--
-                        </option>
-                        <option value="sunny">
-                            sunny
-                        </option>
-                        <option value="cloudy">
-                            cloudy
-                        </option>
-                        <option value="raining">
-                            raining
-                        </option>
-                        <option value="snowing">
-                            snowing
-                        </option>
-                    </select>
-                    <label for="sky-select">
-                        Select sky view
-                    </label>
-                    <button type="reset" class="reset-button">
-                        reset to current sky
-                    </button>  
-                </li>
-            </ul>
-        </div>
-        <div>
-            <!-- weather garden -->
-            put a big weather image here
-            <div id="landscape-container">
-                <img src="https://media.giphy.com/media/xFnAObsU5nMrUUC3HX/giphy.gif" id="autumn-dog" alt="autumn dog">
-                <img src="https://media.giphy.com/media/dy9tjsaOpaRlgGWcUv/giphy.gif" id="winter-dog" alt="winter dog">
-                <img src="https://media.giphy.com/media/gB4KWtd3uSsJq/giphy.gif" id="spring-dog" alt="spring dog">
-                <img src="https://media.giphy.com/media/1LweXxLwVT0J2/giphy.gif" id="hot-dog" alt="hot dog">
-            </div>
+                </div>
+                <!-- <label for="display-temp">
+                    Adjust temperature with arrows
+                </label> -->
+                <button type="reset" class="reset-button">
+                    reset to current temperature
+                </button>
+            </li>
+            <li id="sky-box">
+                <h3 class="box-names">
+                    Sky Coverage
+                </h3>
+                <select name="skys" id="sky-select">
+                    <option value="" selected>
+                        --current sky--
+                    </option>
+                    <option value="sunny">
+                        sunny
+                    </option>
+                    <option value="cloudy">
+                        cloudy
+                    </option>
+                    <option value="raining">
+                        raining
+                    </option>
+                    <option value="snowing">
+                        snowing
+                    </option>
+                </select>
+                <!-- <label for="sky-select">
+                    Select sky view
+                </label> -->
+                <button type="reset" class="reset-button">
+                    reset to current sky
+                </button>  
+            </li>
+        </ul>
+        <div id="dog-container">
+            <img src="https://media.giphy.com/media/xFnAObsU5nMrUUC3HX/giphy.gif" id="autumn-dog" alt="autumn dog">
+            <img src="https://media.giphy.com/media/dy9tjsaOpaRlgGWcUv/giphy.gif" id="winter-dog" alt="winter dog">
+            <img src="https://media.giphy.com/media/gB4KWtd3uSsJq/giphy.gif" id="spring-dog" alt="spring dog">
+            <img src="https://media.giphy.com/media/1LweXxLwVT0J2/giphy.gif" id="hot-dog" alt="hot dog">
         </div>
     </main>
     <footer>

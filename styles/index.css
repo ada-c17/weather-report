@@ -1,43 +1,134 @@
+/* || UTILITIES */
+
+:root {
+    --gray: #e7e6e6;
+    --text_black: #555;
+}
+
+* {
+    border: red 1px solid;
+}
+
 h1 {
-    font-size: 40;
+    font-size: 2.75em;
     color: black;
 }
 
+h2 {
+    color: black;
+}
+
+h3 {
+    text-align: center;
+    color: black;
+}
+
+/* || GENERAL STYLES */
+
 body {
     background-color: rgb(145, 226, 226);
-    background-size: cover;
+    font-family: OpenSans, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0 auto;
+    max-width: 60em;
+    /* vertical-align: middle; */
+    /* line-height: 1.5em; */
+    /* text-align: left; */
+    color: var(--text_black)
 }
-/* .smallcontainer {
+
+header {
+    padding: 0 0 0 1em;
+}
+
+main {
+    margin: 0 auto;
+    line-height: 1.5;
+    padding: 4em 1em;
+}
+
+/* || WEATHER BOX GRID */
+
+#box-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
-    height: 100px;
-    width: auto;
-
-    margin: auto;
+    grid-template-columns: repeat(auto-fill, 200px);
+    gap: 2em 4em;
+    margin: 0 auto;
+    padding: 0;
+    justify-content: center;
+    max-width: 60em;
+    list-style-type: none;
 }
 
-#cityname {
+li {
+    margin: 0 auto;
+    padding: 0em 1em 2em 1em;
+    width: 12em;
+    border: var(--text_black) 1px solid;
+}
+
+.reset-button {
+    margin: 2em 0 0 0;
+}
+
+/* || CITY BOX */
+
+/* #city-box {
     display: grid;
     
-}
-
-#skytemplatebox {
-    display: grid;
-}
-
-#tempbox {
-    display: grid;
-}
-
-.smallcontainer h3 {
-    justify-self: center;
-} */ 
-
-/* #landscape-container img {
-    display: none;
 } */
 
-/* #winter-dog {
-    display: none;
+#input-city {
+    margin: 1em 0 0 0;
+}
+
+#get-city-weather {
+    margin: 1em 0 0 0;
+}
+
+
+/* || TEMPERATURE BOX */
+
+/* #temperature-box {
+    display: grid;
 } */
+
+#temp-controls {
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.arrow {
+    margin: auto;
+    display: block;
+}
+
+#temp-container {
+    text-align: center;
+    font-size: 2em;
+}
+
+
+/* || SKY BOX */
+
+/* #sky-box {
+    display: grid;
+} */
+
+#sky-select {
+    /* make center align? */
+}
+
+
+/* || WEATHER GARDEN */
+
+#dog-container {
+    margin: 0 auto;
+    padding: 3em 0;
+    justify-content: center;
+}
+
+#dog-container img {
+    margin: auto;
+    display: block;
+}
