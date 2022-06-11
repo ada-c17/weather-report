@@ -52,14 +52,21 @@ const cityCallWeather = function (serverAddress, city) {
 const inputElement = document.querySelector('#userInput');
 
 const resetInput = () => {
+  const cityName = document.querySelector('#cityName');
   inputElement.value = '';
   cityName.textContent = 'Seattle';
+  cityCallWeather(serverAddress, cityName.textContent);
 };
 
 const changeCityName = (event) => {
   const cityName = document.querySelector('#cityName');
   const result = event.target.value;
   cityName.textContent = result;
+  cityCallWeather(serverAddress, cityName.textContent);
+};
+
+const getRealTemp = () => {
+  const cityName = document.querySelector('#cityName');
   cityCallWeather(serverAddress, cityName.textContent);
 };
 
@@ -133,6 +140,9 @@ const registerEventHandlers = () => {
 
   const downArrow = document.querySelector('#decreaseTemp');
   downArrow.addEventListener('click', decreaseTemp);
+
+  const realTempButton = document.getElementById('realTempButton');
+  realTempButton.addEventListener('click', getRealTemp);
 
   inputElement.addEventListener('change', changeCityName);
   const resetButton = document.querySelector('#resetButton');
