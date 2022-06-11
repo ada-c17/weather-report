@@ -4,6 +4,8 @@ const state = {
   tempColor: 'yellow',
   city: 'Sacramento',
   sky: 'cyan',
+  lat: '38.5810606',
+  lon: '-121.493895',
 };
 
 // ------------ Declare global vars and default state --------------
@@ -75,8 +77,7 @@ const updateCity = () => {
 
 // ------------------------- Wave 4 --------------------------------
 const getRealTemp = () => {
-  updateCity();
-  getLatLon();
+  getTemp();
 };
 
 const getLatLon = () => {
@@ -88,22 +89,24 @@ const getLatLon = () => {
     })
     .then((response) => {
       console.log(response.data);
-      const lat = response.data[0].lat;
-      const lon = response.data[0].lon;
-      console.log('success in finding lat and lon!', lat, lon);
-      getTemp(lat, lon);
+      const latitude = response.data[0].lat;
+      const longitude = response.data[0].lon;
+      state.lat = latitude;
+      state.lon = longitude;
+      console.log('success in finding lat and lon!', state.lat, state.lon);
+      // return lat, lon;
     })
     .catch((error) => {
       console.log('error in finding lat and lon!');
     });
 };
 
-const getTemp = (lat, lon) => {
+const getTemp = () => {
   axios
     .get('http://127.0.0.1:5000/weather', {
       params: {
-        lat: lat,
-        lon: lon,
+        lat: state.lat,
+        lon: state.lon,
       },
     })
     .then((response) => {
@@ -111,9 +114,9 @@ const getTemp = (lat, lon) => {
       const tempFaren = parseInt(((tempKelvin - 273.15) * 9) / 5 + 32);
       console.log('success in finding location weather!', tempFaren);
       state.temperature = tempFaren;
-      updateTempElement.textContent = state.temperature;
-      updateTempElement.style.color = updateColor(state.temperature);
-      updateImage();
+      updateTempElement.textContent = `${state.temperature} ℉`;
+      updateTempColor();
+      updateLandscape();
     })
     .catch((error) => {
       console.log('error in finding location weather!');
@@ -125,17 +128,17 @@ const changeSkyColor = () => {
   const getSkySelector = document.querySelector('#skySelect');
   const updateBackgroundSky = document.querySelector('#skyBackground');
   if (getSkySelector.value === 'default') {
-    state.skyChange = 'cyan';
+    state.sky = 'cyan';
   } else if (getSkySelector.value === 'sunny') {
-    state.skyChange = 'khaki';
+    state.sky = 'khaki';
   } else if (getSkySelector.value === 'cloudy') {
-    state.skyChange = 'lightgrey';
+    state.sky = 'lightgrey';
   } else if (getSkySelector.value === 'rainy') {
-    state.skyChange = 'blue';
+    state.sky = 'steelblue';
   } else if (getSkySelector.value === 'snowy') {
-    state.skyChange = 'grey';
+    state.sky = 'silver';
   }
-  updateBackgroundSky.style.backgroundColor = state.skyChange;
+  updateBackgroundSky.style.backgroundColor = state.sky;
 };
 
 // ------------------------- Wave 6 --------------------------------
