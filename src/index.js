@@ -25,8 +25,6 @@ const emojiCheck = (element) => {
     temp.emojis = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (element.textContent >= 60) {
     temp.emojis = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
-  } else if (element.textContent >= 50) {
-    temp.emojis = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else {
     temp.emojis = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
@@ -34,7 +32,6 @@ const emojiCheck = (element) => {
 };
 
 const cityNameReset = () => {};
-
 
 const loadElements = () => {
   // load temp number
@@ -44,8 +41,8 @@ const loadElements = () => {
   tempUl.appendChild(tempLi);
   tempCheck(tempLi);
 
-  const cityInput = document.getElementById("cityInput");
-  cityInput.addEventListener("input", () => {
+  const cityInput = document.getElementById('cityInput');
+  cityInput.addEventListener('input', () => {
     temp.city = cityInput.value;
     cityHead.textContent = temp.city;
   });
