@@ -55,12 +55,12 @@
                 <label id="city-label">City Name</label>
             </p>
             <p>
-                <input type="text" placeholder="Enter City Name" onkeyup="updateCityName()" id="city-name">
+                <input type="text" placeholder="Enter City Name" onkeyup="updateCityName()" onclick="clearInputField()" id="city-name">
                 <div>
                     <p id="display-real-time-temp"></p>
                 </div>
             </p>
-            <button id="reset-button">Reset</button>
+            <button id="reset-button" onclick="resetCityName()">Reset</button>
         </section>
 
         <section id="weather-garden-container"> 

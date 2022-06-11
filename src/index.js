@@ -70,7 +70,7 @@ const realTimeTemp = () => {
           params: {
             lat: latitude,
             lon: longitude,
-            units: 'metric', // added extra param in weather-report-proxy-server
+            units: 'imperial', // added extra param in weather-report-proxy-server
           },
         })
         .then((response) => {
@@ -86,8 +86,9 @@ const realTimeTemp = () => {
 };
 
 const changeSky = () => {
-  let skySelection = document.getElementById('sky');
-  let chosenSky = skySelection.options[skySelection.selectedIndex].textContent;
+  const skySelection = document.getElementById('sky');
+  const chosenSky =
+    skySelection.options[skySelection.selectedIndex].textContent;
   let skyDisplay = document.getElementById('sky-emojis');
   if (chosenSky === 'Sunny') {
     skyDisplay.textContent = 'sunny emojis';
@@ -100,12 +101,21 @@ const changeSky = () => {
   }
 };
 
+const resetCityName = () => {
+  document.getElementById('city-name-display').textContent = 'Seattle'; // where default name is currently displayed
+};
+
+const clearInputField = () => {
+  document.getElementById('city-name').value = '';
+};
+
 const registerEventHandlers = () => {
   const increaseTemp = document.getElementById('adjust-temp-up');
   const decreaseTemp = document.getElementById('adjust-temp-down');
   const cityName = document.querySelector('input');
   const cityRealTimeTemp = document.getElementById('real-time-temp');
   const changingSky = document.getElementById('sky-emojis');
+  const resettingCity = document.getElementById('reset-button');
   increaseTemp.addEventListener('click', () => {
     raiseTemp();
   });
@@ -117,9 +127,14 @@ const registerEventHandlers = () => {
   });
   cityRealTimeTemp.addEventListener('click', () => {
     realTimeTemp();
+    clearInputField();
   });
   changingSky.addEventListener('change', () => {
     changeSky();
+  });
+  resettingCity.addEventListener('click', () => {
+    resetCityName();
+    clearInputField();
   });
 };
 
