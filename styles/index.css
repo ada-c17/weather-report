@@ -1,5 +1,5 @@
 
-ul {
+li {
     display: inline;
 }
 
@@ -27,6 +27,10 @@ ul {
 }
 
 body {
+    background-image: url('/background.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #25211e;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto auto auto;
@@ -34,9 +38,12 @@ body {
     
     font-family: "Rubik", sans-serif;
     font-size: 18px;
-    /* background-color: aquamarine; */
     margin: 2rem;
     }
+
+h1, span {
+    color: white;
+}
 
 .gardenSection {
     grid-row: 2 / span 3;

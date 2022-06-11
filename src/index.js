@@ -31,7 +31,6 @@ const emojiCheck = (element) => {
   return temp.emojis;
 };
 
-const cityNameReset = () => {};
 
 const updateSky = () => {
   const inputSky = document.getElementById('skySelect').value;
@@ -59,8 +58,7 @@ const loadElements = () => {
 
   const cityInput = document.getElementById('cityInput');
   cityInput.addEventListener('input', () => {
-    temp.city = cityInput.value;
-    cityHead.textContent = temp.city;
+    cityHead.textContent = cityInput.value;
   });
 
   // update the sky emojis
@@ -74,10 +72,18 @@ const loadElements = () => {
   emojiLi.textContent = temp.emojis;
   emojiUl.appendChild(emojiLi);
 
+  // load city name
   const citySec = document.getElementById('cityName');
   const cityHead = document.createElement('h3');
   cityHead.textContent = temp.city;
   citySec.appendChild(cityHead);
+
+ // add reset button event listener
+  const resetButton = document.getElementById('resetButton');
+  resetButton.addEventListener('click', () => {
+    cityInput.value = '';
+    cityHead.textContent = temp.city;
+  })
 
   const loadTempButtons = () => {
     const upUl = document.getElementById('increaseTempButton');
@@ -102,7 +108,6 @@ const loadElements = () => {
   };
 
   loadTempButtons();
-  loadWeatherGarden();
 };
 
 if (document.readyState !== 'loading') {
