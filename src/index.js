@@ -99,3 +99,23 @@ const getLocationName = () => {
   state.location = document.getElementById('location-name').value;
   getLatLon();
 };
+
+const registerEventHandlers = () => {
+  // change sky
+  const makeSkyChange = document.getElementById('select-sky-box');
+  makeSkyChange.addEventListener('change', changeSky);
+  // increase temp
+  const tempInc = document.getElementById('arrow-increase');
+  tempInc.addEventListener('click', incTemp);
+  tempInc.addEventListener('click', changeColorTemp);
+  // decrease temp
+  const tempDec = document.getElementById('arrow-decrease');
+  tempDec.addEventListener('click', decTemp);
+  tempDec.addEventListener('click', changeColorTemp);
+  // change city
+  const locationInput = document.getElementById('location-name');
+  const locationSubmit = document.getElementById('location-submit');
+  locationSubmit.addEventListener('click', getLocationName);
+};
+
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
