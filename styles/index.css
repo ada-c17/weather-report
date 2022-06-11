@@ -1,0 +1,250 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+
+body{
+    background-color: rgb(242, 255, 226);
+    color: #42809d;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+header {
+    background: rgba(60, 123, 76, 0.914); opacity: 0.5;
+    color: white;
+    text-shadow: -1px -1px 1px #333, 1px -1px 1px #333, -1px 1px 1px #333, 1px 1px 1px #333;
+    font-size: 30px;
+    border: #333 solid 2px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header p {
+    padding-left: 20px;
+}
+
+header h1, #city{
+    text-align: center;
+}
+
+#city{
+    font-size: 39px;
+}
+section {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+}
+
+#left-container {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 2rem;
+    width: 40%;
+    padding: 25px;
+    
+}
+
+#right-container {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    padding: 10px;
+}
+
+#card1 {
+    border: rgb(31, 165, 120) solid 3px;
+    background-color: rgb(182, 214, 204);
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+}
+
+#card1-left {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#temperature {
+    font-size: 30px;
+    text-align:center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-shadow: -1px -1px 1px #333, 1px -1px 1px #333, -1px 1px 1px #333, 1px 1px 1px #333;
+}
+
+#celsius, #faren{
+    margin-top: 50%;
+}
+
+#up, #down {
+    width: 80px;
+}
+
+#card1-right{
+    width: 50%;
+    padding: 15px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#convert{
+    margin-top:15%;
+}
+
+#card1-right h1{
+    align-self: baseline;
+}
+
+#real-time{
+    background-color:rgb(31, 165, 120);
+    font-size: 18px; 
+    align-items:flex-end;
+    flex-direction: column;
+    padding:30px;
+    border-radius: 15px;
+    margin-top: 10px;
+    position: relative;
+}
+
+#card2{
+    border: rgb(31, 165, 120) solid 3px;
+    background-color: rgb(182, 214, 204);
+    padding: 20px;
+    border-radius: 20px;
+
+}
+
+#card3{
+    border: rgb(31, 165, 120) solid 3px;
+    background-color: rgb(182, 214, 204);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+
+#land-scape{
+    border: rgb(45, 114, 62) solid 3px;
+    background-color:rgba(34, 140, 101, 0.673) ;
+    width: 90%;
+    height: 80%;
+    font-size: 25px;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    text-shadow: -1px -1px 1px rgb(31, 165, 120), 1px -1px 1px rgb(31, 165, 120), -1px 1px 1px rgb(31, 165, 120), 1px 1px 1px rgb(31, 165, 120);
+}
+
+.hottest {
+    color: red;
+}
+
+.hottest-background {
+    background-color: rgba(185, 75, 20, 0.485); opacity:0.5;
+}
+
+.warm {
+    color: orange;
+}
+
+.warm-background{
+    background-color: rgba(183, 127, 49, 0.851); opacity:0.5;
+}
+
+.fresh {
+    color: rgba(212, 212, 74, 0.92);
+}
+
+.fresh-background {
+    background-color: rgb(0, 132, 255); opacity:0.5;
+}
+.cool {
+    color: green;
+}
+.cool-background {
+    background-color: rgb(186, 211, 155); opacity:0.5;
+}
+
+.freeze {
+    color: rgba(138, 236, 236, 0.917); opacity:0.5;
+}
+
+.freeze-background {
+    background-color: rgba(96, 141, 193, 0.83);
+}
+
+.default-background {
+    background-color: rgb(242, 255, 226);
+}
+
+.sunny-background {
+    background-color: rgba(100, 159, 219, 0.887);
+}
+
+.cloudy-background {
+    background-color: rgba(197, 201, 163, 0.557);
+}
+
+.rainy-background {
+    background-color: rgb(117, 132, 139);
+}
+
+.snowy-background {
+    background-color: rgb(233, 238, 244);
+}
+#land{
+    margin-top: auto;
+}
+
+footer{
+    width: 100%;
+    margin-top: 150px;
+    position: relative;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color:#333;
+}
+
+#kat{
+    width: 50%;
+    padding-right: 30px;
+    text-align: center;
+}
+
+#andrea{
+    width: 50%;
+    padding-left: 30px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    #card1 {
+        flex-direction: column;
+        
+    }
+
+    #real-time {
+        font-size: 12px; 
+    }
+
+    #card1-left{
+        width: 100%;
+    }
+
+}
+
