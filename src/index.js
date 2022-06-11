@@ -85,10 +85,19 @@ const registerEventHandlers = (event) => {
 
   const changeSky = document.querySelector('#skySelect');
   changeSky.addEventListener('change', skyLayout);
+
+  const resetCity = document.querySelector('#resetCity');
+  resetCity.addEventListener('click', resetCityName)
+
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
+const resetCityName = () => {
+  const nameOfCity = document.getElementById('cityNameId')
+  nameOfCity.textContent = 'seattle'
+
+}
 const defaultCity = {
   cityName: 'The amazing city of ...',
 };
