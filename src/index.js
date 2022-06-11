@@ -4,12 +4,10 @@ const state = {
 };
 function rangeSlide(value) {
   document.getElementById('rangeValue').textContent = value;
-  // onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"
 }
-const input = document.getElementById('range');
 
+const input = document.getElementById('range');
 input.addEventListener('input', (event) => {
-  // const hopeWorks = () => {
   if (input.value >= 80) {
     document.getElementById('city-circle').style.background = 'red';
     document.getElementById('temp-circle').style.background = 'red';
@@ -36,7 +34,7 @@ input.addEventListener('input', (event) => {
     document.getElementById('sky-circle').style.background = 'teal';
   }
 });
-// console.log(document.getElementById('testJ').style.backgroundColor);
+
 const tempChange = () => {
   if (state.temp >= 80) {
     console.log(state.temp);
