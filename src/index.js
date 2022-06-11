@@ -28,10 +28,6 @@ const gardenLayout = (temp) => {
   }
 };
 
-// var select = document.getElementById('language');
-// var value = select.options[select.selectedIndex].value;
-// console.log(value);
-
 const skyLayout = () => {
   const skyEmojisContainer = document.querySelector('#skyEmojis');
   const skySelect = document.getElementById('skySelect');
@@ -46,10 +42,6 @@ const skyLayout = () => {
   } else if (skyValue === 'snowy') {
     skyEmojisContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
-};
-
-const state = {
-  tempCount: 65,
 };
 
 const tempIncrease = () => {
@@ -68,7 +60,7 @@ const tempDecrease = () => {
   gardenLayout(state.tempCount);
 };
 
-const registerEventHandlers = (event) => {
+const registerEventHandlers = () => {
   const raiseTemp = document.querySelector('#raiseTemp');
   raiseTemp.addEventListener('click', tempIncrease);
   raiseTemp.addEventListener('click', tempColor);
@@ -86,26 +78,21 @@ const registerEventHandlers = (event) => {
   const changeSky = document.querySelector('#skySelect');
   changeSky.addEventListener('change', skyLayout);
 
-  const resetCity = document.querySelector('#resetCity');
-  resetCity.addEventListener('click', resetCityName)
-
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
-const resetCityName = () => {
-  const nameOfCity = document.getElementById('cityNameId')
-  nameOfCity.textContent = 'seattle'
-
-}
-const defaultCity = {
-  cityName: 'The amazing city of ...',
+const clearCityName = () => {
+  const nameOfCity = (document.getElementById('cityNameid').value = 'Seattle');
+  const cityContainer = document.querySelector('#amazingCity');
+  cityContainer.textContent = `Welcome to ${nameOfCity}`;
 };
+
 const updateCityname = () => {
   const nameOfCity = document.getElementById('cityNameid').value;
   const cityContainer = document.querySelector('#amazingCity');
 
-  cityContainer.textContent = `The amazing city of ${nameOfCity}`;
+  cityContainer.textContent = `Welcome to ${nameOfCity}`;
 };
 
 const getLocation = () => {
@@ -131,8 +118,12 @@ const getLocation = () => {
         .then((response) => {
           const cityLocationWeather = response.data.current.temp;
           const realCityTemp = document.getElementById('tempCount');
-          const tempFahren = (cityLocationWeather - 273.15) * 1.8 + 32;
-          realCityTemp.textContent = (cityLocationWeather - 273.15) * 1.8 + 32;
+          const tempFahren = Math.round(
+            (cityLocationWeather - 273.15) * 1.8 + 32
+          );
+          realCityTemp.textContent = Math.round(
+            (cityLocationWeather - 273.15) * 1.8 + 32
+          );
           gardenLayout(tempFahren);
           tempColor(tempFahren);
         });
