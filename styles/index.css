@@ -25,13 +25,10 @@ header {
     justify-self: center;
 }
 
-/* #temperature-display {
-    grid-column-start: 2;
-    grid-column-end: span 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
-    justify-self: center;
-} */
+#display-city {
+    text-decoration: underline teal dotted 2px;
+    text-underline-offset: .1em;
+}
 
 #decrease-temp {
     grid-column-start: 2;

@@ -8,7 +8,7 @@ const state = {
   currentLandscape: 'summer',
 };
 
-// increase and decrease temperature
+// increase temperature
 const increaseTemperature = () => {
   state.temperature += 1;
   const temperatureContainer = document.getElementById('temperature');
@@ -19,6 +19,7 @@ const increaseTemperature = () => {
   changeLandscape();
 };
 
+// decrease temperature
 const decreaseTemperature = () => {
   state.temperature -= 1;
   const temperatureContainer = document.getElementById('temperature');
