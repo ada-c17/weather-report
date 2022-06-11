@@ -5,6 +5,7 @@
 const state = {
   temperature: 0,
   currentColor: 'black',
+  currentLandscape: 'summer',
 };
 
 // increase and decrease temperature
@@ -13,7 +14,9 @@ const increaseTemperature = () => {
   const temperatureContainer = document.getElementById('temperature');
 
   temperatureContainer.textContent = `${state.temperature}° F`;
+
   changeTemperatureColor();
+  changeLandscape();
 };
 
 const decreaseTemperature = () => {
@@ -21,26 +24,48 @@ const decreaseTemperature = () => {
   const temperatureContainer = document.getElementById('temperature');
 
   temperatureContainer.textContent = `${state.temperature}° F`;
+
   changeTemperatureColor();
+  changeLandscape();
 };
 
 // helper function to change temperature text color
 const changeTemperatureColor = () => {
   const temperatureContainer = document.getElementById('temperature');
 
-  if (state.temperature >= 81) {
+  if (state.temperature >= 80) {
     state.currentColor = 'coral';
-  } else if (state.temperature >= 61 && state.temperature <= 80) {
+  } else if (state.temperature >= 60 && state.temperature <= 79) {
     state.currentColor = '#f5b942';
-  } else if (state.temperature >= 41 && state.temperature <= 60) {
+  } else if (state.temperature >= 40 && state.temperature <= 59) {
     state.currentColor = 'teal';
-  } else if (state.temperature >= 21 && state.temperature <= 40) {
+  } else if (state.temperature >= 20 && state.temperature <= 39) {
     state.currentColor = '#1a557d';
   } else {
     state.currentColor = '#979da1';
   }
 
   temperatureContainer.style.color = state.currentColor;
+};
+
+// helper function to change landscape based on temp
+const changeLandscape = () => {
+  const landscapeImage = document.getElementById('landscape-image');
+  const landscapeCaption = document.getElementById('landscape-caption');
+
+  if (state.temperature >= 80) {
+    landscapeImage.src = 'assets/marissa-rodriguez-summer.jpg';
+    landscapeCaption.textContent = 'Photo by Marissa Rodriguez';
+  } else if (state.temperature >= 60 && state.temperature <= 79) {
+    landscapeImage.src = 'assets/laura-adai-spring.jpg';
+    landscapeCaption.textContent = 'Photo by Laura Adai';
+  } else if (state.temperature >= 40 && state.temperature <= 59) {
+    landscapeImage.src = 'assets/janmesh-shah-fall.jpg';
+    landscapeCaption.textContent = 'Photo by Janmesh Shah';
+  } else {
+    landscapeImage.src = 'assets/donnie-rosie-winter.jpg';
+    landscapeCaption.textContent = 'Photo by Donnie Rosie';
+  }
 };
 
 const registerEventHandlers = () => {
