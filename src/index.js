@@ -53,6 +53,7 @@ const findLatAndLong = (location) => {
     .catch((error) => {
       console.log('Error finding the latitude and longitude:', error.response);
     });
+  
 };
 
 const getWeather = (lat, lon) => {
@@ -64,8 +65,7 @@ const getWeather = (lat, lon) => {
       },
     })
     .then((response) => {
-      const tempKelvin = response.data;
-      temp.fahrenheit = Math.round(convertKtoF(tempKelvin.current.temp));
+      temp.fahrenheit = response.data.current.temp;
     })
     .catch((error) => {
       console.log('Error finding current temperature:', error.response);
@@ -104,6 +104,7 @@ const loadElements = () => {
   const currentTempButton = document.getElementById('currentTempButton');
   currentTempButton.addEventListener('click', () => {
     findLatAndLong(cityInput.value);
+    tempLi.textContent = temp.fahrenheit;
   });
 
   // update the sky emojis
