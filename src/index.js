@@ -69,12 +69,26 @@ const changeLandscape = () => {
   }
 };
 
+// update display city based on user input
+const updateDisplayCity = () => {
+  const displayCity = document.getElementById('display-city');
+  const userInputCity = document.getElementById('input-city').value;
+
+  const capitalizedCity =
+    userInputCity.charAt(0).toUpperCase() + userInputCity.slice(1);
+
+  displayCity.textContent = capitalizedCity;
+};
+
 const registerEventHandlers = () => {
   const increaseTempButton = document.getElementById('increase-temp');
   increaseTempButton.addEventListener('click', increaseTemperature);
 
   const decreaseTempButton = document.getElementById('decrease-temp');
   decreaseTempButton.addEventListener('click', decreaseTemperature);
+
+  const changeCityButton = document.getElementById('change-city-button');
+  changeCityButton.addEventListener('click', updateDisplayCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
