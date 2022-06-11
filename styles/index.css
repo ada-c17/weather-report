@@ -1,0 +1,37 @@
+body {
+    background: linear-gradient(45deg,#fec5bb,#fcd5ce,#fae1dd,#f8edeb,#e8e8e4,#d8e2dc,#ece4db,
+    #ffe5d9,#ffd7ba,#fec89a);
+}
+
+main {
+    background-color: #fae1dd;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #38040e;
+    border-radius: 5vw;
+    padding: 2vw;
+    margin: 4vw;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-content: space-evenly;
+}
+
+header h2 {
+    color: #38040e;
+    font-style: italic;
+    padding-left: 10vw;
+    font-size: 5em;
+}
+
+header h1 {
+    color: #38040e;
+    align-self: flex-end;
+    padding-right: 10vw;
+}
+
+#skySelector ul {
+    list-style: none;
+}
