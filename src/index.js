@@ -30,15 +30,19 @@ const tempClass = (temp) => {
   return 'cold';
 };
 
-const changeTemp = (e) => {
-  console.log(e.target.id);
-  e.target.id === 'heat' ? weather.temperature++ : weather.temperature--;
+const updateTempDisplay = () => {
   document.querySelector('#temp-display h1').textContent = weather.temperature;
   document.getElementById('temp-display').classList = `${tempClass(
     weather.temperature
   )}`;
   document.querySelector('#landscape h1').textContent =
     landscapes[tempClass(weather.temperature)];
+};
+
+const changeTemp = (e) => {
+  console.log(e.target.id);
+  e.target.id === 'heat' ? weather.temperature++ : weather.temperature--;
+  updateTempDisplay();
 };
 
 const toggleUpdating = () => {
@@ -57,6 +61,29 @@ const updateCity = (e) => {
   }
 };
 
+const kTempToF = (k) => (k - 273.15) * 1.8 + 32;
+
+const realWeatherQuery = () => {
+  const realWeather = axios
+    .get(`http://127.0.0.1:5000/location?q=${weather.city}`)
+    .then((response) =>
+      axios.get('http://127.0.0.1:5000/weather', {
+        params: {
+          lat: response.data[0].lat,
+          lon: response.data[0].lon,
+          units: 'imperial',
+        },
+      })
+    )
+    .catch((e) => console.log(e))
+    .then((response) => {
+      weather.temperature = kTempToF(response.data.current.temp).toFixed(0);
+      // console.log(response);
+      updateTempDisplay();
+    })
+    .catch((e) => console.log(e));
+};
+
 const registerEventHandlers = () => {
   const controls = document.getElementsByClassName('temp-control');
   for (const control of controls) {
@@ -69,6 +96,10 @@ const registerEventHandlers = () => {
   document
     .querySelector('#city-input input')
     .addEventListener('keydown', updateCity);
+
+  document
+    .querySelector('#reality-check')
+    .addEventListener('click', realWeatherQuery);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
