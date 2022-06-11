@@ -6,30 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./styles/index.css" rel="stylesheet" />
     <title>Weather Report</title>
+    <style>
+        body {
+            background-image: url('background.jpeg');
+        }
+    </style>
 </head>
 <body>
     <h1>Weather Report</h1>
+    <span>For the lovely city of 
+        <span id="cityName" class="headerCity"></span>
+    </span>
     
-    <section>
+    <section class="temperatureSection">
         <h2>Temperature</h2>
-            <ul id="increaseTempButton"></ul>
-            <ul id="tempDisplay"></ul>
-            <ul id="decreaseTempButton"></ul>
-
-        
+            <div id="increaseTempButton"></div>
+            <div id="tempDisplay"></div>
+            <div id="decreaseTempButton"></div>
     </section>
-    <section id="cityName">
+    <section class="skySection">
+        <h2>Sky</h2>
+        <select id="skySelect">
+            <option>Sunny</option>
+            <option>Cloudy</option>
+            <option>Rainy</option>
+            <option>Snowy</option>
+        </select>
+    </section>
+    <section id="cityName" class="citySection">
+        <h2>City Name</h2>
         <input type="text" id="cityInput" name="city">
     </section>
-    <section>
+    <section class="gardenSection">
         <h2>Weather Garden</h2>
-        <ul id="weatherGarden"></ul>
+        <div id="gardenContent" class="gardens">
+            <div id="sky"></div>
+            <div id="weatherGarden"></div>
+        </div>
     </section>
 
-
-    
-
-    <footer></footer>
     <script src="./src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
