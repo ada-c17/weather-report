@@ -7,7 +7,7 @@ const temp = {
 };
 
 const convertKtoF = (temp) => {
-  return (temp - 273.15) * (9 / 5) + 32;
+  return Math.round((temp - 273.15) * (9 / 5) + 32);
 };
 
 const tempCheck = (element) => {
@@ -53,7 +53,6 @@ const findLatAndLong = (location) => {
     .catch((error) => {
       console.log('Error finding the latitude and longitude:', error.response);
     });
-  
 };
 
 const getWeather = (lat, lon) => {
@@ -65,7 +64,7 @@ const getWeather = (lat, lon) => {
       },
     })
     .then((response) => {
-      temp.fahrenheit = response.data.current.temp;
+      temp.fahrenheit = convertKtoF(response.data.current.temp);
     })
     .catch((error) => {
       console.log('Error finding current temperature:', error.response);
