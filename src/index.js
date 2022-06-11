@@ -59,6 +59,28 @@ const changeColorTemp = () => {
   }
 };
 
+// const hitReturn = (event) =>{
+//   console.log(event.key)
+//   if (event.key === "Enter") {
+//     console.log("Return was pressed")
+//     event.preventDefault();
+//     document.getElementById("myBtn").click();
+// }
+
+const changeLocationName = () => {
+  const inputText = document.getElementById('location-input');
+  const newLocationName = document.getElementById('location-display-name');
+  newLocationName.textContent = inputText.value;
+  // console.log('Type');
+  // console.log(inputText.value);
+};
+const getLocationName = (event) => {
+  if (event.key != 'Enter') {
+    state.location = document.getElementById('location-input').value;
+    getLatLon();
+  }
+};
+
 // get location info
 const getLatLon = () => {
   axios
@@ -95,10 +117,12 @@ const getLocationWeather = () => {
     });
 };
 
-const getLocationName = () => {
-  state.location = document.getElementById('location-input').value;
-  getLatLon();
-};
+// // Changes location after hitting submit
+// const changeLocationNameSubmit = () => {
+//   const newLocationName = document.getElementById('location-display-name');
+//   newLocationName.textContent = state.location;
+// };
+//changes location as you type
 
 const registerEventHandlers = () => {
   // change sky
@@ -115,9 +139,11 @@ const registerEventHandlers = () => {
   // change locaion
   const locationSubmit = document.getElementById('location-submit');
   locationSubmit.addEventListener('click', getLocationName);
+  locationSubmit.addEventListener('keydown', getLocationName);
+  // locationSubmit.addEventListener('click', changeLocationNameSubmit);
   // change location name
   const locationInput = document.getElementById('location-input');
-  locationInput.addEventListener('change', getLocationName);
+  locationInput.addEventListener('keyup', changeLocationName);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
