@@ -1,9 +1,7 @@
-const axios = require('axios');
-
 const state = {
   currentTemp: 80,
   lat: 40.594,
-  lon: 74.6049,
+  lon: -74.6049,
 };
 
 const tempConvert = function (K) {
@@ -16,13 +14,13 @@ const setCurrentTemp = function (temp) {
 };
 
 const tempColor = function (temperature) {
-  if (temperature >= 100) {
+  if (temperature >= 80) {
     return 'color:red;';
-  } else if (temperature >= 90) {
-    return 'color:orange;';
-  } else if (temperature >= 80) {
-    return 'color:skyblue;';
   } else if (temperature >= 70) {
+    return 'color:orange;';
+  } else if (temperature >= 60) {
+    return 'color:skyblue;';
+  } else if (temperature >= 50) {
     return 'color:green;';
   } else {
     return 'color:teal;';
@@ -30,17 +28,26 @@ const tempColor = function (temperature) {
 };
 
 const tempPic = function (temperature) {
-  if (temperature >= 100) {
+  if (temperature >= 80) {
     return 'red-sand.jpeg';
-  } else if (temperature >= 90) {
-    return 'orange-park.jpeg';
-  } else if (temperature >= 80) {
-    return 'summer-beach.jpeg';
   } else if (temperature >= 70) {
+    return 'orange-park.jpeg';
+  } else if (temperature >= 60) {
+    return 'summer-beach.jpeg';
+  } else if (temperature >= 50) {
     return 'bow-lake.jpeg';
   } else {
     return 'sunset.jpeg';
   }
+};
+
+const displayTemperature = function (temperature) {
+  const tempDisplay = document.getElementById('tempDisplay');
+  const landScape = document.getElementById('landScape');
+  const color = tempColor(temperature);
+  const imgFileName = tempPic(temperature);
+  tempDisplay.innerHTML = `<p style="${color}">Current Temperature: ${temperature} F</p>`;
+  landScape.innerHTML = `<img alt="Nice Landscape" src="assets/${imgFileName}">`;
 };
 
 const getTemp = function () {
@@ -50,36 +57,68 @@ const getTemp = function () {
       lon: state.lon,
     },
   };
-  const currentWeather = axios
-    .get('http://127.0.0.1:5000/weather', p)
-    .then(setCurrentTemp(response.current.temp));
+  axios.get('http://127.0.0.1:5000/weather', p).then((response) => {
+    state.currentTemp = tempConvert(response.data.current.temp);
+    displayTemperature(state.currentTemp);
+  });
+};
+
+const getLocationAndTemp = function (place) {
+  const p = {
+    params: {
+      q: place,
+    },
+  };
+  axios.get('http://127.0.0.1:5000/location', p).then((response) => {
+    state.lat = response.data[0].lat;
+    state.lon = response.data[0].lon;
+    getTemp();
+  });
 };
 
 const changeTempUp = function () {
-  const tempDisplay = document.getElementById('tempDisplay');
-  const landScape = document.getElementById('landScape');
   state.currentTemp += 1;
-  const color = tempColor(state.currentTemp);
-  const imgFileName = tempPic(state.currentTemp);
-  tempDisplay.innerHTML = `<p style="${color}">Current Temperature: ${state.currentTemp} F</p>`;
-  landScape.innerHTML = `<img alt="Nice Landscape" src="assets/${imgFileName}">`;
+  displayTemperature(state.currentTemp);
 };
 
 const changeTempDown = function () {
-  const tempDisplay = document.getElementById('tempDisplay');
-  const landScape = document.getElementById('landScape');
   state.currentTemp -= 1;
-  const color = tempColor(state.currentTemp);
-  const imgFileName = tempPic(state.currentTemp);
-  tempDisplay.innerHTML = `<p style="${color}">Current Temperature: ${state.currentTemp} F</p>`;
-  landScape.innerHTML = `<img alt="summer-beach" src="assets/${imgFileName}">`;
+  displayTemperature(state.currentTemp);
 };
 
 const changeCity = function () {
   const cityInput = document.getElementById('cityInput');
   const cityName = cityInput.value;
+  getLocationAndTemp(cityName);
   const titleCityName = document.getElementById('titleCityName');
   titleCityName.innerHTML = `Weather Report for ${cityName}`;
+};
+
+const resetCity = function () {
+  state.lat = 40.594;
+  state.lon = -74.6049;
+  getTemp();
+  const titleCityName = document.getElementById('titleCityName');
+  titleCityName.innerHTML = 'Weather Report for Bridgewater';
+  const cityInput = document.getElementById('cityInput');
+  cityInput.value = 'Bridgewater';
+};
+
+const changeSky = function () {
+  const skySelect = document.getElementById('sky-select');
+  const skyType = skySelect.value;
+  let imgFileName = '';
+  if (skyType == 'sun') {
+    imgFileName = 'sky-sun.jpeg';
+  } else if (skyType == 'cloud') {
+    imgFileName = 'sky-cloud.jpeg';
+  } else if (skyType == 'rain') {
+    imgFileName = 'sky-rain.jpeg';
+  } else {
+    imgFileName = 'sky-snow.jpeg';
+  }
+  const sky = document.getElementById('sky');
+  sky.innerHTML = `<img alt="Nice Sky" src="assets/${imgFileName}">`;
 };
 
 const registerEventHandlers = function () {
@@ -89,6 +128,11 @@ const registerEventHandlers = function () {
   decreaseTempButton.addEventListener('click', changeTempDown);
   const enterCityButton = document.getElementById('enterCityName');
   enterCityButton.addEventListener('click', changeCity);
+  const resetCityE = document.getElementById('resetCity');
+  resetCityE.addEventListener('click', resetCity);
+  const selectSky = document.getElementById('sky-select');
+  selectSky.addEventListener('change', changeSky);
+  getTemp();
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
