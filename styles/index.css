@@ -71,6 +71,13 @@ header {
     grid-row-start: 4;
     grid-row-end: 5;
     justify-self: center;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
 }
 
 #reset-city-or-temp {
