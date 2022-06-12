@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/index.css" type="text/css">
     <title>Weather Report</title>
 </head>
+
 <body>
-    
+    <header>
+        <div class="text">
+            <h1>Weather Report </h1>
+            <span id="headerCityName" class="header-name">Seattle</span>
+        </div>
+    </header>
+    <section class="boxes">
+        <div class="grid-container ">
+            <div class="grid-item1"><br><br>
+                <label id="temperature"></label>
+                <button id="increase-button" class="arrow">+</button>
+                <br><br>
+                <span id="tempContainer"> 70 ℉ </span>
+                <br>
+                <button id="decrease-button" class="arrow">-</button>
+            </div>
+            <div class="grid-item2 ">
+                <br><br><br>
+                <h2>CITY</h2>
+                <input type="text" placeholder="Enter a City Name" id="cityName">
+                <button id="reset"> Reset City </button>
+            </div>
+            <div class="grid-item3">
+                <br><br><br>
+                <h2 id="sky">SKY</h2>
+                <br>
+                <select id="skyOptions">
+                    <option value=" ">Select Sky Type</option>
+                    <option value="sunny">🌈Sunny☀️</option>
+                    <option value="cloudy">⛅️Cloudy☁️</option>
+                    <option value="rainy">⛈Rainy☔️</option>
+                    <option value="snowy">❄️Snowy☃️</option>
+                </select>
+                <div id="skyPic" class="sky-item"></div>
+            </div>
+        </div>
+    </section>
+    <section class="grid-item4">
+        <div id="skyType" class="sky-item2"></div>
+        <div id="skyGarden" class="sky-item1">🌾🌾_🍃_🪨__🛤_🌾🌾_🍃</div>
+    </section>
+    <br>
+    <footer>
+        <p>&copy;2022 Vida & Dana</p>
+    </footer>
+    <script src="src/index.js " text="text/javascript "></script>
+    <script src="./node_modules/axios/dist/axios.min.js "></script>
 </body>
+
 </html>
