@@ -16,14 +16,14 @@
 
     <main>
         <div id="left">
-            <section id="city" class="left">
+            <section id="city_box" class="left">
                 <h2>City</h2>
                 <label>Enter a different city:</label><br>
                 <input type="text" placeholder="San Francisco">
                 <button type="reset">Reset</button>
             </section>
 
-            <section id="sky" class="left">
+            <section id="sky_box" class="left">
                 <h2>Sky</h2>
                 <label>Change the sky:</label><br>
                 <select>
@@ -34,18 +34,18 @@
                 </select>
             </section>
 
-            <section id="temperature" class="left">
+            <section id="temperature_box" class="left">
                 <h2>Temperature</h2>
-                <button>↑</button>
-                <p class="warm">75 °F</p>
-                <button>↓</button>
+                <button id="up_temperature">▲</button>
+                <p id="temperature" class="warm_color">75 °F</p>
+                <button id="down_temperature">▼</button>
             </section>
         </div>
 
         <div class="right">
-            <section id="landscape">
-                <h2>Weather Garden</h2>
-                <img class="warm" src="assets/spring.jpg" alt="pink flowers">
+            <section id="landscape_box">
+                <h2>Feels like:</h2>
+                <img id="landscape" class="warm" src="assets/spring.jpg" alt="pink flowers">
             </section>
         </div>
     </main>

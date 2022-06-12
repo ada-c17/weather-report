@@ -27,6 +27,46 @@ h1 {
     width: auto;
 }
 
+#temperature {
+    font-size: x-large;
+}
+
 img {
     max-width: 300px;
+}
+
+.hot_color {
+    color: #ffadad;
+}
+
+.warm_color {
+    color: #ffd6a5;
+}
+
+.cool_color {
+    color: #fdffb6;
+}
+
+.chilly_color {
+    color: #caffbf;
+}
+
+.cold_color {
+    color: #9bf6ff;
+}
+
+.hot {
+    content: url(../assets/summer.jpg)
+}
+
+.warm {
+    content: url(../assets/spring.jpg)
+}
+
+.cool {
+    content: url(../assets/fall.jpg)
+}
+
+.cold {
+    content: url(../assets/winter.jpg)
 }
