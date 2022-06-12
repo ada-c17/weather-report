@@ -4,9 +4,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <header>
+        <!-- <div id="clock">
+            clock
+        </div>  -->
+        <div id="title">
+            <h1 id="weather-report"> Weather Report</h1>
+        </div>
+    </header>
+    <main>
+        <div class="info" id="temp-display">
+            <img src="./assets/locationIcon.png" id="map-icon"></img>
+            <h1>
+                Seattle
+            </h1>
+        </div>
+        <div class="info" id="control-container">
+            <div class="control-panel" id="temp-box">
+                <div class="box-name">
+                    <h3>Temperature</h3>
+                </div>
+                <div class="box-content">
+                    <h1>
+                        <span id="temp-value">60</span>&#8457;
+                    </h1>
+                    <div id = "temp-adjustment">
+                        
+                        <button class = "temp-control" id="temp-up">
+                            &#x21e7;
+                        </button>
+                        <button class = "temp-control" id="temp-down">
+                            &#x21e9;
+                        </button>
+                    </div>
+                </div>
+                <div class="box-button">
+                    <button class="button" id="get-temp">Real Time</button>
+                </div>
+            </div>
+            <div class="control-panel" id="sky-box">
+                <div class="box-name">
+                    <h3>Sky</h3>
+                </div>
+                <div class="box-content">
+                    <select class="drop-search-bar" id="sky-selector">
+                        <option>--Sky--</option>
+                        <option>Sunny</option>
+                        <option>Cloudy</option>
+                        <option>Rainy</option>
+                        <option>Snowy</option>
+                        <option>Windy</option>
+                    </select>  
+                </div>
+                <div class="box-button"></div>
+            </div>
+            <div class="control-panel" id="city-box">
+                <div class="box-name">
+                    <h3>City</h3>
+                </div>
+                <div class="box-content">
+                    <form>
+                        <input type="text" name="query" placeholder = "Seattle">
+                        <button>OK</button>
+                    </form>
+                </div>
+                <div class="box-button">
+                    <button class="button" id="reset">Reset City</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        Created by Ruge Li and Lin Liu, 2022. &#x263A;
+    </footer>
+
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
 </body>
 </html>
