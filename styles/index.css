@@ -5,6 +5,8 @@
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+    background-color:rgb(168, 222, 226);
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
 }
 
 
@@ -17,8 +19,20 @@
     text-align: center;
 }
 
+h1 {
+    font-family: "Comic Sans MS";
+    font-size: 72px;
+    align-self: center;
+}
+
+#temp-value {
+    font-size: 72px;
+}
+
 section{
     border: 1px black solid;
+    border-radius: 10px;
+    padding-bottom: 40px;
 }
 
 #header{
@@ -41,6 +55,10 @@ section{
     grid-area: 3 / 1 / 4 / 4;
 }
 
+#landscape>p{
+    font-size: 30px;
+}
+
 /* 80+ */
 #red{
     color: red;
@@ -54,18 +72,18 @@ section{
 
 }
 
-/* 80+ */
+/* 60-69 */
 #yellow{
     color: yellow;
 }
 
-/* 80+ */
+/* 50-59 */
 #green{
     color: green;
 
 }
 
-/* 80+ */
+/* <= 49 */
 #teal{
     color: teal;
 

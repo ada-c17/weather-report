@@ -21,19 +21,19 @@ const landscapeChange = (temp) => {
   if (temp >= 80) {
     document.getElementById(
       'landscape-value'
-    ).textContent = `"🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"`;
+    ).textContent = `🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂`;
   } else if (temp >= 70 && temp <= 79) {
     document.getElementById(
       'landscape-value'
-    ).textContent = `"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"`;
+    ).textContent = `🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷`;
   } else if (temp >= 60 && temp <= 69) {
     document.getElementById(
       'landscape-value'
-    ).textContent = `"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"`;
+    ).textContent = `🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃`;
   } else {
     document.getElementById(
       'landscape-value'
-    ).textContent = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
+    ).textContent = `🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲`;
   }
 };
 
