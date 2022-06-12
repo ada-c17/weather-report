@@ -11,20 +11,37 @@
 <body>
     <header>
         <h1>Weather Report</h1>
-        <p></p>for the lovely city of (city)</p>
+        <p>for the lovely city of San Francisco</p>
     </header>
 
     <section id="city">
         <h2>City</h2>
-        <p>Select city</p>
+        <label>Enter a different city:</label><br>
+        <input type="text" placeholder="San Francisco">
+        <button type="reset">Reset</button>
     </section>
 
     <section id="temperature">
         <h2>Temperature</h2>
+        <button>↑</button>
+        <p class="warm">75 °F</p>
+        <button>↓</button>
+    </section>
+
+    <section id="sky">
+        <h2>Sky</h2>
+        <label>Change the sky:</label><br>
+        <select>
+            <option selected>Sunny</option>
+            <option>Cloudy</option>
+            <option>Rainy</option>
+            <option>Snowy</option>
+        </select>
     </section>
 
     <section id="landscape">
         <h2>Weather Garden</h2>
+        <img class="warm" src="assets/spring.jpg" alt="pink flowers">
     </section>
 
     <script src="src/index.js" type="text/javascript"></script>
