@@ -1,7 +1,6 @@
 // Wave 2
 let state = {
   temp: 75,
-  city: 'Seattle',
 };
 
 const images = [
@@ -27,32 +26,26 @@ const changeColor = () => {
   ];
   if (state.temp > 79) {
     tempColor.className = 'temp-90';
-    // bgColor.className = 'bg-80';
     bgColor.style.backgroundImage = images[1];
     gardenLandscape.textContent = `${landscape[4]}`;
   } else if (state.temp > 75) {
     tempColor.className = 'temp-80';
-    // bgColor.className = 'bg-80';
     bgColor.style.backgroundImage = images[0];
     gardenLandscape.textContent = `${landscape[0]}`;
   } else if (state.temp > 69) {
     tempColor.className = 'temp-70';
-    // bgColor.className = 'bg-70';
     bgColor.style.backgroundImage = images[2];
     gardenLandscape.textContent = `${landscape[1]}`;
   } else if (state.temp > 65) {
     tempColor.className = 'temp-60';
-    // bgColor.style.backgroundImage = images[4];bgColor.className = 'bg-60';
     bgColor.style.backgroundImage = images[3];
     gardenLandscape.textContent = `${landscape[2]}`;
   } else if (state.temp > 59) {
     tempColor.className = 'temp-50';
-    // bgColor.className = 'bg-50';
     bgColor.style.backgroundImage = images[4];
     gardenLandscape.textContent = `${landscape[3]}`;
   } else {
     tempColor.className = 'temp-49';
-    // bgColor.className = 'bg-49';
     bgColor.style.backgroundImage = images[5];
     gardenLandscape.textContent = `${landscape[3]}`;
   }
@@ -85,7 +78,6 @@ const getCityName = () => {
 };
 
 // Wave 5
-
 // change sky in weather garden and change background color
 const changeSky = () => {
   const skyEmoji = [
@@ -99,20 +91,16 @@ const changeSky = () => {
   const bgColor = document.querySelector('body');
   if (selectValue === 'Sunny') {
     gardenSky.textContent = `${skyEmoji[0]}`;
-    // bgColor.className = 'bg-49';
     bgColor.style.backgroundImage = images[4];
   } else if (selectValue === 'Cloudy') {
     gardenSky.textContent = `${skyEmoji[1]}`;
-    //bgColor.className = 'bg-60';
     bgColor.style.backgroundImage = images[2];
   } else if (selectValue === 'Rainy') {
     gardenSky.textContent = `${skyEmoji[2]}`;
-    // bgColor.className = 'bg-80';
     bgColor.style.backgroundImage = images[5];
   } else {
     gardenSky.textContent = `${skyEmoji[3]}`;
     bgColor.style.backgroundImage = images[0];
-    // bgColor.className = 'bg-50';
   }
 };
 
@@ -140,12 +128,9 @@ const resetButton = () => {
   gardenSky.textContent = ' ☂️ ☂️ ☂️ ⛱  🌞  ⛱ ☂️ ☂️ ☂️ ';
   const landScape = document.getElementById('landscape');
   landScape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-  // const sky = document.getElementById('sky');
-  // sky.textContent = 'Select';
   // reset display detail on right window
   const display = document.getElementById('display');
   display.textContent = '';
-
   // reset realtime temp button
   const realTimeTemp = document.getElementById('realtime-temp');
   realTimeTemp.textContent = 'Realtim Temp';
