@@ -149,6 +149,9 @@ const registerEventHandlers = () => {
   // landscape image will be updated base on the temperature value
   const landscape = document.querySelector('#temp-display');
 
+  // get real time seattle temp when document load
+  Helper.updateTemps();
+
   // update body background image base on sky selection
   const skyBackground = document.querySelector('body');
   skyBackground.addEventListener('change', () => {
