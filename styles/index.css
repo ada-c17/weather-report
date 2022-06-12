@@ -1,6 +1,6 @@
-/* * {
+* {
     border: 2px solid red;
-} */
+}
 
 body {
     margin:0;
@@ -24,9 +24,14 @@ header {
     flex-direction: row;
 }
 
+#map-icon {
+    width:1.5rem;
+    height: auto;
+    padding-right: 1rem;
+}
+
 #title h1 {
-    text-align: right;
-    margin-right: 15%;;
+    text-align: center;
 }
 
 .control-panel {
@@ -64,7 +69,7 @@ header {
 }
 
 #title {
-    width: 80%;
+    width: 100%;
 }
 
 #temp-display {
@@ -115,4 +120,9 @@ body {
 
 #city-box #box-content {
     flex-direction: column;
+}
+
+.arrow{
+    width:1rem;
+    height:auto;
 }

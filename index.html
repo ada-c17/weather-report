@@ -9,16 +9,16 @@
 </head>
 <body>
     <header>
-        <div id="clock">
+        <!-- <div id="clock">
             clock
-        </div> 
+        </div>  -->
         <div id="title">
             <h1 id="weather-report"> Weather Report</h1>
         </div>
     </header>
     <main>
         <div class="info" id="temp-display">
-            <img>map icon</img>
+            <img src="./assets/locationIcon.png" id="map-icon"></img>
             <h1>
                 Seattle
             </h1>
@@ -33,8 +33,13 @@
                         <span id="temp-value">60</span>&#8457;
                     </h1>
                     <div id = "temp-adjustment">
-                        <button class = "temp-control" id="temp-up"> up</button>
-                        <button class = "temp-control" id="temp-down">down</button>
+                        
+                        <button class = "temp-control" id="temp-up">
+                            <img src="./assets/arrow.png" alt="up" class="arrow" id="up">
+                        </button>
+                        <button class = "temp-control" id="temp-down">
+                            <img src="./assets/arrow.png" alt="down" class="arrow" id="down">
+                        </button>
                     </div>
                 </div>
                 <div class="box-button">
