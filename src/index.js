@@ -96,25 +96,47 @@ const changeCityName = () => {
 // use the return value make GET request for weather at those coordinates
 // return temperature to state variable for temp
 
-const getLatLon = () => {
+const getCurrent = () => {
+  const currentTemp = document.getElementById('display-temp');
+  const cityButton = document.querySelector('#get-city-weather');
   const cityInput = document.querySelector('#input-city');
+  cityButton.addEventListener('click', () => {
+    getLatLon(cityInput.value).then((latlon) => {
+      getWeather(latlon).then((temp) => {
+        farTemp = Math.floor(1.8 * (temp - 273) + 32);
+        state.temp = farTemp;
+        currentTemp.textContent = state.temp;
+        changeTempColor();
+        changeLandscape();
+        changeSky();
+      });
+    });
+  });
+};
+
+const getLatLon = (cityInput) => {
   let latitude, longitude;
-  axios
-    .get('https://us1.locationiq.com/v1/search.php', {
-      params: {
-        key: LOCATIONIQ_KEY,
-        city: cityInput,
-        format: 'json',
-      },
-    })
+  return axios
+    .get(`http://127.0.0.1:5000/location?q=${cityInput}`)
     .then((response) => {
+      console.log(response);
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
-      console.log('successful getWeather request', latitude, longitude);
       return [latitude, longitude];
     })
     .catch((error) => {
-      console.log("that city doesn't exist");
+      console.log(`The city ${cityInput.value} doesn't exist, ${error}`);
+    });
+};
+
+const getWeather = ([latitude, longitude]) => {
+  return axios
+    .get(`http://127.0.0.1:5000/weather?lat=${latitude}&lon=${longitude}`)
+    .then((response) => {
+      return response.data.current.temp;
+    })
+    .catch((error) => {
+      console.log(`${error}`);
     });
 };
 
@@ -139,3 +161,4 @@ document.addEventListener('DOMContentLoaded', changeTemp);
 document.addEventListener('DOMContentLoaded', changeLandscape);
 document.addEventListener('DOMContentLoaded', changeCityName);
 document.addEventListener('DOMContentLoaded', changeSky);
+document.addEventListener('DOMContentLoaded', getCurrent);
