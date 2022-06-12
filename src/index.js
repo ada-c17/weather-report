@@ -23,6 +23,11 @@ const cityCallWeather = function (serverAddress, city) {
       },
     })
     .then((response) => {
+
+      if (response.data.error === 'Unable to geocode') {
+        throw "Invalid city name";
+      };
+
       let longitude = response.data[0].lon;
       let latitude = response.data[0].lat;
 
@@ -42,13 +47,8 @@ const cityCallWeather = function (serverAddress, city) {
         });
     })
     .catch((response) => {
-      if (response.status != 404) {
-        console.log(response.status);
-        console.log('There was an unexpected issue with the location API request.');
-      } else {
-        const cityName = document.querySelector('#cityName');
-        cityName.textContent = "Invalid City Name";
-      };
+      const cityName = document.querySelector('#cityName');
+      cityName.textContent = "Invalid City Name";
     });
 };
 
