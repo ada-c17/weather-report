@@ -30,31 +30,10 @@ const landscapeChange = (temp) => {
     document.getElementById(
       'landscape-value'
     ).textContent = `"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"`;
-  } else { 
+  } else {
     document.getElementById(
       'landscape-value'
     ).textContent = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
-  }
-};
-
-// changing sky emojis
-const skyChange = (temp) => {
-  if (temp >= 80) {
-    document.getElementById(
-      'sky-value'
-    ).textContent = `"☁️ ☁️ ☁️ ☀️ ☁️ ☁️"` ;
-  } else if (temp >= 70 && temp <= 79) {
-    document.getElementById(
-      'sky-value'
-    ).textContent = `"☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"`;
-  } else if (temp >= 60 && temp <= 69) {
-    document.getElementById(
-      'sky-value'
-    ).textContent = `"🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"`;
-  } else {
-    document.getElementById(
-      'sky-value'
-    ).textContent = `"🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"`;
   }
 };
 
@@ -87,13 +66,30 @@ const downEvent = () => {
 
 // update city
 const cityInput = document.getElementById('city-input');
-const cityName = document.getElementById('city-name');
+const cityName = document.getElementById('city-name2');
 
 const updateCityValue = (cityInput) => {
   cityName.textContent = cityInput.target.value;
 
   findLatitudeAndLongitude();
 };
+
+// changing sky emojis
+const skyChange = (sky) => {
+  if (sky == 'sunny') {
+    document.getElementById('sky-value').textContent = `☁️ ☁️ ☁️ ☀️ ☁️ ☁️`;
+  } else if (sky == 'cloudy') {
+    document.getElementById(
+      'sky-value'
+    ).textContent = `☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️`;
+  } else if (sky == 'rainy') {
+    document.getElementById('sky-value').textContent = `🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧`;
+  } else {
+    document.getElementById('sky-value').textContent = `🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨`;
+  }
+};
+
+// const updateSkyValue = () => {};
 
 const findLatitudeAndLongitude = () => {
   let latitude, longitude;
@@ -123,6 +119,9 @@ const getWeather = (latitude, longitude) => {
       const tempVal = document.getElementById('temp-value');
       tempVal.textContent = temp;
 
+      tempColor(temp);
+      landscapeChange(temp);
+
       return temp;
     });
 };
@@ -134,7 +133,18 @@ const getWeather = (latitude, longitude) => {
 
 // };
 
-document.addEventListener('change', updateCityValue);
+const skySelection = document.getElementById('sky-menu');
+
+skySelection.addEventListener('change', (event) => {
+  const skyValue = document.getElementById('sky-value');
+
+  skyChange(event.target.value);
+});
+
+cityInput.addEventListener('change', updateCityValue);
+// document.addEventListener('change', updateCityValue);
+
+// document.addEventListener('change', updateSkyValue);
 // document.addEventListener('change', updateTemp);
 
 document.addEventListener('DOMContentLoaded', upEvent);
