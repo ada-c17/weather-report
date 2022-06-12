@@ -54,7 +54,6 @@ const validateSkyCondition = (condition) => {
   }
   console.log(state.skyConditionImage);
   console.log('EXIT validateSkyCondition for changeSky');
-  changeSky();
 };
 
 // change TEMP
@@ -92,6 +91,10 @@ const changeColorTemp = () => {
   }
 };
 
+const convertKelvin = (temp) => {
+  state.temp = ((temp - 273.15) * 9) / 5 + 32;
+};
+
 // const hitReturn = (event) =>{
 //   console.log(event.key)
 //   if (event.key === "Enter") {
@@ -105,8 +108,6 @@ const changeLocationName = () => {
   const inputText = document.getElementById('location-input');
   const newLocationName = document.getElementById('location-display-name');
   newLocationName.textContent = inputText.value;
-  // console.log('Type');
-  // console.log(inputText.value);
 };
 
 // location name updates in REAL TIME
@@ -149,9 +150,13 @@ const getLocationWeather = () => {
     .then((response) => {
       console.log(response);
       condition = response.data.current.weather[0].main;
-      console.log(condition);
-      console.log('EXIT getLocationWeather for validateSkyCondition');
+      kelvinTemp = response.data.current.temp;
+      // console.log(condition);
+      // console.log('EXIT getLocationWeather for validateSkyCondition');
       validateSkyCondition(condition);
+      convertKelvin(kelvinTemp);
+      changeSky();
+      changeColorTemp();
     })
     .catch((error) => {
       console.log(error);
