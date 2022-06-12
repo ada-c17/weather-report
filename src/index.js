@@ -1,7 +1,8 @@
 const state = {
   temp: 70,
   color: document.getElementById('mid--color'),
-  skyCondition: document.getElementById('sky'),
+  skyCondition: document.getElementById('select-sky-box'),
+  skyConditionImage: document.getElementById('sky'),
   landscape: document.getElementById('landscape'),
   location: '',
   lat: 0,
@@ -10,21 +11,53 @@ const state = {
 
 // change sky
 const changeSky = () => {
-  if (document.getElementById('select-sky-box').value === 'sunny') {
-    state.skyCondition.style.background =
+  console.log('ENTER changeSky');
+  if (state.skyCondition.value === 'sunny') {
+    state.skyConditionImage.style.background =
       "url('/assets/sky/sunny 1920x360.jpg')";
-  } else if (document.getElementById('select-sky-box').value === 'rainy') {
-    state.skyCondition.style.background =
+  } else if (state.skyCondition.value === 'rainy') {
+    state.skyConditionImage.style.background =
       "url('/assets/sky/rainy 1920x360.jpg')";
-  } else if (document.getElementById('select-sky-box').value === 'cloudy') {
-    state.skyCondition.style.background =
+  } else if (state.skyCondition.value === 'cloudy') {
+    state.skyConditionImage.style.background =
       "url('/assets/sky/cloudy 1920x360.jpg')";
-  } else if (document.getElementById('select-sky-box').value === 'snowy') {
-    state.skyCondition.style.background =
+  } else if (state.skyCondition.value === 'snowy') {
+    state.skyConditionImage.style.background =
       "url('/assets/sky/snowy 1920x360.jpg')";
   }
+  console.log('EXIT changeSky');
 };
-// change temp
+
+// set state.skyCondition
+const validateSkyCondition = (condition) => {
+  console.log('ENTER validateSkyCondition');
+  console.log('state.skyCondition');
+  console.log(state.skyCondition);
+  console.log('condition');
+  console.log(condition);
+  if (condition === 'Clear') {
+    state.skyCondition.value = 'sunny';
+    console.log('changes to SUNNY');
+  } else if (
+    condition === 'Rain' ||
+    condition === 'Drizzle' ||
+    condition === 'Thunderstorm'
+  ) {
+    state.skyCondition.value = 'rainy';
+    console.log('changes to RIANY');
+  } else if (condition === 'Clouds') {
+    state.skyCondition.value = 'cloudy';
+    console.log('changes to CLOUDY');
+  } else if (condition === 'Snow') {
+    state.skyCondition.value = 'snowy';
+    console.log('changes to SNOWY');
+  }
+  console.log(state.skyConditionImage);
+  console.log('EXIT validateSkyCondition for changeSky');
+  changeSky();
+};
+
+// change TEMP
 const incTemp = () => {
   state.temp++;
   const tempContainer = document.getElementById('temperature');
@@ -36,7 +69,7 @@ const decTemp = () => {
   tempContainer.textContent = `${state.temp}°`;
 };
 
-// change colors based on temp
+// change bottom image and middle color based on temp
 const changeColorTemp = () => {
   if (state.temp >= 80) {
     state.color.style.backgroundColor = 'rgba(140,114,89, 0.5)';
@@ -67,6 +100,7 @@ const changeColorTemp = () => {
 //     document.getElementById("myBtn").click();
 // }
 
+// location NAME UPDATES
 const changeLocationName = () => {
   const inputText = document.getElementById('location-input');
   const newLocationName = document.getElementById('location-display-name');
@@ -74,14 +108,16 @@ const changeLocationName = () => {
   // console.log('Type');
   // console.log(inputText.value);
 };
+
+// location name updates in REAL TIME
 const getLocationName = (event) => {
   if (event.key != 'Enter') {
     state.location = document.getElementById('location-input').value;
     getLatLon();
   }
 };
-
-// get location info
+// ********API*********
+// get LOCATION info
 const getLatLon = () => {
   axios
     .get('https://weather-report-proxy-server.herokuapp.com/location', {
@@ -100,7 +136,9 @@ const getLatLon = () => {
     });
 };
 
+// get WEATHER info
 const getLocationWeather = () => {
+  console.log('ENTER getLocationWeather');
   axios
     .get('https://weather-report-proxy-server.herokuapp.com/weather', {
       params: {
@@ -109,8 +147,11 @@ const getLocationWeather = () => {
       },
     })
     .then((response) => {
-      console.log('getLocationWeather');
       console.log(response);
+      condition = response.data.current.weather[0].main;
+      console.log(condition);
+      console.log('EXIT getLocationWeather for validateSkyCondition');
+      validateSkyCondition(condition);
     })
     .catch((error) => {
       console.log(error);
