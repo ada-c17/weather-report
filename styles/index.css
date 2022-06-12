@@ -6,11 +6,6 @@
 :root {
     font-family: Arial, Helvetica, sans-serif;
     font-size: calc(18px + .3vw);
-    --hot: rgb(169, 14, 22);
-    --warm: rgb(148, 91, 29);
-    --goldilocks: rgb(103, 119, 106);
-    --cool: rgb(40, 98, 221);
-    --cold: rgb(168, 195, 255);
     --sun: radial-gradient(circle at top, rgb(255, 233, 31) 10%, lightyellow 50%, lightblue 100%);
     --bare-sun: radial-gradient(circle at top, rgba(255, 233, 31, 0.8) 10%, rgba(255,255,224,0.4) 50%, rgba(255,255,255,0) 100%);
     --mid-clouds: radial-gradient(ellipse at center, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 80%, rgba(255,255,255,0) 100%);
@@ -108,23 +103,23 @@ main {
 }
 
 .hot {
-    color: var(--hot);
+    color: rgb(169, 14, 22);
 }
 
 .warm {
-    color: var(--warm);
+    color: rgb(148, 91, 29);
 }
 
 .goldilocks {
-    color: var(--goldilocks);
+    color: rgb(103, 119, 106);
 }
 
 .cool {
-    color: var(--cool);
+    color: rgb(40, 98, 221);
 }
 
 .cold {
-    color: var(--cold);
+    color: rgb(168, 195, 255);
 }
 
 #temp-display h1 {
