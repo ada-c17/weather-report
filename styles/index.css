@@ -1,0 +1,144 @@
+body {
+    background:  #87EBD6 -webkit-gradient(linear, left top, left bottom, from(#87BDEB), to(#87EBD6)) no-repeat;
+}
+
+.header > h1 {
+    margin-top: 50px;
+    font-family: monospace;
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    color: whitesmoke;
+}
+
+section > h2 {
+    color: whitesmoke;
+    font-size: 26px;
+    font-family: monospace;
+}
+
+main * h2 {
+    font-size: 22px;
+    margin-top: 3px;
+    margin-left: 20px;
+    font-family: system-ui;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: center; 
+    resize: both;
+    overflow: auto;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px; 
+}
+
+#temperature, #sky, #city {
+    width: 280px;
+    height: 200px;
+    background-color: whitesmoke;
+    color: red;
+    border-radius: 14px;
+    margin-top: 150px;
+    margin-right: 60px;
+}
+
+#temperature {
+    background-image: url(https://media4.giphy.com/media/4ZgLPakqTajjVFOVqw/giphy.gif);
+    background-size: cover;
+}
+
+#sky {
+    background-image: url("https://i.gifer.com/GIWH.gif");
+    background-size: cover;
+}
+
+#city {
+    background-image: url("https://data.whicdn.com/images/78552206/original.gif");
+    background-size: cover;
+}
+
+#garden {
+    display: flex;
+    flex-direction: column; 
+    width: 500px;
+    text-align: center;
+    background-color: whitesmoke;
+    border-radius: 15px; 
+    height: 200px;
+}
+
+#root {
+    color: #008080;
+    font-size: 36px;
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+
+#cityEnter {
+    font-size: 9px;
+    margin-left: 10px;
+    height: 19px;
+    background-color: rgb(79, 216, 79);
+    height: 25px;
+    width: 65px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+}
+
+#reset {
+    font-size: 9px;
+    margin-left: 50px; 
+    height: 30px;
+    width: 120px;
+    background-color: red;
+    border-radius: 10px;
+    font-size: 15px;
+    border: none;
+}
+
+#skydropdown {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+input {
+    margin-left: 40px;
+    height: 19px;
+    border-radius: 5px;
+}
+
+#city :not(:first-child) {
+    margin-top: 30px;
+}
+
+#temperature > button {
+    border: none;
+    background: none;
+    font-size: 15px;    
+    margin-left: 35px;
+}
+
+
+#skydisplay , #landscape{
+    font-size: 25px;
+}
+
+#skydisplay {
+    margin-top: 30px;
+}
+
+#landscape {
+    margin-top: 40px;
+}
