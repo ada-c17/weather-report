@@ -1,0 +1,32 @@
+body {
+    background-color: #004f86;
+    color: #ffffff;
+}
+
+main {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+h1 {
+    color: #b4cac9;
+}
+
+#left {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.left {
+    border: 2px solid #519dba;
+    background: #519dba;
+    border-radius: 10px;
+    padding: 0px 10px 20px 10px;
+    width: auto;
+}
+
+img {
+    max-width: 300px;
+}

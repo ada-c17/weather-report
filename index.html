@@ -14,35 +14,41 @@
         <p>for the lovely city of San Francisco</p>
     </header>
 
-    <section id="city">
-        <h2>City</h2>
-        <label>Enter a different city:</label><br>
-        <input type="text" placeholder="San Francisco">
-        <button type="reset">Reset</button>
-    </section>
+    <main>
+        <div id="left">
+            <section id="city" class="left">
+                <h2>City</h2>
+                <label>Enter a different city:</label><br>
+                <input type="text" placeholder="San Francisco">
+                <button type="reset">Reset</button>
+            </section>
 
-    <section id="temperature">
-        <h2>Temperature</h2>
-        <button>↑</button>
-        <p class="warm">75 °F</p>
-        <button>↓</button>
-    </section>
+            <section id="sky" class="left">
+                <h2>Sky</h2>
+                <label>Change the sky:</label><br>
+                <select>
+                    <option selected>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
+                </select>
+            </section>
 
-    <section id="sky">
-        <h2>Sky</h2>
-        <label>Change the sky:</label><br>
-        <select>
-            <option selected>Sunny</option>
-            <option>Cloudy</option>
-            <option>Rainy</option>
-            <option>Snowy</option>
-        </select>
-    </section>
+            <section id="temperature" class="left">
+                <h2>Temperature</h2>
+                <button>↑</button>
+                <p class="warm">75 °F</p>
+                <button>↓</button>
+            </section>
+        </div>
 
-    <section id="landscape">
-        <h2>Weather Garden</h2>
-        <img class="warm" src="assets/spring.jpg" alt="pink flowers">
-    </section>
+        <div class="right">
+            <section id="landscape">
+                <h2>Weather Garden</h2>
+                <img class="warm" src="assets/spring.jpg" alt="pink flowers">
+            </section>
+        </div>
+    </main>
 
     <script src="src/index.js" type="text/javascript"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
