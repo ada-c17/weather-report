@@ -1,8 +1,24 @@
 
-li {
-    display: inline;
-}
+body {
+    background-image: url('../background.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #25211e;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto auto auto;
+    grid-gap: 1rem;
+    
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    margin: 2rem;
+    }
 
+ul, li {
+    list-style-type: none;
+}
+    
 .veryHot {
     color: red;
 }
@@ -24,23 +40,8 @@ li {
     border-radius: 8px;
     padding: 2rem;
     background-color: #546b76;
-}
-
-body {
-    background-image: url('../background.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: #25211e;
-    color: white;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto auto auto auto;
-    grid-gap: 1rem;
-    
-    font-family: "Rubik", sans-serif;
-    font-size: 18px;
-    margin: 2rem;
     }
+    
 
 .gardenSection {
     grid-row: 2 / span 3;
