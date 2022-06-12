@@ -23,8 +23,10 @@
         <!-- city -->
         <div id="city-circle" class="round-button-circle">
           <section>
-            <div>
+            <div id="temp-input-btn">
               <input type="text" id="city" placeholder="choose the city" autocomplete="off"></input>
+              <!-- <button><div class="btn">Real Time</div><div class="btn"> Temperature </div></button> -->
+              <button>Real Time<br>Temperature</button>
             </div>
           </section>
         </div>
@@ -33,10 +35,10 @@
           <section>
             <div>
               <div>
-                <span><Input id="range" type="range" value="0" min="-130" max="150" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"></Input></span>
+                <span><input id="range" type="range" value="" min="0" max="150"></input></span>
               </div>
               <div id="temp-range">
-                <span id="rangeValue">0</span>
+                <span id="rangeValue">32</span>
                 <span>℉</span>
               </div>
           </div>
