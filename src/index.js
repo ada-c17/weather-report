@@ -46,8 +46,15 @@ const displayTemperature = function (temperature) {
   const landScape = document.getElementById('landScape');
   const color = tempColor(temperature);
   const imgFileName = tempPic(temperature);
-  tempDisplay.innerHTML = `<p style="${color}">Current Temperature: ${temperature} F</p>`;
-  landScape.innerHTML = `<img alt="Nice Landscape" src="assets/${imgFileName}">`;
+  const displayString = `<p style="${color}">Current Temperature: ${temperature} F</p>`;
+  const imgFileNameString = `<img alt="Nice Landscape" src="assets/${imgFileName}">`;
+  tempDisplay.innerHTML = displayString;
+  landScape.innerHTML = imgFileNameString;
+  console.log(temperature);
+  console.log(color);
+  console.log(imgFileName);
+  console.log(displayString);
+  console.log(imgFileNameString);
 };
 
 const getTemp = function () {
@@ -58,6 +65,7 @@ const getTemp = function () {
     },
   };
   axios.get('http://127.0.0.1:5000/weather', p).then((response) => {
+    console.log(response);
     state.currentTemp = tempConvert(response.data.current.temp);
     displayTemperature(state.currentTemp);
   });
@@ -70,6 +78,7 @@ const getLocationAndTemp = function (place) {
     },
   };
   axios.get('http://127.0.0.1:5000/location', p).then((response) => {
+    console.log(response);
     state.lat = response.data[0].lat;
     state.lon = response.data[0].lon;
     getTemp();
