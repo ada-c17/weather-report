@@ -5,8 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="stylesheet" href="/styles/index.css">
 </head>
-<body>
-    
+<body id = "body" class ="body_warm">
+    <main>
+    <header>
+        <h1>Weather Report</h1>
+    </header>
+    <section id="city-box">
+        <section>
+            <h3>Enter City</h3>
+        </section>
+        <section>
+            <label for="city">City</label>
+            <input id="enter-city-name" name ="city" value ="Lexington, KY" type="text">
+        </section>
+        <section>
+            <button id="reset-city">Reset City</button>
+        </section>
+    </section> 
+    <section id="temperature-box">
+        <section>
+            <h2 id="default-city">Lexington, KY</h2>
+        </section>
+        <section id="sect-arrow-up">
+            <button id="up-arrow">▲</button>
+        </section>
+        <section>
+            <h2 id="temp-value" class="warm" >75</h2>
+        </section>
+        <section id="sect-arrow-down">
+            <button id="down-arrow">▼</button>
+        </section>
+    </section> 
+    <section id ="real-time-box">
+        <section>
+            <button id ="real-time-button">Get Real Time Temperature</button>
+        </section>
+    </section>
+    <section id="sky-box">
+        <section>
+            <h3>Select Sky</h3>
+        </section>
+        <section id ="sky-options-container">            
+            <label for="sky-options">Sky</label>
+            <select name= sky-options" id="sky-options">
+                <option value="sunny">Sunny</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+            </select>
+        </section>
+        <section id = "sky-image-container" class ="sunny">
+        </section>
+    </section>
+    </main> 
+    <script src = '/src/index.js'></script>
+    <script src = "./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,182 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    font-family: helvetica;
+    color: #2F2F2D;
+    font-weight: 300;
+    background-image: url('/photos/spring.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+} 
+
+main {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+header {
+    grid-column: 2/3;
+    grid-row: 1/1;
+    text-align: center;
+    margin: 4em;
+}
+
+h1 {
+    font-size: 3.5em;
+    margin: 1em;
+}
+
+h2 {
+    font-size: 3em;
+    color: red;
+}
+
+h3 {
+    font-size: 2em;
+    background-color:  #f3f3f3;
+    padding: 0.25em;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#city-box {
+    grid-column:1/2 ;
+    grid-row: 2/4;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+} 
+
+#temperature-box {
+    grid-column: 2/3 ;
+    grid-row: 2/3;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+} 
+
+#real-time-box {
+    grid-column: 2/3 ;
+    grid-row: 3/4;
+    margin: 1em;
+} 
+
+#sky-box {
+    grid-column: 3/4 ;
+    grid-row: 2/4;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+} 
+
+#temp-value, #sect-arrow-up, #sect-arrow-down, #real-time-box, #default-city {
+    text-align: center;
+}
+
+#up-arrow, #down-arrow, #temp-value {
+    padding: 5px;
+    font-size: 4em;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+#reset-city, #real-time-button, #sky-options{
+    font-size: 1.5em;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1em;
+}
+
+#enter-city-name {
+    margin-bottom: 2em;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#default-city {
+    margin-bottom: 1em;
+}
+
+#sky-options-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sky-image-container {
+    margin-top: 2em;
+    height: 200px;
+    width: 200px;
+}
+
+#sky-image {
+    height: 100%;
+    width: 100%;
+    border: #2F2F2D 2px solid;
+}
+
+.body_hot {
+    background-image: url('/photos/best_desert.jpeg');
+}
+
+.body_warm {
+    background-image: url('/photos/spring.jpeg');
+}
+
+.body_cool {
+    background-image: url('/photos/fall_4.jpeg');
+}
+
+.body_chilly {
+    background-image: url('/photos/fall_3.jpeg');
+}
+
+.body_cold {
+    background-image: url('/photos/colorado-snow.jpeg');
+}
+
+.hot {
+    color: red;
+}
+
+.warm{
+    color: orange;
+}
+
+.cool { 
+    color: yellow;
+
+}
+
+.chilly{ 
+    color: green;
+}
+
+.cold {
+    color: teal;
+}
+
+.sunny { background-image: url('/photos/sunny_sky.jpeg');
+}
+
+.cloudy { background-image: url('/photos/cloudy_light.jpeg');
+}
+
+.rainy {  background-image: url('/photos/rainy.png');
+}
+
+.snowy { background-image: url('/photos/snowy.png');
+}
