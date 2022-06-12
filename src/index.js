@@ -20,20 +20,41 @@ const tempColor = (temp) => {
 const landscapeChange = (temp) => {
   if (temp >= 80) {
     document.getElementById(
-      'landscape'
+      'landscape-value'
     ).textContent = `"🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"`;
   } else if (temp >= 70 && temp <= 79) {
     document.getElementById(
-      'landscape'
+      'landscape-value'
     ).textContent = `"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"`;
   } else if (temp >= 60 && temp <= 69) {
     document.getElementById(
-      'landscape'
+      'landscape-value'
     ).textContent = `"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"`;
+  } else { 
+    document.getElementById(
+      'landscape-value'
+    ).textContent = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
+  }
+};
+
+// changing sky emojis
+const skyChange = (temp) => {
+  if (temp >= 80) {
+    document.getElementById(
+      'sky-value'
+    ).textContent = `"☁️ ☁️ ☁️ ☀️ ☁️ ☁️"` ;
+  } else if (temp >= 70 && temp <= 79) {
+    document.getElementById(
+      'sky-value'
+    ).textContent = `"☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"`;
+  } else if (temp >= 60 && temp <= 69) {
+    document.getElementById(
+      'sky-value'
+    ).textContent = `"🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"`;
   } else {
     document.getElementById(
-      'landscape'
-    ).textContent = `"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"`;
+      'sky-value'
+    ).textContent = `"🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"`;
   }
 };
 
