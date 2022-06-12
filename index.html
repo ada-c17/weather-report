@@ -5,8 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href = "styles/index.css" rel="stylesheet">
 </head>
 <body>
-    
+    <h1> Weather Report</h1>
+    <h2 id="subheader">What I Wish The Weather Was Like in Brownsville</h2>
+    <main>
+        <div id="center-section" class="background" >
+            <div id="options" >
+                <select id="sky-select">
+                    <option value="change-sky">Change Sky</option>
+                    <option value="sunny">Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                </select>
+                <span id="set-city">
+                    <label>City:</label>
+                    <input type="text" name="city">
+                    <button id="reset-button">Reset</button>
+                </span>
+                <button id="get-weather-button">Get Realtime Weather</button>
+            </div>
+            <div id="temp-control">
+                <img src="images/left-arrow.png" alt="Left pointing arrow" class="arrow" id="left-arrow">
+                <h2 id="temp">75°F</h2>
+                <img src="images/right-arrow.png" alt="Right pointing arrow" class="arrow" id="right-arrow">
+            </div>
+            <div id="landscape-container">
+                <img src="images/60.png" alt="Oak tree from Animal Crossings New Horizions" id="landscape">
+            </div>
+        </div>
+    </main>
+    <p>Website design inspired by <a href="https://nookipedia.com/wiki/Main_Page">Nookipedia</a></p>
 </body>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+<script src="src/index.js"></script>
 </html>
