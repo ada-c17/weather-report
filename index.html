@@ -5,8 +5,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet">
 </head>
 <body>
-    
+    <main class="container">
+        <header class="header">
+            <h1> Weather Report<h1>
+            <span class="city-header"> For the lovely city of
+                <!-- ✨ <span id="city-name">Some city</span> ✨    -->
+                ✨ <span id="city-name">Seattle</span> ✨         
+            </span>
+        </header>
+
+        <nav class="nav">
+            <div class="nav-wrapper">
+            <section class="white-block">
+                <div class="temperature-wrapper">
+                    <h2 class="header-in-template">Temperature</h2>
+                    <div class="bottom-wrapper">
+                        <div class="number-wrapper">
+                        <div class="emoji-wrapper">
+
+                            <section id="upArrowContainer">
+                                <button type="button" id="upArrow"> ⬆️ </button>
+                            </section>
+                            
+                            <section id="currentTempContainer">
+                                <div id="currentTemp" class="temperature">41</div>
+                            </section>
+
+                            <section id="DownArrowContainer">
+                                <button type="button" id="downArrow"> ⬇️ </button>
+                            </section>
+
+                        </div>
+                        </div>
+                        <button type="button" class="button-getrealtime-wrapper" id ="realTempButton">
+                        <p class="button-text"> Get Realtime Temperature </p>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="white-block">
+                <div class = "sky-wrapper">
+                <h2 class= "header-in-sky">Sky</h2>
+                <div class = "selection-wrapper">
+                    <form action="/action_page.php">
+                    <!-- <select name="sky-selector" id="sky-selector"> -->
+                    <select name="sky-selector" id="skySelector">
+                        <option value="change">Change sky</option>
+                        <option value="sunny">Sunny</option>
+                        <option value="cloudy">Cloudy</option>
+                        <option value="rainy">Rainy</option>
+                        <option value="snowy">Snowy</option>
+                    </select>
+                    </form>
+                </div>
+                </div>
+            </section>
+            
+            <section class="white-block">
+                <div class = "city-wrapper">
+                    <h2 class= "header-in-city-name">City Name</h2>
+                    <div class = "input-city-wrapper">
+                        <form>
+                            <input type="text" id="cname" name="cname"><br>
+                        </form>
+                        <input id = "inputButton" type="reset">
+                        <!-- <input id = "input_button" type="reset"> -->
+                    </div>
+                </div>
+            </section>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class= 'garden-container'>
+                <div class="garden-heading"> 
+                    <h2>Weather Garden</h2> 
+                    <section class="garden-block">
+                        <!-- <div id = "garden-content"> -->
+                        <div id = "gardenContent">
+                            <div id= "sky">🌧 🌈 🌧 🛸 🌤 🌈 🌧 🌈 🌧</div>
+                            <div id= "ground">☕☔🌸🏔️🦦💕🐳🍎🌲🎡⛴️</div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js" type="text/javascript"></script>
 </body>
 </html>
