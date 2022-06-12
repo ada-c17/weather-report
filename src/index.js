@@ -68,10 +68,30 @@ const downEvent = () => {
 const cityInput = document.getElementById('city-input');
 const cityName = document.getElementById('city-name2');
 
+const updateCityButton = () => {
+  const updateButton = document.getElementById('city-button');
+  updateButton.addEventListener('click', updateCityValue(cityInput));
+};
+
 const updateCityValue = (cityInput) => {
   cityName.textContent = cityInput.target.value;
 
   findLatitudeAndLongitude();
+};
+
+const resetValue = () => {
+  // cityInput.textContent.value = '';
+  cityInput.value = '';
+  cityName.textContent = 'Enter a city';
+
+  const tempVal = document.getElementById('temp-value');
+  tempVal.value = 0;
+};
+
+const resetCityButton = () => {
+  const resetButton = document.getElementById('reset-button');
+  resetButton.addEventListener('click', resetValue);
+  // console.log('BUTTTTTONNNN');
 };
 
 // changing sky emojis
@@ -142,6 +162,9 @@ skySelection.addEventListener('change', (event) => {
 });
 
 cityInput.addEventListener('change', updateCityValue);
+
+// document.addEventListener('DOMContentLoaded', updateCityValue);
+
 // document.addEventListener('change', updateCityValue);
 
 // document.addEventListener('change', updateSkyValue);
@@ -149,3 +172,6 @@ cityInput.addEventListener('change', updateCityValue);
 
 document.addEventListener('DOMContentLoaded', upEvent);
 document.addEventListener('DOMContentLoaded', downEvent);
+
+//maybe usesless
+// document.addEventListener('DOMContentLoaded', resetCityValue);
