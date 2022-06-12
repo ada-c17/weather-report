@@ -64,6 +64,7 @@ const changeTemp = () => {
   const currentTemp = document.getElementById('display-temp');
   const arrowUpButton = document.getElementById('arrow-up');
   const arrowDownButton = document.getElementById('arrow-down');
+  const resetButton = document.getElementById('reset-temp');
   arrowUpButton.addEventListener('click', () => {
     state.temp += 1;
     currentTemp.textContent = state.temp;
@@ -75,6 +76,9 @@ const changeTemp = () => {
     currentTemp.textContent = state.temp;
     changeTempColor();
     changeLandscape();
+  });
+  resetButton.addEventListener('click', () => {
+    getCurrentWeather();
   });
 };
 
@@ -88,7 +92,8 @@ const changeCityName = () => {
   });
   resetButton.addEventListener('click', () => {
     currentCity.textContent = 'Weather for the city of: Seattle, WA';
-    cityInput.value = '';
+    cityInput.value = 'Seattle, WA';
+    getdefaultWeather();
   });
 };
 
@@ -106,8 +111,24 @@ const getCurrentWeather = () => {
         console.log(state.sky);
         changeTempColor();
         changeLandscape();
-        getSky();
+        getCurrentSky();
       });
+    });
+  });
+};
+
+const getdefaultWeather = () => {
+  const currentTemp = document.getElementById('display-temp');
+  getLatLon('Seattle').then((latlon) => {
+    getWeather(latlon).then((data) => {
+      farTemp = Math.floor(1.8 * (data.temp - 273) + 32);
+      state.temp = farTemp;
+      currentTemp.textContent = state.temp;
+      state.sky = data.weather[0].icon;
+      console.log(state.sky);
+      changeTempColor();
+      changeLandscape();
+      getCurrentSky();
     });
   });
 };
@@ -138,47 +159,48 @@ const getWeather = ([latitude, longitude]) => {
     });
 };
 
-const getSky = () => {
-  const backgroundColor = document.querySelector('body');
+const getCurrentSky = () => {
   const currentSky = document.querySelector('#sky-select');
 
   for (const [condition, icons] of Object.entries(skyValues)) {
     console.log(condition);
     if (icons.includes(state.sky)) {
       currentSky.value = condition;
-      if (currentSky.value === 'sunny') {
-        backgroundColor.style.backgroundColor = 'goldenrod';
-      } else if (currentSky.value === 'cloudy') {
-        backgroundColor.style.backgroundColor = 'grey';
-      } else if (currentSky.value === 'raining') {
-        backgroundColor.style.backgroundColor = 'blue';
-      } else if (currentSky.value === 'snowing') {
-        backgroundColor.style.backgroundColor = 'white';
-      }
+      changeSky(condition);
     }
+  }
+  currentSky.addEventListener('change', () => {
+    changeSky(currentSky.value);
+  });
+};
+
+const changeSky = (currentSkyValue) => {
+  const backgroundColor = document.querySelector('body');
+  if (currentSkyValue === 'sunny') {
+    backgroundColor.style.backgroundColor = 'goldenrod';
+  } else if (currentSkyValue === 'cloudy') {
+    backgroundColor.style.backgroundColor = 'grey';
+  } else if (currentSkyValue === 'raining') {
+    backgroundColor.style.backgroundColor = 'blue';
+  } else if (currentSkyValue === 'snowing') {
+    backgroundColor.style.backgroundColor = 'white';
   }
 };
 
-const changeSky = () => {
-  const currentSky = document.querySelector('#sky-select');
-  const backgroundColor = document.querySelector('body');
+// const changeSkySelector = () => {
+//   const currentSky = document.querySelector('#sky-select');
 
-  currentSky.addEventListener('change', () => {
-    if (currentSky.value === 'sunny') {
-      backgroundColor.style.backgroundColor = 'goldenrod';
-    } else if (currentSky.value === 'cloudy') {
-      backgroundColor.style.backgroundColor = 'grey';
-    } else if (currentSky.value === 'raining') {
-      backgroundColor.style.backgroundColor = 'blue';
-    } else if (currentSky.value === 'snowing') {
-      backgroundColor.style.backgroundColor = 'white';
-    }
-  });
-};
+//   currentSky.addEventListener('change', () => {
+//     changeSky(currentSky.value);
+//   });
+// };
 
 // function calls for all defined functions
 document.addEventListener('DOMContentLoaded', changeTemp);
 document.addEventListener('DOMContentLoaded', changeLandscape);
 document.addEventListener('DOMContentLoaded', changeCityName);
-document.addEventListener('DOMContentLoaded', changeSky);
+// document.addEventListener('DOMContentLoaded', changeSkySelector);
 document.addEventListener('DOMContentLoaded', getCurrentWeather);
+document.addEventListener('DOMContentLoaded', changeSky);
+document.addEventListener('DOMContentLoaded', getCurrentSky);
+document.addEventListener('DOMContentLoaded', getdefaultWeather);
