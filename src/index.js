@@ -1,5 +1,5 @@
-// const { default: axios } = require('axios');
-let currentTemp = 41;
+let currentTemp = 54;
+let city = 'Seattle';
 
 const newCity = () => {
   const cityValue = document.getElementById('cname').value;
@@ -9,18 +9,22 @@ const newCity = () => {
 };
 
 const API = 'http://127.0.0.1:5000';
+// city = document.getElementById('cname').value;
 
 const getCityLoc = () => {
-  // const API = 'http://127.0.0.1:5000';
-  const city = document.getElementById('cname').value;
-  const tempValue = document.getElementById('currentTemp');
+  city = document.getElementById('cname').value;
+  // if (city !== 'Seattle') {
+  //   city = document.getElementById('cname').value;
+  // } else {
+  //   city = 'Seattle';
+  // }
   console.log(city);
+  const tempValue = document.getElementById('currentTemp');
 
   axios
     .get(`${API}/location`, { params: { q: city, format: 'JSON' } })
     .then((response) => {
       console.log('Success');
-      // console.log(response.data[0].lat);
       const lat = response.data[0].lat;
       const lon = response.data[0].lon;
       console.log(lat);
@@ -49,23 +53,6 @@ const getCityLoc = () => {
         });
     });
 };
-// const getWeather = async (lat, lon) => {
-//   console.log(lat);
-//   console.log(lon);
-//   const response = await axios.get(`${API}/weather`, {
-//     params: {
-//       lat: lat,
-//       lon: lon,
-//       format: 'JSON',
-//     },
-//   });
-//   console.log('Weather!');
-//   console.log(response.data.current.temp);
-//   convertTemp(response.data.current.temp);
-//   // convertTemp(response.data.current.temp);
-//   // tempTextColor(convertTemp(response.data.current.temp));
-//   // tempGround(newTemp);
-// };
 
 const convertTemp = (temp) => {
   const displayTemp = document.getElementById('currentTemp');
@@ -73,11 +60,6 @@ const convertTemp = (temp) => {
   displayTemp.textContent = farenheit;
 };
 
-// convertTemp(0);
-
-// getCityLoc();
-//is could be hardcoded?
-// let currentTemp = document.getElementById('currentTemp').textContent;
 console.log(currentTemp);
 
 const newTemp = (currentTemp) => {
@@ -88,13 +70,11 @@ const newTemp = (currentTemp) => {
 };
 
 const upTemp = () => {
-  // currentTemp = document.getElementById('currentTemp').textContent;
   currentTemp += 1;
   newTemp(currentTemp);
 };
 
 const downTemp = () => {
-  // currentTemp = document.getElementById('currentTemp').textContent;
   currentTemp -= 1;
   newTemp(currentTemp);
 };
@@ -117,36 +97,22 @@ const tempTextColor = (currentTemp) => {
 };
 
 const tempGround = (currentTemp) => {
-  // let temperatureValue = document.getElementById('currentTemp').textContent;
-  // let temperatureContainer = document.getElementById('currentTemp');
-  // console.log(temperatureValue);
-  // console.log(temperatureContainer);
-
   let gardenBottomValue = document.getElementById('ground').textContent;
   let gardenBottomValueContainer = document.getElementById('ground');
-  // console.log(gardenBottomValue);
-  // console.log(gardenBottomValueContainer);
 
-  // Just for fun added special bottom for Seattle
   const headerCity = document.getElementById('city-name').textContent;
   if (headerCity === 'Seattle') {
     gardenBottomValueContainer.textContent = '☕☔🌸🏔️🦦💕🐳🍎🌲🎡⛴️';
   } else {
     if (currentTemp > 80) {
-      // temperatureContainer.className = 'red';
       gardenBottomValueContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
-      // console.log(temperatureContainer);
     } else if (currentTemp >= 70) {
-      // temperatureContainer.className = 'orange';
       gardenBottomValueContainer.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
     } else if (currentTemp >= 60) {
-      // temperatureContainer.className = 'yellow';
       gardenBottomValueContainer.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
     } else if (currentTemp >= 50) {
-      // temperatureContainer.className = 'green';
       gardenBottomValueContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲⛰️🍁🌲⛄️🍂🌲';
     } else if (currentTemp <= 49) {
-      // temperatureContainer.className = 'teal';
       gardenBottomValueContainer.textContent = '❄️🏂⛄️🌲⛄️❄️🌲🏔️⛷️🌲❄️⛄️❄️';
     }
   }
@@ -176,6 +142,12 @@ const reset = () => {
   document.getElementById('cname').value = '';
   const headerCity = document.getElementById('city-name');
   headerCity.textContent = 'Seattle';
+  let gardenBottomValueContainer = document.getElementById('ground');
+  gardenBottomValueContainer.textContent = '☕☔🌸🏔️🦦💕🐳🍎🌲🎡⛴️';
+  const displayTemp = document.getElementById('currentTemp');
+  tempTextColor((displayTemp.textContent = 54));
+  // city = 'Seattle'; #tried to get api to call Seatle by default
+  // getCityLoc(city);
 };
 
 const registerEventHandlers = () => {
@@ -186,11 +158,9 @@ const registerEventHandlers = () => {
 
   const upButton = document.querySelector('#upArrow');
   upButton.addEventListener('click', upTemp);
-  // upButton.addEventListener('click', tempColor);
 
   const downButton = document.querySelector('#downArrow');
   downButton.addEventListener('click', downTemp);
-  // downButton.addEventListener('click', tempColor);
 
   const getCurrentTempButton = document.getElementById('realTempButton');
   getCurrentTempButton.addEventListener('click', getCityLoc);
@@ -203,13 +173,3 @@ const registerEventHandlers = () => {
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
-// if (document.readyState !== 'loading') {
-//   newTemp();
-//   upTemp();
-//   downTemp = ()
-// } else {
-//   document.addEventListener('DOMContentLoaded', newTemp);
-//   document.addEventListener('DOMContentLoaded', upTemp);
-// document.addEventListener('DOMContentLoaded', downTemp);
-// }
