@@ -1,6 +1,9 @@
 const state = {
   temp: 50,
-  city: 'Bloomington',
+  defaultCity: 'Bloomington',
+  currentCity: 'Bloomington',
+  lat: 39.1670396,
+  lon: -86.5342881,
 };
 
 const upButton = document.getElementById('up-arrow');
@@ -9,8 +12,9 @@ const tempText = document.getElementById('current-temp');
 const ground = document.getElementById('ground');
 const cityHeader = document.getElementById('city-name');
 const cityInput = document.getElementById('city');
+const realTemp = document.getElementById('realtime-temp');
 
-cityInput.value = state['city'];
+cityInput.value = state['defaultCity'];
 
 const tempColor = (temp) => {
   if (temp >= 80) {
@@ -56,6 +60,36 @@ const changeCityHeader = () => {
   cityHeader.textContent = cityInput.value;
 };
 
+const getCityLatAndLon = () => {
+  state['currentCity'] = cityInput.value;
+
+  axios
+    .get('http://localhost:5000/location', {
+      params: { q: state['currentCity'] },
+    })
+    .then((response) => {
+      state['lat'] = response.data[0].lat;
+      state['lon'] = response.data[0].lon;
+    });
+};
+
+const changeToRealTemp = () => {
+  axios
+    .get('http://localhost:5000/weather', {
+      params: { lat: state['lat'], lon: state['lon'] },
+    })
+    .then((response) => {
+      const newTempKelvin = response.data.current.temp;
+      const newTempF = 1.8 * (newTempKelvin - 273) + 32;
+      state['temp'] = Math.round(newTempF);
+      tempColor(state['temp']);
+      tempText.textContent = state['temp'];
+      groundLayout(state['temp']);
+    });
+};
+
 upButton.addEventListener('click', increaseTemp);
 downButton.addEventListener('click', decreaseTemp);
 cityInput.addEventListener('input', changeCityHeader);
+cityInput.addEventListener('change', getCityLatAndLon);
+realTemp.addEventListener('click', changeToRealTemp);
