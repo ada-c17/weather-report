@@ -88,10 +88,16 @@ const tempGround = (currentTemp) => {
   // console.log(gardenBottomValue);
   // console.log(gardenBottomValueContainer);
 
+  // Just for fun added special bottom for Seattle
+  // const headerCity = document.getElementById('city-name').textContent;
+  // if (headerCity === 'Seattle') {
+  //   gardenBottomValueContainer.textContent = '☕☔🌸🏔️🦦💕🐳🍎🌲🎡⛴️';
+  // }
+
   if (currentTemp > 80) {
     // temperatureContainer.className = 'red';
     gardenBottomValueContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
-    console.log(temperatureContainer);
+    // console.log(temperatureContainer);
   } else if (currentTemp >= 70) {
     // temperatureContainer.className = 'orange';
     gardenBottomValueContainer.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
@@ -127,6 +133,12 @@ const changeSky = () => {
   gardenContent.textContent = currentSky;
 };
 
+const reset = () => {
+  document.getElementById('cname').value = '';
+  const headerCity = document.getElementById('city-name');
+  headerCity.textContent = 'Seattle';
+};
+
 const registerEventHandlers = () => {
   const newCityUpdate = document.getElementById('cname');
   newCityUpdate.addEventListener('input', newCity);
@@ -146,6 +158,9 @@ const registerEventHandlers = () => {
 
   const changeSkyIfSelected = document.getElementById('skySelector');
   changeSkyIfSelected.addEventListener('change', changeSky);
+
+  const getResetButton = document.getElementById('inputButton');
+  getResetButton.addEventListener('click', reset);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
