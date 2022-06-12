@@ -42,6 +42,13 @@ const decreaseTemp = () => {
   tempNumColorSet();
 };
 
+// city input function ??? how to register
+let input = document.querySelector('input');
+const log = document.getElementById('values');
+const getCityName = (e) => {
+  log.textContent = e.target.value;
+};
+
 const registerEventHandlers = () => {
   // register increase temp
   const increaseTempButton = document.getElementById('up');
@@ -50,5 +57,8 @@ const registerEventHandlers = () => {
   const decreaseTempButton = document.getElementById('down');
   decreaseTempButton.addEventListener('click', decreaseTemp);
 };
+
+//register input city name
+input.addEventListener('input', getCityName);
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);

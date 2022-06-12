@@ -36,11 +36,13 @@
 
 }
 
-#information{
-    background-color: pink;
+#values{
     text-align: center;
-    
+    font-weight: bolder;
+    font-size: x-large;
+    color: lightskyblue;
 }
+
 
 
 #landscape {
