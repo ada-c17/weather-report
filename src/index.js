@@ -100,6 +100,7 @@ const changeSky = () => {
   }
 };
 
+// gets called when page loads- see html. (and by clicking reset)
 const defaultSettings = () => {
   // defaults for text for city name, input field, sky emojis
   const cityContainer = document.getElementById('city');
