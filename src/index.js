@@ -97,7 +97,7 @@ const realWeatherQuery = () => {
 };
 
 const updateSky = (e) => {
-  document.querySelector('body').classList = e.target.value;
+  document.querySelector('main').classList = e.target.value;
 };
 
 const defaultCity = () => {
@@ -127,17 +127,16 @@ const registerEventHandlers = () => {
   document.getElementById('sky-selector').addEventListener('change', updateSky);
 };
 
+const skies = ['☀️', '🌤', '⛅️', '🌥', '🌦', '🌧', '🌈'];
+const skyMenu = document.getElementById('sky-selector');
+
 const createOption = (emoji) => {
   const opt = document.createElement('option');
   opt.textContent = emoji;
   return opt;
 };
 
-const skyOptions = ['☀️', '🌤', '⛅️', '🌥', '🌦', '🌧', '⛈', '🌈'].map(
-  createOption
-);
-const skyMenu = document.getElementById('sky-selector');
-for (const skyOption of skyOptions) {
+for (const skyOption of skies.map(createOption)) {
   skyMenu.appendChild(skyOption);
 }
 

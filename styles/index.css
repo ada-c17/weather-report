@@ -11,11 +11,22 @@
     --goldilocks: rgb(103, 119, 106);
     --cool: rgb(40, 98, 221);
     --cold: rgb(168, 195, 255);
+    --sun: radial-gradient(circle at top, rgb(255, 233, 31) 10%, lightyellow 50%, lightblue 100%);
+    --bare-sun: radial-gradient(circle at top, rgba(255, 233, 31, 0.8) 10%, rgba(255,255,224,0.4) 50%, rgba(255,255,255,0) 100%);
+    --mid-clouds: radial-gradient(ellipse at center, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 80%, rgba(255,255,255,0) 100%);
+    --right-clouds: radial-gradient(ellipse at top right, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 80%, rgba(255,255,255,0) 100%);
+    --left-clouds: radial-gradient(ellipse at top left, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 80%, rgba(255,255,255,0) 100%);;
+    --rain: linear-gradient(180deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 23%, rgba(255,255,255,1) 26%, rgba(255,255,255,1) 34%, rgba(255,255,255,0) 37%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 53%, rgba(255,255,255,1) 56%, rgba(255,255,255,1) 66%,rgba(255,255,255,0) 69%, rgba(255,255,255,1) 72%, rgba(255,255,255,1) 80%,rgba(255,255,255,0) 83%, rgba(255,255,255,1) 86%, rgba(255,255,255,1) 94%,rgba(255,255,255,0) 97%, rgba(255,255,255,1) 99%),
+            linear-gradient(90deg, rgba(255,255,255,1) 8%, rgba(56,148,204,1) 11%, rgba(255,255,255,1) 14%, rgba(255,255,255,1) 22%, rgba(56,148,204,1) 25%, rgba(255,255,255,1) 28%, rgba(255,255,255,1) 40%, rgba(56,148,204,1) 43%, rgba(255,255,255,1) 46%, rgba(255,255,255,1) 54%,rgba(56,148,204,1) 57%, rgba(255,255,255,1) 60%, rgba(255,255,255,1) 68%,rgba(56,148,204,1) 71%, rgba(255,255,255,1) 74%, rgba(255,255,255,1) 85%,rgba(56,148,204,1) 88%, rgba(255,255,255,1) 91%);
+    --darkness: linear-gradient(rgba(50,50,50,0.5) 0%, rgba(50,50,50,0.1) 50%, rgba(50,50,50,0.5) 100%);
+    --rainbow: radial-gradient(circle at center,red 0%, orange 20%, yellow 40%, green 60%, blue 80%, purple 100%);
 }
 
-body {
+main {
     display: flex;
     flex-flow: row wrap;
+    width: 100vw;
+    height: 100vh;
 }
 
 #city-display {
@@ -36,7 +47,7 @@ body {
 }
 
 #city-input {
-    z-index: -1;
+    z-index: -10;
     position: fixed;
     top: 0px;
     height: 100vh;
@@ -149,27 +160,23 @@ button {
 }
 
 .☀️ {
-    background-color: rgb(255, 226, 82);
+    background: var(--sun);
 }
 .🌤 {
-    background-color: rgb(227, 223, 160);
+    background: var(--mid-clouds), var(--sun);
 }
-
 .⛅️ {
-    background-color: rgb(167, 164, 131);
+    background: var(--right-clouds), var(--mid-clouds), var(--sun);
 }
 .🌥 {
-    background-color: rgb(122, 122, 103);
+    background: var(--left-clouds), var(--right-clouds), var(--mid-clouds), var(--sun);
 }
 .🌦 {
-    background-color: rgb(181, 209, 222);
+    background: var(--left-clouds), var(--right-clouds), var(--mid-clouds), var(--bare-sun), var(--rain);
 }
 .🌧 {
-    background-color: rgb(141, 243, 233);
-}
-.⛈ {
-    background-color: rgb(55, 115, 108);
+    background: var(--darkness), var(--left-clouds), var(--right-clouds), var(--mid-clouds), var(--rain);
 }
 .🌈 {
-    background: radial-gradient(circle at center,red 0%, orange 20%, yellow 40%, green 60%, blue 80%, purple 100%);
+    background: var(--bare-sun), var(--rainbow), var(--sun);
 }
