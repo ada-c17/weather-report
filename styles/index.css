@@ -15,6 +15,11 @@ body {
     margin: 2rem;
     }
 
+button {
+    margin: 2px;
+    color: #546b76;
+}
+
 ul {
     list-style: none;
 }
@@ -23,7 +28,8 @@ li {
     list-style: none;
     padding: 3px;
 }
-    
+
+/* colors for temp display */
 .veryHot {
     color: red;
 }
