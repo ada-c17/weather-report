@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Questrial&display=swap');
+
 body {
     background: linear-gradient(45deg,#fec5bb,#fcd5ce,#fae1dd,#f8edeb,#e8e8e4,#d8e2dc,#ece4db,
     #ffe5d9,#ffd7ba,#fec89a);
@@ -16,6 +17,12 @@ main {
     padding: 2vw;
     margin: 4vw;
     
+}
+main button {
+    background-color: #fcd5ce;
+    border-left-color: #fec89a;
+    border-top-color: #ffd7ba;
+    border-radius: 10vw;
 }
 
 main:nth-of-type(3) {
@@ -38,6 +45,7 @@ header h2 {
 
 header h1 {
     color: #38040e;
+    font-family: 'Fascinate', cursive;
     align-self: flex-end;
     margin-right: 10vw;
     margin-bottom: 0.25vh;
@@ -52,12 +60,18 @@ header h1 {
 #cityInput {
     flex: 5 100%;
     margin: 1vw;
+    display: flex;
+    justify-content: space-evenly;
+    padding:4vw;
+}
+#cityInput button {
+    width: 10vw;
 }
 
 #weatherGarden {
     flex: 3 60%;
     margin: 1vw;
-    height: 56vh;
+    height: 58vh;
 }
 
 main div {
@@ -66,26 +80,31 @@ main div {
     padding-bottom: 1vh;
 }
 
-#tempAdjust {
+.tempAdjust {
     display:flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
 }
 
-#tempAdjust {
+.tempAdjust {
     background: linear-gradient(20deg,#fec5bb,#fcd5ce,#fae1dd,#f8edeb,#e8e8e4,#d8e2dc,#ece4db,
     #ffe5d9,#ffd7ba,#fec89a);
 }
 
-#tempAdjust h4 {
+
+.tempAdjust h4 {
     flex: 2 100%;
     text-align: center;
 }
 
-#tempAdjust h2 {
-    font-size: 4em;
+.tempAdjust h2 {
+    font-size: 5em;
+    color: #fec89a;
+    text-shadow: 2px 2px 2px #38040e;
+    font-family: 'Fascinate', cursive;
 }
+
 
 #raiseTemp, #lowerTemp {
     height: 4vh;
@@ -94,6 +113,7 @@ main div {
 #currentTemp {
     font-size: 2.25em;
 }
+
 #skySelector {
     margin-top: 1vh;
 }
@@ -109,10 +129,11 @@ main div {
 
 #layerReport {
     flex: 4;
+    text-align: center;
 }
 
 #skySelector, #cityInput,
-#weatherGarden, #tempAdjust, 
+#weatherGarden, .tempAdjust, 
 #layerReport {
     background-color: #f8edeb;
     border-color: #38040e;

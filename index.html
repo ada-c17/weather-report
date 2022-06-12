@@ -16,21 +16,22 @@
 
     <main>
         <section id="cityInput">
-            <h3> city </h3>
+            <h3> what is the current weather in this city? : </h3>
 <!-- input might be more useful than text area-->
-            <textarea> city input </textarea>
-            <button id ="reset">RESET</button>
+            <input></input>
+            <button id ="reset">☁☁reset☁☁</button>
         </section>
 
         <section id="weatherGarden"> 
             <h4> weather garden </h4>
         </section>
         <div>
-            <section id="tempAdjust">
+            <section class="tempAdjust">
                 <h4>temp control</h4>
-                <button id="raiseTemp">👆</button>
-                <h2>00</h2>
                 <button id="lowerTemp">👇</button>
+                <button id="raiseTemp">👆</button>
+
+                <h2 id="temp">00</h2>
 
                 <button id="currentTemp">irl temp</button>
             </section>
@@ -47,11 +48,11 @@
         </div>
 
         <section id="layerReport">
-            <p>Wear whatever is most comfy</p> 
+            <p>Wear whatever is most comfy.</p> 
         </section>
 
     </main>
 </body>
-<script src="scripts/index.js"></script>
+<script src="src/index.js"></script>
 
 </html>
