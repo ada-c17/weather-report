@@ -38,12 +38,17 @@ const cityCallWeather = function (serverAddress, city) {
         })
         .catch((response) => {
           console.log(response.status);
-          console.log('There was an issue with the request [weather API].');
+          console.log('There was an unexpected issue with the weather API request.');
         });
     })
     .catch((response) => {
-      console.log(response.status);
-      console.log('There was an issue with the request [location API].');
+      if (response.status != 404) {
+        console.log(response.status);
+        console.log('There was an unexpected issue with the location API request.');
+      } else {
+        const cityName = document.querySelector('#cityName');
+        cityName.textContent = "Invalid City Name";
+      };
     });
 };
 
