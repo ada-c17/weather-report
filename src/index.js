@@ -1,9 +1,15 @@
 "use strict";
 
-const getRealTemp = () => {
-  const place = document.getElementById('reflectCity').textContent;
+const state = {
+  tempValue: 85,
+};
 
-  axios.get('http://localhost:5000/location', {
+// get current temperature
+const getRealTemp = () => {
+  const place = document.querySelector('input').value;
+
+  // axios.get('http://localhost:5000/location', {
+  axios.get('https://weather-report-c17-sharkss.herokuapp.com/location', {
     params: {
       'q': place
     }
@@ -11,7 +17,8 @@ const getRealTemp = () => {
   .then(response => {
     const lat = response.data[0].lat;
     const lon = response.data[0].lon;
-    axios.get('http://localhost:5000/weather', {
+    // axios.get('http://localhost:5000/weather', {
+    axios.get('https://weather-report-c17-sharkss.herokuapp.com/weather', {
       params: {
         'lat': lat,
         'lon': lon
@@ -20,88 +27,69 @@ const getRealTemp = () => {
     .then(response => {
       const tempK = response.data.current.temp;
       const tempF = (tempK - 273.15) * 9/5 + 32;
-      console.log(tempF);
-      console.log(response);
       state.tempValue = Math.floor(tempF);
       publishTemp();
     })
     .catch(error => {console.log('error!', error);})
   })
-  .catch(error => {console.log('error!');});
+  .catch(error => {console.log('error!', error);});
 }
 
-const state = {
-  tempValue: 35,
-  tempColor: 'green',
-  bgrImg: "url('../images/bgrImg.avif')",
-};
-
-// change the color of temperature text
+// change the color of temperature text, background image, place name, background emoji according to changes of temp
 const changeTempColor = () => {
   const temp = document.getElementById("tValue");
   const tempBackground = document.getElementById("tempBack");
-  const bodyImg = document.getElementsByTagName('body');
+  const bodyImg = document.getElementById("body");
   if (temp.textContent >= 80) {
     temp.className = 'red';
-    // state.bgrImg = "url('../images/desert.avif')";
-    // bodyImg.style.backgroundImage = `${state.bgrImg}`;
-    // state.bgrImg = "url(../images/desert.avif)";
-    // state.tempColor = 'red';
+    bodyImg.className = 'red1';
     tempBackground.textContent = "🏝🌵🏜";
   } else if (70 <= temp.textContent &&  temp.textContent <= 79) {
     temp.className = 'orange';
-    state.bgrImg = "url('../images/beach.avif')";
+    bodyImg.className = 'orange1';
     tempBackground.textContent = "🌻🌻🌻";
   } else if (60 <= temp.textContent &&  temp.textContent <= 69) {
     temp.className = 'yellow';
-    state.bgrImg = "url('../images/poppy.avif')";
+    bodyImg.className = 'yellow1';
     tempBackground.textContent = "🏔🏔🏔";
   } else if (50 <= temp.textContent && temp.textContent <= 59) {
     temp.className = 'green';
-    state.bgrImg = "url('../images/bgrImg.avif')";
+    bodyImg.className = 'green1';
     tempBackground.textContent = "🌳🌳🌳";
   } else if (temp.textContent < 49) {
     temp.className = 'teal';
-    state.bgrImg = "url('../images/frozen.avif')";
+    bodyImg.className = 'teal1';
     tempBackground.textContent = "☃️☃️☃️";
   }
 }
 
+// update tempValue state
 const updateTemp = (delta) => {
   state.tempValue += delta;
 }
 
-// const updateBgrImg = (imgSourse) => {
-//   state.bgrImg = imgSourse;
-// }
-
+// show temperature and all its changes to screen
 const publishTemp = () => {
   const temperature = document.getElementById('tValue');
-  temperature.textContent = `${state.tempValue}`;
+  temperature.textContent = state.tempValue;
   changeTempColor();
 }
 
-// const publishBgrImg = () => {
-//   const bodyImg = document.getElementsByTagName('body');
-//   bodyImg.style.backgroundImage = `${state.bgrImg}`;
-//   changeTempColor;
-// }
-
+// all events
 const addEvents = () => {
   const arrowUp = document.getElementById('increase');
   arrowUp.addEventListener('click', () => {
     updateTemp(1);
     publishTemp();
-    // publishBgrImg();
   });
 
   const arrowDown = document.getElementById('decrease');
   arrowDown.addEventListener('click', () => {
     updateTemp(-1);
     publishTemp();
-    // publishBgrImg();
   });
 
+  // get 'input', get 'city', attach event to input, change city as reaction to event 
   const input = document.querySelector('input');
   const city = document.getElementById('reflectCity');
 
@@ -109,6 +97,7 @@ const addEvents = () => {
     city.textContent = e.target.value;
   });
 
+  // get 'select' element, add event to it, get 'options' of select and change pictures according to options
   const select = document.querySelector('select');
   select.addEventListener('change', (event) => {
     const result = document.querySelector('#skyPic');
@@ -123,6 +112,7 @@ const addEvents = () => {
     }
   })
 
+  // reset button
   const reset = document.getElementById('reset');
   const resetValue = input.getAttribute('value');
   reset.addEventListener('click', () => {
@@ -130,11 +120,10 @@ const addEvents = () => {
     city.textContent = resetValue;
   })
 
+  // get real temperature of place in the input field
   const getRealT = document.getElementById("realTime");
   getRealT.addEventListener('click', getRealTemp);
-  // getRealT.addEventListener('click', changeTempColor);
-
 };
 
-
+// attach event to whole document
 document.addEventListener('DOMContentLoaded', addEvents);

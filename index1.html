@@ -5,21 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/index1.css">
 </head>
-<body id="body">
+<body>
     <header>
+        <section>
+            <h1>Weather report</h1>
+                <span>
+                    Place: <span id="reflectCity">Sahara</span>
+            </div>
+        </section>
     </header>
     <main>
         <section id="container">
-            <section>
-                <h1>Weather report</h1>
-                <div id="city">
-                    <span>
-                        Place: <span id="reflectCity">Sahara</span>
-                    </span>
-                </div>
-            </section>
             <section id="skySection">
                 <h2>Beautiful sky</h2>
                 <div id="sky">
@@ -40,26 +38,27 @@
             <section id="tSection">
                 <div id="temperature">
                     <button id="decrease">⬇️</button>
-                    <span class ='def' id="tValue">85</span>
+                    <span class = 'def' id="tValue">81</span>
                     <button id="increase">⬆️</button>
                 </div>
             </section>
-            <section id="tempB">
+            <section>
                 <h2>Temperature background</h2>
                 <span id="tempBack">🏝🌵🏜</span>
             </section>
-            <section id="cityNameSection">
-                <h2>Place name:</h2>
-                <div id="bottom">
-                    <label for="inputCity">Lovely place:</label>
-                    <input type="text" id="inputCity" name="inputCity" value="Sahara">
-                </div>
-                <button id="reset">Reset Place</button>
-                <button id="realTime">Current temperature</button>
-            </section>
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        <section id="cityNameSection">
+            <h2>Place name:</h2>
+            <div id="bottom">
+                <label for="inputCity">Lovely place:</label>
+                <input type="text" id="inputCity" name="inputCity" value="Sahara">
+            </div>
+            <button id="reset">Reset Place</button>
+            <button id="realTime">Realtime temperature</button>
+        </section>
+    </footer>
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>

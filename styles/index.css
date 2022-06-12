@@ -6,37 +6,36 @@ h1 {
     font-size: 4em;
 }
 
-section {
-    /* background-color: aquamarine; */
-    text-align: center;
-    /* background-color: rgba(191, 191, 191, .4);
-    border-radius: 25%; */
+h2 {
+    font-size: 1.4rem;
 }
 
-html {
-    /* background-image: url('../images/bgrImg.avif');
-    background-size: cover; */
+section {
+    text-align: center;
 }
 
 body {
-    background-image: url('../images/bgrImg.avif');
-    background-size: cover;
-    /* background-color: rgb(59, 150, 164); */
-    /* background-image: url('../images/bgrImg.avif'); */
-    /* background-repeat: no-repeat; */
+    background-image: url('../images/desert.avif');
+    background-repeat: no-repeat;
+    background-size: 2000px 1000px;
 }
 
 button {
     font-size: 1.3rem;
-    background-color: #c2e1e7; /* Green */
+    background-color: #c2e1e7;
     border: none;
-    /* color: white; */
     border-radius: 8px;
 }
 
-span, label {
+span {
     font-size: 1.5rem;
     color: antiquewhite;
+}
+
+label {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bolder;
 }
 
 #reset {
@@ -47,28 +46,18 @@ span, label {
     margin: 1% 0 0 1%;
 }
 
-/* main {
-    border: 1px solid black;
-    background-image: url('../images/bgrImg.avif');
-    background-size: cover;
-} */
-
 #container {
     width: 40%;
-    /* height: 30vh; */
-    /* border: 2px solid red; */
     position: absolute;
-    /* top: 50%; */
     left: 30%;
-    background-color: rgba(191, 191, 191, .7);
+    background-color: rgba(191, 191, 191, .5);
     border-radius: 10%;
     padding-bottom: 2%;
-    
-    /* margin: -25px 0 0 -25px; */
 }
 
 #tValue {
-    font-size: 3rem;
+    font-size: 5rem;
+    border-radius: 10%;
 }
 
 #temperature, #bottom, #sky, #city {
@@ -79,35 +68,61 @@ span, label {
     font-size: 3rem;
 }
 
-#reflectCity, #inputCity {
+#inputCity {
     color:rgb(227, 23, 87);
-    font-size: 2rem;
+    font-size: 1.4rem;
 }
 
 #skyPic {
     font-size: 3rem;
 }
 
-.def {
-    color: teal;
-}
-
-.red {
+.red, .def {
     color: red;
 }
 
+.red1 {
+    background-image: url('../images/desert.avif');
+}
+
 .orange {
-    color: orange;
+    color: rgb(255, 95, 31);
+}
+
+.orange1 {
+    background-image: url('../images/poppy4.avif');
 }
 
 .yellow {
     color: yellow;
 }
 
+.yellow1 {
+    background-image: url('../images/field.avif');
+}
+
 .green {
     color: green;
 }
 
+.green1 {
+    background-image: url('../images/bgrImg.avif');
+}
+
 .teal {
     color: teal;
+}
+
+.teal1 {
+    background-image: url('../images/winter.avif');
+}
+
+#reflectCity {
+    font-size: 3rem;
+    color: whitesmoke; 
+}
+
+#skySelect {
+    font-size: 1.2rem;
+    
 }
