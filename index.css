@@ -1,5 +1,5 @@
 :root {
-    --very-hot: #EA5C2B;
+    --very-hot: #f33a3a;
     /* 80+ */
 
     --warm: #F7FD04;
@@ -14,7 +14,7 @@
     --chilly: #50b9a4;
     /* 50 -59 */
   
-    --cold: #55D8C1;
+    --cold: #588fba;
     /* 49 or below */
 
     --light-grey: #F1EEE9;
@@ -93,13 +93,13 @@ h1{
     display: flex;
 }
 #sky-box{
-    margin-left: 40px;
+    margin-left: 100px;
 }
 
 #tempTextDisplay{
     font-size: 100px;
     color: darkgreen;
-    margin: 30px 70px;
+    margin: 20px 100px;
     height: 2.8em;
     width: 3em;
     padding: 10px;
@@ -179,4 +179,25 @@ h1{
         background-repeat: no-repeat;
         background-size: cover;
       
+    }
+
+    #tempTextDisplay.seattlePartlySunny{
+        background: url("./images/seattleCoverPhoto.jpeg") top left;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: whitesmoke;
+      
+    }
+
+    #tempTextDisplay.seattleRain{
+        background: url("./images/rainSeattle.jpeg") top left;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: whitesmoke;
+      
+    }
+
+    .container3{
+        display:block;
+        margin-left: 100px;
     }

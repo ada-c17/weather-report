@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 const state ={
     temperature: 75,
     tempText: "Partly Sunny 🌤"
@@ -26,6 +28,21 @@ const updateSky = (e) =>{
         state.tempText = selectSkyValue
         tempText.textContent = `${state.tempText} 🌥`;
     }
+    else if (selectSkyValue == "Partly Sunny") {
+        console.log('in partly sunny block');
+        selectTempDisplay.className = `seattlePartlySunny`;
+        state.tempText = selectSkyValue
+        tempText.textContent = `${state.tempText} 🌤`;
+    }
+
+    else if (selectSkyValue == "Rain") {
+        console.log('in partly sunny block');
+        selectTempDisplay.className = `seattleRain`;
+        state.tempText = selectSkyValue
+        tempText.textContent = `${state.tempText} ☔️`;
+    }
+
+
 }
 
 const updateTempText = () =>{
