@@ -30,6 +30,7 @@ const getCityLoc = () => {
           const tempK = response.data.current.temp;
           const tempF = Math.floor(1.8 * (tempK - 273) + 32);
           tempValue.textContent = tempF;
+          newTemp(tempF);
           console.log(tempK);
           console.log(tempF);
         })
