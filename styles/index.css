@@ -1,0 +1,33 @@
+
+.container {
+    padding: 5%;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(lightgray, rgb(47, 84, 98));
+    display: flex;
+    background-position: center;
+    background-size: cover;
+    flex-direction: column;
+}
+
+.container * {
+    /* border: rgb(106, 142, 155), solid, 2px; */
+    max-width: 500px;
+    background: rgba(255,255,255);
+}
+
+.landscape{
+    margin-left: 21cm;
+}
+
+.sky{
+    margin-top: 1cm;
+}
+
+.city {
+    
+}
+
+.temperature {
+
+}

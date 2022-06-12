@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Tyrah's Weather Report</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="temperature">
+            <h1>Temperature</h1>
+            <button class="up-arrow" type="submit"><img src='photos/up-arrow.png' alt='Up arrow button'></button>
+            <h2 id="currentTemp">0</h2>
+            <button class="down-arrow" type="submit"><img src='photos/down-arrow.png' alt='down arrow button'></button>
+        </div>
+        <div class="sky">
+            <h1>Sky</h1>
+            <ul>
+                <li>Sunny</li>
+                <li>Rainy</li>
+                <li>Sunset</li>
+                <li>Lightning Storm</li>
+            </ul>
+        </div>
+        <div class="landscape">
+            <h1>Weather Garden</h1>
+        </div>
+        <div class="city">
+            <button type="submit"><img src='photos/search_icon.png' alt='search button'></button>
+            <h1>City Name</h1>
+            <button type="reset"><img src='photos/refresh.png' alt='refresh all button'></button>
+        </div>
+    </div>
+    <script src="src/index.js"></script>
 </body>
 </html>
