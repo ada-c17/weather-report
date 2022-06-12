@@ -8,8 +8,8 @@ const newCity = () => {
   headerCity.textContent = cityValue;
 };
 
-// const API = 'http://127.0.0.1:5000';
-const API = 'https://git.heroku.com/weather-app-vd.git';
+const API = 'http://127.0.0.1:5000';
+// const API = 'https://git.heroku.com/weather-app-vd.git';
 // const API = 'https://vera-and-diana-weather-report.surge.sh/';
 // city = document.getElementById('cname').value;
 
