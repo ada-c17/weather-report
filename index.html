@@ -6,75 +6,197 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
     <link href="../styles/index.css" rel="stylesheet">
+    <!--font-family: 'Tapestry', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tapestry&display=swap" rel="stylesheet"> 
+    <!--font-family: 'Bad Script', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet"> 
+    <!--font-family: 'Berkshire Swash', cursive; -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet"> 
+    <!--font-family: 'Reenie Beanie', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet"> 
+    <!--font-family: 'Shadows Into Light Two', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet"> 
+    <!--font-family: 'Rubik Moonrocks', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+
+    <!--font-family: 'Kdam Thmor Pro', sans-serif;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet"> 
+    
+    <!--font-family: 'Turret Road', cursive;-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@700&display=swap" rel="stylesheet"> 
 </head>
-<body class="container">
-    <header class="header">
-        <h1>Weather Report</h1>
-        <!-- City updates to "city-input" text -->
-        <h2 id="header-city">For the city of Seattle</h2>
-    </header>
-    <aside>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="weather-report">
+                <h1> 💫  Weather Report
+                <span class="city-of">
+                    for the city of
+                </span>
+                </h1>
+            </div>
+    
+            <div id="header-city">
+                ✨ Seattle ✨
+            </div>
+            <div class="emoji">
+                🌈 ☔️🌤🌦⛈❄️⛄️
+            </div>
+        </header>
+        
         <section class="city">
-            <div>
+            <div >
             <h3>City Name</h3>
             </div>
             <div class="city-name-container">
-                <div>
-                <input id="city-name" type="text" placeholder="Seattle">
+                <div class="input-city">
+                    <input id="city-name" type="text" placeholder="Seattle" size="15px">
+                    <div class="input-tooltip">
+                        Enter City
+                    </div>
+
                 </div>
-                <div>
-                <input type="reset" id="reset-btn">
-                <!-- <button id="reset">Reset</button> -->
+                <div class="reset">
+                    <input type="reset" id="reset-btn">
+                    <div class="reset-tooltip">
+                        Reset City
+                    </div>
+                    <!-- <button id="reset">Reset</button> -->
                 </div>
             </div>
             
         </section>
+        <div class="date">
+            <div id="date-display">
+                <!--Display Date-->
+            </div>
+            <div id="display">
+                <div id="current-temp">
+                    <!--Temperature:-->
+                </div>
+                <div id="des-weather">
+                    <!--Current Weather:-->
+                </div>
+                <div id="humidity">
+                    <!-- Humidity:-->
+                </div>
+                <div id="wind-speed">
+                    <!--Wind Speed:-->
+                </div>
+    
+            </div>
+
+            
+        </div>
         <section class="temperature">
             <h3>Temperature</h3>
             <div class="temp-container">
                 <div class="temp-button-container">
-                    <div>
+                    <div class="increase-btn">
                         <button id="increase-temp">▲</button>
+                        <div class="increase-tooltip">
+                            Increase
+                        </div>
                     </div>
                     <!-- Temp adjusted when increase-temp or decrease-temp button clicked -->
-                    <div id="temp" class="temp-70">
-                        75
+                    <div class="temp-farenheight">
+                        <div id="temp" class="temp-70">
+                            75
+                        </div>
+                        <div class="farenheit-sign">
+                            ℉
+                        </div>
                     </div>
-                    <div>
+    
+                    <div class="decrease-btn">
                         <button id="decrease-temp">▼</button>
+                        <div class="decrease-tooltip">
+                            Decrease
+                        </div>
                     </div>
                 </div>
                 <div>
-                    <button id="realtime-temp">Realtime Temperature</button>
+                    <div class="city-btn">
+                        <button id="realtime-temp">Realtime Temp</button>
+                        <div class="city-tooltip">
+                            Get City Temp
+                        </div>
+                    </div>
+                    <div class="kevlvin-container">
+                        <div id="temp-convert">
+                        
+                        </div>
+                        <div class="kelvin-sign">
+                            K
+                        </div>
+                    </div>
+                    <div class="temp-convert-btn">
+                        <div class="celsius-btn">
+                            <button id="degree">&#8451;</button>
+                            <div class="celsius-tooltip">
+                                Celsius Convertion
+                            </div>
+                        </div>
+                        <div class="farenheit-btn">
+                            <button id="farenheit">&#8457;</button>
+                            <div class="farenheit-tooltip">
+                                Farenheit Convertion
+                            </div>
+                        </div>
+                        
+                        
+                    
+                    </div>
+    
                 </div>
             </div>
-            
         </section>
         <section class="sky">
             <h3>Sky</h3>
-
-        <select id="sky" name="name">
-            <option disabled hidden selected>Select</option>
-            <option value="Sunny">Sunny</option>
-            <option value="Cloudy">Cloudy</option>
-            <option value="Rainy">Rainy</option>
-            <option value="Snowy">Snowy</option>
-        </select>
-        </section>
-
-    </aside>
-    <main>
-        <section class="garden">
-            <h3>Garden</h3>
-            <div id="garden-sky">
-                "☁️ ☁️ ☁️ ☀️ ☁️ ☁️"
+            <div class="sky-btn">
+                <select id="sky" name="name">
+                    <option disabled hidden selected>Select</option>
+                    <option value="Sunny">Sunny</option>
+                    <option value="Cloudy">Cloudy</option>
+                    <option value="Rainy">Rainy</option>
+                    <option value="Snowy">Snowy</option>
+                </select>
+                <div class="sky-tooltip">
+                    Choose Sky
+                </div>
             </div>
-            <div id="landscape">"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"</div>
+        
         </section>
-    </main>
-    <footer class="footer">
-        © 2022 Srey Mom & Grace
-    </footer>
+    
+        <section class="garden">
+            <h3>Weather Garden</h3>
+            <div id="garden-sky">
+                ☂️ ☂️ ☂️ ⛱  🌞  ⛱ ☂️ ☂️ ☂️ 
+            </div>
+            <div id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div>
+        </section>
+    
+        <footer class="footer">
+            © 2022 Srey Mom & Grace
+        </footer>
+    </div>
+    
     <script src="./src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     
