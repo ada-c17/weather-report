@@ -4,8 +4,7 @@ body {
     background-repeat: no-repeat;
     height: 100vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    width: 100%
-    
+    width: 100%;
     
 }
 .container {
@@ -29,6 +28,7 @@ body {
     justify-self: center;
     margin-left: 20px;
     padding-bottom: 20px;
+
     
 }
 
@@ -513,3 +513,4 @@ h3:hover, .farenheit-sign:hover, .kelvin-sign:hover {
     background-color: bisque;
     color:rgba(163, 11, 163, 0.776)
 }
+

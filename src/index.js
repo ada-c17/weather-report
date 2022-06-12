@@ -142,7 +142,7 @@ const getRealtimeTemp = () => {
   const cityName = document.getElementById('city-name').value;
   // call locationIQ of city to find the lat and lon
   axios
-    .get('http://127.0.0.1:5000/location', {
+    .get('https://weather-report-sreymom-whales.herokuapp.com/location', {
       params: {
         q: cityName,
       },
@@ -154,7 +154,7 @@ const getRealtimeTemp = () => {
       const longitudeCity = searchLocation.lon;
       // call weather api to find temp
       axios
-        .get('http://127.0.0.1:5000/weather', {
+        .get('https://weather-report-sreymom-whales.herokuapp.com/weather', {
           params: {
             lat: latitudeCity,
             lon: longitudeCity,
