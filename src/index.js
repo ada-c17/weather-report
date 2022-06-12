@@ -1,6 +1,6 @@
 'use strict';
 
-const temperature = document.getElementById('tempDisplay');
+const temperature = document.getElementById('temp-display');
 
 const state = {
   clickCount: parseInt(temperature.textContent),
@@ -26,15 +26,33 @@ const updateTemp = (x) => {
   }
 };
 
+const updateSky = (value) => {
+  const skyColor = document.querySelector('.sky-container');
+  if (value === 'sunny') {
+    skyColor.style.backgroundColor = 'red';
+  }
+  if (value === 'cloudy') {
+    skyColor.style.backgroundColor = 'grey';
+  }
+  if (value === 'rainy') {
+    skyColor.body.style.backgroundColor = 'blue';
+  }
+  if (value === 'snowy') {
+    skyColor.body.style.backgroundColor = 'white';
+  }
+};
+
 const registerEventHandlers = () => {
-  const upButton = document.getElementById('upButton');
+  const upButton = document.getElementById('up-button');
   upButton.addEventListener('click', () => {
     updateTemp(1);
   });
-  const downButton = document.getElementById('downButton');
+  const downButton = document.getElementById('down-button');
   downButton.addEventListener('click', () => {
     updateTemp(-1);
   });
+  const skySelector = document.getElementById('sky-color');
+  skySelector.addEventListener('change', updateSky(skySelector.value));
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);

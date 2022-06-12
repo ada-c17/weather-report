@@ -2,12 +2,12 @@ body {
     background-color: white;
     padding: 1vw;
     font-family: 'Raleway', sans-serif;
-}
+    background-image: linear-gradient(yellow,red);}
 header {
     text-align: center;
     font-size: 2em;
 }
-.container {
+.main-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: .5fr 2fr;
@@ -15,12 +15,14 @@ header {
     /* min-height: 100vh; */
     max-height: fit-content;
     border-radius: 5vw;
-    background-color: lavender;
+    /* background-color: lavender; */
 }
 
 #landscape {
     grid-area: 2 / 1 / 3 / 2;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
+    border-color: black;
+    border-style:groove;
     margin: 1.5vw;
     padding: 1.5vw;
     border-radius: 3vw;
@@ -28,34 +30,35 @@ header {
 
 }
 
-#tempButton {
+#temp-button {
     background-color: transparent;
     font-family: 'Raleway', sans-serif;
-    border-radius: 2vw;
     border-width: 1px;
 }
 
 #temp {
     grid-area: 2 / 2 / 3 / 3;
-    background-color: honeydew;    
+    /* background-color: honeydew;     */
+    border-color: black;
+    border-style:groove;
     margin: 1.5vw;
     padding: 1.5vw;
     border-radius: 3vw;
     text-align: center;
 }
 
-#tempDisplay {
+#temp-display {
     font-size: 10em;
     padding: 0;
 }
 
-#upButton {
+#up-button {
     font-size: 4em;
     background-color: transparent;
     border: none;
 }
 
-#downButton {
+#down-button {
     font-size: 4em;
     background-color: transparent;
     border: none;
@@ -64,17 +67,37 @@ header {
 
 #sky {
     grid-area: 1 / 2 / 2 / 3; 
-    background-color: rgb(252, 253, 226);
+    /* background-color: rgb(252, 253, 226); */
+    border-color: black;
+    border-style:groove;
     margin: 1.5vw;
     padding: 1.5vw;
     border-radius: 3vw;
 }
 
+#sky-select{
+    background-color: transparent;
+    font-family: 'Raleway', sans-serif;
+}
+
 #city {
     grid-area: 1 / 1 / 2 / 2;
-    background-color: rgb(251, 232, 250);
+    /* background-color: rgb(251, 232, 250); */
+    border-color: black;
+    border-style:groove;
     margin: 1.5vw;
     padding: 1.5vw;
     border-radius: 3vw;
 
+}
+
+#city-reset {
+    background-color: transparent;
+    font-family: 'Raleway', sans-serif;
+    border-width: 1px;
+}
+
+input {
+    background-color: transparent;
+    font-family: 'Raleway', sans-serif;
 }
