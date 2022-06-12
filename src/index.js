@@ -7,12 +7,28 @@ const serverAddress = 'http://127.0.0.1:5000';
 const populateWeatherReport = function (weatherData) {
   const tempKelvin = weatherData.current.temp;
   const tempFahrenheit = Math.floor((tempKelvin - 273.15) * 1.8 + 32);
-  const skyDescription = weatherData.current.weather[0].description;
-  //const cloudCoverage = `${weatherData.current.clouds}%`;
-
-  //populate sky and temp variables with api data
   state.temp = tempFahrenheit;
   colorTempChange();
+  chooseSky(weatherData.current.weather[0].id);
+};
+
+const chooseSky = (skyData) => {
+  let sky = '';
+  if (
+    (skyData >= 701 && skyData <= 781) ||
+    (skyData >= 803 && skyData <= 804)
+  ) {
+    sky = 'Cloudy';
+  } else if (skyData >= 200 && skyData <= 599) {
+    sky = 'Rainy';
+  } else if (skyData >= 600 && skyData <= 700) {
+    sky = 'Snowy';
+  } else if (skyData >= 800) {
+    sky = 'Sunny';
+  }
+  let skySelect = document.querySelector('#skySelect');
+  skySelect.value = sky;
+  changeSky();
 };
 
 const cityCallWeather = function (serverAddress, city) {
@@ -37,12 +53,12 @@ const cityCallWeather = function (serverAddress, city) {
           populateWeatherReport(response.data);
         })
         .catch((response) => {
-          console.log(response.status);
+          console.log(response);
           console.log('There was an issue with the request [weather API].');
         });
     })
     .catch((response) => {
-      console.log(response.status);
+      console.log(response);
       console.log('There was an issue with the request [location API].');
     });
 };
@@ -76,7 +92,6 @@ normalizeCityName = (inputCityName) => {
     .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
     .join(' ');
   cityName.textContent = normalizedCityName;
-  cityCallWeather(serverAddress, cityName.textContent);
 };
 
 const getRealTemp = () => {
@@ -130,6 +145,7 @@ const colorTempChange = () => {
 
 const changeSky = () => {
   const skySelect = document.getElementById('skySelect').value;
+
   let sky = '';
   if (skySelect === 'Sunny') {
     sky = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
@@ -159,10 +175,10 @@ const registerEventHandlers = () => {
   realTempButton.addEventListener('click', getRealTemp);
 
   inputElement.addEventListener('change', changeCityName);
+
   const resetButton = document.querySelector('#resetButton');
   resetButton.addEventListener('click', resetInput);
 
-  changeSky();
   const skyControls = document.getElementById('skySelect');
   skyControls.addEventListener('change', changeSky);
 };
