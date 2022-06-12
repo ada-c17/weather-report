@@ -66,7 +66,8 @@ class Helper {
 
   static changeCityName(city = 'Seattle') {
     const cityName = document.querySelector('#temp-display h1');
-    cityName.innerText = city;
+    // Capitalize the first letter of city name
+    cityName.innerText = city[0].toUpperCase() + city.slice(1);
   }
 
   static convertTempKtoF(tempK) {
