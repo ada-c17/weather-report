@@ -38,9 +38,9 @@ const skyLayout = () => {
   } else if (skyValue === 'cloudy') {
     skyEmojisContainer.textContent = '☁️🌥️☁️🌥️☁️🌥️☁️🌥️☁️🌥️☁️🌥️🌥️☁️🌥️';
   } else if (skyValue === 'rainy') {
-    skyEmojisContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    skyEmojisContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧';
   } else if (skyValue === 'snowy') {
-    skyEmojisContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨❄️❄️🌨';
+    skyEmojisContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨❄️❄️';
   }
 };
 
@@ -89,17 +89,12 @@ const clearCityName = () => {
   const nameOfCity = (document.getElementById('cityNameid').value = 'Seattle');
   const cityContainer = document.querySelector('#amazingCity');
   cityContainer.textContent = `Welcome to ${nameOfCity}!`;
-
   getLocation();
-
-  tempIncrease();
-  tempDecrease();
 };
 
 const updateCityname = () => {
   const nameOfCity = document.getElementById('cityNameid').value;
   const cityContainer = document.querySelector('#amazingCity');
-
   cityContainer.textContent = `Welcome to ${nameOfCity}!`;
 };
 

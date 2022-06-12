@@ -16,11 +16,12 @@ h1 {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 25px;
 }
+
 h1, h2, footer, #resetCityName {
     text-align: center;
 }
 
-#garden,#cityName, #sky {
+#garden,#cityName, #sky, #cityNameTitle {
     text-align: center;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 18px;
@@ -45,6 +46,7 @@ h1, h2, footer, #resetCityName {
 .coldTemp {
     color: teal;
 }
+
 footer {
     bottom: 0;
     text-align: center;
@@ -53,34 +55,61 @@ footer {
 #temp {
     background-color: white;
     border-radius: 30px;
-    max-width: 600px;
+    max-width: 700px;
     opacity: .5;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    margin-left: 500px;
-    margin-right: 500px;
+    margin-left: 450px;
+    margin-right: 450px;
     padding: 30px;
-
 }
+
 #sky {
     background-color: white;
     border-radius: 30px;
     max-width: 600px;
     opacity: .5;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: 500px;
-    margin-right: 500px;
-    padding: 30px;
-
+    padding: 30px; 
 }
 
-/* #temContainer {
-    background-color: rgb(68, 68, 87);
-} */
+#garden {
+    background-color: white;
+    border-radius: 30px;
+    max-width: 600px;
+    opacity: .5;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#skyAndGarden {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: space-evenly;
+    margin-left: 450px;
+    margin-right: 450px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#cityBoxLast {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; 
+    justify-content: space-evenly;
+    margin-top: px;
+    margin-bottom: 30px;
+}
+
+#cityWhiteBox {
+    background-color: white;
+    border-radius: 30px;
+    opacity: .5;
+    margin-left: 600px;
+    margin-right: 600px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 15px;
+}
