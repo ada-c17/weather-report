@@ -4,7 +4,7 @@ h1 {
 }
 
 .city-header {
-  font-size: 19px;
+  font-size: 24px;
 }
 
 body {
@@ -19,6 +19,7 @@ body {
     /* background-color: #026dff; */
     font-family: Verdana, sans-serif;
     color: #ffffff;
+    font-size: 20px;
 }
 
 .content {
@@ -141,9 +142,9 @@ body {
 
 .number-wrapper {
   /*   border: green 2px dotted; */
-  /*   display: flex; */
+  /* display: flex; */
   flex-grow: 2;
-  align-content: center;
+  /* align-content: center; */
 }
 
 .emoji-wrapper {
@@ -161,6 +162,8 @@ body {
   cursor: pointer;
   background-color: #ffffff;
   font-size: 27px;
+  width: 100%;
+  margin: auto;
 }
 
 #downArrow {
@@ -168,7 +171,9 @@ body {
   cursor: pointer;
   background-color: #ffffff;
   font-size: 27px;
-    /* border: 3px solid green; */
+  /* border: 3px solid green; */
+  width: 100%;
+  margin: auto;
 }
 
 /* .temperature {
@@ -179,7 +184,9 @@ body {
 } */
 
 #currentTemp {
-    /* border: 3px solid green; */
+  /* border: 3px solid green; */
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-size: 50px;
   text-align: center;
   font-weight: bold;
@@ -206,8 +213,8 @@ body {
   /* border: blue 2px dotted;
   margin: auto; */
   margin-left: 122px;
-  width: 270px;
-  padding: 10px;
+  width: 250px;
+  padding: 27px;
   height: 30px;
 }
 
@@ -239,7 +246,7 @@ select {
 /*   border: blue 2px dotted; */
   display: flex;
   justify-content: space-between;
-  margin-right: 180px;
+  margin-right: 120px;
 }
 
 /* .header-in-city-name{
@@ -253,11 +260,11 @@ input{
   border-radius: 7px;
 }
 
-#input_button {
+#inputButton {
   background-color: #34e5eb;
 }
 
-#input_button:hover {
+#inputButton:hover {
   background: #37faf7;
 }
 
