@@ -37,7 +37,19 @@ const getWeather = async (lat, lon) => {
   });
   console.log('Weather!');
   console.log(response.data.current.temp);
+  convertTemp(response.data.current.temp);
+  // convertTemp(response.data.current.temp);
+  // tempTextColor(convertTemp(response.data.current.temp));
+  // tempGround(newTemp);
 };
+
+const convertTemp = (temp) => {
+  const displayTemp = document.getElementById('currentTemp');
+  const farenheit = Math.floor(1.8 * (temp - 273) + 32);
+  displayTemp.textContent = farenheit;
+};
+
+// convertTemp(0);
 
 // getCityLoc();
 
