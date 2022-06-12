@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 body {
     background: linear-gradient(45deg,#fec5bb,#fcd5ce,#fae1dd,#f8edeb,#e8e8e4,#d8e2dc,#ece4db,
     #ffe5d9,#ffd7ba,#fec89a);
+    font-family: 'Questrial', sans-serif;
 }
 
 main {
+    display: flex;
+    flex-flow: wrap;
     background-color: #fae1dd;
     border-width: 1px;
     border-style: solid;
@@ -11,6 +15,12 @@ main {
     border-radius: 5vw;
     padding: 2vw;
     margin: 4vw;
+    
+}
+
+main:nth-of-type(3) {
+    flex: 1 20vw;
+    order: 3;
 }
 
 header {
@@ -39,9 +49,68 @@ header h1 {
     padding: 2vw;
 }
 
+#cityInput {
+    flex: 5 100%;
+    margin: 1vw;
+}
+
+#weatherGarden {
+    flex: 3 60%;
+    margin: 1vw;
+    height: 56vh;
+}
+
+main div {
+    flex: 2 30%;
+    margin: 1vw;
+    padding-bottom: 1vh;
+}
+
+#tempAdjust {
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#tempAdjust {
+    background: linear-gradient(20deg,#fec5bb,#fcd5ce,#fae1dd,#f8edeb,#e8e8e4,#d8e2dc,#ece4db,
+    #ffe5d9,#ffd7ba,#fec89a);
+}
+
+#tempAdjust h4 {
+    flex: 2 100%;
+    text-align: center;
+}
+
+#tempAdjust h2 {
+    font-size: 4em;
+}
+
+#raiseTemp, #lowerTemp {
+    height: 4vh;
+}
+
+#currentTemp {
+    font-size: 2.25em;
+}
+#skySelector {
+    margin-top: 1vh;
+}
 #skySelector ul {
     list-style: none;
 }
+
+#layerReport {
+    margin: 1vw;
+    padding: 1.5vw;
+}
+
+
+#layerReport {
+    flex: 4;
+}
+
 #skySelector, #cityInput,
 #weatherGarden, #tempAdjust, 
 #layerReport {
@@ -54,4 +123,5 @@ header h1 {
     padding-bottom: 0.5vh;
     margin-bottom: 0.5vh;
 }
+
 
