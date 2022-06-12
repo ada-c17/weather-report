@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1 id="city-name">Bloomington</h1>
+        <h1 id="city-name"></h1>
         <h2>Weather Report</h2>
     </header>
     <main>
@@ -17,13 +17,21 @@
             <h2>Temperature</h2>
             <h3>Your Temp</h3>
             <img id="up-arrow" src="./assets/uparrow.png" alt="up arrow">
-            <p id="current-temp">50</p>
+            <p id="current-temp"></p>
             <img id="down-arrow" src="./assets/downarrow.jpg" alt="down arrow">
             <button id="realtime-temp" type="button">Get Realtime Temp</button>
         </section>
         <section class="outside">
             <h2>Outside View</h2>
-            <p id="ground">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</p>
+            <h3>Choose a sky:</h3>
+            <select id="sky-select">
+                <option value="sunny">Sunny</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+            </select>
+            <p id="sky"></p>
+            <p id="ground"></p>
         </section>
         <section class="change-city">
             <h3>Change City</h3>
