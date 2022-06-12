@@ -1,7 +1,6 @@
 const state = {
   temp: 50,
-  defaultCity: 'Bloomington',
-  currentCity: 'Bloomington',
+  city: 'Bloomington',
   lat: 39.1670396,
   lon: -86.5342881,
   sky: 'sunny',
@@ -16,8 +15,7 @@ const cityInput = document.getElementById('city');
 const realTemp = document.getElementById('realtime-temp');
 const skySelect = document.getElementById('sky-select');
 const skyLine = document.getElementById('sky');
-
-cityInput.value = state['defaultCity'];
+const cityReset = document.getElementById('city-reset');
 
 const setTempColor = (temp) => {
   if (temp >= 80) {
@@ -76,11 +74,11 @@ const changeCityHeader = () => {
 };
 
 const getCityLatAndLon = () => {
-  state['currentCity'] = cityInput.value;
+  state['city'] = cityInput.value;
 
   axios
     .get('http://localhost:5000/location', {
-      params: { q: state['currentCity'] },
+      params: { q: state['city'] },
     })
     .then((response) => {
       state['lat'] = response.data[0].lat;
@@ -108,12 +106,20 @@ const newSkyLayout = (event) => {
   setSkyLayout(state['sky']);
 };
 
+const resetToDefault = () => {
+  state['city'] = 'Bloomington';
+  state['lat'] = 39.1670396;
+  state['lon'] = -86.5342881;
+  cityInput.value = 'Bloomington';
+  changeCityHeader();
+};
+
 const setStartValues = () => {
-  cityHeader.textContent = state['defaultCity'];
+  cityHeader.textContent = state['city'];
   tempText.textContent = state['temp'];
   setTempColor(state['temp']);
   setGroundLayout(state['temp']);
-  cityInput.textContent = state['defaultCity'];
+  cityInput.value = state['city'];
   setGroundLayout(state['temp']);
   setSkyLayout(state['sky']);
   skySelect.value = state['sky'];
@@ -126,6 +132,7 @@ const registerEventHandlers = () => {
   cityInput.addEventListener('change', getCityLatAndLon);
   realTemp.addEventListener('click', changeToRealTemp);
   skySelect.addEventListener('change', newSkyLayout);
+  cityReset.addEventListener('click', resetToDefault);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
