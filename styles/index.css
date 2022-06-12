@@ -19,19 +19,21 @@
 
 main {
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
+    align-items: center;
 }
 
 #city-display {
     width: 90vw;
-    display: flex;
-    justify-content: space-around;
+    text-align: center;
 }
 
 #city-name {
+    font-family: "oddly-calming";
     font-style: italic;
+    font-size: 3rem;
 }
 
 #city-name:hover {
@@ -144,6 +146,7 @@ main {
     width: 100vw;
     display: flex;
     flex-wrap: row wrap;
+    justify-content: center;
 }
 
 button {
@@ -152,6 +155,9 @@ button {
 
 #landscape {
     width: 100vw;
+    display: flex;
+    flex-wrap: row nowrap;
+    justify-content: space-evenly;
 }
 
 .☀️ {
