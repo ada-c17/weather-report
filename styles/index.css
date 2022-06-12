@@ -18,13 +18,13 @@ h1 {
     color: #b4cac9;
 }
 
-#left {
+#left_content {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.left {
+.boxes {
     border: 2px solid #519dba;
     background: #519dba;
     border-radius: 10px;
@@ -34,6 +34,12 @@ h1 {
 
 #temperature {
     font-size: x-large;
+    text-align: center;
+}
+
+.temp_box {
+    display: flex;
+    flex-direction: column;
 }
 
 img {

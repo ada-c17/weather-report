@@ -15,37 +15,40 @@
     </header>
 
     <main>
-        <div id="left">
-            <section id="city_box" class="left">
+        <div id="left_content">
+            <section class="boxes">
                 <h2>City</h2>
                 <label>Enter a different city:</label><br>
                 <input type="text" id="input_city" placeholder="San Francisco">
                 <button type="reset">Reset</button>
             </section>
 
-            <section id="sky_box" class="left">
+            <section class="boxes">
                 <h2>Sky</h2>
                 <label>Change the sky:</label><br>
                 <select>
-                    <option selected>Sunny</option>
+                    <option>Sunny</option>
                     <option>Cloudy</option>
                     <option>Rainy</option>
                     <option>Snowy</option>
                 </select>
             </section>
 
-            <section id="temperature_box" class="left">
+            <section class="boxes">
                 <h2>Temperature</h2>
-                <button id="up_temperature">▲</button>
-                <p id="temperature" class="warm_color">75 °F</p>
-                <button id="down_temperature">▼</button>
+                <div class="temp_box">
+                    <button id="up_temperature">▲</button>
+                    <p id="temperature" class="warm_color">75 °F</p>
+                    <button id="down_temperature">▼</button>
+                    <button id="realtime_temperature">Get Realtime Temperature</button>
+                </div>
             </section>
         </div>
 
-        <div class="right">
+        <div class="right_content">
             <section id="landscape_box">
                 <h2>Feels like:</h2>
-                <img id="landscape" class="warm" src="assets/spring.jpg" alt="pink flowers">
+                <img id="landscape" class="warm" src="assets/spring.jpg">
             </section>
         </div>
     </main>
