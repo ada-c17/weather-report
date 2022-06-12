@@ -61,11 +61,21 @@ const resetInput = () => {
 const changeCityName = (event) => {
   const cityName = document.querySelector('#cityName');
   const inputCityName = event.target.value;
-  const normalizedCityName = inputCityName.toLowerCase()
+  if (inputCityName === '') {
+    cityName.textContent = 'Seattle';
+  } else {
+    normalizeCityName(inputCityName);
+  }
+  cityCallWeather(serverAddress, cityName.textContent);
+};
+
+normalizeCityName = (inputCityName) => {
+  const normalizedCityName = inputCityName
+    .toLowerCase()
     .split(' ')
     .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
     .join(' ');
-    cityName.textContent = normalizedCityName;
+  cityName.textContent = normalizedCityName;
   cityCallWeather(serverAddress, cityName.textContent);
 };
 
