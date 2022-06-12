@@ -7,6 +7,8 @@ const state = {
 
   const temperatureDisplay = document.getElementById('temperature');
   const landscape = document.getElementById('landscape')
+  const displayCity = document.getElementById('display_city')
+  const inputCity = document.getElementById('input_city')
 
   const displayTemperature = () => {
     temperatureDisplay.textContent = `${state.temperature} °F`;
@@ -44,12 +46,19 @@ const state = {
     }
   };
 
+  const changeCity = () => {
+    state.city = inputCity.value;
+    displayCity.textContent = state.city;
+  };
+
   const registerEventHandlers = () => {
     const temperatureUp = document.getElementById('up_temperature');
     temperatureUp.addEventListener('click', increaseTemperature);
 
     const temperatureDown = document.getElementById('down_temperature');
     temperatureDown.addEventListener('click', decreaseTemperature);
+
+    inputCity.addEventListener('input', changeCity);
   };
 
   document.addEventListener('DOMContentLoaded', registerEventHandlers);

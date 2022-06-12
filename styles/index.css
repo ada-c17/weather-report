@@ -3,6 +3,11 @@ body {
     color: #ffffff;
 }
 
+#display_city {
+    font-size: larger;
+    font-style: italic;
+}
+
 main {
     display: flex;
     gap: 50px;
