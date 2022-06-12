@@ -3,7 +3,7 @@
 // const axios = require('axios');
 
 const state = {
-    temp: 00,
+    temp: 0,
 };
 
 const addTemp = () => {

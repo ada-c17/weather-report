@@ -18,6 +18,7 @@ main {
     margin: 4vw;
     
 }
+
 main button {
     background-color: #fcd5ce;
     border-left-color: #fec89a;
@@ -88,8 +89,19 @@ main div {
 }
 
 .tempAdjust {
-    background: linear-gradient(20deg,#fec5bb,#fcd5ce,#fae1dd,#f8edeb,#e8e8e4,#d8e2dc,#ece4db,
+    background: linear-gradient(20deg,#fec5bb,#fcd5ce,#fae1dd,#f8edeb,
+    #e8e8e4,#d8e2dc,#ece4db,
     #ffe5d9,#ffd7ba,#fec89a);
+}
+
+.tempAdjustTooHot {
+    background: linear-gradient(20deg,#d00000, #ff4800, #ff5400, #ff6000,
+    #f25c54,#ff4700, #f4845f, #ffaa00);
+}
+
+.tempAdjustHot {
+    background: linear-gradient(20deg, #ffe15c,#ffd933,#ffd000, #ffb700,
+    #ffaa00, #ffa200, #ff8800, #ff7b00 );
 }
 
 
@@ -100,8 +112,22 @@ main div {
 
 .tempAdjust h2 {
     font-size: 5em;
-    color: #fec89a;
+    color: #d8e2dc;
     text-shadow: 2px 2px 2px #38040e;
+    font-family: 'Fascinate', cursive;
+}
+
+.tempAdjustTooHot h2 {
+    font-size: 5em;
+    color: #d00000;
+    text-shadow: 2px 2px 2px #fec5bb;
+    font-family: 'Fascinate', cursive;
+}
+
+.tempAdjustHot h2 {
+    font-size: 5em;
+    color: #ffa200;
+    text-shadow: 2px 2px 2px #fec89a;
     font-family: 'Fascinate', cursive;
 }
 
