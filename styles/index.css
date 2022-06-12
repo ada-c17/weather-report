@@ -1,0 +1,65 @@
+#buttons{
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#buttonTemp{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+#container{
+    /* display:flex;
+    flex-direction: column; */
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    height: 100vh;
+    /* background-color: lightskyblue; */
+    border: 2px, solid;
+}
+
+
+
+#img1{
+    /* width: 60%;
+    height: 70%; */
+    border-radius: 10%;
+    border: 2px solid;
+    max-width: 40%;
+    height: auto;
+
+}
+
+#information{
+    background-color: pink;
+    text-align: center;
+    
+}
+
+
+#landscape {
+    justify-content: center;
+    align-items: center;
+    width: 755;
+    height: 50;
+    background-color: green;
+}
+
+#tempNum {
+    border: 2px solid grey;
+    border-radius: 10%;
+    color: orange;
+    margin-top: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: "Gill Sans", sans-serif;
+}
+
