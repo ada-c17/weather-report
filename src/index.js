@@ -133,6 +133,9 @@ const skyMenu = document.getElementById('sky-selector');
 const createOption = (emoji) => {
   const opt = document.createElement('option');
   opt.textContent = emoji;
+  if (emoji === '☀️') {
+    opt.selected = true;
+  }
   return opt;
 };
 

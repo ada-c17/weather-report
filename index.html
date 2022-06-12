@@ -11,18 +11,21 @@
     <div id="city-input">
         <input type="text" id="input-box" size="20">
     </div>
-    <main>
+    <main class="☀️">
         <section id="city-display">
             <h1>Make weather for the city of <span id="city-name">Atlanta</span></h1>
         </section>
-        <select id="sky-selector">
-            <option value="" selected>Select a sky..</option>
-        </select>
-        <section id="temp-display">
-            <div class="temp-control" id="heat">^</div>
-            <h1>72</h1>
-            <div class="temp-control" id="cool">^</div>
-        </section>
+        <div id="weather-controls">
+            <!-- <label for="sky-selector">Select a sky: </label> -->
+            <select id="sky-selector" size="7">
+                <!-- <option value="" selected>Select a sky..</option> -->
+            </select>
+            <section id="temp-display">
+                <div class="temp-control" id="heat">^</div>
+                <h1>72</h1>
+                <div class="temp-control" id="cool">^</div>
+            </section>
+        </div>
         <div id="buttons">
             <button id="reality-check">Check the actual weather</button>
             <button id="city-reset">Reset City</button>
