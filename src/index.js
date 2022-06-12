@@ -85,8 +85,8 @@ const tempGround = (currentTemp) => {
 
   let gardenBottomValue = document.getElementById('ground').textContent;
   let gardenBottomValueContainer = document.getElementById('ground');
-  console.log(gardenBottomValue);
-  console.log(gardenBottomValueContainer);
+  // console.log(gardenBottomValue);
+  // console.log(gardenBottomValueContainer);
 
   if (currentTemp > 80) {
     // temperatureContainer.className = 'red';
@@ -100,11 +100,31 @@ const tempGround = (currentTemp) => {
     gardenBottomValueContainer.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (currentTemp >= 50) {
     // temperatureContainer.className = 'green';
-    gardenBottomValueContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    gardenBottomValueContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲⛰️🍁🌲⛄️🍂🌲';
   } else if (currentTemp <= 49) {
     // temperatureContainer.className = 'teal';
-    gardenBottomValueContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    gardenBottomValueContainer.textContent = '❄️🏂⛄️🌲⛄️❄️🌲🏔️⛷️🌲❄️⛄️❄️';
   }
+};
+
+const changeSky = () => {
+  let optionSelected = document.getElementById('skySelector');
+  let skyOption = optionSelected.options[optionSelected.selectedIndex].text;
+
+  const gardenContent = document.getElementById('sky');
+
+  let currentSky = '🌧 🌈 🌧 🛸 🌤 🌈 🌧 🌈 🌧';
+
+  if (skyOption === 'Sunny') {
+    currentSky = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (skyOption === 'Cloudy') {
+    currentSky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skyOption === 'Rainy') {
+    currentSky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skyOption === 'Snowy') {
+    currentSky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+  gardenContent.textContent = currentSky;
 };
 
 const registerEventHandlers = () => {
@@ -123,16 +143,12 @@ const registerEventHandlers = () => {
 
   const getCurrentTempButton = document.getElementById('realTempButton');
   getCurrentTempButton.addEventListener('click', getCityLoc);
+
+  const changeSkyIfSelected = document.getElementById('skySelector');
+  changeSkyIfSelected.addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
-// Temperature (F)	Color
-// 80+	Red
-// 70-79	Orange
-// 60-69	Yellow
-// 50-59	Green
-// 49 or below	Teal
 
 // if (document.readyState !== 'loading') {
 //   newTemp();
