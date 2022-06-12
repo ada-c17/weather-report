@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
     <title>Weather Report</title>
 </head>
-<body>
-    
+<body onload="defaultSettings()">
+    <h1>Weather Report</h1>
+    <p id="italic-font">For the city of  ✨<span id="city">Seattle</span> ✨ </p>
+    <div id="page-layout">
+    <article id="temperature-container">
+        <div id="temp-buttons">
+            <h2>Temperature</h2>
+            <button id="increase">⬆️</button>
+            <span id="temp">79</span>
+            <button id="decrease">⬇️</button>
+        </div>
+        <button id="get-temp">Get Temperature</button>
+    </article>
+    <article>
+        <h2>Sky</h2>
+        <select name="sky">
+            <option value="rainy">Rainy</option>
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="snowy">Snowy</option>
+        </select>
+    </article>
+    <article>
+        <h2>City Name</h2>
+        <input type="text" id="city-name" name="city-name">
+        <button id="reset">Reset</button>
+    </article>
+    <article id="weather-container">
+        <h2>Weather Garden</h2>
+        <p id="sky">Sky to be modified</p>
+        <p id="landscape">Landscape to be modified</p>
+    </article>
+</div>
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>

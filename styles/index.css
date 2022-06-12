@@ -1,0 +1,99 @@
+body {
+    padding-left: 20px;
+    background-color: #8ecae6;
+}
+article {
+    background-color: #219ebc;
+    padding: 20px;
+    margin-bottom: 30px;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow:5px 5px 10px #023047;
+    
+}
+
+button, select, input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #023047;
+}
+
+button:hover {
+    background:#8ecae6;
+    cursor: pointer;
+}
+
+#page-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+#weather-container {
+    grid-column-start: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+    column-gap: 30px;
+    height: 200px;
+    text-align: center;
+}
+
+#city {
+    font-size: 35px;
+    font-style: italic;
+    padding-left: 5px;
+    color: #dc7805;
+}
+
+#temp {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 7px 0px;
+}
+
+#temperature-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+#temp-buttons > button {
+    width: fit-content;
+    height: fit-content;
+}
+
+#temp-buttons {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: center;
+}
+
+h2 {
+    /* color: #fb8500; */
+    color: #ffb703;
+    font-size: 30px;
+}
+
+#get-temp {
+    width: 50%;
+    height: 40px;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: 'Joan', serif;
+}
+
+#italic-font{
+    font-style: italic;
+    font-size: 20px;
+}
+
+#sky, #landscape {
+    font-size: 25px;
+    line-height: 50px;
+}
