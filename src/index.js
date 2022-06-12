@@ -89,6 +89,11 @@ const clearCityName = () => {
   const nameOfCity = (document.getElementById('cityNameid').value = 'Seattle');
   const cityContainer = document.querySelector('#amazingCity');
   cityContainer.textContent = `Welcome to ${nameOfCity}!`;
+
+  getLocation();
+
+  tempIncrease();
+  tempDecrease();
 };
 
 const updateCityname = () => {

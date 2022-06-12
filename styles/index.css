@@ -16,7 +16,7 @@ h1 {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 25px;
 }
-h1, h2, #temp, footer, #resetCityName {
+h1, h2, footer, #resetCityName {
     text-align: center;
 }
 
@@ -35,7 +35,7 @@ h1, h2, #temp, footer, #resetCityName {
 }
 
 .mildTemp {
-    color: #fdfd96;
+    color: #ffff24;
 }
 
 .chillTemp {
@@ -49,3 +49,38 @@ footer {
     bottom: 0;
     text-align: center;
 }
+
+#temp {
+    background-color: white;
+    border-radius: 30px;
+    max-width: 600px;
+    opacity: .5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 500px;
+    margin-right: 500px;
+    padding: 30px;
+
+}
+#sky {
+    background-color: white;
+    border-radius: 30px;
+    max-width: 600px;
+    opacity: .5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 500px;
+    margin-right: 500px;
+    padding: 30px;
+
+}
+
+/* #temContainer {
+    background-color: rgb(68, 68, 87);
+} */
