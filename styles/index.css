@@ -61,10 +61,13 @@ main {
 }
 
 li {
+    background: rgba(0, 0, 0, 0.1)url("./assets/images/bridge.jpg");
+    background-blend-mode: darken;
     margin: 0 auto;
     padding: 0em 1em 2em 1em;
     width: 12em;
     border: var(--text_black) 1px solid;
+    border-radius: 5px;
 }
 
 .reset-button {
@@ -115,7 +118,7 @@ li {
     display: grid;
 } */
 
-#sky-select {
+#sky-s {
     /* make center align? */
 }
 

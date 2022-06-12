@@ -1,6 +1,3 @@
-// import os from 'os';
-// const LOCATIONIQ_KEY = os.environ.get(LOCATION_KEY);
-
 console.log('Hello, World!');
 
 const state = {
