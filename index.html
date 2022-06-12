@@ -9,12 +9,14 @@
 </head>
 <body>
     <header>
-        <h1 id="page-title">
-            Is it Raining in Seattle?
-        </h1>
-        <p>
-            (probably.)
-        </p>
+        <div id="page-heading">
+            <h1 id="page-title">
+                Is it Raining in Seattle?
+            </h1>
+            <aside>
+                ( ...probably)
+            </aside>
+        </div>
         <h2 id="current-city">
             Weather for the city of: Seattle
         </h2>
@@ -29,12 +31,15 @@
                 <label for="input-city">
                     Enter city name
                 </label>
-                <button type="submit" id="get-city-weather">
-                    Get the weather!
-                </button>
-                <button type="reset" class="reset-button" id="reset-to-seattle">
-                    reset to Seattle
-                </button>
+                <div class="button-container">
+                    <button type="submit" id="get-city-weather">
+                        Get the weather!
+                    </button>
+                    <button type="reset" class="reset-button" id="reset-to-seattle">
+                        reset to Seattle
+                    </button>
+                </div>
+
             </li>
             <li id="temperature-box">
                 <h3 class="box-names">
@@ -51,40 +56,42 @@
                         ⬇️
                     </button>
                 </div>
-                <!-- <label for="display-temp">
-                    Adjust temperature with arrows
-                </label> -->
-                <button type="reset" class="reset-button" id = "reset-temp">
-                    Get realtime temperature
-                </button>
+                <div class="button-container">
+                    <button type="reset" class="reset-button" id = "reset-temp">
+                        Get realtime temperature
+                    </button>                    
+                </div>
             </li>
             <li id="sky-box">
                 <h3 class="box-names">
                     Sky Coverage
                 </h3>
-                <select name="skys" id="sky-select">
-                    <option value="" selected>
-                        --select sky--
-                    </option>
-                    <option value="sunny">
-                        sunny
-                    </option>
-                    <option value="cloudy">
-                        cloudy
-                    </option>
-                    <option value="raining">
-                        raining
-                    </option>
-                    <option value="snowing">
-                        snowing
-                    </option>
-                </select>
-                <!-- <label for="sky-select">
-                    Select sky view
-                </label> -->
-                <button type="reset" class="reset-button">
-                    reset to current sky
-                </button>  
+                <div class="button-container">
+                    <select name="skys" id="sky-select">
+                        <option value="" selected>
+                            --select sky--
+                        </option>
+                        <option value="sunny">
+                            sunny
+                        </option>
+                        <option value="cloudy">
+                            cloudy
+                        </option>
+                        <option value="raining">
+                            raining
+                        </option>
+                        <option value="snowing">
+                            snowing
+                        </option>
+                    </select>
+                </div>
+                
+                <div class="button-container">
+                    <button type="reset" class="reset-button">
+                        reset to current sky
+                    </button>  
+                </div>
+
             </li>
         </ul>
         <div id="dog-container">

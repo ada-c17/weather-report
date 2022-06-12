@@ -2,26 +2,22 @@
 
 :root {
     --gray: #e7e6e6;
-    --text_black: #555;
+    --outline_black: #555;
 }
 
-* {
+/* * {
     border: red 1px solid;
-}
+} */
 
 h1 {
     font-size: 2.75em;
-    color: black;
-}
-
-h2 {
-    color: black;
 }
 
 h3 {
     text-align: center;
     color: black;
 }
+
 
 /* || GENERAL STYLES */
 
@@ -34,17 +30,33 @@ body {
     /* vertical-align: middle; */
     /* line-height: 1.5em; */
     /* text-align: left; */
-    color: var(--text_black)
+    color: black
 }
 
 header {
-    padding: 0 0 0 1em;
+    padding: 1em 0 0 1em;
 }
 
 main {
     margin: 0 auto;
     line-height: 1.5;
-    padding: 4em 1em;
+    padding: 3em 1em;
+}
+
+/* || HEADER */
+
+#page-heading {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+}
+
+aside {
+    font-size: larger;
+}
+
+#current-city {
+    margin: 0;
 }
 
 /* || WEATHER BOX GRID */
@@ -52,7 +64,7 @@ main {
 #box-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 200px);
-    gap: 2em 4em;
+    gap: 2em 6em;
     margin: 0 auto;
     padding: 0;
     justify-content: center;
@@ -66,8 +78,12 @@ li {
     margin: 0 auto;
     padding: 0em 1em 2em 1em;
     width: 12em;
-    border: var(--text_black) 1px solid;
+    border: var(--outline_black) 1px solid;
     border-radius: 5px;
+}
+
+.button-container {
+    text-align: center;
 }
 
 .reset-button {
@@ -75,11 +91,6 @@ li {
 }
 
 /* || CITY BOX */
-
-/* #city-box {
-    display: grid;
-    
-} */
 
 #input-city {
     margin: 1em 0 0 0;
@@ -91,10 +102,6 @@ li {
 
 
 /* || TEMPERATURE BOX */
-
-/* #temperature-box {
-    display: grid;
-} */
 
 #temp-controls {
     margin: 0 auto;
@@ -114,24 +121,18 @@ li {
 
 /* || SKY BOX */
 
-/* #sky-box {
-    display: grid;
-} */
-
-#sky-s {
-    /* make center align? */
-}
 
 
 /* || WEATHER GARDEN */
 
 #dog-container {
     margin: 0 auto;
-    padding: 3em 0;
+    padding: 4em 0;
     justify-content: center;
 }
 
 #dog-container img {
     margin: auto;
     display: block;
-}
+    border: var(--outline_black) 1px solid;
+    border-radius: 5px;}

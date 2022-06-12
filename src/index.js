@@ -183,11 +183,11 @@ const updateSky = (currentSkyValue) => {
   if (currentSkyValue === 'sunny') {
     backgroundColor.style.backgroundColor = 'goldenrod';
   } else if (currentSkyValue === 'cloudy') {
-    backgroundColor.style.backgroundColor = 'grey';
+    backgroundColor.style.backgroundColor = 'lightgrey';
   } else if (currentSkyValue === 'raining') {
-    backgroundColor.style.backgroundColor = 'blue';
+    backgroundColor.style.backgroundColor = 'lightblue';
   } else if (currentSkyValue === 'snowing') {
-    backgroundColor.style.backgroundColor = 'white';
+    backgroundColor.style.backgroundColor = 'whitesmoke';
   }
 };
 
