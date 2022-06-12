@@ -1,3 +1,7 @@
+// Tasks to finish:
+// Realtime temp button isn't working right?
+// reset sky button needs functionality
+
 const state = {
   temp: parseInt(document.querySelector('#display-temp').innerHTML),
   sky: '',
@@ -59,30 +63,50 @@ const changeLandscape = () => {
   }
 };
 
-// "Temperature box" button events
+// Increase and decrease temperature button events
 function tempButtons() {
   const currentTemp = document.querySelector('#display-temp');
   const arrowUpButton = document.getElementById('arrow-up');
   const arrowDownButton = document.getElementById('arrow-down');
   const resetTempButton = document.querySelector('#reset-temp');
-  // Arrow up and down click events
+  // Arrow up click events
   arrowUpButton.addEventListener('click', () => {
     state.temp += 1;
     currentTemp.textContent = state.temp;
     changeTempColor();
     changeLandscape();
   });
+  // Arrow down click events
   arrowDownButton.addEventListener('click', () => {
     state.temp -= 1;
     currentTemp.textContent = state.temp;
     changeTempColor();
     changeLandscape();
   });
-  // "Get realtime temperature" click event
-  resetTempButton.addEventListener('click', () => {
-    getCurrentCityWeather();
-  });
 }
+
+// "Get realtime temperature" click event
+const getRealtimeTemp = () => {
+  const cityInput = document.querySelector('#input-city');
+  const currentTemp = document.querySelector('#display-temp');
+  const resetTempButton = document.querySelector('#reset-temp');
+  // Reset temperature to currently displayed city
+  resetTempButton.addEventListener('click', () => {
+    console.log(cityInput.value);
+    console.log(cityInput.placeholder);
+    getLatLon(cityInput.value).then((latlon) => {
+      getWeather(latlon).then((data) => {
+        farTemp = Math.floor(1.8 * (data.temp - 273) + 32);
+        state.temp = farTemp;
+        currentTemp.textContent = state.temp;
+        state.sky = data.weather[0].icon;
+        changeTempColor();
+        changeLandscape();
+        changeSky();
+      });
+    });
+  });
+};
 
 /* || WEATHER */
 
@@ -200,7 +224,7 @@ const changeSky = () => {
       updateSky(condition);
     }
   }
-  // drop-down feature updates the sky
+  // Drop-down feature updates the sky
   currentSky.addEventListener('change', () => {
     updateSky(currentSky.value);
   });
@@ -208,6 +232,7 @@ const changeSky = () => {
 
 // Function calls required on page load
 document.addEventListener('DOMContentLoaded', tempButtons);
+document.addEventListener('DOMContentLoaded', getRealtimeTemp);
 document.addEventListener('DOMContentLoaded', changeLandscape);
 document.addEventListener('DOMContentLoaded', changeCityInput);
 document.addEventListener('DOMContentLoaded', getCurrentCityWeather);
