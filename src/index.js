@@ -1,7 +1,7 @@
 const state = {
   temp: 70,
   color: document.getElementById('mid--color'),
-  skyCondition: document.getElementById('select-sky-box'),
+  skyCondition: document.getElementById('sky--select-box'),
   skyConditionImage: document.getElementById('sky'),
   landscape: document.getElementById('landscape'),
   location: '',
@@ -11,7 +11,7 @@ const state = {
 
 // change sky
 const changeSky = () => {
-  console.log('ENTER changeSky');
+  // console.log('ENTER changeSky');
   if (state.skyCondition.value === 'sunny') {
     state.skyConditionImage.style.background =
       "url('/assets/sky/sunny 1920x360.jpg')";
@@ -25,47 +25,55 @@ const changeSky = () => {
     state.skyConditionImage.style.background =
       "url('/assets/sky/snowy 1920x360.jpg')";
   }
-  console.log('EXIT changeSky');
+  // console.log('EXIT changeSky');
 };
 
 // set state.skyCondition
 const validateSkyCondition = (condition) => {
-  console.log('ENTER validateSkyCondition');
-  console.log('state.skyCondition');
-  console.log(state.skyCondition);
-  console.log('condition');
-  console.log(condition);
+  // console.log('ENTER validateSkyCondition');
+  // console.log('state.skyCondition');
+  // console.log(state.skyCondition);
+  // console.log('condition');
+  // console.log(condition);
   if (condition === 'Clear') {
     state.skyCondition.value = 'sunny';
-    console.log('changes to SUNNY');
+    // console.log('changes to SUNNY');
   } else if (
     condition === 'Rain' ||
     condition === 'Drizzle' ||
     condition === 'Thunderstorm'
   ) {
     state.skyCondition.value = 'rainy';
-    console.log('changes to RIANY');
+    // console.log('changes to RIANY');
   } else if (condition === 'Clouds') {
     state.skyCondition.value = 'cloudy';
-    console.log('changes to CLOUDY');
+    // console.log('changes to CLOUDY');
   } else if (condition === 'Snow') {
     state.skyCondition.value = 'snowy';
-    console.log('changes to SNOWY');
+    // console.log('changes to SNOWY');
   }
-  console.log(state.skyConditionImage);
-  console.log('EXIT validateSkyCondition for changeSky');
+  // console.log(state.skyConditionImage);
+  // console.log('EXIT validateSkyCondition for changeSky');
 };
 
 // change TEMP
+const changeTempDisplay = () => {
+  const tempContainer = document.getElementById('temperature');
+  tempContainer.textContent = `${state.temp}°F`;
+};
+
 const incTemp = () => {
   state.temp++;
-  const tempContainer = document.getElementById('temperature');
-  tempContainer.textContent = `${state.temp}°`;
+  changeTempDisplay();
 };
 const decTemp = () => {
   state.temp--;
-  const tempContainer = document.getElementById('temperature');
-  tempContainer.textContent = `${state.temp}°`;
+  changeTempDisplay();
+};
+
+const convertKelvin = (temp) => {
+  state.temp = Math.floor(((temp - 273.15) * 9) / 5 + 32);
+  changeTempDisplay();
 };
 
 // change bottom image and middle color based on temp
@@ -91,10 +99,6 @@ const changeColorTemp = () => {
   }
 };
 
-const convertKelvin = (temp) => {
-  state.temp = ((temp - 273.15) * 9) / 5 + 32;
-};
-
 // const hitReturn = (event) =>{
 //   console.log(event.key)
 //   if (event.key === "Enter") {
@@ -117,7 +121,7 @@ const getLocationName = (event) => {
     getLatLon();
   }
 };
-// ********API*********
+// ********API CALLS*********
 // get LOCATION info
 const getLatLon = () => {
   axios
@@ -139,7 +143,6 @@ const getLatLon = () => {
 
 // get WEATHER info
 const getLocationWeather = () => {
-  console.log('ENTER getLocationWeather');
   axios
     .get('https://weather-report-proxy-server.herokuapp.com/weather', {
       params: {
@@ -172,7 +175,7 @@ const getLocationWeather = () => {
 
 const registerEventHandlers = () => {
   // change sky
-  const makeSkyChange = document.getElementById('select-sky-box');
+  const makeSkyChange = document.getElementById('sky--select-box');
   makeSkyChange.addEventListener('change', changeSky);
   // increase temp
   const tempInc = document.getElementById('arrow-increase');
@@ -186,7 +189,6 @@ const registerEventHandlers = () => {
   const locationSubmit = document.getElementById('location-submit');
   locationSubmit.addEventListener('click', getLocationName);
   locationSubmit.addEventListener('keydown', getLocationName);
-  // locationSubmit.addEventListener('click', changeLocationNameSubmit);
   // change location name
   const locationInput = document.getElementById('location-input');
   locationInput.addEventListener('keyup', changeLocationName);
