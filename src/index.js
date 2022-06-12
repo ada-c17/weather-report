@@ -216,11 +216,15 @@ const getRealtimeTemp = () => {
 };
 
 // display date on page
-const date = new Date();
-const currentDate = document.getElementById('date-display');
-const day = date.toDateString();
-const time = date.toLocaleTimeString();
-currentDate.textContent = `${day}  ${time}`;
+const setDateTime = () => {
+  const date = new Date();
+  const currentDate = document.getElementById('date-display');
+  const day = date.toDateString();
+  const time = date.toLocaleTimeString();
+  currentDate.textContent = `${day}  ${time}`;
+  setTimeout('setDateTime()', 1000);
+};
+setDateTime();
 
 // all event listener
 const registerEventHandlers = (event) => {
@@ -241,6 +245,9 @@ const registerEventHandlers = (event) => {
 
   const realTemp = document.getElementById('realtime-temp');
   realTemp.addEventListener('click', getRealtimeTemp);
+
+  const displayDateTime = document.querySelector('body');
+  displayDateTime.addEventListener('onload', setDateTime);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
