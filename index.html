@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <title>Weather Report</title>
 </head>
 <body>
@@ -35,15 +38,15 @@
                     <div id = "temp-adjustment">
                         
                         <button class = "temp-control" id="temp-up">
-                            <img src="./assets/arrow.png" alt="up" class="arrow" id="up">
+                            &#x21e7;
                         </button>
                         <button class = "temp-control" id="temp-down">
-                            <img src="./assets/arrow.png" alt="down" class="arrow" id="down">
+                            &#x21e9;
                         </button>
                     </div>
                 </div>
                 <div class="box-button">
-                    <button class="button" id="get-temp">Real Time Temperature</button>
+                    <button class="button" id="get-temp">Real Time</button>
                 </div>
             </div>
             <div class="control-panel" id="sky-box">
@@ -78,7 +81,9 @@
             </div>
         </div>
     </main>
-    <footer>footer</footer>
+    <footer>
+        Created by Ruge Li and Lin Liu, 2022. &#x263A;
+    </footer>
 
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="src/index.js"></script>

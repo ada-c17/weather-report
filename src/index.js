@@ -1,12 +1,12 @@
 class Helper {
   static getSelectedSky() {
     const backgrounds = [
-      './assets/defaultSky.jpeg',
-      './assets/sunny.jpeg',
-      './assets/cloudy.jpeg',
-      './assets/rainy.jpeg',
-      './assets/snowy.jpeg',
-      './assets/windy.jpeg',
+      './assets/blueSky.jpg',
+      './assets/sunny.jpg',
+      './assets/cloudySky.jpg',
+      './assets/rainyGrass.jpg',
+      './assets/snowy.jpg',
+      './assets/windy.jpg',
     ];
     const dropBar = document.querySelector('#sky-selector');
     const sky = dropBar.options[dropBar.selectedIndex].text;
@@ -52,7 +52,7 @@ class Helper {
   }
 
   static getTempEffect(tempValue) {
-    const colors = ['green', 'yellow', 'orange', 'red'];
+    const colors = ['#2364aa', '#20a39e', '#ea7317', '#da5552'];
     const landscapes = [
       './assets/winter.jpg',
       './assets/fall.jpg',
@@ -144,7 +144,7 @@ class Helper {
 }
 
 const registerEventHandlers = () => {
-  // temperature value need to be udpated either manually or real time
+  // temperature value need to be updated either manually or real time
   const temperature = document.querySelector('#temp-value');
   // landscape image will be updated base on the temperature value
   const landscape = document.querySelector('#temp-display');
@@ -161,8 +161,9 @@ const registerEventHandlers = () => {
     const tempValue = parseInt(temperature.innerText) - 1;
     temperature.innerText = tempValue;
 
+    const tempText = document.querySelector('#temp-box .box-content h1');
     const color = Helper.getTempEffect(tempValue).color;
-    temperature.style.color = color;
+    tempText.style.color = color;
 
     const img = Helper.getTempEffect(tempValue).img;
     landscape.style.backgroundImage = `url(${img})`;
@@ -173,8 +174,9 @@ const registerEventHandlers = () => {
     const tempValue = parseInt(temperature.innerText) + 1;
     temperature.innerText = tempValue;
 
+    const tempText = document.querySelector('#temp-box .box-content h1');
     const color = Helper.getTempEffect(tempValue).color;
-    temperature.style.color = color;
+    tempText.style.color = color;
 
     const img = Helper.getTempEffect(tempValue).img;
     landscape.style.backgroundImage = `url(${img})`;
@@ -184,28 +186,40 @@ const registerEventHandlers = () => {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     const city = form.elements.query.value;
+    if (city == '') {
+      city = 'Seattle';
+    }
     Helper.changeCityName(city);
   });
 
   const resetCityButton = document.querySelector('#reset');
-  resetCityButton.addEventListener('click', () => {
+  resetCityButton.addEventListener('click', async () => {
     Helper.changeCityName();
-    Helper.updateTemps();
+    await Helper.updateTemps();
     form.elements.query.value = '';
+
+    const tempValue = parseInt(temperature.innerText);
+    const color = Helper.getTempEffect(tempValue).color;
+    const tempText = document.querySelector('#temp-box .box-content h1');
+    tempText.style.color = color;
+
+    const img = Helper.getTempEffect(tempValue).img;
+    landscape.style.backgroundImage = `url(${img})`;
   });
 
   const getTempButton = document.querySelector('#get-temp');
-  getTempButton.addEventListener('click', () => {
+  getTempButton.addEventListener('click', async () => {
     let city = form.elements.query.value;
     if (city == '') {
       city = 'Seattle';
     }
-    Helper.updateTemps(city);
+    await Helper.updateTemps(city);
     Helper.changeCityName(city);
 
     const tempValue = parseInt(temperature.innerText);
     const color = Helper.getTempEffect(tempValue).color;
-    temperature.style.color = color;
+    const tempText = document.querySelector('#temp-box .box-content h1');
+    tempText.style.color = color;
 
     const img = Helper.getTempEffect(tempValue).img;
     landscape.style.backgroundImage = `url(${img})`;

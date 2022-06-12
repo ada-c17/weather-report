@@ -1,10 +1,12 @@
-* {
-    border: 2px solid red;
-}
-
 body {
     margin:0;
-    background-color: aqua;
+    background-color: rgb(213, 227, 227);
+    background-image: url(../assets/blueSky.jpg);
+    font-family: 'Abril Fatface', cursive;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 500ms ease-in-out;
 }
 
 header, footer {
@@ -24,6 +26,10 @@ header {
     flex-direction: row;
 }
 
+footer {
+    text-align: center;
+}
+
 #map-icon {
     width:1.5rem;
     height: auto;
@@ -32,6 +38,7 @@ header {
 
 #title h1 {
     text-align: center;
+    font-size: 3rem;
 }
 
 .control-panel {
@@ -41,6 +48,7 @@ header {
 
 .box-name {
     text-align: center;
+    font-size: 1.5rem;
 }
 
 .box-content {
@@ -80,14 +88,26 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     transition: 1s ease-in-out;
+    border-radius: 20px;
+
 }
 
-body {
-    background-image: url(../assets/defaultSky.jpeg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: 500ms ease-in-out;
+
+button {
+    padding: 10px 35px;
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+    outline: none;
+    transition: .5s ease;
+    font-family: 'Abril Fatface', cursive;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: white;
+    color:black;
+    box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
 }
 
 #control-container {
@@ -99,6 +119,7 @@ body {
 
 #temp-display h1 {
     text-align: center;
+    color:black;
 }
 
 #temp-box .box-content {
@@ -110,19 +131,16 @@ body {
 
 #temp-box .box-content h1 {
     text-align: center;
+    padding-right:1rem;
 }
 
 .temp-control {
     display: block;
     padding: 20% 0;
     width: 100%;
+    font-size: 1rem;
 }
 
 #city-box #box-content {
     flex-direction: column;
-}
-
-.arrow{
-    width:1rem;
-    height:auto;
 }
