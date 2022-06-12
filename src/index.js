@@ -1,7 +1,9 @@
 const state = {
     currentTemp: 0,
-    currentLocation: " "
+    currentLocation: "Irvine",
+    currentSky: "sunny"
 };
+
 
 const updateColor = () => {
     const currentTempDisplay = document.getElementById("currentTemp");
@@ -37,6 +39,21 @@ const updateFeelImage = () => {
     }
 };
 
+const updateSkyImage = () => {
+    const skyImage = document.getElementById("skyscape");
+    if (state.currentSky === "sunny") {
+        skyImage.src = "/images/sunnySky.jpeg";
+    } else if (state.currentSky === "cloudy") {
+        skyImage.src = "/images/cloudySky.jpeg";
+    } else if (state.currentSky === "rainy") {
+        skyImage.src = "/images/rainySky.jpeg";
+    } else if (state.currentSky === "snowy") {
+        skyImage.src = "/images/snowySky.jpeg";
+    } else {
+        skyImage.src = "/images/nightSky.jpeg";
+    }
+};
+
 const increaseTempAction = () => {
     const currentTempDisplay = document.getElementById("currentTemp");
     state.currentTemp += 1;
@@ -60,6 +77,12 @@ const inputLocationAction = () => {
     currentLocationDisplay.textContent = `${state.currentLocation}`;
 };
 
+const selectSkyAction = () => {
+    const selectSky = document.getElementById("skyDropdown");
+    state.currentSky = selectSky.options[selectSky.selectedIndex].value;
+    updateSkyImage()
+};
+
 const registerEventHandlers = () => {
     const increaseTempButton = document.getElementById("increaseTemp");
     increaseTempButton.addEventListener("click", increaseTempAction);
@@ -68,7 +91,10 @@ const registerEventHandlers = () => {
     decreaseTempButton.addEventListener("click", decreaseTempAction);
 
     const inputLocation = document.getElementById("locationInput");
-    inputLocation.addEventListener("input", inputLocationAction)
+    inputLocation.addEventListener("input", inputLocationAction);
+
+    const changeSky = document.getElementById("skyDropdown");
+    changeSky.addEventListener("change", selectSkyAction);
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);

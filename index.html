@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="/styles/index.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -18,7 +19,7 @@
             <h3>Gaze out the window!</h3>
             <div>
                 <label for="skys">It looks:</label>
-                <select name="skys" id="sky_dropdown">
+                <select name="skys" id="skyDropdown">
                     <option value="sunny">Sunny</option>
                     <option value="cloudy">Cloudy</option>
                     <option value="rainy">Rainy</option>
@@ -26,6 +27,8 @@
                     <option value="night">Night</option>
                 </select>
             </div>
+            <image id="skyscape"
+            src="/images/sunnySky.jpeg" /> 
         </section>
         <section id="location" class="container">
             <h2>My Location</h2>
@@ -35,6 +38,7 @@
                     <label for="loc">I'm in:</label><br>
                     <input type="text" id="locationInput" name="loc"><br>
                 </form>
+                <button id="resetLocation">Reset</button>
             </div>
         </section>
         <section id="feel" class="container">
