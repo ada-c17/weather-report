@@ -63,7 +63,12 @@ const updateCity = (e) => {
     toggleUpdating();
     document.activeElement.blur();
   } else {
-    weather.city = `${e.target.value}${e.key}`;
+    let val = e.target.value;
+    const last = /^\p{L}$/iu.test(e.key) ? e.key : '';
+    if (e.key === 'Backspace') {
+      val = val.substring(0, val.length - 1);
+    }
+    weather.city = `${val}${last}`;
     document.getElementById('city-name').textContent = weather.city;
   }
 };
@@ -92,7 +97,7 @@ const realWeatherQuery = () => {
 };
 
 const updateSky = (e) => {
-  document.getElementById('sky-selector').classList = e.target.value;
+  document.querySelector('body').classList = e.target.value;
 };
 
 const defaultCity = () => {

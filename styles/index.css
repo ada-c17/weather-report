@@ -7,10 +7,10 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: calc(18px + .3vw);
     --hot: rgb(169, 14, 22);
-    --warm: rgb(103, 51, 13);
-    --goldilocks: rgb(0, 0, 0);
-    --cool: rgb(8, 36, 97);
-    --cold: rgb(38, 100, 234);
+    --warm: rgb(148, 91, 29);
+    --goldilocks: rgb(103, 119, 106);
+    --cool: rgb(40, 98, 221);
+    --cold: rgb(168, 195, 255);
 }
 
 body {
@@ -36,28 +36,46 @@ body {
 }
 
 #city-input {
-    /* display: none; */
-    width: 0;
-    transition: all 1s ease-in-out;
+    z-index: -1;
+    position: fixed;
+    top: 0px;
+    height: 100vh;
+    width:100vw;
+    /* transition: all 1s ease-in-out; */
 }
 
 #city-input input {
+    /* z-index: -1; */
+    position:fixed;
+    top:40vh;
+    right:35vw;
     color: rgba(0, 0, 0, 0);
     border: none;
+    width: 30vw;
+    font-size: 3rem;
+    font-family: "oddly-calming";
+    text-align: center;
+}
+
+#city-input input:focus {
+    outline: orange;
 }
 
 #city-input.updating {
-    display: block;
-    position: absolute;
-    top: 40vh;
-    right: 40vw;
-    z-index: 10;
-    width: 50vw;
+    z-index: 2;
+    background: rgba(235,235,235,0.5);
 }
 
 #city-input.updating input {
+    /* z-index: 2; */
     color: rgba(0, 0, 0, 0.7);
-    border: solid 1px black;
+    border: 5px solid rgb(255, 238, 50); 
+    border-radius: 1rem; 
+    box-shadow: 
+        0 0 8px 2px  rgba(255, 238, 50,0.3),
+        0 0 16px 4px rgba(255, 238, 50,0.2),
+        0 0 32px 8px rgba(255, 238, 50,0.1); 
+    background: rgba(255,255,255,0.8);
 }
 
 #sky-selector {
@@ -153,5 +171,5 @@ button {
     background-color: rgb(55, 115, 108);
 }
 .🌈 {
-    background: linear-gradient(90deg,red 0%, orange 20%, yellow 40%, green 60%, blue 80%, purple 100%);
+    background: radial-gradient(circle at center,red 0%, orange 20%, yellow 40%, green 60%, blue 80%, purple 100%);
 }
