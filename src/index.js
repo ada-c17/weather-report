@@ -1,4 +1,5 @@
 // const { default: axios } = require('axios');
+let currentTemp = 41;
 
 const newCity = () => {
   const cityValue = document.getElementById('cname').value;
@@ -30,7 +31,10 @@ const getCityLoc = () => {
           const tempK = response.data.current.temp;
           const tempF = Math.floor(1.8 * (tempK - 273) + 32);
           tempValue.textContent = tempF;
+          currentTemp = tempF;
           newTemp(tempF);
+          // upTemp();
+          // downTemp();
           console.log(tempK);
           console.log(tempF);
         })
@@ -72,8 +76,9 @@ const convertTemp = (temp) => {
 // convertTemp(0);
 
 // getCityLoc();
-
-let currentTemp = 41; //is could be hardcoded?
+//is could be hardcoded?
+// let currentTemp = document.getElementById('currentTemp').textContent;
+console.log(currentTemp);
 
 const newTemp = (currentTemp) => {
   let temperatureValue = document.getElementById('currentTemp');
@@ -83,11 +88,13 @@ const newTemp = (currentTemp) => {
 };
 
 const upTemp = () => {
+  // currentTemp = document.getElementById('currentTemp').textContent;
   currentTemp += 1;
   newTemp(currentTemp);
 };
 
 const downTemp = () => {
+  // currentTemp = document.getElementById('currentTemp').textContent;
   currentTemp -= 1;
   newTemp(currentTemp);
 };
@@ -121,27 +128,27 @@ const tempGround = (currentTemp) => {
   // console.log(gardenBottomValueContainer);
 
   // Just for fun added special bottom for Seattle
-  // const headerCity = document.getElementById('city-name').textContent;
-  // if (headerCity === 'Seattle') {
-  //   gardenBottomValueContainer.textContent = '☕☔🌸🏔️🦦💕🐳🍎🌲🎡⛴️';
-  // }
-
-  if (currentTemp > 80) {
-    // temperatureContainer.className = 'red';
-    gardenBottomValueContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
-    // console.log(temperatureContainer);
-  } else if (currentTemp >= 70) {
-    // temperatureContainer.className = 'orange';
-    gardenBottomValueContainer.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-  } else if (currentTemp >= 60) {
-    // temperatureContainer.className = 'yellow';
-    gardenBottomValueContainer.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
-  } else if (currentTemp >= 50) {
-    // temperatureContainer.className = 'green';
-    gardenBottomValueContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲⛰️🍁🌲⛄️🍂🌲';
-  } else if (currentTemp <= 49) {
-    // temperatureContainer.className = 'teal';
-    gardenBottomValueContainer.textContent = '❄️🏂⛄️🌲⛄️❄️🌲🏔️⛷️🌲❄️⛄️❄️';
+  const headerCity = document.getElementById('city-name').textContent;
+  if (headerCity === 'Seattle') {
+    gardenBottomValueContainer.textContent = '☕☔🌸🏔️🦦💕🐳🍎🌲🎡⛴️';
+  } else {
+    if (currentTemp > 80) {
+      // temperatureContainer.className = 'red';
+      gardenBottomValueContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+      // console.log(temperatureContainer);
+    } else if (currentTemp >= 70) {
+      // temperatureContainer.className = 'orange';
+      gardenBottomValueContainer.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    } else if (currentTemp >= 60) {
+      // temperatureContainer.className = 'yellow';
+      gardenBottomValueContainer.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    } else if (currentTemp >= 50) {
+      // temperatureContainer.className = 'green';
+      gardenBottomValueContainer.textContent = '🌲🌲⛄️🌲⛄️🍂🌲⛰️🍁🌲⛄️🍂🌲';
+    } else if (currentTemp <= 49) {
+      // temperatureContainer.className = 'teal';
+      gardenBottomValueContainer.textContent = '❄️🏂⛄️🌲⛄️❄️🌲🏔️⛷️🌲❄️⛄️❄️';
+    }
   }
 };
 
