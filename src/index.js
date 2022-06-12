@@ -1,8 +1,7 @@
-'use strict';
-const state = {
-  temp: 0,
-};
-function rangeSlide(value) {
+const rangeElement = document.getElementById('range');
+rangeElement.addEventListener('input', rangeSlide);
+function rangeSlide(event) {
+  const value = event.currentTarget.value;
   document.getElementById('rangeValue').textContent = value;
 }
 
@@ -40,11 +39,11 @@ input.addEventListener('input', (event) => {
   }
 });
 
-const tempChange = () => {
-  if (state.temp >= 80) {
-    console.log(state.temp);
-  }
-};
+// const tempChange = () => {
+//   if (state.temp >= 80) {
+//     console.log(state.temp);
+//   }
+// };
 
 function skyChange(event) {
   const skyButton = document.getElementById('skyButton');
@@ -53,6 +52,6 @@ function skyChange(event) {
 
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('skySelect').addEventListener('change', skyChange);
-  const tempSlider = document.getElementById('range');
-  tempSlider.addEventListener('change', tempChange);
+  // const tempSlider = document.getElementById('range');
+  // tempSlider.addEventListener('change', tempChange);
 });
