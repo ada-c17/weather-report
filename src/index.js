@@ -8,7 +8,6 @@ const resetCity = () => {
   document.getElementById('city').value = '';
   document.getElementById('inputCity').textContent = 'Seattle';
   document.getElementById('tempContainer').textContent = '°F';
-
 };
 ///////Temperature Buttons////////////
 const addTemp = (event) => {
@@ -47,7 +46,7 @@ const changeTempColor = (temp) => {
 
 const changeSky = () => {
   const skyContainer = document.getElementById('skyContainer');
-  state.sky = document.getElementById('sky-select').value;
+  state.sky = document.getElementById('skySelect').value;
   if (state.sky == 'Sunny') {
     skyContainer.textContent = '☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️';
   } else if (state.sky == 'Partly Cloudy') {
@@ -55,7 +54,7 @@ const changeSky = () => {
   } else if (state.sky == 'Rainy') {
     skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦💧⛈🌧🌦';
   } else {
-    skyContainer.textContent = '❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨';
+    skyContainer.textContent = '❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨❄️🌨';
   }
 };
 
@@ -121,7 +120,7 @@ const registerEventHandlers = (event) => {
   downButton.addEventListener('click', subtractTemp);
   const submitButton = document.getElementById('submitButton');
   submitButton.addEventListener('click', changeCity);
-  const skySelect = document.getElementById('sky-select');
+  const skySelect = document.getElementById('skySelect');
   skySelect.addEventListener('change', changeSky);
   const resetButton = document.querySelector('#resetButton');
   resetButton.addEventListener('click', resetCity);
