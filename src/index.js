@@ -10,7 +10,7 @@ const landscapes = {
 
 const weather = {
   temperature: 72,
-  city: 'Seattle',
+  city: 'Atlanta',
   updating: false,
 };
 
