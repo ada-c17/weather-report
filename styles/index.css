@@ -72,27 +72,41 @@ header h1 {
 #weatherGarden {
     flex: 3 60%;
     margin: 1vw;
-    height: 58vh;
+    height: 69vh;
 }
 
 main div {
     flex: 2 30%;
     margin: 1vw;
-    padding-bottom: 1vh;
+    /* padding-bottom: 1vh; */
 }
-
-.tempAdjust {
+main div h2 {
+    font-size: 5em;
+    font-family: 'Fascinate', cursive;
+}
+main div:first-of-type section{
     display:flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    flex-wrap:nowrap;
     align-items: center;
     justify-content: space-evenly;
 }
+main div:first-of-type section div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: fixed;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1vw;
+}
+
 
 .tempAdjust {
     background: linear-gradient(20deg,#fec5bb,#fcd5ce,#fae1dd,#f8edeb,
     #e8e8e4,#d8e2dc,#ece4db,
     #ffe5d9,#ffd7ba,#fec89a);
 }
+
 
 .tooHot {
     background: linear-gradient(20deg,#d00000, #ff4800, #ff5400, #ff6000,
@@ -120,7 +134,7 @@ main div {
     text-align: center;
 }
 
-#temp {
+.tempBox h2 {
     font-size: 5em;
     color: #d8e2dc;
     text-shadow: 2px 2px 2px #38040e;
@@ -128,31 +142,23 @@ main div {
 }
 
 .tooHot h2 {
-    font-size: 5em;
     color: #d00000;
     text-shadow: 2px 2px 2px #fec5bb;
-    font-family: 'Fascinate', cursive;
 }
 
 .hot h2 {
-    font-size: 5em;
     color: #ffa200;
     text-shadow: 2px 2px 2px #fec89a;
-    font-family: 'Fascinate', cursive;
 }
 
 .cold h2{
-    font-size: 5em;
     color: #5d6edd;
     text-shadow: 2px 2px 2px #669eeb;
-    font-family: 'Fascinate', cursive;
 }
 
 .freezing h2{
-    font-size: 5em;
     color: #73e6ff;
     text-shadow: 2px 2px 2px #b6ccfe;
-    font-family: 'Fascinate', cursive;
 }
 
 
@@ -165,6 +171,8 @@ main div {
 }
 
 #skySelector {
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 1vh;
 }
 #skySelector ul {

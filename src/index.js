@@ -23,34 +23,40 @@ const tempThemeToggle = () => {
     lowerTemp();
 
     const tempAdjustElement = document.getElementsByClassName("tempAdjust");
-    const tempElement = document.getElementById("temp");
+    const tempElement = document.getElementByClassName("tempBox");
 
     if (state.temp >= 32){
         // change background, #tempAdjust,
-        tempAdjustElement.textContent = "tooHot";
-        
+        tempAdjustElement.className = "tooHot";
         // and #tempAdjust h2 color -> too hot
-    }
-    else if (state.temp >= 25 && state.temp < 32){
+        tempElement.className = "tooHot";
+    } else if (state.temp >= 25 && state.temp < 32){
         // change background, #tempAdjust,
+        tempAdjustElement.className = "hot";
         // and #tempAdjust h2 color -> hot
-    }
-    else if (state.temp > 0 && state.temp <= 11) {
+        tempElement.className = "hot";
+    } else if (state.temp > 0 && state.temp <= 11) {
         // change background, #tempAdjust,
+        tempAdjustElement.className = "cold";
         // and #tempAdjust h2 color -> cold
-    }
-    else if (state.temp <= 0){
+        tempElement.className = "cold";
+    } else if (state.temp <= 0){
         // change background, #tempAdjust,
+        tempAdjustElement.className = "freezing";
         // and #tempAdjust h2 color -> freezing
-    }
-}
+        tempElement.className = "freezing";
+    };
+};
 
 const registerEventHandlers = () => {
     const tempUpButton = document.querySelector("#raiseTemp");
     tempUpButton.addEventListener("click", addTemp);
+    tempUpButton.addEventListener("click", tempThemeToggle);
 
     const tempDownButton = document.querySelector("#lowerTemp");
     tempDownButton.addEventListener("click", lowerTemp);
+    tempDownButton.addEventListener("click", tempThemeToggle);
+
 };
 
 
