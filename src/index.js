@@ -76,6 +76,13 @@ const inputLocationAction = () => {
     const currentLocationDisplay = document.getElementById("myLocation");
     currentLocationDisplay.textContent = `${state.currentLocation}`;
 };
+const resetLocationAction = () => {
+    const inputLocation = document.getElementById("locationInput");
+    state.currentLocation = "Irvine";
+    inputLocation.value = state.currentLocation
+    const currentLocationDisplay = document.getElementById("myLocation");
+    currentLocationDisplay.textContent = `${state.currentLocation}`;
+};
 
 const selectSkyAction = () => {
     const selectSky = document.getElementById("skyDropdown");
@@ -92,6 +99,9 @@ const registerEventHandlers = () => {
 
     const inputLocation = document.getElementById("locationInput");
     inputLocation.addEventListener("input", inputLocationAction);
+
+    const resetLocationButton = document.getElementById("resetLocation");
+    resetLocationButton.addEventListener("click", resetLocationAction);
 
     const changeSky = document.getElementById("skyDropdown");
     changeSky.addEventListener("change", selectSkyAction);
