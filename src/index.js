@@ -81,10 +81,9 @@ const getWeather = async (cityName) => {
         lon: lon,
       },
     });
-    // console.log(weather.data.current.weather[0]);
     return weather.data.current;
   } catch (error) {
-    console.log(error);
+    console.log(error.data);
   }
 };
 
@@ -98,6 +97,8 @@ const changeHeader = (cityname) => {
 };
 
 const changeSkyRealtime = (id) => {
+  // Changes background depending on weather condition codes provided by Weather API
+  // https://openweathermap.org/weather-conditions
   const background = document.getElementById('center-section');
 
   if (id >= 200 && id < 300) {
@@ -127,7 +128,7 @@ let changeWeather = () => {
     newTemp = convertKToF(weather.temp);
     state.temperature = newTemp;
     let weatherID = weather.weather[0].id;
-    // console.log(weatherID);
+    setSkySelectToDefault();
     changeHeader(state.city);
     getTempAndChangeStyle();
     changeLandscape();
@@ -149,12 +150,19 @@ const changeSky = (event) => {
   }
 };
 
+const setSkySelectToDefault = () => {
+  const skySelection = document.getElementById('sky-select');
+  skySelection.value = 'change-sky';
+};
+
 const resetCity = () => {
   const cityInput = document.querySelector('input');
   cityInput.value = '';
   state.city = 'Brownsville';
   const subheader = document.getElementById('subheader');
   subheader.textContent = `What I Wish The Weather Was Like in ${state.city}`;
+
+  setSkySelectToDefault();
 };
 
 const registerEventHandlers = () => {
