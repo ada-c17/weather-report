@@ -79,30 +79,37 @@ const updateCityValue = (cityInput) => {
   findLatitudeAndLongitude();
 };
 
-const resetValue = () => {
-  // cityInput.textContent.value = '';
+const resetValues = () => {
   cityInput.value = '';
-  cityName.textContent = 'Enter a city';
+  cityName.textContent = 'Enter a City';
 
   const tempVal = document.getElementById('temp-value');
-  tempVal.value = 0;
+  tempVal.textContent = 0;
+
+	const landscapeVal = document.getElementById('landscape-value');
+	landscapeVal.textContent = '';
+
+	const skyVal = document.getElementById('sky-value');
+	skyVal.textContent = '';
+
+	const skyMenu = document.getElementById('sky-menu');
+	skyMenu.value = 'default-sky';
 };
 
 const resetCityButton = () => {
   const resetButton = document.getElementById('reset-button');
-  resetButton.addEventListener('click', resetValue);
-  // console.log('BUTTTTTONNNN');
+  resetButton.addEventListener('click', resetValues);
 };
 
 // changing sky emojis
 const skyChange = (sky) => {
-  if (sky == 'sunny') {
+	if (sky === 'default-sky') {
+		document.getElementById('sky-value').textContent = ``;
+	} else if (sky === 'sunny') {
     document.getElementById('sky-value').textContent = `☁️ ☁️ ☁️ ☀️ ☁️ ☁️`;
-  } else if (sky == 'cloudy') {
-    document.getElementById(
-      'sky-value'
-    ).textContent = `☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️`;
-  } else if (sky == 'rainy') {
+  } else if (sky === 'cloudy') {
+    document.getElementById('sky-value').textContent = `☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️`;
+  } else if (sky === 'rainy') {
     document.getElementById('sky-value').textContent = `🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧`;
   } else {
     document.getElementById('sky-value').textContent = `🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨`;
@@ -146,12 +153,9 @@ const getWeather = (latitude, longitude) => {
     });
 };
 
-// const updateTemp = () => {
-//   let tempVal = document.getElementById('temp-value');
 
-//   findLatitudeAndLongitude();
 
-// };
+// event listeners
 
 const skySelection = document.getElementById('sky-menu');
 
@@ -163,15 +167,5 @@ skySelection.addEventListener('change', (event) => {
 
 cityInput.addEventListener('change', updateCityValue);
 
-// document.addEventListener('DOMContentLoaded', updateCityValue);
-
-// document.addEventListener('change', updateCityValue);
-
-// document.addEventListener('change', updateSkyValue);
-// document.addEventListener('change', updateTemp);
-
 document.addEventListener('DOMContentLoaded', upEvent);
 document.addEventListener('DOMContentLoaded', downEvent);
-
-//maybe usesless
-// document.addEventListener('DOMContentLoaded', resetCityValue);

@@ -16,17 +16,18 @@
         <button id="down-button">⇓</button>
     </section>
     <section id = "city"> 
-        <h2 id = "city-name2">City</h2>
+        <h2 id = "city-name2">Enter a City</h2>
         <input placeholder= "Some City" id="city-input" type="Text"/>
         <button id="city-button">UPDATE</button>
         <!-- <button id="reset-button">RESET</button> -->
-        <button type = "button" id="reset-button" onclick = "resetValue();"> RESET </button> 
+        <button type = "button" id="reset-button" onclick = "resetValues();"> RESET </button> 
         <!-- id="reset-button">RESET</button> -->
     </section>
     <section id = "sky"> 
         <h2 id = "">Sky</h2>
 
         <select id = "sky-menu"> 
+            <option value = "default-sky">Select a Sky</option>
             <option value = "sunny"> Sunny</option>
             <option value = "cloudy"> Cloudy</option>
             <option value = "rainy"> Rainy</option>
@@ -34,8 +35,8 @@
         </select>
     </section>
     <section id = "landscape"> 
-        <h2 id = "">Landscape</h2>
-        <p id = "sky-value">___</p>
+        <h2 id = "">Weather Garden</h2>
+        <p id = "sky-value"></p>
         <p id = "landscape-value"></p>
     </section>
     
