@@ -85,15 +85,16 @@ const resetValues = () => {
 
   const tempVal = document.getElementById('temp-value');
   tempVal.textContent = 0;
+  tempVal.style.color = 'black';
 
-	const landscapeVal = document.getElementById('landscape-value');
-	landscapeVal.textContent = '';
+  const landscapeVal = document.getElementById('landscape-value');
+  landscapeVal.textContent = '';
 
-	const skyVal = document.getElementById('sky-value');
-	skyVal.textContent = '';
+  const skyVal = document.getElementById('sky-value');
+  skyVal.textContent = '';
 
-	const skyMenu = document.getElementById('sky-menu');
-	skyMenu.value = 'default-sky';
+  const skyMenu = document.getElementById('sky-menu');
+  skyMenu.value = 'default-sky';
 };
 
 const resetCityButton = () => {
@@ -103,12 +104,14 @@ const resetCityButton = () => {
 
 // changing sky emojis
 const skyChange = (sky) => {
-	if (sky === 'default-sky') {
-		document.getElementById('sky-value').textContent = ``;
-	} else if (sky === 'sunny') {
+  if (sky === 'default-sky') {
+    document.getElementById('sky-value').textContent = ``;
+  } else if (sky === 'sunny') {
     document.getElementById('sky-value').textContent = `☁️ ☁️ ☁️ ☀️ ☁️ ☁️`;
   } else if (sky === 'cloudy') {
-    document.getElementById('sky-value').textContent = `☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️`;
+    document.getElementById(
+      'sky-value'
+    ).textContent = `☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️`;
   } else if (sky === 'rainy') {
     document.getElementById('sky-value').textContent = `🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧`;
   } else {
@@ -152,8 +155,6 @@ const getWeather = (latitude, longitude) => {
       return temp;
     });
 };
-
-
 
 // event listeners
 

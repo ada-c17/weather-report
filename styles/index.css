@@ -21,18 +21,18 @@
 
 h1 {
     font-family: "Comic Sans MS";
-    font-size: 72px;
+    font-size: 65px;
     align-self: center;
 }
 
 #temp-value {
-    font-size: 72px;
+    font-size: 60px;
 }
 
 section{
     border: 1px black solid;
     border-radius: 10px;
-    padding-bottom: 40px;
+    /* padding-bottom: 00px; */
 }
 
 #header{
