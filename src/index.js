@@ -105,8 +105,6 @@ const changeLocationName = () => {
   const inputText = document.getElementById('location-input');
   const newLocationName = document.getElementById('location-display-name');
   newLocationName.textContent = inputText.value;
-  // console.log('Type');
-  // console.log(inputText.value);
 };
 
 // location name updates in REAL TIME
