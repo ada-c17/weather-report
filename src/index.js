@@ -1,3 +1,5 @@
+// const { default: axios } = require('axios');
+
 const newCity = () => {
   const cityValue = document.getElementById('cname').value;
   console.log(cityValue);
@@ -10,38 +12,55 @@ const API = 'http://127.0.0.1:5000';
 const getCityLoc = () => {
   // const API = 'http://127.0.0.1:5000';
   const city = document.getElementById('cname').value;
+  const tempValue = document.getElementById('currentTemp');
   console.log(city);
 
   axios
     .get(`${API}/location`, { params: { q: city, format: 'JSON' } })
     .then((response) => {
       console.log('Success');
-      console.log(response.data[0].lat);
-      getWeather(response.data[0].lat, response.data[0].lon);
-    })
-    .catch((error) => {
-      console.log('Error');
-      console.log(error.response.statusText);
+      // console.log(response.data[0].lat);
+      const lat = response.data[0].lat;
+      const lon = response.data[0].lon;
+      console.log(lat);
+      console.log(lon);
+      axios
+        .get(`${API}/weather`, { params: { lat: lat, lon: lon } })
+        .then((response) => {
+          const tempK = response.data.current.temp;
+          const tempF = Math.floor(1.8 * (tempK - 273) + 32);
+          tempValue.textContent = tempF;
+          console.log(tempK);
+          console.log(tempF);
+        })
+        .catch((error) => {
+          console.log('Conversion Error');
+          console.log(error.response.statusText);
+        })
+        // getWeather(response.data[0].lat, response.data[0].lon);
+        .catch((error) => {
+          console.log('Error');
+          console.log(error.response.statusText);
+        });
     });
 };
-
-const getWeather = async (lat, lon) => {
-  console.log(lat);
-  console.log(lon);
-  const response = await axios.get(`${API}/weather`, {
-    params: {
-      lat: lat,
-      lon: lon,
-      format: 'JSON',
-    },
-  });
-  console.log('Weather!');
-  console.log(response.data.current.temp);
-  convertTemp(response.data.current.temp);
-  // convertTemp(response.data.current.temp);
-  // tempTextColor(convertTemp(response.data.current.temp));
-  // tempGround(newTemp);
-};
+// const getWeather = async (lat, lon) => {
+//   console.log(lat);
+//   console.log(lon);
+//   const response = await axios.get(`${API}/weather`, {
+//     params: {
+//       lat: lat,
+//       lon: lon,
+//       format: 'JSON',
+//     },
+//   });
+//   console.log('Weather!');
+//   console.log(response.data.current.temp);
+//   convertTemp(response.data.current.temp);
+//   // convertTemp(response.data.current.temp);
+//   // tempTextColor(convertTemp(response.data.current.temp));
+//   // tempGround(newTemp);
+// };
 
 const convertTemp = (temp) => {
   const displayTemp = document.getElementById('currentTemp');
