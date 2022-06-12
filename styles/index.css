@@ -15,8 +15,13 @@ body {
     margin: 2rem;
     }
 
-ul, li {
-    list-style-type: none;
+ul {
+    list-style: none;
+}
+
+li {
+    list-style: none;
+    padding: 3px;
 }
     
 .veryHot {
