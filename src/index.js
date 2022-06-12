@@ -92,19 +92,21 @@ const changeCityName = () => {
   });
 };
 
-const getCurrent = () => {
+const getCurrentWeather = () => {
   const currentTemp = document.getElementById('display-temp');
   const cityButton = document.querySelector('#get-city-weather');
   const cityInput = document.querySelector('#input-city');
   cityButton.addEventListener('click', () => {
     getLatLon(cityInput.value).then((latlon) => {
-      getWeather(latlon).then((temp) => {
-        farTemp = Math.floor(1.8 * (temp - 273) + 32);
+      getWeather(latlon).then((data) => {
+        farTemp = Math.floor(1.8 * (data.temp - 273) + 32);
         state.temp = farTemp;
         currentTemp.textContent = state.temp;
+        state.sky = data.weather[0].icon;
+        console.log(state.sky);
         changeTempColor();
         changeLandscape();
-        changeSky();
+        getSky();
       });
     });
   });
@@ -129,22 +131,37 @@ const getWeather = ([latitude, longitude]) => {
   return axios
     .get(`http://127.0.0.1:5000/weather?lat=${latitude}&lon=${longitude}`)
     .then((response) => {
-      return response.data.current.temp;
+      return response.data.current;
     })
     .catch((error) => {
       console.log(`${error}`);
     });
 };
 
+const getSky = () => {
+  const backgroundColor = document.querySelector('body');
+  const currentSky = document.querySelector('#sky-select');
+
+  for (const [condition, icons] of Object.entries(skyValues)) {
+    console.log(condition);
+    if (icons.includes(state.sky)) {
+      currentSky.value = condition;
+      if (currentSky.value === 'sunny') {
+        backgroundColor.style.backgroundColor = 'goldenrod';
+      } else if (currentSky.value === 'cloudy') {
+        backgroundColor.style.backgroundColor = 'grey';
+      } else if (currentSky.value === 'raining') {
+        backgroundColor.style.backgroundColor = 'blue';
+      } else if (currentSky.value === 'snowing') {
+        backgroundColor.style.backgroundColor = 'white';
+      }
+    }
+  }
+};
+
 const changeSky = () => {
   const currentSky = document.querySelector('#sky-select');
   const backgroundColor = document.querySelector('body');
-
-  for (const sky in Object.entries(skyValues)) {
-    if (state.sky in Object.values(skyValues)) {
-      currentSky = sky;
-    }
-  }
 
   currentSky.addEventListener('change', () => {
     if (currentSky.value === 'sunny') {
@@ -164,4 +181,4 @@ document.addEventListener('DOMContentLoaded', changeTemp);
 document.addEventListener('DOMContentLoaded', changeLandscape);
 document.addEventListener('DOMContentLoaded', changeCityName);
 document.addEventListener('DOMContentLoaded', changeSky);
-document.addEventListener('DOMContentLoaded', getCurrent);
+document.addEventListener('DOMContentLoaded', getCurrentWeather);
