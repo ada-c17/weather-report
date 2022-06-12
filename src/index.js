@@ -2,6 +2,16 @@ console.log('Hello, World!');
 
 const state = {
   temp: parseInt(document.getElementById('display-temp').innerHTML),
+  sky: '',
+};
+
+console.log(state.sky);
+
+skyValues = {
+  sunny: ['01d', '01n', '02d', '02n'],
+  cloudy: ['03d', '03n', '04d', '04n', '50d', '50n'],
+  raining: ['09d', '09n', '10d', '10n', '11d', '11n'],
+  snowing: ['13d', '13n'],
 };
 
 const changeTempColor = () => {
@@ -82,20 +92,6 @@ const changeCityName = () => {
   });
 };
 
-// Get weather! We should add a <button> element that when clicked updates
-// and displays the realtime temperature of the currently displayed city name.
-
-// getLatLon should:
-// take the current input from the box
-// use it to make a GET request with Location IQ
-// return lat, long
-
-// getWeather should:
-// add event listener on click, event is getWeather function
-// call getLatLon
-// use the return value make GET request for weather at those coordinates
-// return temperature to state variable for temp
-
 const getCurrent = () => {
   const currentTemp = document.getElementById('display-temp');
   const cityButton = document.querySelector('#get-city-weather');
@@ -143,6 +139,13 @@ const getWeather = ([latitude, longitude]) => {
 const changeSky = () => {
   const currentSky = document.querySelector('#sky-select');
   const backgroundColor = document.querySelector('body');
+
+  for (const sky in Object.entries(skyValues)) {
+    if (state.sky in Object.values(skyValues)) {
+      currentSky = sky;
+    }
+  }
+
   currentSky.addEventListener('change', () => {
     if (currentSky.value === 'sunny') {
       backgroundColor.style.backgroundColor = 'goldenrod';
