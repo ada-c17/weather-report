@@ -56,7 +56,7 @@ body {
     content: "Sky";
 }
 
-.sky--inner {
+.inner {
     grid-column: 2;
     position: relative;
     display: flex;
@@ -64,7 +64,7 @@ body {
     align-items: center;
 }
 
-#sky--box {
+#sky--container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -150,15 +150,12 @@ body {
 }
 
 .location-display--inner {
-    grid-column: 2;
-    position: relative;
     overflow-wrap: break-word;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    padding-left: 3vmax;
 }
 
-#location-display--box {
+#location-display--container {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -189,19 +186,10 @@ body {
     content: "Search \Location";
 }
 
-.location-search--inner {
-    grid-column: 2;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#location-search--box {
+#location-search--container {
     display: grid;
     grid-template-rows: 1fr 1fr;
     margin-top: 3vmax;
-
 }
 
 #location-search--group {
@@ -227,6 +215,11 @@ body {
 
 #location-input:focus{
     background-color: #C7C6C7;
+}
+
+#location-input::selection{
+    background-color: #232323;
+    color: #f9f9f9;
 }
 
 .buttons{
@@ -276,43 +269,14 @@ body {
 }
 
 .land--square {
-    grid-column: 2;
-    height: 80%;
-    width: 100%;
     background-color: rgba(199, 198, 198, 0.9);
-    border-radius: 10px;
-    display: flex;
-    align-self: center;
 }
 
 .land--square::before {
-    grid-column: 2;
-    position: absolute;
-    transform: translate3d(10px, 10px, 0);
-    height: 100%;
-    width: 100%;
-    border: 3px solid #707070;
-    box-sizing: border-box;
-    border-radius: 10px;
-    /*   text appearance */
     content: "Temp";
-    color: #707070;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Poppins", Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 2.25vmax;
 }
 
-.land--inner {
-    grid-column: 2;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#land--box {
+#land--container {
     display: flex;
     flex-direction: row;
     justify-content: center;
