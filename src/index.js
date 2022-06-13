@@ -1,8 +1,9 @@
-const axios = require('axios');
+// const axios = require('axios');
 
 const state ={
     temperature: 75,
-    tempText: "Partly Sunny 🌤"
+    tempText: "Partly Sunny 🌤",
+    realTimeTemp: 75,
 }
 
 // add event handler
@@ -111,6 +112,67 @@ const updateTempColor = () =>{
      }
 }
 updateTempColor();
+
+// MAKE API CALLS
+
+const getLatAndLong = () => {
+    let latitude, longitude;
+   
+    axios.get('https://weather-report-proxy-server.herokuapp.com/location',
+    {
+
+      params: {
+        q: 'Seattle, Washington',
+        format: 'json'
+      }
+    })
+    .then( (response) => {
+        latitude = response.data[0].lat;
+        longitude = response.data[0].lon;
+        console.log('Found Lat & Lon data', latitude, longitude);
+       
+        getWeather(latitude, longitude);
+    })
+    .catch( (error) => {
+      console.log('error in getLatAndLong');
+    });
+}
+
+const getWeather = (latitude, longitude) =>{
+    axios.get('https://weather-report-proxy-server.herokuapp.com/weather',
+    {
+      params: {
+        format: 'json',
+        lat: latitude,
+        lon: longitude
+      }
+    })
+    .then( (response) => {
+        console.log("success in getWeather", response.data);
+        let kelvinTemp = response.data.current.temp
+        console.log(response.data.current.temp);
+        let farhenTemp = Math.floor( ((kelvinTemp-273.15)*1.8)+32 );
+        console.log(farhenTemp);
+        state.realTimeTemp = farhenTemp;
+        console.log(state.realTimeTemp)
+        updateRealTimeTemp();
+        updateTempColor();
+
+      })
+        
+    .catch( (error) => {
+        console.log("error in getWeather");
+      });
+    }
+
+const updateRealTimeTemp = () => {
+    const temperature = document.getElementById("temperature");
+    state.temperature = state.realTimeTemp
+    temperature.textContent = `${state.temperature}°`;
+        
+}
+    
+// REGISTER EVENT HANDLERS
 const registerEventHandlers = ( ) => {
 
     const increaseTempButton = document.getElementById("btn-increase");
@@ -125,9 +187,23 @@ const registerEventHandlers = ( ) => {
 
     const changeSkySelectButton = document.getElementById("btn-skySelect")
     changeSkySelectButton.addEventListener("click", updateSky )
+
+    const getCurrentTempButton = document.getElementById("getCurrentTemp")
+    getCurrentTempButton.addEventListener("click", getLatAndLong)
+
+    
 }
 
+
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
+
+
+
+    // function call - getLatAndLong();
+    
+   
+
+    
 
 
 
