@@ -1,5 +1,3 @@
-//temperature====================================
-
 //temperature starting state
 const state = {
   currentTemp: 0,
@@ -50,15 +48,30 @@ const changeLandScape = (query) => {
   document.querySelector(query).style.display = 'inline';
 };
 
+//change city display
+const cityDisplay = () => {
+  let currentCityContainer = document.querySelector('.cityDisplay');
+  currentCityContainer.innerHTML = document.querySelector('.textBox').value;
+  document.querySelector('.textBox').value = '';
+};
+
+const refreshCity = () => {
+  document.querySelector('.cityDisplay').style.display = 'none';
+};
+
 //register events
 const registerEventHandlers = () => {
   //retrive from doc
   const upArrow = document.querySelector('#upArrow');
   const downArrow = document.querySelector('#downArrow');
+  const searchBtn = document.querySelector('.searchIcon');
+  const refreshBtn = document.querySelector('.refreshBtn');
 
   //attach event
   upArrow.addEventListener('click', addTemp);
   downArrow.addEventListener('click', subtractTemp);
+  searchBtn.addEventListener('click', cityDisplay);
+  refreshBtn.addEventListener('click', refreshCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
