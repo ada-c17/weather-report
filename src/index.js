@@ -53,7 +53,7 @@ const resetCity = function () {
   const curWeatherHeader = document.getElementById('cityQuote');
   curWeatherHeader.textContent = 'Hotlanta! The City of Sweet tea and Sunshine';
   getCurrentTemp();
-  setTextColorLandscapeBasedOnTemp();
+  updatteLandBasedonTemp();
 };
 
 const changeCity = () => {
@@ -82,10 +82,10 @@ const changeSky = () => {
 const newTemperature = () => {
   const temperatureMessage =  temperature + '\u00B0F';
   document.getElementById('temperature').innerHTML = temperatureMessage;
-  setTextColorLandscapeBasedOnTemp();
+  updatteLandBasedonTemp();
 };
 
-const setTextColorLandscapeBasedOnTemp = () => {
+const updatteLandBasedonTemp = () => {
   let img;
   let tempColor = '';
   if (temperature >= 80) {
