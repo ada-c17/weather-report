@@ -59,15 +59,20 @@ const changeLandscape = () => {
 
   if (state.temperature >= 80) {
     landscapeImage.src = 'assets/marissa-rodriguez-summer.jpg';
+    landscapeImage.alt = 'Crystal clear turquoise water in a pool or sea';
     landscapeCaption.textContent = 'Photo by Marissa Rodriguez';
   } else if (state.temperature >= 60 && state.temperature <= 79) {
     landscapeImage.src = 'assets/laura-adai-spring.jpg';
+    landscapeImage.alt = 'A close up image of a branch with pink flowers';
     landscapeCaption.textContent = 'Photo by Laura Adai';
   } else if (state.temperature >= 40 && state.temperature <= 59) {
     landscapeImage.src = 'assets/janmesh-shah-fall.jpg';
+    landscapeImage.alt = 'A tree full of golden leaves';
     landscapeCaption.textContent = 'Photo by Janmesh Shah';
   } else {
     landscapeImage.src = 'assets/donnie-rosie-winter.jpg';
+    landscapeImage.alt =
+      'A forest with tall, snowcapped trees above a bed of snow';
     landscapeCaption.textContent = 'Photo by Donnie Rosie';
   }
 };
@@ -79,15 +84,22 @@ const changeSky = () => {
 
   if (state.temperature >= 80) {
     skyImage.src = 'assets/sky/grooveland-designs-sunny.jpg';
+    skyImage.alt =
+      'The sun, off in the distance, surrounded by bright blue sky';
     skyCaption.textContent = 'Photo by Grooveland Designs';
   } else if (state.temperature >= 60 && state.temperature <= 79) {
     skyImage.src = 'assets/sky/brandon-morgan-lightning.jpg';
+    skyImage.alt =
+      'A dark sky with one big bolt of lightning stretching toward the ground';
     skyCaption.textContent = 'Photo by Brandon Morgan';
   } else if (state.temperature >= 40 && state.temperature <= 59) {
     skyImage.src = 'assets/sky/daoudi-aissa-cloudy.jpg';
+    skyImage.alt = 'An overcast sky full of fluffy clouds, some ominous';
     skyCaption.textContent = 'Photo by Daoudi Aissa';
   } else {
     skyImage.src = 'assets/sky/jessica-fadel-snowing.jpg';
+    skyImage.alt =
+      'A snow flurry against a dark background, as though it is nighttime';
     skyCaption.textContent = 'Photo by Jessica Fadel';
   }
 };
@@ -102,15 +114,22 @@ const manuallyChangeSky = () => {
 
   if (selectedSky === 'sunny') {
     skyImage.src = 'assets/sky/grooveland-designs-sunny.jpg';
+    skyImage.alt =
+      'The sun, off in the distance, surrounded by bright blue sky';
     skyCaption.textContent = 'Photo by Grooveland Designs';
   } else if (selectedSky === 'cloudy') {
     skyImage.src = 'assets/sky/daoudi-aissa-cloudy.jpg';
+    skyImage.alt = 'An overcast sky full of fluffy clouds, some ominous';
     skyCaption.textContent = 'Photo by Daoudi Aissa';
   } else if (selectedSky === 'stormy') {
     skyImage.src = 'assets/sky/brandon-morgan-lightning.jpg';
+    skyImage.alt =
+      'A dark sky with one big bolt of lightning stretching toward the ground';
     skyCaption.textContent = 'Photo by Brandon Morgan';
   } else if (selectedSky === 'snowy') {
     skyImage.src = 'assets/sky/jessica-fadel-snowing.jpg';
+    skyImage.alt =
+      'A snow flurry against a dark background, as though it is nighttime';
     skyCaption.textContent = 'Photo by Jessica Fadel';
   }
 };
