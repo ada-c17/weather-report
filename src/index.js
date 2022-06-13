@@ -179,6 +179,11 @@ const resetCityName = () => {
     // console.log(`${state.location}`)
     document.getElementById("location").value = ""
     document.getElementById("cityName").innerHTML = "Seattle WA"
+    state.temperature = 75;
+    temperature.textContent = `${state.temperature}°`;
+    updateTempColor();
+     
+    
     // resetCity = ""
     // state.cityName = "Seattle WA"
     // location.textContent = `${state.location}`;

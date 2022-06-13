@@ -76,8 +76,17 @@ h1{
     margin: 30px;
     height: 25px;
     width: 150px;
-    /* background-color: rgb(183, 146, 209); */
-   
+    background-color: var( --light-grey);
+    border: 1px solid indigo; 
+}
+
+#btn-changeLocation{
+    background-color: var( --light-grey);
+    border: 1px solid indigo; 
+    padding: 7px;
+    font-weight: 600;
+    color: indigo;
+
 }
 #getCurrentTemp{
     width: 250px;
@@ -91,7 +100,7 @@ h1{
 }
 
 #reset{
-    width: 150px;
+    width: 125px;
     height: 30px;
     
     
@@ -107,13 +116,34 @@ h1{
     display: flex;
 }
 #sky-box{
-    margin-left: 100px;
+    margin-left: 150px;
 }
+
+#skyOptions{
+    width: 150px;
+    height: 35px;
+    padding: 7px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: var(--light-grey)  
+    
+}
+
+#btn-skySelect{
+    margin-left: 10px;
+    width: 100px;
+    height: 35px;
+    padding: 7px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: var(--light-grey)
+}
+
 
 #tempTextDisplay{
     font-size: 100px;
     /* color: darkgreen; */
-    margin: 20px 100px;
+    margin: 20px 150px;
     height: 2.8em;
     width: 5em;
     padding: 10px;
@@ -166,7 +196,7 @@ h2{
 }
 #btn-decrease{
     margin-top: 40px;
-    margin-left: 5px;
+    margin-left: 20px;
     width: 30px;
     height: 30px;
     padding: 7px;
@@ -217,5 +247,5 @@ h2{
 
     .container3{
         display:block;
-        margin-left: 100px;
+        margin-left: 150px;
     }
