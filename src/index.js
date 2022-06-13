@@ -207,11 +207,14 @@ const getRealtimeTemp = () => {
           convertCelsius.addEventListener('click', convertKtoC);
         })
         .catch((e) => {
-          console.log(e);
+          // alert('Location does not exist!');
+          window.swal('Oops!', 'Location does not exist!', 'error');
         });
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
+      //alert('Location does not exist!');
+      window.swal('Oops!', 'Location does not exist!', 'error');
     });
 };
 
