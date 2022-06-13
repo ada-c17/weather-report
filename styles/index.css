@@ -8,6 +8,7 @@ html {
 
 body { 
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
     height: 100%; 
 }
 
@@ -22,7 +23,7 @@ h1, #city-name-container {
 }
 
 #display-temp { 
-    color: blue; 
+    color: blueviolet;  
 } 
 
 #temperature-container {  
@@ -40,21 +41,40 @@ h1, #city-name-container {
     padding: 10px; 
 }  
 
+#city-label { 
+    padding: 10px; 
+    margin-bottom: 20px; 
+}
+
+#enter-city-name-input { 
+    padding: 10px; 
+}
+
 #sky-container { 
     text-align: center; 
     padding: 10px; 
 }
 
+#choose-sky-dropdown { 
+    padding: 10px; 
+}
+
 #weather-garden-container { 
-    text-align: center; 
-    padding: 20px; 
+    text-align: center;  
     font-size: larger;
+}
+
+#weather-garden-label { 
+    padding: 10px; 
 }
 
 #landscape-container { 
     padding: 10px; 
 }
 
+#display-sky-emojis { 
+    padding: 10px; 
+}
 #sky-emojis { 
     padding: 20px; 
     gap: 20px; 
@@ -68,9 +88,10 @@ h1, #city-name-container {
 }
 
 #img-source-container { 
-    font-size: x-small; 
-    text-align: right;
-    justify-content: right;
+    font-size: smaller; 
+    bottom: 0; 
+    right: 0; 
+    position: absolute;
 }  
 
 #made-by { 

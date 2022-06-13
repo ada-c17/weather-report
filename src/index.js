@@ -12,15 +12,14 @@ const lowerTemp = () => {
   changeLandscape();
 };
 
-//TODO: change temp.style.color in CSS and not in here
 const changeTempColor = () => {
   const temperature = document.getElementById('display-temp');
   if (temperature.innerText >= 80) {
-    temperature.style.color = 'red';
+    temperature.style.color = 'lightcoral';
   } else if (temperature.innerText >= 70 && temperature.innerText <= 79) {
-    temperature.style.color = 'blue';
+    temperature.style.color = 'blueviolet';
   } else if (temperature.innerText >= 60 && temperature.innerText <= 69) {
-    temperature.style.color = 'purple';
+    temperature.style.color = 'peru';
   } else if (temperature.innerText >= 50 && temperature.innerText <= 59) {
     temperature.style.color = 'green';
   } else {
@@ -48,6 +47,10 @@ const updateCityName = () => {
   currentCityName.textContent = cityNameUserInput;
 };
 
+/*
+Sorry about lack of readability - was supposed to put into two functions
+But didn't have time to refactor
+*/
 const realTimeTemp = () => {
   const updateWeatherCity = document.getElementById('city-name').value;
   let latitude, longitude;
@@ -105,8 +108,13 @@ const changeSky = () => {
   }
 };
 
-const resetCityName = () => {
-  document.getElementById('city-name-display').textContent = 'Seattle'; // where default name is currently displayed
+const resetCityNameAndTemp = () => {
+  document.getElementById('city-name-display').textContent = 'Seattle';
+  document.getElementById('display-temp').textContent = '77';
+  const temperature = document.getElementById('display-temp');
+  temperature.style.color = 'blue';
+  const landscape = document.getElementById('landscape');
+  landscape.textContent = '🌸🌿🌼🍀🌷🌻🌿🍀🌱🍀🌻🌷';
 };
 
 const clearInputField = () => {
@@ -137,9 +145,10 @@ const registerEventHandlers = () => {
     changeSky();
   });
   resettingCity.addEventListener('click', () => {
-    resetCityName();
+    resetCityNameAndTemp();
     clearInputField();
   });
 };
 
+// tried to add this, but messed up my display temperature number (would only increase or decrease by odd numbers)
 // document.addEventListener('DOMContentLoaded', registerEventHandlers);
