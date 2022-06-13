@@ -1,12 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet" />
     <title>Weather Report</title>
 </head>
+
 <body>
-    
+
+    <header>
+        <h1 id="weatherreport-title">Weather Report</h1>
+    </header>
+    <main class="main">
+
+        <section id="temp-container">
+            <h2 id="temp-title"> Temperature for <span id="temp-title-city">chicago</span></h2>
+            <!-- <h2 id="temp-city"></h2> -->
+            <!-- <div id = "temp-title"> Temp</div> -->
+            <div>
+                <button id="down-button">⬇️</button>
+                <span id="temp-degree">59</span>
+                <button id="up-button">⬆️</button>
+            </div>
+            <button id="reset-button">
+                Reset
+            </button>
+        </section>
+
+        <section id="city-container">
+            <!-- <h2 id="city-title">City</h2> -->
+            <div class="city-info">
+                <label for="city-input">Enter a city</label>
+                <input type="text" name="city" id="city-input">
+                <button id="update-city-button">Update City</button>
+            </div>
+        </section>
+        <section id="sky-container">
+
+            <label>Please select a sky:
+                <select id="label-sky" name="sky" autocomplete="off">
+                    <option value="Snowy">Snowy</option>
+                    <option value="Cloudly">Cloudly</option>
+                    <option value="Rainy">Rainy</option>
+                    <option value="Sunny">Sunny</option>
+                </select>
+            </label>
+
+        </section>
+        <section id="landscape-container">
+            <h1>Landscape</h1>
+            <h2 id="sky-image">⛄️⛄️⛄️⛄️⛄️⛄️⛄️⛄️⛄️</h2>
+            <img id="land-img" src="/assets/images/winter.jpeg" alt="winter image">
+            <h2 id="landscape-image">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</h2>
+
+        </section>
+
+
+
+
+
+    </main>
+
+
 </body>
+
+<script src="src/index.js"></script>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+
 </html>

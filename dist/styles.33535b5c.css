@@ -1,0 +1,2 @@
+*{box-sizing:border-box;background-color:bisque}#weatherreport-title{text-align:center;max-width:900px}#city-container,#landscape-container,#sky-container,#temp-container{max-width:900px;margin:20px;display:grid;grid-template-columns:1fr;grid-auto-rows:minmax(100px,auto);border:3px solid #000;text-align:center;border-radius:3%}img{width:100%;height:400px}#city-input,#label-sky,.city-info{font-size:20px;margin:auto;width:50%;height:50px}#temp-degree{color:#000;font-size:70px}button{cursor:pointer}
+/*# sourceMappingURL=/weather-report/styles.33535b5c.css.map */
