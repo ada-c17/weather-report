@@ -9,7 +9,7 @@
   <link href="./styles/index.css" rel="stylesheet">
 </head>
 <body>
-  <main>
+  <main id="">
     <h1>Weather Report</h1>
 
     <section id="city-info">
@@ -19,21 +19,24 @@
       <button class="change-temperature">Reset</button>
     </section>
 
-    <section id="temperature-info">
-      <img src="./assets/up-arrow.png" alt="Up arrow">
-      <h2>Temperature</h2>
-      <img src="./assets/down-arrow.png" alt="Down arrow">
-    </section>
+    <div id="bottom-container">
+      <section class="bottom-section">
+        <img class="padding-5" src="./assets/up-arrow.png" alt="Up arrow">
+        <h2 class="padding-5">Temperature</h2>
+        <img class="padding-5" src="./assets/down-arrow.png" alt="Down arrow">
+      </section>
+  
+      <section class="bottom-section">
+        <h2 class="padding-5">Sky Type:</h2>
+        <select name="sky type">
+          <option value="sunny">Sunny</option>
+          <option value="cloudy">Cloudy</option>
+          <option value="rainy">Rainy</option>
+          <option value="snowy">Snowy</option>
+        </select>
+      </section>
+    </div>
 
-    <section>
-      <h2>Sky Type:</h2>
-      <select name="sky type">
-        <option value="sunny">Sunny</option>
-        <option value="cloudy">Cloudy</option>
-        <option value="rainy">Rainy</option>
-        <option value="snowy">Snowy</option>
-      </select>
-    </section>
   </main>
   <script src="./src/index.js" type="text/javascript"></script>
   <script src="./node_modules/axios/dist/axios.min.js"></script>

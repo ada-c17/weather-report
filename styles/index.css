@@ -17,10 +17,21 @@ h1 {
   margin: 0 auto;
 }
 
-#temperature-info {
+.bottom-section {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
   border: 3px solid;
   border-radius: 10px;
-  margin: 5%;
-  /* padding: 20px; */
+  width: 40%;
+}
+
+.padding-5 {
+  padding: 5%;
+}
+
+#bottom-container {
+  display: flex;
+  justify-content: space-evenly;
 }
