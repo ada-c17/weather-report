@@ -5,15 +5,18 @@ const state = {
   temp: 70,
 };
 
-//set defult city name
+//set default city name
 const cityName = document.getElementById('values');
-cityName.textContent = state.city
+cityName.textContent = state.city;
 
 //set default temp
 const temperature = document.getElementById('tempNum');
 temperature.textContent = state.temp;
 
-
+const resetCityName = () => {
+  const cityName = document.getElementById('values');
+  cityName.textContent = 'Philadelphia';
+};
 
 // event: temp num color changes as temp changes
 const tempNumColorSet = () => {
@@ -22,6 +25,11 @@ const tempNumColorSet = () => {
   const temperature = document.getElementById('tempNum');
   temperature.textContent = state.temp;
   let Landscape = document.getElementById('img1');
+  const weatherPic1 = document.getElementById('weaPic1');
+  const weatherPic2 = document.getElementById('weaPic2');
+  weatherPic1.src = 'img/rainbow.png';
+  weatherPic2.src = 'img/teruteru1.png';
+
   // crowAndSnow = Landscape.textContent;
   if (state.temp > 80) {
     temperature.style.color = 'red';
@@ -78,89 +86,87 @@ const getCityInput = () => {
   const log = document.getElementById('values');
   state.city = input;
   log.textContent = state.city;
-}
-
+};
 
 //using third party API to get lat and lon
 const getLatAndLon = () => {
-
   axios
-  .get('http://127.0.0.1:5000/location', {
-    params: {
-      q: state.city,
-    }
-  }) 
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: state.city,
+      },
+    })
 
-  .then((response) => {
-    // console.log(response.data)
-    state.lat = response.data[0]['lat'];
-    state.lon = response.data[0]['lon'];
-    console.log(state.lon)
-    console.log(state.lat)
-    
-  })
-  .catch((error) => {
-    console.log('error:', response.error)
-});
-}
+    .then((response) => {
+      // console.log(response.data)
+      state.lat = response.data[0]['lat'];
+      state.lon = response.data[0]['lon'];
+      console.log(state.lon);
+      console.log(state.lat);
+    })
+    .catch((error) => {
+      console.log('error:', error);
+    });
+};
 
-   
 //using third party API to get weather
 const getWeather = () => {
   getLatAndLon();
   axios
-  .get('http://127.0.0.1:5000/weather', {
-    params: {
-      lat: state.lat,
-      lon: state.lon,
-    }
-  })
-  .then((response) => {
-    // console.log('getWeather response:',response);
-    state.temp = response.data.current.temp;
-    state.temp = Math.floor(tempKtoF(state.temp));
-    // console.log(state.temp);
-    const temperature = document.getElementById('tempNum');
-    temperature.textContent = state.temp;
-    tempNumColorSet();
-  })
-  .catch((error) => {
-    console.log('error:', response.error)
-  })
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: state.lat,
+        lon: state.lon,
+      },
+    })
+    .then((response) => {
+      // console.log('getWeather response:',response);
+      state.temp = response.data.current.temp;
+      state.temp = Math.floor(tempKtoF(state.temp));
+      console.log(state.temp);
+      const temperature = document.getElementById('tempNum');
+      temperature.textContent = state.temp;
+      tempNumColorSet();
+    })
+    .catch((error) => {
+      console.log('error:', error);
+    });
 };
 
-
-// convert temp from K to F 
+// convert temp from K to F
 const tempKtoF = (temp) => {
-  return ((temp - 273.15) * 9/5 + 32)
+  return ((temp - 273.15) * 9) / 5 + 32;
 };
 
-
-//sky changes ????????????????????????
+//sky changes
 const changeSkys = () => {
   const skys = document.getElementById('skyOptions').value;
-  const pageColor = document.getElementById('container')
+  const pageColor = document.getElementById('container');
   let Landscape = document.getElementById('img1');
-  const wearherPic = document.getElementById('weaPic1')
+  const weatherPic1 = document.getElementById('weaPic1');
+  const weatherPic2 = document.getElementById('weaPic2');
   if (skys === 'sunny') {
-   pageColor.style.backgroundColor = 'orange';
-   Landscape.src = 'img/red.png';
+    pageColor.style.backgroundColor = 'wheat';
+    Landscape.src = 'img/red.png';
+    weatherPic1.src = 'img/sun.png';
+    weatherPic2.src = 'img/sunflower.png';
   } else if (skys === 'cloudy') {
     pageColor.style.backgroundColor = 'grey';
     Landscape.src = 'img/orange.png';
-    weatherPic.src = 'img/topCloudy.png';
+    weatherPic1.src = 'img/topCloudy.png';
+    weatherPic2.src = 'img/topCloudy.png';
   } else if (skys === 'rainy') {
     pageColor.style.backgroundColor = 'teal';
     Landscape.src = 'img/rainy.png';
-  } else if (skys ==='snowy') {
+    weatherPic1.src = 'img/rainRain.png';
+    weatherPic2.src = 'img/rainUnbr.png';
+  } else if (skys === 'snowy') {
     pageColor.style.backgroundColor = 'white';
     Landscape.src = 'img/snowy.png';
-   }
-}
-
-
-
-
+    weatherPic1.src = 'img/snowCloud.png';
+    weatherPic2.src = 'img/snowTree.png';
+  }
+};
 
 const registerEventHandlers = () => {
   // register increase temp
@@ -169,8 +175,6 @@ const registerEventHandlers = () => {
   // register decrease temp
   const decreaseTempButton = document.getElementById('down');
   decreaseTempButton.addEventListener('click', decreaseTemp);
-};
-
   //register input city name
   let input = document.querySelector('input');
   input.addEventListener('input', getCityInput);
@@ -179,8 +183,13 @@ const registerEventHandlers = () => {
   const currentTempButton = document.getElementById('realTimeTemp');
   currentTempButton.addEventListener('click', getWeather);
 
-  //register sky changes 
+  //register sky changes
   const selectSky = document.getElementById('skyOptions');
   selectSky.addEventListener('change', changeSkys);
+
+  //register city reset
+  const cityDefault = document.getElementById('resetCity');
+  cityDefault.addEventListener('click', resetCityName);
+};
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
