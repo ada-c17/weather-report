@@ -7,6 +7,7 @@ const state = {
   currentColor: 'black',
   currentLandscape: 'summer',
   currentCity: 'Chicago',
+  currentSky: 'sunny',
 };
 
 // increase temperature
@@ -70,6 +71,29 @@ const changeLandscape = () => {
   }
 };
 
+// manually change sky
+const changeSky = () => {
+  const skyImage = document.getElementById('sky-image');
+  const skyCaption = document.getElementById('sky-caption');
+  const selectedSky = document.getElementById('sky-dropdown').value;
+
+  state.currentSky = selectedSky;
+
+  if (selectedSky === 'sunny') {
+    skyImage.src = 'assets/sky/grooveland-designs-sunny.jpg';
+    skyCaption.textContent = 'Photo by Grooveland Designs';
+  } else if (selectedSky === 'cloudy') {
+    skyImage.src = 'assets/sky/daoudi-aissa-cloudy.jpg';
+    skyCaption.textContent = 'Photo by Daoudi Aissa';
+  } else if (selectedSky === 'stormy') {
+    skyImage.src = 'assets/sky/brandon-morgan-lightning.jpg';
+    skyCaption.textContent = 'Photo by Brandon Morgan';
+  } else if (selectedSky === 'snowy') {
+    skyImage.src = 'assets/sky/jessica-fadel-snowing.jpg';
+    skyCaption.textContent = 'Photo by Jessica Fadel';
+  }
+};
+
 // update display city based on user input
 const updateDisplayCity = () => {
   const displayCity = document.getElementById('display-city');
@@ -104,6 +128,9 @@ const registerEventHandlers = () => {
 
   const resetCityButton = document.getElementById('reset-city-button');
   resetCityButton.addEventListener('click', resetDisplayCity);
+
+  const skyDropdown = document.getElementById('sky-dropdown');
+  skyDropdown.addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
