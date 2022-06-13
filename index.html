@@ -4,9 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet" type="text/css" />
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <main>
+        <header> <h1>
+            <div id="title">Weather Report</h1>
+            <h2>For the lovely city of ✨<span id="cityName">Seattle </span>✨</h2></div>
+        </header>
+        <div class="stats-container">
+        <section>
+            <article>
+                <h1>Temperature</h1>
+                <div class = "temperature-container">
+                <div class="temp_controls">
+                    <span id="increaseTemp">⬆️</span>
+                    <span id="tempValue"></span>
+                    <span id="decreaseTemp">⬇️</span>
+                </div>
+                <div id="temp-button-container">
+                <button id="realTempButton">Get Realtime Temperature</button>
+            </div>
+        </div>
+            </article>
+            <article>
+                <h1>Sky</h1>
+                <select id="skySelect">
+                    <option>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
+                </select>
+            </article>
+            <article>
+                <h1>City Name</h1>
+                <input type="text" placeholder="Type something..." id="userInput">
+                <button id="resetButton">Reset</button>
+            </article>
+        </section>
+        <section>
+            <article id="weather-garden-container">
+            <h1 id="weather-garden-title">Weather Garden</h1>
+        </article>
+            <article id="garden-emoji-container"><div id="garden">
+                <div id="sky"></div>
+                <div id="landscape"></div>
+            </article>
+            </div>
+        </section>
+    </div>
+    </main>
+    <script src="./src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
