@@ -2,9 +2,11 @@
 
 const state = {
   tempValue: 85,
+  metric: "C°"
 };
 
 document.getElementById('tValue').textContent = state.tempValue;
+document.getElementById('toggle').textContent = `to ${state.metric}`;
 
 // get current temperature
 const getRealTemp = () => {
@@ -71,6 +73,25 @@ const updateTemp = (delta) => {
   state.tempValue += delta;
 }
 
+const updateMetric = (metric) => {
+  state.metric = metric;
+}
+
+// convert temperature to C and back to F
+const switchTemp = () => {
+  if (state.metric === "F°") {
+    state.metric = "C°";
+    state.tempValue = Math.floor((state.tempValue * (9/5)) + 35);
+  } else if (state.metric === "C°") {
+    state.metric = "F°";
+    state.tempValue = Math.floor((state.tempValue - 32) * (5/9));
+  }
+
+  document.getElementById('tValue').textContent = state.tempValue;
+  document.getElementById('toggle').textContent = `to ${state.metric}`;
+
+}
+
 // show temperature and all its changes to screen
 const publishTemp = () => {
   const temperature = document.getElementById('tValue');
@@ -130,6 +151,10 @@ const addEvents = () => {
   // get real temperature of place in the input field
   const getRealT = document.getElementById("realTime");
   getRealT.addEventListener('click', getRealTemp);
+
+  // toggle button C->F anf back
+  const toggleBtn = document.getElementById('toggle');
+  toggleBtn.addEventListener('click', switchTemp);
 };
 
 // attach event to whole document
