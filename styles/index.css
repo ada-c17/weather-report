@@ -58,23 +58,46 @@ button {
   margin: 3em;
   padding: 2em;
   border-radius: 20px;
-  background-color: white;
+  background-color: #9caffb;
   width: 30%;
   text-align: center;
 }
 
-ul {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
+h2 {
+  background-color: #9caffb;
+  font-size: 3em;
+  text-transform: uppercase;
+  padding: 20px;
 }
 
-li {
-  background-color: white;
+p {
+  background-color: #9caffb;
+  font-size: 5em;
+  padding: 10px;
 }
 
-li h2 {
-  background-color: white;
+.red {
+  color: red;
+}
+.orange {
+  color: orange;
+}
+.yellow {
+  color: yellow;
+}
+.green {
+  color: green;
+}
+.teal {
+  color: aqua;
+}
+
+#increase-temp,
+#decrease-temp {
+  width: 15%;
+  padding: 5px;
+  margin: 0;
+  font-size: 1em;
 }
 
 #select-sky {
@@ -85,4 +108,8 @@ li h2 {
   font-size: 18px;
   font-weight: bolder;
   text-align: center;
+}
+
+#landscape {
+  font-size: 3em;
 }
