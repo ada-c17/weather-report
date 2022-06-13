@@ -1,0 +1,101 @@
+html { 
+    background-image: url('../assets/minimalist-plant.webp'); 
+    min-height: 100%; 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body { 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    height: 100%; 
+}
+
+h1, #city-name-container {  
+    justify-content: center;
+    text-align: center; 
+} 
+
+#city-name-container { 
+    font-size: large; 
+    background-color: lightsalmon; 
+}
+
+#display-temp { 
+    color: blueviolet;  
+} 
+
+#temperature-container {  
+    text-align: center; 
+    padding: 10px; 
+}
+
+#temp-buttons { 
+    padding: 10px; 
+    font-size: large;
+}
+
+#city-container { 
+    text-align: center; 
+    padding: 10px; 
+}  
+
+#city-label { 
+    padding: 10px; 
+    margin-bottom: 20px; 
+}
+
+#enter-city-name-input { 
+    padding: 10px; 
+}
+
+#sky-container { 
+    text-align: center; 
+    padding: 10px; 
+}
+
+#choose-sky-dropdown { 
+    padding: 10px; 
+}
+
+#weather-garden-container { 
+    text-align: center;  
+    font-size: larger;
+}
+
+#weather-garden-label { 
+    padding: 10px; 
+}
+
+#landscape-container { 
+    padding: 10px; 
+}
+
+#display-sky-emojis { 
+    padding: 10px; 
+}
+#sky-emojis { 
+    padding: 20px; 
+    gap: 20px; 
+    margin-bottom: 10px;
+}
+
+#landscape { 
+    padding: 20px; 
+    gap: 20px; 
+    margin-top: 50px; 
+}
+
+#img-source-container { 
+    font-size: smaller; 
+    bottom: 0; 
+    right: 0; 
+    position: absolute;
+}  
+
+#made-by { 
+    font-size: smaller; 
+    bottom: 0;  
+    position: absolute; 
+}

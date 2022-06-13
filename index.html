@@ -4,9 +4,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../styles/index.css" rel="stylesheet">
+    <script src="../src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <title>Weather Report</title>
 </head>
+
 <body>
-    
+    <main>
+        <div id="grid-container">
+            <header id="main"> 
+                <h1>Weather Report</h1>
+            </header>
+
+            <section id="city-name-container">
+                <span id="city-sentence">For the lovely city of &#10024;</span><span id="city-name-display">Seattle</span><span id="city-sparkle">&#10024;</span>
+            </section>
+
+            <div id="main-container">
+                <section id="temperature-container">
+                    <label id="temp-label">Temperature in Fahrenheit</label>
+                    <div>
+                        <section id="temp-buttons">
+                            <button id="adjust-temp-up" onclick="raiseTemp()">&#11014;</button>
+                            <p id="display-temp" onclick="resetCityNameAndTemp()">77</p>
+                            <button id="adjust-temp-down" onclick="lowerTemp()">&#11015;</button>
+                        </section>
+                    </div>
+                    <button id="real-time-temp" onclick="realTimeTemp()">Get Realtime Temperature</button>
+                </section>
+
+                <section id="city-container"> 
+                    <label id="city-label">Enter A City For Current Temperature</label>
+                    <section id="enter-city-name-input">
+                        <input type="text" placeholder="Enter City Name" onkeyup="updateCityName()" onclick="clearInputField()" id="city-name">
+                        <p id="display-real-time-temp"></p>
+                    </section>
+                    <button id="reset-button" onclick="resetCityNameAndTemp()">Reset</button>
+                </section>
+
+                <section>
+                    <div id="sky-container">
+                        <label id="sky-label">Choose a Sky
+                        <div id="choose-sky-dropdown">
+                            <select id="sky" onchange="changeSky()">
+                                <option value="">Pick the Clouds~</option>
+                                <option value="sunny">Sunny</option>
+                                <option value="cloudy">Cloudy</option>
+                                <option value="rainy">Rainy</option>
+                                <option value="snowy">Snowy</option>
+                            </select>
+                        </div>
+                        </label>
+                    </div>
+                </section>
+            </div>
+
+            <section id="weather-garden-container"> 
+                <p>
+                    <label id="weather-garden-label">Weather Garden</label>
+                </p>
+                <div id="landscape-container">
+                    <section id="display-sky-emojis">
+                        <span id="sky-emojis"></span>
+                    </section>
+                    <span id="landscape" >🌸🌿🌼🍀🌷🌻🌿🍀🌱🍀🌻🌷</span>
+                </div>
+            </section>
+
+            <div>
+                <footer class="copyright">
+                    <section id="img-source-container">
+                        <span id="img-source">Image source: Vecteezy</span>
+                    </section>
+                    <span id="made-by">Natascha Jenkins ©2022</span>
+                </footer>
+            </div>
+        </div>    
+    </main>
 </body>
+
 </html>
