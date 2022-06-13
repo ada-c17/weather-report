@@ -1,8 +1,19 @@
+const axios = require('axios');
+
 const rangeElement = document.getElementById('range');
 rangeElement.addEventListener('input', rangeSlide);
 function rangeSlide(event) {
   const value = event.currentTarget.value;
   document.getElementById('rangeValue').textContent = value;
+}
+
+const cityBtn = document.getElementById('cityBtn');
+cityBtn.addEventListener('click', clickBtn);
+function clickBtn(event) {
+  //1. get city name from input value
+  //2. call api with cityname using axios
+  const city = document.getElementById('city');
+  console.log(city);
 }
 
 const inputBox = document.getElementById('city');
