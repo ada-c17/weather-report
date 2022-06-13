@@ -75,7 +75,8 @@ const updateDisplayCity = () => {
   const userInputCity = document.getElementById('input-city').value;
 
   const capitalizedCity =
-    userInputCity.charAt(0).toUpperCase() + userInputCity.slice(1);
+    userInputCity.charAt(0).toUpperCase() +
+    userInputCity.slice(1).toLowerCase();
 
   displayCity.textContent = capitalizedCity;
 };
