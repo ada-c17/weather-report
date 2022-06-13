@@ -6,11 +6,6 @@ const state = {
   sky: '',
 };
 
-function rangeSlide(event) {
-  const value = event.currentTarget.value;
-  document.getElementById('rangeValue').textContent = value;
-}
-
 const getLonLat = () => {
   axios
     .get('https://weather-report-proxy-server.herokuapp.com/location', {
@@ -52,6 +47,22 @@ const getLocationWeather = () => {
       console.log('error');
     });
 };
+
+function clickBtn(event) {
+  const city = document.getElementById('city').value;
+  state.location = city;
+  getLonLat();
+}
+
+const inputBox = document.getElementById('city');
+inputBox.onkeyup = function () {
+  document.getElementById('city-name').innerHTML = inputBox.value;
+};
+
+function rangeSlide(event) {
+  const value = event.currentTarget.value;
+  document.getElementById('rangeValue').textContent = value;
+}
 
 const validateSkyCondition = (condition) => {
   console.log(condition);
@@ -103,17 +114,7 @@ const changeColors = () => {
     document.getElementById('sky-circle').style.background = '#AEBFDD';
   }
 };
-function clickBtn(event) {
-  const city = document.getElementById('city').value;
-  state.location = city;
-  getLonLat();
-}
 
-const inputBox = document.getElementById('city');
-
-inputBox.onkeyup = function () {
-  document.getElementById('city-name').innerHTML = inputBox.value;
-};
 const changeRangeS = () => {
   const input = document.getElementById('range');
   input.addEventListener('input', (event) => {
