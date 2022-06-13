@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300&family=Noto+Sans+Display:wght@100;300;500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #feeae8;
+  font-family: 'Noto Sans Display', sans-serif;
+  color: #251c4b;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+  padding: 1em;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 30px;
+  padding: 15px 15px;
+  border-bottom: white solid;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 45px;
+}
+
+img#logo {
+  margin-right: 30em;
+  height: 110px;
+}
+
+form {
+  padding: 2em;
+  width: 100%;
+  text-align: center;
+  margin: 5em;
+}
+
+input {
+  font-family: 'Inconsolata', monospace;
+  font-size: 25px;
+  font-weight: 600;
+  width: 30%;
+  padding: 5px;
+  border-radius: 5px;
+  border-color: white;
+}
+
+button {
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.1em;
+  padding: 10px;
+  margin-left: 15px;
+  border-radius: 5px;
+  border-color: white;
+  background-color: #f4825b;
+}
+
+.card-container {
+  margin: 3em;
+  padding: 2em;
+  border-radius: 20px;
+  background-color: #9caffb;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+h2 {
+  background-color: #9caffb;
+  font-size: 3em;
+  text-transform: uppercase;
+  padding: 20px;
+}
+
+p {
+  background-color: #9caffb;
+  font-size: 5em;
+}
+
+img#thermometer {
+  width: 30%;
+  background-color: #9caffb;
+  padding-bottom: 25px;
+}
+
+#increase-temp,
+#decrease-temp {
+  width: 15%;
+  padding: 0;
+  margin: 5px;
+  border: 20px;
+  font-size: 1em;
+  background-color: #a1cf5e;
+}
+
+.red {
+  color: red;
+}
+.orange {
+  color: orange;
+}
+.yellow {
+  color: yellow;
+}
+.green {
+  color: green;
+}
+.teal {
+  color: aqua;
+}
+#select-sky {
+  width: 70%;
+  background-color: white;
+  color: #f4825b;
+  font-family: 'Inconsolata', monospace;
+  font-size: 25px;
+  font-weight: 900;
+  border-color: #848484;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+#landscape-icons,
+#sky-icons {
+  font-size: 3em;
+  color: white;
+}

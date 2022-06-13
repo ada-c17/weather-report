@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Report</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <h1>Weather Forecast</h1>
+        <img src="/assets/logo.png" alt="logo" id="logo" />
+      </nav>
+    </header>
+    <main>
+      <form>
+        <input type="text" placeholder="Enter a City" id="city-input" />
+        <button id="get-temp-button">GET TEMP</button>
+        <button id="reset-button">RESET</button>
+      </form>
+
+      <section class="card-container" id="temperature-card">
+        <h2 id="city-name">Boston</h2>
+        <img
+          src="/assets/thermometer.png"
+          alt="thermometer-image"
+          id="thermometer"
+        />
+        <button id="increase-temp">⬆</button>
+        <p id="temp" class="yellow">60</p>
+        <button id="decrease-temp">⬇</button>
+      </section>
+      <section class="card-container">
+        <select name="sky" id="select-sky">
+          <option value="none" selected disabled hidden>Choose One</option>
+          <option value="Sunny">Sunny</option>
+          <option value="Cloudy">Cloudy</option>
+          <option value="Rainy">Rainiy</option>
+          <option value="Snowy">Snowy</option>
+        </select>
+        <p id="sky-icons">🌞☀️🌞☀️🌞☀️</p>
+        <p id="landscape-icons">🍃🌦🍃☔️💨🌦</p>
+      </section>
+    </main>
+    <script src="/src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+  </body>
 </html>
