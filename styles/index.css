@@ -1,0 +1,128 @@
+header {
+    padding: 3px;
+    text-align: center;
+    background: #eae49f;
+    color: #743fc9;
+    text-shadow: #451395;
+    font-size: 20px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    /* width: 50%; */
+
+    border-radius: 10px;
+    background-color: rgb(246, 246, 246);
+    padding: 30px;
+    margin: 10px;
+}
+
+.card:hover {
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+
+.arrow {
+    background-color: transparent;
+    border-width: 30px 30px 30px 0px;
+    margin-inline: 30px;
+}
+
+
+#left {
+    border-color: transparent rgb(186, 248, 248) transparent transparent;
+}
+
+#right {
+    border-color: transparent lightcoral transparent transparent;
+    transform: scaleX(-1);
+}
+
+.clicky {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display:inline;
+    height: 50px;
+    width: 50px;
+    border-radius: 40%;
+    border: 0px solid black;
+    margin-inline: 30px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    padding: 20px;
+}
+
+#go {
+    background-color: rgb(167, 247, 167) ;
+}
+
+#reset {
+    background-color: lightcoral;
+}
+
+#city {
+    width: 300px;
+    font-size: larger;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-color: transparent;
+    border-radius: 5px;
+}
+
+.box {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-color: transparent;
+    border-radius: 5px;
+}
+
+#skySelect {
+    position: absolute;
+    margin-left: 70%;
+}
+
+img {
+    width:  300px;
+    height: 400px;
+}
+
+body{
+    background: url("../assets/lover.jpeg");
+    background-size: cover;
+}
+
+#degrees {
+    font-size: 50px;
+}
+
+#unit {
+    font-size: 50px;
+}
+
+.tempDisplay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#temp {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#cityDisplay {
+    font-size: 70px;
+}
+
+footer {
+    
+}

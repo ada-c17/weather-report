@@ -4,9 +4,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet">
+    <!-- <script src="./src/index.js"></script> -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <title>Weather Report</title>
 </head>
-<body>
-    
+<body id="background">
+    <header>
+        <h1> Sana's Swiftie Weather Report </h1>
+    </header>
+
+    <section id="location">
+        <button id="reset" class="clicky">
+            Reset
+        </button>
+
+        <form id="search">
+            <input type="text" id="city" class="box" value="London">
+            <button id="go" class="clicky" type="submit">
+                Go
+            </button>
+        </form>
+        
+
+        <select id="skySelect" class="box">
+            <option>Lover</option> 
+            <option>rep</option>
+            <option>1989</option> 
+            <option>Red</option>
+            <option>Speak Now</option>
+            <option>fearless</option> 
+
+        </select>
+    </section>
+
+
+
+    <main>
+        <section id="temp" class="card">
+            <h2 id="cityDisplay">
+                London
+            </h2>
+
+            <div class="tempDisplay">
+                <button id="left" class="arrow"></button>
+                <div id="degrees">
+                    80
+                </div>
+                <div id="unit">
+                    °F
+                </div>
+                <button id="right" class="arrow"></button>
+            </div>
+
+            <button id="fOrC">
+                °C | °F
+            </button>
+        </section>
+
+        <section id="clothes"  class="card">
+            <p id="lyrics">
+                a perfect night to dress up like hipsters
+            </p>
+            <img  id='outfits' alt=".." src="assets/70.jpeg"/>
+        </section>
+    </main>
+
+    <footer>
+        Designed by Sana Pournaghshband (2022)
+    </footer>  
+
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
+
