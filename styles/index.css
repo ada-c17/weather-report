@@ -34,13 +34,30 @@ main {
     font-family: "oddly-calming";
     font-style: italic;
     font-size: 3rem;
+    padding-right: 0.5rem;
 }
 
 #city-name:hover {
-    border: solid 1px black;
-    background-color: aqua;
-    color: rgba(23, 20, 23, 0.5);
+    animation: letter-glow 3s infinite;
     cursor:pointer;
+}
+
+@keyframes letter-glow {
+    0% {
+        text-shadow: 0 0 5px hsl(50, 75%, 50%);
+    }
+    25% {
+        text-shadow: 0 0 5px hsl(140, 75%, 50%);
+    }
+    50% {
+        text-shadow: 0 0 5px hsl(230, 75%, 50%);
+    }
+    75% {
+        text-shadow: 0 0 5px hsl(320, 75%, 50%);
+    }
+    100% {
+        text-shadow: 0 0 5px hsl(50, 75%, 50%);
+    }
 }
 
 #city-input {
@@ -181,7 +198,7 @@ main {
 }
 
 #landscape.goldilocks {
-    background: linear-gradient(rgba(255,255,255,0) 50%, rgb(45, 225, 135) 55%, rgb(87, 223, 87) 95%), radial-gradient(circle at top, rgb(255, 221, 0) 5%, rgb(255, 204, 0) 20%, lightblue 45%);
+    background: linear-gradient(rgba(255,255,255,0) 50%, rgb(144, 232, 103) 55%, rgb(123, 195, 88) 95%), radial-gradient(circle at top, rgb(255, 221, 0) 5%, rgb(255, 204, 0) 20%, lightblue 45%);
 }
 
 #landscape.cool {
