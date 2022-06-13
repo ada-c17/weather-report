@@ -83,6 +83,15 @@ const updateDisplayCity = () => {
   displayCity.textContent = state.currentCity;
 };
 
+// reset display city
+const resetDisplayCity = () => {
+  const displayCity = document.getElementById('display-city');
+
+  document.getElementById('input-city').value = '';
+  displayCity.textContent = 'Chicago';
+  state.currentCity = displayCity.textContent;
+};
+
 const registerEventHandlers = () => {
   const increaseTempButton = document.getElementById('increase-temp');
   increaseTempButton.addEventListener('click', increaseTemperature);
@@ -92,6 +101,9 @@ const registerEventHandlers = () => {
 
   const changeCityButton = document.getElementById('change-city-button');
   changeCityButton.addEventListener('click', updateDisplayCity);
+
+  const resetCityButton = document.getElementById('reset-city-button');
+  resetCityButton.addEventListener('click', resetDisplayCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
