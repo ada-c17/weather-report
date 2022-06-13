@@ -6,6 +6,7 @@ const state = {
   temperature: 0,
   currentColor: 'black',
   currentLandscape: 'summer',
+  currentCity: 'Chicago',
 };
 
 // increase temperature
@@ -78,8 +79,8 @@ const updateDisplayCity = () => {
     userInputCity.charAt(0).toUpperCase() +
     userInputCity.slice(1).toLowerCase();
 
-  displayCity.textContent = capitalizedCity;
-  // console.log(getLatAndLon(userInputCity));
+  state.currentCity = capitalizedCity;
+  displayCity.textContent = state.currentCity;
 };
 
 const registerEventHandlers = () => {
@@ -97,20 +98,43 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 // endpoints to retrieve real time weather
 
-const getLatAndLon = (location) => {
-  axios
-    .get('http://127.0.0.1:5000/location', {
-      params: {
-        q: location,
-      },
-    })
-    .then((response) => {
-      const lat = response.data[0]['lat'];
-      const lon = response.data[0]['lon'];
-      return { lat, lon };
-    })
-    .catch((error) => {
-      console.log('error!');
-      console.log(error.response.data);
-    });
-};
+// const getLatAndLon = () => {
+//   axios
+//     .get('http://127.0.0.1:5000/location', {
+//       params: {
+//         q: state.currentCity,
+//       },
+//     })
+//     .then((response) => {
+//       const lat = response.data[0]['lat'];
+//       const lon = response.data[0]['lon'];
+//       // return { lat, lon };
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+
+//   return { lat, lon };
+// };
+
+// const getCurrentWeather = (location) => {
+//   axios
+//     .get('http://127.0.0.1:5000/weather', {
+//       params: {
+//         lat: getLatAndLon(location).latitude,
+//         lon: getLatAndLon(location).longitude,
+//       },
+//     })
+//     .then((response) => {
+//       const tempInK = response.data.current.temp;
+//       const tempInF = 1.8 * (tempInK - 273) + 32;
+//       // return tempInF;
+//       console.log(tempInF);
+//     })
+//     .catch((error) => {
+//       console.log('error!');
+//       console.log(error.response.data);
+//     });
+// };
+
+// getCurrentWeather('seattle');
