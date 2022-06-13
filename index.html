@@ -8,6 +8,55 @@
     <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
+    <header class="header">
+        <h1>Today's Weather</h1>
+        <span>
+            for
+            <span id="city">
+                New York City
+            </span>
+        </span>
+    </header>
+    <section class="change_temp_container">
+        <h2>Change Temperature</h2>
+        <div class="temp_controls_block">
+            <div class="temp_controls">
+                <span id="increaseTemp">⬆️</span>
+                <span id="decreaseTemp">⬇️</span>
+            </div>
+            <button id="resetTemp">Current Temperature</button>
+        </div>
+    </section>
+    <section class="sky_container">
+        <h2>Sky</h2>
+    </section>
+    <section class="temp_container">
+        <h2>Temperature</h2>
+        <div class="temp_block">
+            <span id="temp">20°C</span>
+        </div>
+    </section>
+    <section class="change_city_container">
+        <h2>Change City</h2>
+        <input id="changeCityTo" type="text" value="New York City">
+        <button id="resetCity" class="city_reset_button">Reset to New York City</button>
+    </section>
+    <section class="landscape_container">
+        <h2>View Outside</h2>
+        <div id="view" class="window_view">
+            <div id="skyView">☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️</div>
+            <div id="landscapeView">🏔️🏔️🏔️🏔️🏔️🏔️🏔️🏔️🏔️🏔️🏔️🏔️🏔️🏔️🏔️🏔️🏔️🏔️🏔️🏔️</div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
