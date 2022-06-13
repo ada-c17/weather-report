@@ -15,7 +15,9 @@
   </head>
   <body>
     <header>
-      <nav><a id="weather" href="./index.html">Weather in <span id="city-name"> </span> now</a></nav>
+      <nav><a id="weather" href="./index.html">Weather in '<span id="city-name">...</span>' now
+        <div id="resetIdBtn"><input id =resetBtn type="reset" value="Click here to RESET"></div></a></nav>
+      
     </header>
     <main>
     <!-- three boxes -->
@@ -25,7 +27,6 @@
           <section>
             <div id="temp-input-btn">
               <input type="text" id="city" placeholder="choose the city" autocomplete="off"></input>
-              <!-- <button><div class="btn">Real Time</div><div class="btn"> Temperature </div></button> -->
               <button id="cityBtn">Real Time<br>Temperature</button>
             </div>
           </section>
@@ -35,7 +36,7 @@
           <section>
             <div>
               <div>
-                <span><input id="range" type="range" value="" min="0" max="150"></input></span>
+                <span><input id="range" type="range" value="32" min="-100" max="150"></input></span>
               </div>
               <div id="temp-range">
                 <span id="rangeValue">32</span>
@@ -51,10 +52,10 @@
               <div class="button" for="toggle">Sky</div>
               <select class="nav" id="skySelect">
                 <option value="none" selected disabled hidden>select sky</option>
-                <option value="yellow">Sunny</option>
-                <option value="darkGrey">Cloudy</option>
-                <option value="grey">Rainy</option>
-                <option value="white">Snowy</option>
+                <option value="#7496C9">Sunny</option>
+                <option value="#557BB1">Cloudy</option>
+                <option value="#356098">Rainy</option>
+                <option value="#234772">Snowy</option>
               </select>
             </div>
           </section>
