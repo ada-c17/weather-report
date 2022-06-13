@@ -1,0 +1,94 @@
+
+.box {
+    width: 30em;
+    height: 25em;
+    display: grid;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 2px solid black;
+    border-radius: 20%;
+    position: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box1{
+    width: 25em;
+    height: 10em;
+    font-size: 1em;
+    display: grid;
+    justify-content: center;
+    
+    margin-top: 2em;
+    margin: auto;
+}
+
+.sky{
+    font-size: 1.5em;
+}
+#div1 {
+    width:100px;
+    height:30px;
+    background-image:url(images/blue.gif);
+    }
+
+.button{
+    height: 2em;
+    width: 2em;
+    font-size: 1.5em;
+    border-radius: 15%;
+}
+#resetbutton {
+    height: 2em;
+    width: 4em;
+    border-radius: 15%;
+    justify-content: center;
+    font-size: 1em;
+    margin: auto;
+    margin-top: 2em;
+}
+#s {
+    height: 2em;
+    width: 4em;
+    border-radius: 15%;
+    justify-content: center;
+    font-size: 1em;
+    margin: auto;
+    margin-top: 2em;
+}
+
+.select-sky{
+    font-size: 1em;
+}
+#degree{
+    font-size: 10em;
+    align-items: top;
+    margin: 0;
+}
+.flex3{
+    display: flex;
+    align-items: top;
+    margin-top: 3em;
+}
+#plus {
+    margin-top: 3.5em;
+    margin-right: 30px;
+    border-radius: 15%;
+}
+#minus{
+    margin-top: 3.5em;
+    margin-left: 30px;
+    border-radius: 15%;
+}
+.button1{
+    height: 2em;
+    width: 2em;
+    font-size: 1.5em;
+    margin-left: 2em;
+    margin-right: 2em;
+    border-radius: 15%;
+}
+.cityName{
+    margin-top: 1em;
+    font-size: 1.5em;
+}
+
