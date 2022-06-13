@@ -35,14 +35,17 @@ body {
 .city, .garden, .sky, .temperature {
     opacity: 0.7;
     border-radius: 15px;
+    box-shadow: 4px 4px 10px gray;
+    
+}
+
+.city, .sky, .temperature {
+    height: fit-content;
+    margin-bottom: 30px;
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    height: fit-content;
     margin-top: 0;
-    margin-bottom: 30px;
-    box-shadow: 4px 4px 10px gray;
-    
 }
 
 .city, .sky, .temperature  {
@@ -51,7 +54,8 @@ body {
 }
 
 .garden {
-    width: fit-content;
+    width: 300px;
+    height: 200px;
 }
 
 .date {
@@ -117,6 +121,8 @@ body {
     {
         background-image: url('../images/image6.jpg');
     }
+
+
 }
 
 .sky {
@@ -202,12 +208,23 @@ body {
 }
 
 #garden-sky {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     text-align: center;
+    padding-top: 10px;
 }
-#land-scape, h3 {
+#landscape, h3 {
     text-align: center;
     margin-bottom: 0;
+}
+
+#landscape {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+
 }
 
 h3 {
@@ -251,6 +268,7 @@ h3 {
 
 .garden h3 {
     color:saddlebrown;
+    font-size: 15px;
 }
 
 h3 {
