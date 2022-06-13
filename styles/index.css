@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@700&family=Inconsolata:wght@200;300&family=Noto+Sans+Display:wght@100;300;500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #feeae8;
+  font-family: 'Noto Sans Display', sans-serif;
+  color: #251c4b;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+  padding: 1em;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 25px;
+  padding: 1.5em 1.5em;
+}
+
+form {
+  padding: 2em;
+  width: 100%;
+  text-align: center;
+  margin: 3em;
+}
+
+input {
+  font-family: 'Inconsolata', monospace;
+  font-size: 25px;
+  font-weight: 600;
+  width: 30%;
+  padding: 5px;
+  border-radius: 5px;
+  border-color: white;
+}
+
+button {
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.1em;
+  padding: 10px;
+  margin-left: 15px;
+  border-radius: 5px;
+  border-color: white;
+  background-color: #f68b6a;
+}
+
+.card-container {
+  margin: 3em;
+  padding: 2em;
+  border-radius: 20px;
+  background-color: white;
+  width: 30%;
+  text-align: center;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+li {
+  background-color: white;
+}
+
+li h2 {
+  background-color: white;
+}
+
+#select-sky {
+  width: 50%;
+  background-color: white;
+  color: #4876ff;
+  border-color: #848484;
+  font-size: 18px;
+  font-weight: bolder;
+  text-align: center;
+}
