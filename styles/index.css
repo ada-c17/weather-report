@@ -59,9 +59,7 @@ footer {
 #temp {
     background-color: white;
     border-radius: 30px;
-    
     width: 700px;
-   
     opacity: .5;
     display: flex;
     flex-direction: row;
@@ -70,8 +68,6 @@ footer {
     margin-left: 250px;
     margin-right: 450px;
     padding: 30px;
-
-
 }
 
 #sky {
@@ -79,8 +75,7 @@ footer {
     border-radius: 30px;
     max-width: 600px;
     opacity: .5;
-    padding: 30px; 
-
+    padding: 30px;
     block-size: fit-content;
 }
 
@@ -104,8 +99,6 @@ footer {
     margin-top: 30px;
     margin-bottom: 30px;
     width: 700px;
-
-   
 }
 
 #cityBoxLast {
@@ -126,13 +119,10 @@ footer {
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 15px;
-
     min-width: 200px;
-
 }
 
 #amazingCity, footer {
-
     width: 700px;
     margin-left: 250px;
 }
