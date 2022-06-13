@@ -25,8 +25,13 @@ header {
 }
 
 #cloud-logo {
-    height: auto;
-    max-width: 4em;
+    max-height: 3em;
+    width: auto;
+}
+
+#weather-wizard {
+    color: #d48270;
+    font-size: 3em;
 }
 
 #current-city {
