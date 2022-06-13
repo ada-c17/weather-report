@@ -26,16 +26,17 @@
                     <option value="Snowy">Snowy</option>
                 </select>
             </div>
+            <div id="sky-container"></div>
             <div class="weather-info">
-                <h1 id="city-name">New York, US</h1>
-            </div>
-            <div class="temp">
-                <div class="arrows">
-                    <i id="up-arrow" class="fa-solid fa-angle-up"></i>
-                    <i id="down-arrow" class="fa-solid fa-angle-down"></i>
+                <h1 id="city-name">Tampa, FL</h1>
+                <div class="temp">
+                    <div class="arrows">
+                        <i id="up-arrow" class="fa-solid fa-angle-up"></i>
+                        <i id="down-arrow" class="fa-solid fa-angle-down"></i>
+                    </div>
+                    <span id="temp">88</span>
+                    <span id="units">°F</span>
                 </div>
-                <span id="temp">88</span>
-                <span id="units">°F</span>
             </div>
             <div class="reset">
                 <button id="reset-button" type="button">Reset</button>
@@ -43,6 +44,7 @@
         </section>
     </div>
 </body>
-<script src="/src/index.js"></script>
 <script src="./node_modules/axios/dist/axios.min.js"></script>
+<script src="/src/index.js"></script>
+
 </html>
