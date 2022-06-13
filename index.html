@@ -4,9 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="/styles/index.css" rel="stylesheet" />
+
     <title>Weather Report</title>
 </head>
+
+
 <body>
-    
+    <main>
+    <center>
+    <section id="weatherbox">
+
+        <section class="weatherbox__section weatherbox__section--temp ">
+            <img src="https://pngimg.com/uploads/sun/sun_PNG13420.png" alt="sun" height="25px" id="warmer">
+
+            <h1 id="weather"></h1>
+
+            <img src="https://pngimg.com/uploads/snowflakes/snowflakes_PNG7593.png" alt="snowflake" height="25px" id="colder">
+
+        </section>
+        <section class="weatherbox__section weatherbox__section--city">
+            <select name="skies" id="skies">
+
+                <option value="starrySky">Starry</option>
+                <option value="sunnySky">Sunny</option>
+                <option value="cloudySky">Cloudy</option>
+                <option value="spookySky">spooky</option>
+
+            </select>
+            <h1>Getting weather for: <span id="cityDisplay"></span></h1>
+            <h2><input type="text" id="city" placeholder="location" value="new milford, ct"></h1>
+            <img src="/images/go.png" id="cityButton"> <br> <img src="/images/reset.png" id="reset">
+        </section>
+        <section id="weatherbox__landscape" class="starrySky">
+            <img id="mountain">
+        </section>
+    </section>
+
+    </center>
+    </main>
+    <script src="/src/index.js"></script> 
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+
 </body>
+
+
 </html>
