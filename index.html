@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/index.css">
 </head>
 
-<body>
+<body class="foggy">
     <header>
         <h1>Weather Report</h1>
         <p>for the lovely city of <span id="display_city">San Francisco</span></p>
@@ -19,18 +19,19 @@
             <section class="boxes">
                 <h2>City</h2>
                 <label>Enter a different city:</label><br>
-                <input type="text" id="input_city" placeholder="San Francisco">
-                <button type="reset">Reset</button>
+                <input type="text" id="input_city" placeholder="Hong Kong">
+                <button type="reset" id="reset_city">Reset</button>
             </section>
 
             <section class="boxes">
                 <h2>Sky</h2>
                 <label>Change the sky:</label><br>
-                <select>
-                    <option>Sunny</option>
-                    <option>Cloudy</option>
-                    <option>Rainy</option>
-                    <option>Snowy</option>
+                <select id="input_sky">
+                    <option value="sunny">sunny</option>
+                    <option value="cloudy">cloudy</option>
+                    <option value="rainy">rainy</option>
+                    <option value="snowy">snowy</option>
+                    <option value="foggy" selected>foggy</option>
                 </select>
             </section>
 
@@ -46,7 +47,7 @@
         </div>
 
         <div class="right_content">
-            <section id="landscape_box">
+            <section>
                 <h2>Feels like:</h2>
                 <img id="landscape" class="warm" src="assets/spring.jpg">
             </section>

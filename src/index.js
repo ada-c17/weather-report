@@ -2,13 +2,13 @@
 
 const state = {
     city: 'San Francisco',
-    temperature: 75
+    temperature: 75,
   };
 
   const temperatureDisplay = document.getElementById('temperature');
-  const landscape = document.getElementById('landscape')
-  const displayCity = document.getElementById('display_city')
-  const inputCity = document.getElementById('input_city')
+  const cityInput = document.getElementById('input_city');
+  const cityDisplay = document.getElementById('display_city');
+  const skyInput = document.getElementById('input_sky');
 
   const displayTemperature = () => {
     temperatureDisplay.textContent = `${state.temperature} °F`;
@@ -27,7 +27,7 @@ const state = {
   };
 
   const changeTemperatureDecor = () => {
-;
+    const landscape = document.getElementById('landscape');
     if (state.temperature >= 80) {
       temperatureDisplay.className = 'hot_color';
       landscape.className = 'hot';
@@ -47,8 +47,8 @@ const state = {
   };
 
   const changeCity = () => {
-    state.city = inputCity.value;
-    displayCity.textContent = state.city;
+    state.city = cityInput.value;
+    cityDisplay.textContent = state.city;
   };
 
   const getRealtimeTemperature = async () => {
@@ -59,14 +59,43 @@ const state = {
     getWeatherFromLocation(lat, lon);
   };
 
-  const getWeatherFromLocation = async (lat, lon) => {
+  const getWeatherByLocation = async (lat, lon) => {
     const weatherData = await axios.get(
       `http://127.0.0.1:5000/weather?lat=${lat}&lon=${lon}`
     );
     const temperatureKelvin = weatherData.data.current.temp;
-    state.temperature = Math.floor(1.8 * (temperatureKelvin - 273.15) + 32)
+    state.temperature = convertKelvinToFahrenheit(temperatureKelvin)
     displayTemperature();
     changeTemperatureDecor();
+  };
+
+  const convertKelvinToFahrenheit = () => {
+    return Math.floor(1.8 * (temperatureKelvin - 273.15) + 32)
+  };
+
+  const changeSky = () => {
+    switch (skyInput.value) {
+      case 'sunny':
+        document.body.className = 'sunny'
+        break;
+      case 'cloudy':
+        document.body.className = 'cloudy'
+        break;
+      case 'foggy':
+        document.body.className = 'foggy'
+        break;
+      case 'rainy':
+        document.body.className = 'rainy'
+        break;
+      case 'snowy':
+        document.body.className = 'snowy'
+    }
+  };
+
+  const resetCity = () => {
+    cityInput.value = '';
+    state.city = 'San Francisco';
+    cityDisplay.textContent = state.city;
   };
 
   const registerEventHandlers = () => {
@@ -79,7 +108,12 @@ const state = {
     const realtimeTemperature = document.getElementById('realtime_temperature');
     realtimeTemperature.addEventListener('click', getRealtimeTemperature);
 
-    inputCity.addEventListener('input', changeCity);
+    cityInput.addEventListener('input', changeCity);
+
+    skyInput.addEventListener('change', changeSky);
+
+    const resetCityButton = document.getElementById('reset_city');
+    resetCityButton.addEventListener('click', resetCity);
   };
 
   document.addEventListener('DOMContentLoaded', registerEventHandlers);
