@@ -1,6 +1,7 @@
 :root {
-    --very-hot: #f33a3a;
+    --very-hot: rgb(244, 77, 16);
     /* 80+ */
+    /* color: orangered; */
 
     --warm: #F7FD04;
     /* 70 -79 */
@@ -89,6 +90,19 @@ h1{
     margin-left: 50px;
 }
 
+#reset{
+    width: 150px;
+    height: 30px;
+    
+    
+    font-family: 'Lucida Grande';
+    font-size: 16px;
+    color: whitesmoke;
+    background-color: indigo;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
 .container2{
     display: flex;
 }
@@ -98,10 +112,10 @@ h1{
 
 #tempTextDisplay{
     font-size: 100px;
-    color: darkgreen;
+    /* color: darkgreen; */
     margin: 20px 100px;
     height: 2.8em;
-    width: 3em;
+    width: 5em;
     padding: 10px;
     /* background-color: darkgreen;
     border: 2px darkgreen solid; */
@@ -112,6 +126,7 @@ h1{
     font-size: 115px;
     margin-bottom: 10px;
     margin-right: 10px;
+    color: indigo;
 }
 #tempColor{
     margin: 0 auto;
@@ -121,7 +136,9 @@ h1{
     border-radius: 10%;
     
 }
-
+h2{
+    color: indigo;
+}
 
 #colorBox{
     height: 20px;
@@ -133,6 +150,7 @@ h1{
 
 #tempText{
     font-size: 30px;
+    color: indigo;
 }
 
 
@@ -159,7 +177,7 @@ h1{
 
 #weatherBoard{
     /* background: url("./images/brightSunnyDay.webp") right center; */
-     background-color: darkgreen;
+     background-color: rgb(47, 135, 47);
     height: 90vh;
     background-repeat: no-repeat;
     background-size: cover;

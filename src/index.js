@@ -4,6 +4,8 @@ const state ={
     temperature: 75,
     tempText: "Partly Sunny 🌤",
     realTimeTemp: 75,
+    cityName: "Seattle WA",
+    location: null
 }
 
 // add event handler
@@ -55,7 +57,8 @@ const changeCityName = () =>{
     let inputValue = document.getElementById("location").value; 
     let cityName = document.getElementById("cityName").innerHTML
     document.getElementById("cityName").innerHTML = inputValue; 
-  }
+    state.cityName = inputValue
+    }
 
 
 
@@ -122,7 +125,7 @@ const getLatAndLong = () => {
     {
 
       params: {
-        q: 'Seattle, Washington',
+        q: state.cityName,
         format: 'json'
       }
     })
@@ -171,6 +174,21 @@ const updateRealTimeTemp = () => {
     temperature.textContent = `${state.temperature}°`;
         
 }
+
+const resetCityName = () => {
+    // console.log(`${state.location}`)
+    document.getElementById("location").value = ""
+    document.getElementById("cityName").innerHTML = "Seattle WA"
+    // resetCity = ""
+    // state.cityName = "Seattle WA"
+    // location.textContent = `${state.location}`;
+    // console.log(`${state.location}`)
+    
+}
+// let inputValue = document.getElementById("location").value; 
+//     let cityName = document.getElementById("cityName").innerHTML
+//     document.getElementById("cityName").innerHTML = inputValue; 
+//     state.cityName = inputValue
     
 // REGISTER EVENT HANDLERS
 const registerEventHandlers = ( ) => {
@@ -191,6 +209,8 @@ const registerEventHandlers = ( ) => {
     const getCurrentTempButton = document.getElementById("getCurrentTemp")
     getCurrentTempButton.addEventListener("click", getLatAndLong)
 
+    const resetCityButton = document.getElementById("reset");
+    resetCityButton.addEventListener("click", resetCityName )
     
 }
 
