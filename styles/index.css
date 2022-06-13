@@ -126,3 +126,19 @@ label {
     font-size: 1.2rem;
     
 }
+
+.sunny {
+    content: url('../images/sunny.png');
+}
+
+.cloudy {
+    content:url('../images/cloudy.jpeg');
+}
+
+.rainy {
+    content: url('../images/rainy.png');
+}
+
+.snowy {
+    content: url('../images/snowy.jpeg');
+}

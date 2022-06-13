@@ -4,6 +4,8 @@ const state = {
   tempValue: 85,
 };
 
+document.getElementById('tValue').textContent = state.tempValue;
+
 // get current temperature
 const getRealTemp = () => {
   const place = document.querySelector('input').value;
@@ -28,6 +30,7 @@ const getRealTemp = () => {
       const tempK = response.data.current.temp;
       const tempF = (tempK - 273.15) * 9/5 + 32;
       state.tempValue = Math.floor(tempF);
+      console.log(tempF);
       publishTemp();
     })
     .catch(error => {console.log('error!', error);})
@@ -102,13 +105,17 @@ const addEvents = () => {
   select.addEventListener('change', (event) => {
     const result = document.querySelector('#skyPic');
     if (event.target.value == "snowy") {
-      document.getElementById('img').src = "images/snowy.jpeg";
+      document.getElementById('img').className = 'snowy';
+      document.getElementById('img').alt = 'snowy';
     } else if (event.target.value == "sunny") {
-      document.getElementById('img').src = "images/sunny.png";
+      document.getElementById('img').className = 'sunny';
+      document.getElementById('img').alt = 'sunny';
     } else if (event.target.value == "rainy") {
-      document.getElementById('img').src = "images/rainy.png";
+      document.getElementById('img').className = 'rainy';
+      document.getElementById('img').alt = 'rainy';
     } else if (event.target.value == "cloudy") {
-      document.getElementById('img').src = "images/cloudy.jpeg";
+      document.getElementById('img').className = 'cloudy';
+      document.getElementById('img').alt = 'cloudy';
     }
   })
 
