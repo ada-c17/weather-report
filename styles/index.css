@@ -28,6 +28,9 @@ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
     margin-inline: 30px;
 }
 
+.arrow:hover {
+    opacity: 0.8;
+}
 
 #left {
     border-color: transparent rgb(186, 248, 248) transparent transparent;
@@ -46,6 +49,11 @@ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
     border-radius: 40%;
     border: 0px solid black;
     margin-inline: 30px;
+}
+
+.clicky:hover {
+    transform: scale(1.1) perspective(1px);
+    opacity: 0.8;
 }
 
 main {
@@ -121,8 +129,4 @@ body{
 
 #cityDisplay {
     font-size: 70px;
-}
-
-footer {
-    
 }
