@@ -56,7 +56,7 @@ const state = {
       `http://127.0.0.1:5000/location?q=${state.city}`);
     const lat = locationData.data[0].lat;
     const lon = locationData.data[0].lon;
-    getWeatherFromLocation(lat, lon);
+    getWeatherByLocation(lat, lon);
   };
 
   const getWeatherByLocation = async (lat, lon) => {
@@ -69,7 +69,7 @@ const state = {
     changeTemperatureDecor();
   };
 
-  const convertKelvinToFahrenheit = () => {
+  const convertKelvinToFahrenheit = (temperatureKelvin) => {
     return Math.floor(1.8 * (temperatureKelvin - 273.15) + 32)
   };
 
