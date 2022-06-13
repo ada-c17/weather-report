@@ -65,6 +65,7 @@ const updateTitleCity = () => {
 const resetCity = () => {
   document.querySelector('#titleCity').textContent = 'Seattle';
   document.querySelector('#cityName').value = '';
+  getCityWeather();
 };
 
 const updateWeatherGardenSky = () => {
@@ -83,7 +84,7 @@ const displayCityHighAndLow = () => {
 const getCityWeather = () => {
   axios
     .get('http://127.0.0.1:5000/location', {
-      params: { q: `${cityName.value}` },
+      params: { q: `${cityName.value ? cityName.value : 'Seattle'}` },
     })
     .then((response) => {
       console.log(response.data);
@@ -126,3 +127,4 @@ const registerEventHandlers = () => {
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+document.addEventListener('DOMContentLoaded', getCityWeather);

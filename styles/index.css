@@ -1,14 +1,19 @@
 button {
-    background: cyan;
+    background: lightblue;
     padding: 10px;
     border-radius: 25px;
 }
 
 #weatherFrame {
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+    padding: 10px;
+    min-width: max-content;
+    max-width: 100%;
+}
+#weatherFrame h2{
+    margin-top: 0px;
 }
 
 #clickables{
@@ -16,7 +21,7 @@ button {
 }
 
 #clickables > section{
-    padding: 10px;
+    padding: 25px;
     margin: 10px;
     background: grey;
     border-radius: 25px;
@@ -36,11 +41,19 @@ button {
     color:lightgray;
 }
 
+#gardenBlock {
+    min-width: max-content;
+    max-width: 75%;
+}
+#gardenBlock h2{
+    text-align: center;
+}
+
 #garden {
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    background: lightgreen;
+    gap: 100px;
+    background: lightblue;
     border-radius: 10px;
     padding: 5px;
     text-align: center;
@@ -63,13 +76,7 @@ button {
     justify-content: space-around;
 }
 
-/* #skyBlock {
-    grid-column: 1 2;
-    grid-row: 2 3;
-} */
-
-
-/* #gardenBlock {
-    grid-column: 2 3;
-} */
+#titleCity {
+    font-style: italic;
+}
 
