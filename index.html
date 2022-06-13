@@ -16,17 +16,20 @@
         <section class="temp">
             <h2>Temperature</h2>
             <h3>Your Temp</h3>
-            <img src="./assets/uparrow.png" alt="up arrow">
+            <img id="up-arrow" src="./assets/uparrow.png" alt="up arrow">
             <p id="current-temp">50</p>
-            <img src="./assets/downarrow.jpg" alt="down arrow">
+            <img id="down-arrow" src="./assets/downarrow.jpg" alt="down arrow">
             <button type="button">Get Realtime Temp</button>
         </section>
         <section class="outside">
             <h2>Outside View</h2>
+            <p id="ground">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</p>
         </section>
         <section class="change-city">
             <h3>Change City</h3>
         </section>
     </main>
+    <script src="./src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
