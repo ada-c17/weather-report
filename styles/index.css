@@ -45,7 +45,7 @@ body {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-.window_view {
+#view {
     min-height: 200px;
     min-width: 600px;
     border-style: solid;
@@ -59,7 +59,6 @@ body {
     justify-content: space-between;
     border-radius: 8px;
     font-size: 2em;
-    background: linear-gradient(to top, #6f9940 10%, #87ceeb 70%);
     float: left;
   }
 
@@ -69,4 +68,20 @@ body {
 
   h1 {
       font-size: 80px;
+  }
+
+  .window_view_sunny {
+    background: linear-gradient(to top, #6f9940 10%, #87ceeb 70%);
+  }
+
+  .window_view_rainy {
+    background: linear-gradient(to top, #1164b4 10%, grey 70%);
+  }
+
+  .window_view_cloudy {
+    background: linear-gradient(to top, darkgreen 10%, #4f666a 70%);
+  }
+
+  .window_view_snowy {
+    background: linear-gradient(to top, lightblue 10%, #fffafa 70%);
   }

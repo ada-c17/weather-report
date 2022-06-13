@@ -37,6 +37,26 @@ const updateLandscape = () => {
   return emojis;
 };
 
+const updateSky = () => {
+  const selectedSky = document.querySelector('#chooseSky').value;
+  const emojiSky = document.querySelector('#skyView');
+  const backgroundSky = document.querySelector('#view');
+
+  if (selectedSky === 'Sunny') {
+    emojiSky.textContent = '☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️☀️';
+    backgroundSky.className = 'window_view_sunny';
+  } else if (selectedSky === 'Rainy') {
+    emojiSky.textContent = '🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️🌧️';
+    backgroundSky.className = 'window_view_rainy';
+  } else if (selectedSky === 'Cloudy') {
+    emojiSky.textContent = '☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️';
+    backgroundSky.className = 'window_view_cloudy';
+  } else if (selectedSky === 'Snowy') {
+    emojiSky.textContent = '🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️🌨️';
+    backgroundSky.className = 'window_view_snowy';
+  }
+};
+
 const updateCity = () => {
   const city = document.querySelector('#changeCityTo');
   return city.value;
@@ -120,6 +140,8 @@ const registerEventHandlers = (event) => {
   changeCityTo.addEventListener('input', setCity);
   const resetTemp = document.querySelector('#currentTemp');
   resetTemp.addEventListener('click', currentLatLon);
+  const chooseSky = document.querySelector('#chooseSky');
+  chooseSky.addEventListener('change', updateSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
