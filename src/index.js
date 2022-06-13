@@ -20,19 +20,19 @@ const updateTempInfo = () => {
   let landscape;
   if (state.temp >= 80) {
     temperature.className = 'red';
-    landscape = '☀️__🏖__🏝__⛵️';
+    landscape = '☀️🏖☀️🏝☀️⛵️';
   } else if (state.temp >= 70) {
     temperature.className = 'orange';
-    landscape = '🌷__🌤__🏔__🌄';
+    landscape = '🏕🌤💐🏔🌤';
   } else if (state.temp >= 60) {
     temperature.className = 'yellow';
-    landscape = '☔️__🍃__🌦__💨';
+    landscape = '☔️🍃🌦🍃💨🌦';
   } else if (state.temp >= 50) {
     temperature.className = 'green';
-    landscape = '☃️__❄️__🏂__🌨';
-  } else if (state.temp >= 49) {
+    landscape = '☃️❄️🏂⛄️🌨🎄';
+  } else if (state.temp <= 49) {
     temperature.className = 'aqua';
-    landscape = '🧊__🥶__🧊__🥶';
+    landscape = '🧊🧊🥶🧊🧊🥶';
   }
   temperature.textContent = state.temp;
   const updatedLandscape = document.querySelector('#landscape-icons');
@@ -69,7 +69,6 @@ const getLatAndLong = () => {
     });
 };
 
-console.log(getLatAndLong());
 const getWeatherForCity = (lat, long) => {
   axios
     .get('http://127.0.0.1:5000/weather', {
@@ -90,6 +89,27 @@ const getWeatherForCity = (lat, long) => {
     });
 };
 
+const displaySkySelection = (sky) => {
+  let skyIcon;
+  if (sky === 'Sunny') {
+    skyIcon = '🌞☀️🌞☀️🌞☀️';
+    console.log('sunny');
+  } else if (sky === 'Cloudy') {
+    skyIcon = '🌥⛅️🌤🌥⛅️🌥';
+  } else if (sky === 'Rainy') {
+    skyIcon = '🌧☔️⛈🌧☔️⛈';
+  } else if (sky === 'Snowy') {
+    skyIcon = '🌨❄️☃️🌨☃️❄️';
+  }
+  const updatedSky = document.querySelector('#sky-icons');
+  updatedSky.textContent = skyIcon;
+};
+
+const selectSkyOption = () => {
+  const skySelection = document.querySelector('#select-sky');
+  displaySkySelection(skySelection.value);
+};
+
 // Register Event Handlers:
 const registerEventHandlers = () => {
   const increaseButton = document.querySelector('#increase-temp');
@@ -102,8 +122,11 @@ decreaseButton.addEventListener('click', decreaseTemp);
 const inputCity = document.querySelector('#city-input');
 inputCity.addEventListener('input', updateCityName);
 
-// const getTempButton = document.querySelector('#get-temp-button');
-// getTempButton.addEventListener('click', getLatAndLong);
+const getTempButton = document.querySelector('#get-temp-button');
+getTempButton.addEventListener('click', getLatAndLong);
+
+const selectSkyMenu = document.querySelector('#select-sky');
+selectSkyMenu.addEventListener('change', selectSkyOption);
 
 // Event listener for the entire document when is reloaded
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
