@@ -1,0 +1,128 @@
+html {
+    background-image: url('../assets/cute_weather.webp');
+    min-height: 100%; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+h1 {
+    color: #87CEEB;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    width: 700px;
+    margin-left: 250px;
+
+}
+
+#temp > p, section > h2{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+}
+
+h1, h2, footer, #resetCityName {
+    text-align: center;
+    
+}
+
+#garden,#cityName, #sky, #cityNameTitle {
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+}
+
+.hotTemp {
+    color: red;
+}
+
+.warmTemp {
+    color: orange;
+}
+
+.mildTemp {
+    color: #ffff24;
+}
+
+.chillTemp {
+    color: green;
+}
+
+.coldTemp {
+    color: teal;
+}
+
+footer {
+    bottom: 0;
+    text-align: center;
+}
+
+#temp {
+    background-color: white;
+    border-radius: 30px;
+    width: 700px;
+    opacity: .5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 250px;
+    margin-right: 450px;
+    padding: 30px;
+}
+
+#sky {
+    background-color: white;
+    border-radius: 30px;
+    max-width: 600px;
+    opacity: .5;
+    padding: 30px;
+    block-size: fit-content;
+}
+
+#garden {
+    background-color: white;
+    border-radius: 30px;
+    max-width: 600px;
+    opacity: .5;
+    padding-right: 10px;
+    padding-left: 10px;
+    min-width: 200px;
+}
+
+#skyAndGarden {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: space-evenly;
+    margin-left: 250px;
+    margin-right: 450px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 700px;
+}
+
+#cityBoxLast {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; 
+    justify-content: space-evenly;
+    margin-top: px;
+    margin-bottom: 30px;
+}
+
+#cityWhiteBox {
+    background-color: white;
+    border-radius: 30px;
+    opacity: .5;
+    margin-left: 500px;
+    margin-right: 600px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 15px;
+    min-width: 200px;
+}
+
+#amazingCity, footer {
+    width: 700px;
+    margin-left: 250px;
+}
