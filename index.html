@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet" type="text/css" />
     <title>Weather Report</title>
 </head>
-<body>
-    
+<body style="background-image: url('https://c.tenor.com/wIa91mot0tAAAAAC/pixel-city-chill.gif');">
+    <header class="head">
+        <h1>Weather Report</h1>
+        <h3 id="cityIntro"> For the City of</h3>
+        <h3 id="inputCity">Seattle</h3>
+    </header> 
+    <section class="container">
+        <div class="item">
+            <label for="city">Input City Name:</label>
+            <input type="text" id="city" name="city" minlength="2" maxlength="20">
+            <button id="submitButton">Submit</button>
+            <button id="resetButton">Reset</button>
+        </div>
+        <div class="item">
+            <p>You can alter the temperature and sky below to see how it affects landscape!</p>
+        </div>
+        <div class="item">
+            <p>Current Temperature</p>
+            <div id="tempContainer"></div>
+        </div>
+        <div class="item">
+            <label for="skySelect">Choose a sky:</label>
+            <select name="sky" id="skySelect">
+            <option value="Sunny">Sunny</option>
+            <option value="Partly Cloudy">Partly Cloudy</option>
+            <option value="Rainy">Rainy</option>
+            <option value="Snowy">Snowy</option>
+</div>
+</select>
+        </div>
+        <div class="item">
+            <h2>Temperature</h2>
+                <button id="upButton">⬆️</button>
+                <h1 id="temp">50</h1>
+                <button id="downButton">⬇️</button>
+        </div>
+        <div class="item">
+            <p>Designed By:</p>
+            <p>Kelly Kang & Amber Tanaka</p>
+        </div>
+        <div class="item">
+            <p>Weather Garden</p>
+            <section id="skyContainer">☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️🌅☀️</section>
+            <section id="landscapeContainer">🎢🎠🎡__🎢🎠🎡🎢🎠🎡</section>
+        </div>
+    </section>
+
+    <script src="./src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>

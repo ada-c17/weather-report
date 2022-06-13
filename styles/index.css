@@ -1,0 +1,107 @@
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    display:flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-family: Andale Mono, monospace;
+}
+
+.head {
+    text-align: center;
+    font-family: Andale Mono, monospace;
+    color: rgb(81, 81, 83);
+    /* background-color: rgba(243, 213, 245, 0.399); */
+}
+#inputCity {
+    color: rgb(255, 100, 80);
+    font-family: Apple Chancery, cursive;
+    font-size:50px;
+}
+
+.item {
+    width: 48%;
+    height: 100px;
+    margin-bottom: 2%;
+    background-color: rgba(251, 245, 255, 0.649);
+    color: rgb(79, 80, 82);
+    border-radius: 30px;
+}
+
+.item:nth-child(3n-2) {
+    border: red solid 5px;
+    width: 25%;
+    text-align: center;
+}
+label {
+    display: block;
+    font: Andale Mono, monospace;
+}
+input,
+label {
+    margin: .4rem 0;
+}
+
+.item:nth-child(2n) {
+    border: orange solid 5px;
+    width: 45%;
+    text-align: center;
+    font-size: large;
+}
+
+.item:nth-child(3n) {
+    border: yellow solid 5px;
+    width: 30%;
+    height: 200px;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.item:nth-child(4n) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: green solid 5px;
+    width: 20%;
+    height: 150px;
+    font-size: x-large;
+    align-items: center;
+    justify-content: center;
+}
+#sky-select {
+    margin-top: 10%;
+}
+.item:nth-child(5n) {
+    border: lightseagreen solid 5px;
+    color: rgb(102, 103, 106);
+    width: 22%;
+    height: 185px;
+    text-align: center;
+}
+.item:nth-child(6n) {
+    border: rgb(35, 17, 59) solid 5px;
+    font-size: medium;
+    width: 26%;
+    height: 100px;
+    margin-top: 10%;
+}
+
+.item:nth-child(7n) {
+    border: purple solid 5px;
+    background-color: rgba(251, 240, 255, 0.835);
+    width: 50%;
+    height: 300px;
+    text-align: center;
+    font-size: xx-large;
+    align-content: space-between;
+}
+
+#landscapeContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    padding-top: 10%;
+}
