@@ -106,6 +106,14 @@ header {
     align-items: center;
 }
 
+#sky-selector {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 img {
     height: 40vh;
     width: 40vh;
