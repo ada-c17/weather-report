@@ -1,0 +1,73 @@
+Notes for Ansel:
+- I realized the background change is using style after I submitted my project. Did not realize that was adding JS to the html until too late.
+- I know I have a lot of repeating code! Definitely could DRY it up a lot.
+- Could definitely change the function name of getLatAndLong to something like getWeather or something
+
+
+...Note - json.stringify to change when it just says [object...]
+backgroundImage determined with the state
+
+DONE - Need to set a character limit on the input box
+
+DONE Need to get the form submitting the text inputted so I can send it to location IQ
+
+Then use the data location IQ 
+
+On the parent
+
+display: flex;
+    justify-content: center;
+
+on child
+
+align-self: center;
+
+Wave 4---
+- get lat and long from LocationIQ
+- Use lat and long with Openweather to get weather data
+
+DONE --also want to have the h1 color change with the the sky choice
+
+DONE ---Maybe move the reset button to the bottom right of the temp box and go back to seattle, wa being in alignment with the search button and smaller than the temp text
+
+DONE --capitalize city
+
+DONE -- also want to have the footer rotate through the different attributions I have, or just list them all in shorthand somehow
+
+
+
+--Need to fix h1 so that when I change the sky option you don't see it moving down
+
+-- need to set up a scroll box for the city name area in case it starts to go outside the box
+
+-- transitions and animations?
+
+-- deploy?
+
+
+/* .btn:hover {
+    filter: brightness(0.85);
+} 
+
+Want to change it so that the background color of the temp city box is accessed, then darkened a bit on hover of the buttons. Need to access background color of the temp box
+*/
+
+
+From Adriana
+
+<video playsinline autoplay muted loop poster="assets/down-chevron.png" id="bgvid-3">
+        <source id="page3-conditions" src="assets/Lightning.mp4" type="video/mp4">
+    </video>
+
+    #bgvid-3 {
+    object-fit:cover;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 200vh;
+    left: 0;
+}
+
+The top positioning was 200vh because I wanted it below my second screen, and each screen was 100vh
+
+I just made an overall container for each "page" and set the container height to 100vh
