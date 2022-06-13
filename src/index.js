@@ -173,6 +173,7 @@ const registerEventHandlers = () => {
 
     const resetLocationButton = document.getElementById("resetLocation");
     resetLocationButton.addEventListener("click", resetLocationAction);
+    resetLocationButton.addEventListener("click", realtimeTempAction);
 
     const changeSky = document.getElementById("skyDropdown");
     changeSky.addEventListener("change", selectSkyAction);
