@@ -40,6 +40,7 @@ const changeLandscape = () => {
   const hotDog = document.getElementById('hot-dog');
   const autumnDog = document.getElementById('autumn-dog');
   const springDog = document.getElementById('spring-dog');
+  console.log("breaking point")
   if (state.temp >= 80) {
     hotDog.style.display = 'block';
     springDog.style.display = 'none';
@@ -55,7 +56,7 @@ const changeLandscape = () => {
     springDog.style.display = 'none';
     autumnDog.style.display = 'block';
     winterDog.style.display = 'none';
-  } else if (state.temp <= 50) {
+  } else if (state.temp >= 50) {
     hotDog.style.display = 'none';
     springDog.style.display = 'none';
     autumnDog.style.display = 'none';
