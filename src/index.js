@@ -1,10 +1,7 @@
-// Tasks to finish:
-// Realtime temp button isn't working right?
-// reset sky button needs functionality
-
 const state = {
   temp: parseInt(document.querySelector('#display-temp').innerHTML),
   sky: '',
+  city: '',
 };
 
 skyValues = {
@@ -69,7 +66,6 @@ function tempButtons() {
   const currentTemp = document.querySelector('#display-temp');
   const arrowUpButton = document.getElementById('arrow-up');
   const arrowDownButton = document.getElementById('arrow-down');
-  const resetTempButton = document.querySelector('#reset-temp');
   // Arrow up click events
   arrowUpButton.addEventListener('click', () => {
     state.temp += 1;
