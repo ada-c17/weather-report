@@ -15,6 +15,7 @@ const cityInput = document.getElementById('city');
 const realTemp = document.getElementById('realtime-temp');
 const skySelect = document.getElementById('sky-select');
 const skyLine = document.getElementById('sky');
+const landscape = document.getElementById('landscape');
 const cityReset = document.getElementById('city-reset');
 
 const setTempColor = (temp) => {
@@ -46,12 +47,16 @@ const setGroundLayout = (temp) => {
 const setSkyLayout = (sky) => {
   if (sky === 'sunny') {
     skyLine.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+    landscape.style.backgroundColor = '#76e0f5';
   } else if (sky === 'cloudy') {
     skyLine.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    landscape.style.backgroundColor = '#8fc9f2';
   } else if (sky === 'rainy') {
     skyLine.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    landscape.style.backgroundColor = '#4a73a8';
   } else if (sky === 'snowy') {
     skyLine.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    landscape.style.backgroundColor = '#a5c6c7';
   }
 };
 
