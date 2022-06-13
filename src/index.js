@@ -15,6 +15,8 @@ const CONDITIONS = {
 
 const state = {
   tempValue: 60,
+  cityLow: null,
+  cityHigh: null,
 };
 
 const kelvinToFahrenheit = (temperature) =>
@@ -38,7 +40,7 @@ const decrementTemp = () => {
 
 const conditionLayout = (temp, el) => {
   const landscapeLayout = document.querySelector('#gardenLandscape');
-  let currentCondition = '';
+  let currentCondition = null;
   if (temp >= 80) {
     currentCondition = CONDITIONS.hot;
   } else if (temp < 80 && temp >= 70) {
@@ -71,13 +73,20 @@ const updateWeatherGardenSky = () => {
   gardenSky.textContent = GARDENSKIES[weatherSelector.value];
 };
 
+const displayCityHighAndLow = () => {
+  let dailyLow = document.querySelector('#dailyLow');
+  let dailyHigh = document.querySelector('#dailyHigh');
+  dailyLow.innerText = `Today's Low: ${state.cityLow}`;
+  dailyHigh.innerText = `Today's High: ${state.cityHigh}`;
+};
+
 const getCityWeather = () => {
   axios
     .get('http://127.0.0.1:5000/location', {
       params: { q: `${cityName.value}` },
     })
     .then((response) => {
-      // console.log(response.data);
+      console.log(response.data);
       axios
         .get('http://127.0.0.1:5000/weather', {
           params: {
@@ -86,20 +95,17 @@ const getCityWeather = () => {
           },
         })
         .then((response) => {
-          // console.log(response.data);
-          console.log(
-            `temp in ${cityName.value} is ${response.data.current.temp}`
-          );
-          console.log(
-            `temp in ${cityName.value} is ${Math.round(
-              kelvinToFahrenheit(response.data.current.temp)
-            )}`
-          );
           state.tempValue = Math.round(
             kelvinToFahrenheit(response.data.current.temp)
           );
-          console.log(state.tempValue);
           updateTemp();
+          state.cityLow = Math.round(
+            kelvinToFahrenheit(response.data.daily[0].temp.min)
+          );
+          state.cityHigh = Math.round(
+            kelvinToFahrenheit(response.data.daily[0].temp.max)
+          );
+          displayCityHighAndLow();
         });
     });
 };

@@ -32,26 +32,6 @@ button {
     color: yellow;
 }
 
-/* .tempValue--red {
-    color: red;
-}
-
-.tempValue--orange {
-    color: orange;
-}
-
-.tempValue--yellow {
-    color: yellow;
-}
-
-.tempValue--green {
-    color: green;
-}
-
-.tempValue--teal {
-    color: teal;
-} */
-
 #cityBlock ::placeholder{
     color:lightgray;
 }
@@ -67,6 +47,19 @@ button {
 }
 
 #tempButtonLayout {
+    justify-content: space-around;
+}
+
+#dailyRange {
+    font-size: large;
+    background-color: rgba(134, 203, 208, 0.384);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#realTimeDisplay {
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
 }
 
