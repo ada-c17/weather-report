@@ -1,9 +1,8 @@
 'use strict';
 
-// const axios = require('axios');
-
 const state = {
   temperature: 0,
+  coordinates: [],
   currentColor: 'black',
   currentLandscape: 'summer',
   currentCity: 'Chicago',
@@ -19,6 +18,7 @@ const increaseTemperature = () => {
 
   changeTemperatureColor();
   changeLandscape();
+  changeSky();
 };
 
 // decrease temperature
@@ -30,6 +30,7 @@ const decreaseTemperature = () => {
 
   changeTemperatureColor();
   changeLandscape();
+  changeSky();
 };
 
 // helper function to change temperature text color
@@ -71,8 +72,28 @@ const changeLandscape = () => {
   }
 };
 
-// manually change sky
+// helper function to change sky based on temp
 const changeSky = () => {
+  const skyImage = document.getElementById('sky-image');
+  const skyCaption = document.getElementById('sky-caption');
+
+  if (state.temperature >= 80) {
+    skyImage.src = 'assets/sky/grooveland-designs-sunny.jpg';
+    skyCaption.textContent = 'Photo by Grooveland Designs';
+  } else if (state.temperature >= 60 && state.temperature <= 79) {
+    skyImage.src = 'assets/sky/brandon-morgan-lightning.jpg';
+    skyCaption.textContent = 'Photo by Brandon Morgan';
+  } else if (state.temperature >= 40 && state.temperature <= 59) {
+    skyImage.src = 'assets/sky/daoudi-aissa-cloudy.jpg';
+    skyCaption.textContent = 'Photo by Daoudi Aissa';
+  } else {
+    skyImage.src = 'assets/sky/jessica-fadel-snowing.jpg';
+    skyCaption.textContent = 'Photo by Jessica Fadel';
+  }
+};
+
+// manually change sky using dropdown
+const manuallyChangeSky = () => {
   const skyImage = document.getElementById('sky-image');
   const skyCaption = document.getElementById('sky-caption');
   const selectedSky = document.getElementById('sky-dropdown').value;
@@ -108,8 +129,15 @@ const updateDisplayCityAndTemp = () => {
   state.currentCity = capitalizedCity;
   displayCity.textContent = state.currentCity;
 
+  // call getLatAndLon to update state.coordinates
+  state.coordinates = getLatAndLon();
+  console.log(state.coordinates);
+
+  // call getCurrentWeather to update state.temperature
+  state.temperature = getCurrentWeather();
+  console.log(state.temperature);
+
   // update temperature text content
-  state.temperature = getLatAndLon();
   currentTemp.textContent = `${state.temperature}° F`;
 };
 
@@ -136,7 +164,7 @@ const registerEventHandlers = () => {
   resetCityButton.addEventListener('click', resetDisplayCity);
 
   const skyDropdown = document.getElementById('sky-dropdown');
-  skyDropdown.addEventListener('change', changeSky);
+  skyDropdown.addEventListener('change', manuallyChangeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
@@ -154,32 +182,28 @@ const getLatAndLon = () => {
       const lat = response.data[0]['lat'];
       const lon = response.data[0]['lon'];
 
-      console.log({ lat, lon });
-      getCurrentWeather(lat, lon);
+      return [lat, lon];
     })
-    .catch((error) => {
-      console.log(error.response.data);
+    .catch(() => {
+      console.log('Error retrieving latitude and longitude');
     });
 };
 
-const getCurrentWeather = (latitude, longitude) => {
+const getCurrentWeather = () => {
   axios
     .get('http://127.0.0.1:5000/weather', {
       params: {
-        lat: latitude,
-        lon: longitude,
+        lat: state.coordinates[0],
+        lon: state.coordinates[1],
       },
     })
     .then((response) => {
       const tempInK = response.data.current.temp;
-      const tempInF = 1.8 * (tempInK - 273) + 32;
+      const tempInF = Math.floor(1.8 * (tempInK - 273) + 32);
 
-      // return tempInF;
-      console.log(tempInF);
       return tempInF;
     })
-    .catch((error) => {
-      console.log('error!');
-      console.log(error.response.data);
+    .catch(() => {
+      console.log('Error retrieving current weather');
     });
 };
