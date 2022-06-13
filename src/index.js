@@ -1,7 +1,7 @@
 'use strict';
 // const axios = require('axios');
 
-window.onload = function () {
+window.onload = () => {
   newTemperature();
   changeCity();
   changeSky();
@@ -10,17 +10,17 @@ window.onload = function () {
 let city = 'Atlanta';
 let temperature = 70;
 
-const increaseTemp = function () {
+const increaseTemp = () => {
   temperature += 1;
   newTemperature();
 };
 
-const decreaseTemp = function () {
+const decreaseTemp = () => {
   temperature -= 1;
   newTemperature();
 };
 
-const getCurrentTemp = function () {
+const getCurrentTemp = () => {
   let latitude;
   let longitude;
 
@@ -56,7 +56,7 @@ const resetCity = function () {
   setTextColorLandscapeBasedOnTemp();
 };
 
-const changeCity = function () {
+const changeCity = () => {
   // if the #cityname element is changed
   const input = document.querySelector('#cityname');
   input.addEventListener('change', updateValue);
@@ -70,7 +70,7 @@ const changeCity = function () {
   }
 };
 
-const changeSky = function () {
+const changeSky = () => {
   const input = document.querySelector('#skytype-select');
 
   input.addEventListener('change', (event) => {
@@ -79,13 +79,13 @@ const changeSky = function () {
   });
 };
 
-const newTemperature = function () {
+const newTemperature = () => {
   const temperatureMessage =  temperature + '\u00B0F';
   document.getElementById('temperature').innerHTML = temperatureMessage;
   setTextColorLandscapeBasedOnTemp();
 };
 
-const setTextColorLandscapeBasedOnTemp = function () {
+const setTextColorLandscapeBasedOnTemp = () => {
   let img;
   let tempColor = '';
   if (temperature >= 80) {
@@ -97,7 +97,7 @@ const setTextColorLandscapeBasedOnTemp = function () {
     img = 'spring';
   } else if (temperature >= 60) {
     tempColor = 'yellow';
-    img = 'spring';
+    img = 'warm';
   } else if (temperature >= 50) {
     tempColor = 'green';
     img = 'winter';

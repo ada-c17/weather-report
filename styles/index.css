@@ -111,6 +111,15 @@ footer {
 
 }
 
+.warm {
+    background: none;
+    background-image: url('../image/warm.jpeg');
+    align-items: center;
+    border-radius: 300px;
+    background-size:cover;
+
+}
+
 .winter {
     background: none;
     background-image: url('../image/winter-cartoon-png.png');
