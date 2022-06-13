@@ -5,8 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-    
+    <header>
+        <nav>
+            <h2>Weather Forecast</h2>
+        </nav>
+    </header>
+    <main>
+        <search>
+            <form>
+                <input type="text" placeholder="Enter a City" id="search-input">
+                <button id="search-button">Submit</button>
+            </form>
+        </search>
+        <section id="temperature-card">
+            <ul>
+                <li><h2 id="city-name">City</h2></li>
+                <li id="temp">Temperature</li>
+                <li id="temp-image"><img src="" alt=""></li>
+            </ul>
+            <button id="increse-temp">Up</button>
+            <button id="decrease-temp">Down</button>
+        </section>
+        <section>
+            <select name="sky" id="select-sky">
+                <option value="Sunny">Sunny</option>
+                <option value="Cloudy">Cloudy</option>
+                <option value="Rainiy">Rainiy</option>
+                <option value="Snowy">Snowy</option>
+            </select>
+        </section>
+    </main>
+    <script src="/src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
