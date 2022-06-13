@@ -25,9 +25,17 @@
 
         </section>
         <section class="weatherbox__section weatherbox__section--city">
+            <select name="skies" id="skies">
+
+                <option value="starrySky">Starry</option>
+                <option value="sunnySky">Sunny</option>
+                <option value="cloudySky">Cloudy</option>
+                <option value="spookySky">spooky</option>
+
+            </select>
             <h1>Getting weather for: <span id="cityDisplay"></span></h1>
-            <h2><input type="text" id="city" placeholder="location"></h1>
-            <img src="https://cultofthepartyparrot.com/parrots/hd/parrot.gif" id="cityButton" height="25px">
+            <h2><input type="text" id="city" placeholder="location" value="new milford, ct"></h1>
+            <img src="/images/go.png" id="cityButton"> <br> <img src="/images/reset.png" id="reset">
         </section>
         <section id="weatherbox__landscape" class="starrySky">
             <img id="mountain">

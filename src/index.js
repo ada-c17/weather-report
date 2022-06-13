@@ -98,6 +98,20 @@ const updateCityText = (event) => {
     document.getElementById('city').value;
 };
 
+const updateSky = (event) => {
+  let sky = document.querySelector('#skies').value;
+  let skyBox = document.querySelector('#weatherbox__landscape');
+  skyBox.className = sky;
+  console.log(sky);
+};
+
+const resetCity = (event) => {
+  state.city = 'new milford, ct';
+  city = document.querySelector('#city');
+  city.value = 'new milford, ct';
+  updateCity();
+};
+
 updateTempAndColor();
 
 const registerEventHandlers = (event) => {
@@ -105,11 +119,16 @@ const registerEventHandlers = (event) => {
   const warmer = document.querySelector('#warmer');
   const colder = document.querySelector('#colder');
   const cityChange = document.querySelector('#city');
+  const skyChange = document.querySelector('#skies');
+  const reset = document.querySelector('#reset');
 
+  reset.addEventListener('click', resetCity);
+  skyChange.addEventListener('change', updateSky);
   cityField.addEventListener('click', updateCity);
-  cityChange.addEventListener('keydown', updateCityText);
+  cityChange.addEventListener('keyup', updateCityText);
   warmer.addEventListener('click', raiseTemp);
   colder.addEventListener('click', lowerTemp);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+document.addEventListener('DOMContentLoaded', updateCity);
