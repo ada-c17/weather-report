@@ -94,17 +94,23 @@ const changeSky = () => {
   }
 };
 
-// update display city based on user input
-const updateDisplayCity = () => {
+// update display city and temp based on user input
+const updateDisplayCityAndTemp = () => {
   const displayCity = document.getElementById('display-city');
   const userInputCity = document.getElementById('input-city').value;
+  const currentTemp = document.getElementById('temperature');
 
   const capitalizedCity =
     userInputCity.charAt(0).toUpperCase() +
     userInputCity.slice(1).toLowerCase();
 
+  // update display city text content
   state.currentCity = capitalizedCity;
   displayCity.textContent = state.currentCity;
+
+  // update temperature text content
+  state.temperature = getLatAndLon();
+  currentTemp.textContent = `${state.temperature}° F`;
 };
 
 // reset display city
@@ -124,7 +130,7 @@ const registerEventHandlers = () => {
   decreaseTempButton.addEventListener('click', decreaseTemperature);
 
   const changeCityButton = document.getElementById('change-city-button');
-  changeCityButton.addEventListener('click', updateDisplayCity);
+  changeCityButton.addEventListener('click', updateDisplayCityAndTemp);
 
   const resetCityButton = document.getElementById('reset-city-button');
   resetCityButton.addEventListener('click', resetDisplayCity);
@@ -148,14 +154,13 @@ const getLatAndLon = () => {
       const lat = response.data[0]['lat'];
       const lon = response.data[0]['lon'];
 
+      console.log({ lat, lon });
       getCurrentWeather(lat, lon);
     })
     .catch((error) => {
       console.log(error.response.data);
     });
 };
-
-getLatAndLon();
 
 const getCurrentWeather = (latitude, longitude) => {
   axios
@@ -171,6 +176,7 @@ const getCurrentWeather = (latitude, longitude) => {
 
       // return tempInF;
       console.log(tempInF);
+      return tempInF;
     })
     .catch((error) => {
       console.log('error!');
