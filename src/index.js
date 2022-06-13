@@ -1,11 +1,9 @@
 'use strict';
 
 const state = {
-  temp: 78,
+  temp: 70,
   city: 'Seattle, WA',
 };
-
-// export { state };
 
 // Changes background color of temp box
 const changeColor = () => {
@@ -16,8 +14,6 @@ const changeColor = () => {
     tempCityBox.style.backgroundColor = 'rgba(255, 145, 3, 0.7)';
   } else if (state.temp >= 60) {
     tempCityBox.style.backgroundColor = 'rgba(255, 255, 0, 0.7)';
-  } else if (state.temp >= 50) {
-    tempCityBox.style.backgroundColor = 'rgba(0, 255, 0, 0.7)';
   } else if (state.temp >= 50) {
     tempCityBox.style.backgroundColor = 'rgba(0, 255, 0, 0.7)';
   } else if (state.temp >= 40) {
@@ -75,12 +71,10 @@ const controlInputBox = () => {
   }
 };
 
-// Change placeholder text in input box
+// Change placeholder text in search input box
 const changePlaceholderText = () => {
   const openInputBox = document.getElementById('city_input_box');
-  console.log(openInputBox);
   const placeholderText = openInputBox.getAttribute('placeholder');
-  console.log(placeholderText);
   if (placeholderText === 'Type...') {
     openInputBox.setAttribute(
       'placeholder',
@@ -97,34 +91,8 @@ const changeCity = () => {
   document.querySelector('h2').textContent = state.city;
 };
 
-// const submitCitySearchRequest = (event) => {
-//   console.log({ event });
-//   event.preventDefault();
-//   if (KeyboardEvent.key === 'Enter') {
-//     console.log('Enter was pushed!');
-//     getLatAndLong();
-//   }
-// };
-
-const updateTemp = (lat, lon) => {
-  axios
-    .get('http://localhost:5000/weather', {
-      params: {
-        lat: lat,
-        lon: lon,
-      },
-    })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(`Encountered an error: ${error}`);
-    });
-};
-
 const getLatAndLong = () => {
   const location = state.city;
-  console.log(`${location}`);
 
   let latitude, longitude;
   axios
@@ -136,15 +104,15 @@ const getLatAndLong = () => {
     .then((response) => {
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
-      console.log(
-        `For ${state.city}, longitude is ${longitude} and latitude is ${latitude}.`
-      );
-      const coord = { latitude, longitude };
-      // console.log({ coord });
-      return coord;
+      const displayName = response.data[0].display_name;
+
+      const nameArray = displayName.split(',');
+      const apiCityName = `${nameArray[0]}, ${nameArray[2]}`;
+      state.city = apiCityName;
+      document.querySelector('h2').textContent = state.city;
+      return { latitude, longitude };
     })
     .then((response) => {
-      // console.log(response);
       axios
         .get('http://localhost:5000/weather', {
           params: {
@@ -153,12 +121,32 @@ const getLatAndLong = () => {
           },
         })
         .then((response) => {
+          const condition = response.data.current.weather[0].main;
           const tempKelvin = response.data.current.temp;
           state.temp = Math.round((tempKelvin - 273.15) * (9 / 5) + 32);
-          console.log(`State.temp is ${state.temp}`);
           changeTemp();
           changeColor();
           changeBgImg();
+
+          // Change sky based on API response
+          const h1 = document.querySelector('h1');
+          const conditions = ['Rain', 'Drizzle', 'Thunderstorm', 'Squall'];
+          if (condition === 'Clear') {
+            h1.textContent = '☀️ 🌞 🔆 Weather App ☀️ 🌞 🔆';
+            h1.style.backgroundColor = 'rgba(255, 255, 0, 0.7)';
+          } else if (condition === 'Clouds') {
+            h1.textContent = '☁️🌤 ☁️ Weather App ☁️🌤 ☁️ ';
+            h1.style.backgroundColor = 'rgba(174, 171, 171, 0.7)';
+          } else if (condition in conditions) {
+            h1.textContent = '🌧 ⛈ 🌧 Weather App 🌧 ⛈ 🌧 ';
+            h1.style.backgroundColor = 'rgba(0, 204, 255, 0.7)';
+          } else if (condition === 'Snow') {
+            h1.textContent = '❄️ 🌨 ❄️ Weather App ❄️ 🌨 ❄️';
+            h1.style.backgroundColor = 'white';
+          } else {
+            h1.textContent = 'Weather App';
+            h1.style.backgroundColor = 'rgba(174, 171, 171, 0.7)';
+          }
         })
         .catch((error) => {
           console.log(`Encountered an error: ${error}`);
@@ -170,29 +158,45 @@ const getLatAndLong = () => {
     });
 };
 
+// Change sky based on dropdown selection
 const changeSky = () => {
   const select = document.getElementById('sky_drop_down');
   const option = select.options[select.selectedIndex].text;
-  console.log(option);
+  const h1 = document.querySelector('h1');
   if (option === 'Sunny') {
-    const h1 = document.querySelector('h1');
     h1.textContent = '☀️ 🌞 🔆 Weather App ☀️ 🌞 🔆';
+    h1.style.backgroundColor = 'rgba(255, 255, 0, 0.7)';
   } else if (option === 'Cloudy') {
-    const h1 = document.querySelector('h1');
     h1.textContent = '☁️🌤 ☁️ Weather App ☁️🌤 ☁️ ';
+    h1.style.backgroundColor = 'rgba(174, 171, 171, 0.7)';
   } else if (option === 'Rainy') {
-    const h1 = document.querySelector('h1');
     h1.textContent = '🌧 ⛈ 🌧 Weather App 🌧 ⛈ 🌧 ';
+    h1.style.backgroundColor = 'rgba(0, 204, 255, 0.7)';
   } else if (option === 'Snowy') {
-    const h1 = document.querySelector('h1');
     h1.textContent = '❄️ 🌨 ❄️ Weather App ❄️ 🌨 ❄️';
+    h1.style.backgroundColor = 'white';
   } else if (option === 'Choose a Sky') {
     const h1 = document.querySelector('h1');
     h1.textContent = 'Weather App';
+    h1.style.backgroundColor = 'rgba(174, 171, 171, 0.7)';
   }
 };
 
-const resetInfo = () => window.location.reload();
+const resetDropdown = () => {
+  const select = document.getElementById('sky_drop_down');
+  const option = document.getElementById('select_title');
+  select.value = option.value;
+};
+
+const resetInfo = () => {
+  state.city = 'Seattle, WA';
+  state.temp = 70;
+  resetDropdown();
+  changeSky();
+  document.querySelector('h2').textContent = state.city;
+  changePlaceholderText();
+  changeTemp();
+};
 
 const registerEventHandlers = (event) => {
   // Increase temp when click up arrow
@@ -226,7 +230,8 @@ const registerEventHandlers = (event) => {
   //
   const getRealTempBtn = document.getElementById('real_temp_btn');
   getRealTempBtn.addEventListener('click', () => {
-    controlInputBox();
+    const inputBox = document.getElementById('city_input_box');
+    inputBox.setAttribute('type', 'hidden');
     getLatAndLong();
   });
 
