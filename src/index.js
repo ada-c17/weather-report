@@ -26,7 +26,7 @@ const updateTempInfo = () => {
     landscape = '🏕🌤💐🏔🌤';
   } else if (state.temp >= 60) {
     temperature.className = 'yellow';
-    landscape = '☔️🍃🌦🍃💨🌦';
+    landscape = '🍃🌦🍃☔️💨🌦';
   } else if (state.temp >= 50) {
     temperature.className = 'green';
     landscape = '☃️❄️🏂⛄️🌨🎄';
