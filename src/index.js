@@ -66,7 +66,7 @@ const convertToF = (tempInK) => {
 
 const updateTemperatureDisplay = () => {
     const currentTempDisplay = document.getElementById("currentTemp");
-    currentTempDisplay.textContent = `Current Temperature: ${Math.round(state.currentTempInF)}`;
+    currentTempDisplay.textContent = `Current Temperature: ${Math.round(state.currentTempInF)}°F`;
     updateColor();
     updateFeelImage();
 };
@@ -95,6 +95,7 @@ const inputLocationAction = () => {
     state.currentLocation = inputLocation.value;
     updateLocationDisplay();
 };
+
 const resetLocationAction = () => {
     const inputLocation = document.getElementById("locationInput");
     state.currentLocation = "Irvine";
@@ -145,7 +146,11 @@ const updateCurrentTempInK = (tempInK) => {
 
 
 const realtimeTempAction = () => {
-    getTemp().then((tempInK) => updateCurrentTempInK(tempInK)).catch((err) => {console.log(err);});
+    getTemp().then((tempInK) => {
+        updateCurrentTempInK(tempInK);
+    }).catch((err) => {
+        console.log(err);
+    });
 };
 
 
@@ -160,6 +165,11 @@ const registerEventHandlers = () => {
 
     const inputLocation = document.getElementById("locationInput");
     inputLocation.addEventListener("input", inputLocationAction);
+    inputLocation.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            realtimeTempAction();
+        }
+    });
 
     const resetLocationButton = document.getElementById("resetLocation");
     resetLocationButton.addEventListener("click", resetLocationAction);
@@ -172,4 +182,5 @@ const registerEventHandlers = () => {
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
+document.addEventListener("DOMContentLoaded", realtimeTempAction);
 

@@ -36,7 +36,7 @@
             <h3>Adjust as needed.</h3> 
             <div>
                 <button id="decreaseTemp">Decrease</button> 
-                <p id="currentTemp">Current Temperature: 0</p>
+                <p id="currentTemp">Current Temperature: </p>
                 <button id="increaseTemp">Increase</button> 
                 <div>
                     <button id="realTime">Get Realtime Temperature Data</button>
@@ -47,10 +47,8 @@
             <h2>My Location</h2>
             <h3>Where are you?</h3>
             <div>
-                <form action="#">
-                    <label>I'm in:</label><br>
-                    <input type="text" id="locationInput" name="loc"><br>
-                </form>
+                <label>I'm in:</label><br>
+                <input type="text" id="locationInput" name="loc"><br>
                 <button id="resetLocation">Reset</button>
             </div>
         </section>
@@ -64,7 +62,7 @@
             </div>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="src/index.js"></script>
 </html>
