@@ -65,15 +65,15 @@ const updateCity = () => {
   cityName.textContent = `${state.city}`;
 };
 
-const getCoordinates = () => {
+const getCoordinates = (city) => {
   axios.get('https://us1.locationiq.com/v1/search.php', {
     params: {
       key: '',
-      q: `${state.city}`,
+      q: `${city}`,
       format: 'json',
     },
   })
-  .then((response) =>{
+  .then((response) => {
     state.lat = response.data[0].lat;
     state.lon = response.data[0].lon;
   })
