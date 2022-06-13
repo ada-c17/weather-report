@@ -65,8 +65,9 @@ const updateTempDisplay = () => {
   const selectElement = document.querySelector('#sky-selector');
   selectElement.value = `${sky}`;
   selectElement.dispatchEvent(new Event('change'));
-  document.querySelector('#landscape h1').textContent =
-    landscapes[tempClass(weather.temperature)];
+  document.getElementById('landscape').classList = tempClass(
+    weather.temperature
+  );
 };
 
 const changeTemp = (e) => {
