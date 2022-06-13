@@ -5,8 +5,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <h1>Weather for the lovely city of <span id=titleCity>Seattle</span></h1>
+    </header>
+    <section id="weatherFrame">
+        <section id="clickables">
+            <section id="tempBlock">
+                <header>
+                    <h2>Temperature</h2>
+                </header>
+                <section id="tempButtonLayout">
+                    <section id="tempChanger">
+                        <button id="tempUp">⬆️</button>
+                        <p id="tempValue"></p>
+                        <button id="tempDown">⬇️</button>
+                    </section>
+                    <section id="realTimeDisplay">
+                        <section id="dailyRange">
+                            <p id="dailyLow">Today's Low: </p>
+                            <p id="dailyHigh">Today's High: </p>
+                            <p id="dailyDescription">Description: </p>
+                        </section>
+                        <button id="getTemp">Get Real-Time Temperature</button>
+                    </section>
+                </section>
+            </section>
+            <section id="skyBlock">
+                <header>
+                    <h2>Sky</h2>
+                </header>
+                <label for="weatherSelector">The weather is...</label>
+                <select id="weatherSelector">
+                    <option value="sunny">Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                </select>
+            </section>
+            <section id="cityBlock">
+                <header>
+                    <h2>City Name</h2>
+                </header>
+                <label for="cityName">Show me the weather in...</label>
+                <input id="cityName" type="text" placeholder="e.g. &quot;Seattle&quot;">
+                <button id="resetBtn">Reset</button>
+            </section>
+        </section>
+        <section id="gardenBlock">
+            <header>
+                <h2>
+                    Weather Garden
+                </h2>
+            </header>
+            <section id="garden">
+                <p id="gardenSky">
+                    ☁️ ☁️ ☁️ ☀️ ☁️ ☁️
+                </p>
+                <p id="gardenLandscape">
+                    🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃
+                </p>
+            </section>
+        </section>
+    </section>
 </body>
+<script src="src/index.js"></script>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
 </html>

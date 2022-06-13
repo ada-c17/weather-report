@@ -1,0 +1,83 @@
+button {
+    background: lightblue;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+#weatherFrame {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+    padding: 10px;
+    min-width: max-content;
+    max-width: 100%;
+}
+#weatherFrame h2{
+    margin-top: 0px;
+}
+
+#clickables{
+    display: flexbox;
+}
+
+#clickables > section{
+    padding: 25px;
+    margin: 10px;
+    background: grey;
+    border-radius: 25px;
+}
+
+#tempButtonLayout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-style: double;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(240, 255, 255, 0.225);
+}
+
+#tempValue {
+    font-size: 50px;
+    color: yellow;
+}
+
+#cityBlock ::placeholder{
+    color:lightgray;
+}
+
+#gardenBlock {
+    min-width: max-content;
+    max-width: 75%;
+}
+#gardenBlock h2{
+    text-align: center;
+}
+
+#garden {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    background: lightblue;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+#dailyRange {
+    font-size: large;
+    background-color: rgba(134, 203, 208, 0.384);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#realTimeDisplay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#titleCity {
+    font-style: italic;
+}
+
