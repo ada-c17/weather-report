@@ -4,9 +4,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+    <link 
+        rel="stylesheet" 
+        href="styles/index.css" />
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" 
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
+    <title> Weather Report</title>
 </head>
+<!-- Create a layout -->
+<!-- Add dimensions for each section -->
+<!-- Add a border to major pieces  (helps to track where things are)-->
+<!--  -->
 <body>
     
+    <div>Weather Report</div> 
+    <main>
+        <section>
+            <h1>Change Background Colour via Range</h1>
+            <h2>Select your Weather <span id ="colourOutput"> </span></h2>
+            <!-- <h3 id="currentTemperature">00</h3> -->
+        </section>
+            <section id = "temperature">
+            <!-- <button id="increaseTemp">
+                <button onclick="increaseTemp()">
+                    <i class="fa fa-angle-double-up" aria-hidden="false"></i>
+                </button> -->
+                
+                <h3 id="currentTemperature">00<span id="degree-symbol">&deg;</span><span id="unit">F</span></h3>
+                
+                
+                <!-- <button id="decreaseTemp">
+                    <button onclick="decreaseTemp()">
+                        <i class="fa fa-angle-double-down" aria-hidden="false"></i>
+                    </button> -->
+                    <div class="slidecontainer">
+                        <input type="range" min="-40" max="140" value="50" class="slider" id="slider">
+                    </div>
+
+                    
+                </section>
+                <section id="landscape">
+        </section>
+        <section id="city">
+            <h3 id="city-name">City: </h3>
+            <h3> City Temp: </h3>
+            <input type="text" id="city-name-input" name="city-name-input" placeholder="Enter City Name">
+            
+            <button id="city-button">
+                Update Temp
+            </button>
+            <button id="reset-city">reset</button>
+        </section>
+
+        <!-- <select name="" id=""></select> -->
+        <section>
+            <select id="choose-sky" >
+                <option>Choose sky</option>
+                <option value="Sunshine and smiles all around.">Sunny</option>
+                <option value="Cloudy with a chance of rain.">Cloudy</option>
+                <option value="Raining cats and dogs.">Rainy</option>
+                <option value="Snow angels and sledding.">Snowy</option>
+            </select>
+            <img id="sky-image" src='https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80'>
+        </section>
+    </main>
 </body>
-</html>
+<!-- <script src="/src/index.js"></script> -->
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+<script src="/src/index.js"></script>
+
+
+</html> 
