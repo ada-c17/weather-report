@@ -25,6 +25,22 @@ img {
     font-size: 20px;
     color: red;
 }
-.style {
+.text-color-blue {
+    color: blue;
+}
+
+.text-color-red{
+    color: red;
+}
+.text-color-orange{
+    color: orange;
+}
+.text-color-skyblue{
     color: skyblue;
+}
+.text-color-green{
+    color: green;
+}
+.text-color-plum{
+    color: plum;
 }

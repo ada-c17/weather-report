@@ -16,15 +16,15 @@ const setCurrentTemp = function (temp) {
 
 const tempColor = function (temperature) {
   if (temperature >= 80) {
-    return 'color:red;';
+    return 'text-color-red';
   } else if (temperature >= 70) {
-    return 'color:orange;';
+    return 'text-color-orange';
   } else if (temperature >= 60) {
-    return 'color:skyblue;';
+    return 'text-color-skyblue';
   } else if (temperature >= 50) {
-    return 'color:green;';
+    return 'text-color-green';
   } else {
-    return 'color:teal;';
+    return 'text-color-plum';
   }
 };
 
@@ -47,7 +47,7 @@ const displayTemperature = function (temperature) {
   const landScape = document.getElementById('landScape');
   const color = tempColor(temperature);
   const imgFileName = tempPic(temperature);
-  const displayString = `<p style="${color}">Current Temperature: ${temperature} F</p>`;
+  const displayString = `<p class="${color}">Current Temperature: ${temperature} F</p>`;
   const imgFileNameString = `<img alt="Nice Landscape" src="assets/${imgFileName}">`;
   tempDisplay.innerHTML = displayString;
   landScape.innerHTML = imgFileNameString;
