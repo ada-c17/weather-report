@@ -3,6 +3,8 @@
 const state = {
   temp: 20,
   city: 'New York City',
+  lat: 0,
+  lon: 0,
 };
 
 const updateColor = () => {
@@ -71,6 +73,44 @@ const setCity = () => {
   city.textContent = state.city;
 };
 
+const currentLatLon = () => {
+  //let lat, long;
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: state.city,
+      },
+    })
+    .then((response) => {
+      console.log(response.data);
+      state.lat = response.data[0].lat;
+      state.lon = response.data[0].lon;
+      fetchTemp();
+    })
+    .catch((error) => {
+      console.log('Error calling LocationIQ:', error);
+    });
+};
+
+const fetchTemp = () => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: state.lat,
+        lon: state.lon,
+      },
+    })
+    .then((response) => {
+      const weather = response.data;
+      state.temp = Math.round(weather.current.temp - 273.15);
+      setTemp();
+      setLandscape();
+    })
+    .catch((error) => {
+      console.log('Error calling OpenWeather:', error);
+    });
+};
+
 const registerEventHandlers = (event) => {
   const increaseTemp = document.querySelector('#increaseTemp');
   increaseTemp.addEventListener('click', tempUp);
@@ -78,6 +118,8 @@ const registerEventHandlers = (event) => {
   decreaseTemp.addEventListener('click', tempDown);
   const changeCityTo = document.querySelector('#changeCityTo');
   changeCityTo.addEventListener('input', setCity);
+  const resetTemp = document.querySelector('#currentTemp');
+  resetTemp.addEventListener('click', currentLatLon);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
