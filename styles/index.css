@@ -1,5 +1,5 @@
 body {
-    background-image: url('/images/image1.jpg');
+    background-image: url('./images/image1.jpg');
     background-size: cover ;
     background-repeat: no-repeat;
     height: 100vh;
@@ -99,27 +99,27 @@ body {
 @keyframes change{
     0%
     {
-        background-image: url('../images/image1.jpg');
+        background-image: url('./images/image1.jpg');
     }
     20%
     {
-        background-image: url('../images/image2.jpg');
+        background-image: url('./images/image2.jpg');
     }
     40%
     {
-        background-image: url('../images/image3.jpg');
+        background-image: url('./images/image3.jpg');
     }
     60%
     {
-        background-image: url('../images/image4.jpg');
+        background-image: url('./images/image4.jpg');
     }
     80%
     {
-        background-image: url('../images/image5.jpg');
+        background-image: url('./images/image5.jpg');
     }
     100%
     {
-        background-image: url('../images/image6.jpg');
+        background-image: url('./images/image6.jpg');
     }
 
 

@@ -128,9 +128,23 @@ const resetButton = () => {
   gardenSky.textContent = ' ☂️ ☂️ ☂️ ⛱  🌞  ⛱ ☂️ ☂️ ☂️ ';
   const landScape = document.getElementById('landscape');
   landScape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-  // reset display detail on right window
-  // const display = document.getElementById('display');
-  // display.textContent = '';
+
+  // reset display temp to empty
+  const displayTemp = document.getElementById('current-temp');
+  displayTemp.textContent = '';
+
+  // reset display current weather to empty
+  const displayWeather = document.getElementById('des-weather');
+  displayWeather.textContent = '';
+
+  //reset display the humidity to empty
+  const displayhumidity = document.getElementById('humidity');
+  displayhumidity.textContent = '';
+
+  // reset display wind speed to empty
+  const displayWindSpeed = document.getElementById('wind-speed');
+  displayWindSpeed.textContent = '';
+
   // reset realtime temp button
   const realTimeTemp = document.getElementById('realtime-temp');
   realTimeTemp.textContent = 'Realtim Temp';
