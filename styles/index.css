@@ -1,0 +1,210 @@
+body {
+  
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(47, 150, 163),
+    rgb(48, 62, 143)
+  );
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: larger;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-template-rows: auto auto;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.left-column {
+  justify-content: space-evenly;
+  flex-direction: column;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+h1 {
+  margin: 3%;
+  color: aliceblue;
+}
+
+.for-the-city {
+  margin: 4%;
+  color: aliceblue;
+}
+#top-city-name{
+    margin: 4%;
+    margin-left: 0px;
+  color: aliceblue;
+}
+
+/********************************* temperature section *********************************/
+.temperature-content {
+  padding: 10%;
+  margin: 4%;
+  background-color: aliceblue;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 55px auto;
+  grid-template-rows: auto auto;
+}
+.temperature-content p {
+  color: rgb(8, 8, 8);
+}
+.temp-changing-container {
+  padding: 15%;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.temp-description {
+  text-align: center;
+  margin-bottom: 6px;
+  justify-content: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.temp-button-reset {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.temp-button-reset button {
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  background-color: rgb(47, 150, 163);
+  padding: 10px 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 7px;
+  border: solid 1px rgb(48, 62, 143);
+}
+.temp-changing-container input {
+  padding: 2%;
+  border: 1px solid rgb(48, 62, 143);
+  height: 19px;
+}
+
+/************************************* sky section *********************************/
+
+.sky-content {
+  display: grid;
+  grid-template-columns: 55px auto;
+  grid-template-rows: auto auto;
+  padding: 15%;
+  margin: 4%;
+  background-color: aliceblue;
+  border-radius: 10px;
+  justify-content: center;
+}
+.sky-description {
+  text-align: center;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.sky-selector {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+/********************************* city section ************************************/
+
+.city-content {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  padding: 15%;
+  margin: 4%;
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+.city-description {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+}
+.input-city {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.city-button-reset {
+  margin-left: 3px;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.city-button-reset button {
+  background-color: rgb(47, 150, 163);
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  border: solid 1px rgb(48, 62, 143);
+  margin-left: 4px;
+  color: white;
+  text-align: center;
+  display: inline-block;
+}
+
+/********************************* weather garden section *********************************/
+
+.weather-picture-content h3 {
+  color: aliceblue;
+}
+
+.weather-picture-content {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  /* border: solid 1px red; */
+  text-align: center;
+}
+.weather-pic-background {
+  height: 300px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  background-color: rgb(212, 207, 207);
+  margin: 20%;
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+#top-landscape {
+    align-self: flex-start;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+  grid-row-end: 2;
+}
+#bottom-landscape {
+  align-self: flex-end;
+  grid-column-start: 1;
+    grid-column-end: 3;
+  
+}
