@@ -3,10 +3,6 @@ body {
     padding: 1vw;
     font-family: 'Raleway', sans-serif;
     background-image: linear-gradient(to top, rgb(255, 255, 174),rgb(248, 163, 163));}
-    /* snowy linear-gradient( rgb(255, 255, 255),rgb(221, 221, 222)); */
-/* linear-gradient( rgb(211, 224, 224),rgb(106, 112, 159));} */
-/* sunny: linear-gradient(to top, rgb(255, 255, 174),rgb(248, 163, 163));} */
-/* rainy: linear-gradient( rgb(213, 251, 253),rgb(47, 17, 136));} */
 
 header {
     text-align: center;
