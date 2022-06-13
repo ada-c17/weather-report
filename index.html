@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
-</head>
+   
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather Report</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
 <body>
-    
+   
+    <header class = "container">
+        <div id=" header"> 
+            <h1>NW Weather Today</h1>
+        </div>
+        <div>
+            <input id="getCurrentTemp" type="button" value=" Get Current Temperature">
+        </div>
+        <div >
+            
+            <button id = "reset" type="reset"> Reset</button>
+        </div>
+    </header>
+
+    <main id = "weatherBoard">
+        <div class = "container">
+            <div >
+                <h1 id = "cityName">
+                    Seattle WA
+                </h1>
+            </div>
+            <div>
+                <input type="text" name="Change Location" placeholder="City Name" id="location">
+                 <button id = "btn-changeLocation">Click To Change City</button>
+            </div>
+        </div>
+        <div class = "container">
+          
+            <div class=" container2">
+                <div>
+                    <p id = "temperature">75°</p>
+                    <div id = "colorBox">
+                        <div id = "tempColor"></div>
+                    </div>
+                </div>
+                <div class = "button">
+                    <button id = "btn-increase">+</button>
+                    <button id = "btn-decrease" >-</button>
+                </div>
+            </div>
+            <div id= "container3">
+                <div id = "sky-box">
+                    <form id = "selectSkyForm">
+                        <h2>Sky</h2>
+                        <select name="" id="skyOptions">
+                            <option value="Sunny">Sunny</option>
+                            <option selected value="Partly Sunny">Partly Sunny</option>
+                            <option value="Rain">Rain</option>
+                            <option value="Cloudy">Cloudy</option>
+                        </select>
+                        <button id = "btn-skySelect">Click Here</button>
+                    </form>
+                </div>
+                <div id = "tempTextDisplay">
+                    
+                    <h3 id = "tempText"> Partly Sunny 🌤</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="src/index.js">
+    </script>
+    <script src="./node_modules/axios/dist/axios.min.js">
+
+    </script>
 </body>
 </html>
