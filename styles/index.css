@@ -24,30 +24,20 @@
     margin-top: 1cm;
 }
 
-.city {
-    
+
+/*temperature wave 2*/
+
+.temperature  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgb(40, 86, 150), rgb(69, 69, 92));
+    border-radius: 35%;
 }
 
-.temperature {
-
+.temperature * {
+    background: linear-gradient(rgb(40, 86, 150), rgb(69, 69, 92));
+    border-radius: 20%;
 }
 
-.drpbtn {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.drpbtn li {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.drpbtn li:hover {
-    background-color: #ddd
-}
