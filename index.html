@@ -18,7 +18,7 @@
             <h2>Today's Sky</h2>
             <h3>Gaze out the window!</h3>
             <div>
-                <label for="skys">It looks:</label>
+                <label>It looks:</label>
                 <select name="skys" id="skyDropdown">
                     <option value="sunny">Sunny</option>
                     <option value="cloudy">Cloudy</option>
@@ -27,27 +27,9 @@
                     <option value="night">Night</option>
                 </select>
             </div>
-            <image id="skyscape"
-            src="/images/sunnySky.jpeg" /> 
-        </section>
-        <section id="location" class="container">
-            <h2>My Location</h2>
-            <h3>Where are you?</h3>
-            <div>
-                <form action="#">
-                    <label for="loc">I'm in:</label><br>
-                    <input type="text" id="locationInput" name="loc"><br>
-                </form>
-                <button id="resetLocation">Reset</button>
-            </div>
-        </section>
-        <section id="feel" class="container">
-            <h2>The Feel</h2>
-            <h3>Outside feels like:</h3>
-            <div>
-                <image id="landscape"
-                src="/images/pluto.png" />           
-            </div>
+            <img id="skyscape"
+            src="/images/sunnySky.jpeg" 
+            alt = "image of skyscape depicting the weather conditions self-reported outside"/> 
         </section>
         <section id="temperature" class="container">
             <h2>The Temperature</h2>
@@ -61,7 +43,26 @@
                 </div>
             </div>               
         </section>
-
+        <section id="location" class="container">
+            <h2>My Location</h2>
+            <h3>Where are you?</h3>
+            <div>
+                <form action="#">
+                    <label>I'm in:</label><br>
+                    <input type="text" id="locationInput" name="loc"><br>
+                </form>
+                <button id="resetLocation">Reset</button>
+            </div>
+        </section>
+        <section id="feel" class="container">
+            <h2>The Feel</h2>
+            <h3>Outside feels like:</h3>
+            <div>
+                <img id="landscape"
+                src="/images/pluto.png"
+                alt = "image of landscape depicting the real feel of outdoor temperature" />           
+            </div>
+        </section>
     </main>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
