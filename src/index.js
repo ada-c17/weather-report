@@ -1,5 +1,5 @@
 const state = {
-  city: 'philadelphia',
+  city: 'Philadelphia',
   lat: 0,
   lon: 0,
   temp: 70,
@@ -136,8 +136,30 @@ const tempKtoF = (temp) => {
 };
 
 
-// getLatAndLon();
-// getWeather();
+//sky changes ????????????????????????
+const changeSkys = () => {
+  const skys = document.getElementById('skyOptions').value;
+  const pageColor = document.getElementById('container')
+  let Landscape = document.getElementById('img1');
+  const wearherPic = document.getElementById('weaPic1')
+  if (skys === 'sunny') {
+   pageColor.style.backgroundColor = 'orange';
+   Landscape.src = 'img/red.png';
+  } else if (skys === 'cloudy') {
+    pageColor.style.backgroundColor = 'grey';
+    Landscape.src = 'img/orange.png';
+    weatherPic.src = 'img/topCloudy.png';
+  } else if (skys === 'rainy') {
+    pageColor.style.backgroundColor = 'teal';
+    Landscape.src = 'img/rainy.png';
+  } else if (skys ==='snowy') {
+    pageColor.style.backgroundColor = 'white';
+    Landscape.src = 'img/snowy.png';
+   }
+}
+
+
+
 
 
 const registerEventHandlers = () => {
@@ -156,5 +178,9 @@ const registerEventHandlers = () => {
   //register real time temp by clicking current temp button
   const currentTempButton = document.getElementById('realTimeTemp');
   currentTempButton.addEventListener('click', getWeather);
+
+  //register sky changes 
+  const selectSky = document.getElementById('skyOptions');
+  selectSky.addEventListener('change', changeSkys);
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);

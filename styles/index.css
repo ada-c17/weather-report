@@ -1,37 +1,32 @@
-#buttons{
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr; */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
 #buttonTemp{
     display: flex;
     flex-direction: row;
+    align-content: center;
 }
 
 
 
 #container{
-    /* display:flex;
-    flex-direction: column; */
+    display:flex;
+    flex-direction: column;
     text-align: center;
     align-items: center;
     align-content: center;
-    height: 100vh;
-    /* background-color: lightskyblue; */
+    /* height: 100vh; */
+    background-color: lightskyblue;
     border: 2px, solid;
 }
 
-
+h1, label{
+    font-family:Comic Sans MS, Comic Sans, cursive
+}
 
 #img1{
     /* width: 60%;
     height: 70%; */
     border-radius: 10%;
     border: 2px solid;
-    max-width: 40%;
+    max-width: 60%;
     height: auto;
 
 }
@@ -40,7 +35,8 @@
     text-align: center;
     font-weight: bolder;
     font-size: x-large;
-    color: lightskyblue;
+    color: dark blue;
+    font-family: Comic Sans MS, Comic Sans, cursive
 }
 
 
@@ -50,7 +46,7 @@
     align-items: center;
     width: 755;
     height: 50;
-    background-color: green;
+    background-color: #11ffee00;
 }
 
 #tempNum {
