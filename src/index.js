@@ -89,7 +89,6 @@ const switchTemp = () => {
 
   document.getElementById('tValue').textContent = state.tempValue;
   document.getElementById('toggle').textContent = `to ${state.metric}`;
-
 }
 
 // show temperature and all its changes to screen
