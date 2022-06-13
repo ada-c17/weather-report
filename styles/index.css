@@ -62,7 +62,7 @@ header {
     grid-row-end: 4;
     justify-self: center;
 
-    font-size: 2em;
+    font-size: 3.5vh;
 }
 
 #increase-temp {
