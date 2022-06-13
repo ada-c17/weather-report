@@ -5,8 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet">
 </head>
-<body>
+<body class = "grid-container">
+    <h1 id = "header"> here's some weather</h1>
+    <section id = "temp"> 
+        <h2 id = "">Temperature</h2>
+        <button id="up-button">⇑</button>  
+        <b id = "temp-value">0</b>
+        <button id="down-button">⇓</button>
+    </section>
+    <section id = "city"> 
+        <h2 id = "city-name2">Enter a City</h2>
+        <input placeholder= "City Name" id="city-input" type="Text"/>
+        <button id="city-button">UPDATE</button>
+        <button type = "button" id="reset-button" onclick = "resetValues();"> RESET </button> 
+    </section>
+    <section id = "sky"> 
+        <h2>Sky</h2>
+
+        <select id = "sky-menu"> 
+            <option value = "default-sky">Select a Sky</option>
+            <option value = "sunny"> Sunny</option>
+            <option value = "cloudy"> Cloudy</option>
+            <option value = "rainy"> Rainy</option>
+            <option value = "snowy"> Snowy</option>
+        </select>
+    </section>
+    <section id = "landscape"> 
+        <h2>Weather Garden</h2>
+        <p id = "sky-value"></p>
+        <p id = "landscape-value"></p>
+    </section>
     
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+
 </body>
 </html>
+

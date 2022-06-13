@@ -1,0 +1,90 @@
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    background-color:rgb(168, 222, 226);
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+}
+
+
+
+#header,
+#temp,
+#city,
+#sky,
+#landscape{
+    text-align: center;
+}
+
+h1 {
+    font-family: "Comic Sans MS";
+    font-size: 65px;
+    align-self: center;
+}
+
+#temp-value {
+    font-size: 60px;
+}
+
+section{
+    border: 1px black solid;
+    border-radius: 10px;
+    /* padding-bottom: 00px; */
+}
+
+#header{
+    grid-area: 1 / 1 / 2 / 4;
+}
+
+#temp{
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+#city{
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+#sky{
+    grid-area: 2 / 3 / 3 / 4;
+}
+
+#landscape{
+    grid-area: 3 / 1 / 4 / 4;
+}
+
+#landscape>p{
+    font-size: 30px;
+}
+
+/* 80+ */
+#red{
+    color: red;
+
+}
+
+
+/* 70-79 */
+#orange{
+    color: orange;
+
+}
+
+/* 60-69 */
+#yellow{
+    color: yellow;
+}
+
+/* 50-59 */
+#green{
+    color: green;
+
+}
+
+/* <= 49 */
+#teal{
+    color: teal;
+
+}
