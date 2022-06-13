@@ -1,0 +1,121 @@
+body {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 20% 30% 30% 20%;
+    gap: 100px;
+    background-color: lightblue;
+    text-align: center;
+    font-size: 100%;
+}
+
+header {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    justify-content: center;
+}
+
+footer{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 4;
+}
+
+#temp-display{
+    justify-content: center;
+    text-align: center;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    display: grid;
+    gap: 4px;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+}
+
+#current-city{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+#temp{
+    grid-column-start:1;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    font-size: 8em;
+}
+
+#down{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+}
+
+#up{
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
+}
+
+#actual{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 4;
+}
+
+#landscape{
+    font-size: 2em;
+}
+
+#reset{
+    font-size: 0.8em;
+}
+
+.cloudy{
+    background-color: gray;
+}
+
+.sunny{
+    background-color: yellow;
+}
+
+.rainy{
+    background-color: blue;
+}
+
+.snowy{
+    background-color: white;
+}
+
+.hot{
+    color: red;
+}
+
+.warm{
+    color: orange;
+}
+
+.pleasant{
+    color: black;
+}
+
+.cool{
+    color: teal;
+}
+
+.cold{
+    color: blue;
+}
+
+input{
+    background-color: black;
+    color: white;
+}
+
+button{
+    font-size: 2em;
+}

@@ -5,8 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <input id="city" type="text" placeholder="find city">
+        <br>
+        <button id="reset">reset</button>
+    </header>
+    <container id="temp-display">
+        <text id="current-city">Currently <i>loading</i> temperature in Dallas</text>
+        <br>
+        <text id="temp">
+            <!-- <id="units">
+                °F
+            </id> -->
+        </text>
+        <button id="down">
+            ❄️
+        </button>
+        <button id="up">
+            🔥
+        </button>
+        <br>
+        <button id="actual">
+            Actual Temp
+        </button>
+    </container>
+    <footer>
+        <select id="sky">
+            <option value="clear">clear</option>
+            <option value="sunny">sunny</option>
+            <option value="cloudy">cloudy</option>
+            <option value="rainy">rainy</option>
+            <option value="snowy">snowy</option>
+        </select>
+        <br>
+        <text id="landscape"></text>
+    </footer>
+    <script src = "./node_modules/axios/dist/axios.min.js"></script>
+    <script src = "src/index.js"></script>
 </body>
 </html>
