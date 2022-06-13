@@ -3,6 +3,8 @@
 const state = {
   temp: 65,
   city: 'Houston',
+  lat: 0,
+  lon: 0,
 };
 
 const tempColor = () => {
@@ -56,6 +58,31 @@ const decreaseTemp = () => {
   updateTheme();
 };
 
+const updateCity = () => {
+  const cityInput = document.getElementById('city-input').value;
+  state.city = cityInput || 'Houston';
+  const cityName = document.getElementById('city-name');
+  cityName.textContent = `${state.city}`;
+};
+
+const getCoordinates = () => {
+  axios.get('https://us1.locationiq.com/v1/search.php', {
+    params: {
+      key: '',
+      q: `${state.city}`,
+      format: 'json',
+    },
+  })
+  .then((response) =>{
+    state.lat = response.data[0].lat;
+    state.lon = response.data[0].lon;
+  })
+  .catch((error) => {
+    console.log('Error getting weather data.');
+    console.log(error.response.data);
+  });
+}
+
 const registerEventHandlers = () => {
   const tempIncreaseButton = document.getElementById('increase');
   tempIncreaseButton.addEventListener('click', increaseTemp);
@@ -70,13 +97,6 @@ const registerEventHandlers = () => {
       updateCity();
     }
   });
-};
-
-const updateCity = () => {
-  const cityInput = document.getElementById('city-input').value;
-  state.city = cityInput || 'Houston';
-  const cityName = document.getElementById('city-name');
-  cityName.textContent = `${state.city}`;
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
