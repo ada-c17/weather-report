@@ -5307,8 +5307,6 @@ require("regenerator-runtime/runtime");
 
 var _axios = _interopRequireDefault(require("axios"));
 
-var _this = void 0;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var state = {
@@ -5355,7 +5353,9 @@ var changeSky = function changeSky() {
   // let skyContent = document.getElementById('body').style.background
   //   const skyContent = document.getElementById('skyChoice');
   //   let skyScape = '';
-  var selection = _this.value || document.getElementById('skies').value;
+  var selectSkies = document.getElementById('skies').value; //   let selection = this.value || document.getElementById('skies').value;
+
+  var selection = selectSkies;
 
   if (selection === 'clearDay') {
     console.log('changing to Sunny');
@@ -5503,7 +5503,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53689" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58488" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

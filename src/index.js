@@ -48,7 +48,9 @@ const changeSky = () => {
   // let skyContent = document.getElementById('body').style.background
   //   const skyContent = document.getElementById('skyChoice');
   //   let skyScape = '';
-  let selection = this.value || document.getElementById('skies').value;
+  const selectSkies = document.getElementById('skies').value;
+  //   let selection = this.value || document.getElementById('skies').value;
+  let selection = selectSkies;
   if (selection === 'clearDay') {
     console.log('changing to Sunny');
     seasonalChange.textContent = '🔆';
