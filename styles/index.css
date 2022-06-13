@@ -25,6 +25,11 @@ button {
 #tempButtonLayout {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    border-style: double;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(240, 255, 255, 0.225);
 }
 
 #tempValue {
@@ -44,10 +49,6 @@ button {
     border-radius: 10px;
     padding: 5px;
     text-align: center;
-}
-
-#tempButtonLayout {
-    justify-content: space-around;
 }
 
 #dailyRange {

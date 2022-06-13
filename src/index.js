@@ -17,6 +17,7 @@ const state = {
   tempValue: 60,
   cityLow: null,
   cityHigh: null,
+  weatherDescription: null,
 };
 
 const kelvinToFahrenheit = (temperature) =>
@@ -73,11 +74,13 @@ const updateWeatherGardenSky = () => {
   gardenSky.textContent = GARDENSKIES[weatherSelector.value];
 };
 
-const displayCityHighAndLow = () => {
+const displayCurrentConditions = () => {
   let dailyLow = document.querySelector('#dailyLow');
   let dailyHigh = document.querySelector('#dailyHigh');
+  let description = document.querySelector('#dailyDescription');
   dailyLow.innerText = `Today's Low: ${state.cityLow}`;
   dailyHigh.innerText = `Today's High: ${state.cityHigh}`;
+  description.innerText = `Description: ${state.weatherDescription}`;
 };
 
 const getCityWeather = () => {
@@ -95,6 +98,7 @@ const getCityWeather = () => {
           },
         })
         .then((response) => {
+          console.log(response.data);
           state.tempValue = Math.round(
             kelvinToFahrenheit(response.data.current.temp)
           );
@@ -105,8 +109,18 @@ const getCityWeather = () => {
           state.cityHigh = Math.round(
             kelvinToFahrenheit(response.data.daily[0].temp.max)
           );
-          displayCityHighAndLow();
+          state.weatherDescription =
+            response.data.daily[0].weather[0].description;
+          displayCurrentConditions();
+        })
+        .catch((error) => {
+          console.log('error', error);
+          console.log('error response', error.response);
         });
+    })
+    .catch((error) => {
+      console.log('error', error);
+      console.log('error response', error.response);
     });
 };
 
