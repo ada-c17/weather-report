@@ -10,31 +10,59 @@ const landscapes = {
 
 const weather = {
   temperature: 72,
+  clouds: 0,
+  condition: 'Clear',
   city: 'Atlanta',
   updating: false,
 };
 
-const tempClass = (temp) => {
-  if (temp > 87) {
+const tempClass = () => {
+  if (weather.temperature > 87) {
     return 'hot';
   }
-  if (temp > 77) {
+  if (weather.temperature > 77) {
     return 'warm';
   }
-  if (temp > 67) {
+  if (weather.temperature > 67) {
     return 'goldilocks';
   }
-  if (temp > 57) {
+  if (weather.temperature > 57) {
     return 'cool';
   }
   return 'cold';
 };
 
+const skyClass = () => {
+  if (weather.clouds < 11) {
+    return '☀️';
+  }
+  if (weather.clouds < 25) {
+    return '🌤';
+  }
+  if (weather.clouds < 51) {
+    return '⛅️';
+  }
+  if (
+    weather.clouds < 85 &&
+    weather.condition in { Rain: '', Drizzle: '', Thunderstorm: '' }
+  ) {
+    return '🌦';
+  }
+  if (
+    weather.clouds >= 85 &&
+    weather.condition in { Rain: '', Drizzle: '', Thunderstorm: '' }
+  ) {
+    return '🌧';
+  }
+  return '🌥';
+};
+
 const updateTempDisplay = () => {
   document.querySelector('#temp-display h1').textContent = weather.temperature;
-  document.getElementById('temp-display').classList = `${tempClass(
-    weather.temperature
-  )}`;
+  document.getElementById('temp-display').classList = `${tempClass()}`;
+  const sky = skyClass();
+  document.querySelector('main').classList = `${sky}`;
+  document.querySelector('#sky-selector').value = `${sky}`;
   document.querySelector('#landscape h1').textContent =
     landscapes[tempClass(weather.temperature)];
 };
@@ -89,8 +117,9 @@ const realWeatherQuery = () => {
     )
     .catch((e) => console.log(e))
     .then((response) => {
+      weather.clouds = response.data.current.clouds;
+      weather.condition = response.data.current.weather[0].main;
       weather.temperature = kTempToF(response.data.current.temp).toFixed(0);
-      // console.log(response);
       updateTempDisplay();
     })
     .catch((e) => console.log(e));
