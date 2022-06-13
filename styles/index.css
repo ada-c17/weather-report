@@ -1,0 +1,46 @@
+/* style.css */
+
+h1 {
+    max-height: 100px;
+    font-size: xx-large;
+    font-style: italic;
+    color: blue;
+    line-height: 1;
+    
+}
+
+img {
+    width: 300px;
+    height: 200px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    grid-template: 100% / 50%, 50%;
+    justify-content: space-between;
+}
+
+.big-text {
+    font-size: 20px;
+    color: red;
+}
+.text-color-blue {
+    color: blue;
+}
+
+.text-color-red{
+    color: red;
+}
+.text-color-orange{
+    color: orange;
+}
+.text-color-skyblue{
+    color: skyblue;
+}
+.text-color-green{
+    color: green;
+}
+.text-color-plum{
+    color: plum;
+}
