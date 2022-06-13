@@ -5,8 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/index.css" />
+
 </head>
 <body>
-    
+
+<!------------------------------------------ NAVIGATION ----------------------------------------------->
+    <nav class="nav">
+        <section class="navContainer">
+            <h1 id="navHeaderOne">Welcome to Weather Report!</h1>
+            <span id="navHeaderThree">Currently displaying temperature for <span id="cityName">Orlando</span></span>
+        </section>
+    </nav>
+
+<!-------------------------------------------- MAIN ------------------------------------------------->
+    <main class="main">
+        <section class="mainContainer" id="sky">
+            <div id="mainImage">
+                <img src="images/summer/sunglassesOnBeach.jpg" alt="sunglasses on beach" id="image1">
+                <img src="images/summer/boatOnOcean.jpg" alt="boat on ocean" id="image2">
+                <img src="images/summer/palmTrees.jpg" alt="palm trees" id="image3">
+                <img src="images/summer/sandalsOnBeach.jpg" alt="sandals on beach" id="image4">
+                <div id="tempContainer">
+                    <h3 id="tempHeaderThree">Temperature</h3>
+                    <div id="temp">
+                        <button id="increaseTemp">⬆</button>
+                        <span id="tempValue"></span>
+                        <button id="decreaseTemp">⬇</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<!------------------------------ SKY ----------------------------------->
+    <section class="skyContainer">
+        <label for="changeSky" id="changeSky">Change Sky:</label>
+        <select id="skyOptions">
+            <option value="none" selected disabled hidden>Select Sky</option>
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+        </select>
+    </section>
+
+<!------------------------------ CITY ----------------------------------->
+    <section class="city">
+        <h3 id="cityHeaderThree">Get Real Temperature:</h3>
+        <form id="cityForm">
+            <input type="text" id="city" name="city" placeholder="Orlando">
+            <button type="button" id="realTempBtn">Get Real Temperature</button>
+            <input type="reset" value="Reset City" id="resetBtn">
+        </form>
+    </section>
+
+<!------------------------------ FOOTER ----------------------------------->
+    <footer class="footer">
+        <section class="footerContainer">
+            <p id="allRightsReserved">© Yonese 2022. All rights reserved</p>
+        </section>
+    </footer>
+
+
+<script src="src/index.js"></script>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
