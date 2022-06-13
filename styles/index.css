@@ -1,0 +1,108 @@
+.red{
+    color: red;
+}
+
+.orange{
+    color: orange;
+}
+
+.yellow{
+    color:yellow;
+}
+
+.green{
+    color:green;
+}
+
+.teal{
+    color:teal;
+}
+
+
+  
+header {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    padding: 15px;
+}
+
+h4 {
+    font-size: 19px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+button {
+    font-size: 16px;  
+}
+
+#temp-display{
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+select {
+    font-size: 18px;
+}
+
+#sky-garden {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 45px;  
+}
+
+#landscape {
+    font-size: 35px;
+}
+
+#city-input {
+    font-size: 17px;
+}
+
+.reset {
+    padding-top: 7px;
+    padding-left: 15px;
+}
+
+.button_design{
+    width:50px;
+    padding:1em;
+    font-size:1.2rem;
+    text-align:center;
+    font-weight:900;
+    background:turquoise;
+    border:2px solid #aaa;
+    border-radius: 15pt;
+    justify-content: space-between
+ }
+
+ .container{
+    display:flex;
+    flex-flow:row wrap;
+    text-align:center; 
+  }
+  .divOne{
+    text-align: center;
+    order:10;
+    background:#F1D2E0;
+    width:100%;
+  }
+  .divTwo{
+    text-align: center;
+    order:5;
+    background:#C1E7CD;
+    width:100%;
+  }
+  .adhDiv,
+  .clinDiv,
+  .postDiv,
+  .timeDiv {
+    height: 400px;
+    background:#C1DDE7;
+    margin:2em;
+  }
+  
