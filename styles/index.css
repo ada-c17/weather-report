@@ -1,0 +1,56 @@
+body {
+    background-color: aliceblue;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    
+}
+
+header {
+    background-color: olive;
+    text-align: center;
+    padding-bottom: 3%;
+    color: white;
+}
+
+h1 {
+    color: white;
+    font-size: 400%;
+}
+
+h2 {
+    font-size: 200%;
+}
+
+main {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: larger;
+    
+}
+#landscape {
+    width: 80%;
+    height: auto;
+    margin: 1%;
+}
+
+#skyscape {
+    width: 80%;
+    height: auto;
+    margin: 1%;
+    margin-top: 2%
+}
+
+button {
+    background-color: olive;
+    color: white;
+    font-size: x-large;
+    margin: 2%;
+}
+
+p {
+    font-size: xx-large;
+}
+
+form {
+    font-size: x-large;
+}
