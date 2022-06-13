@@ -15,6 +15,18 @@ header {
     grid-row-start: 1;
     grid-row-end: 2;
     justify-self: center;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+#cloud-logo {
+    height: auto;
+    max-width: 4em;
 }
 
 #current-city {
