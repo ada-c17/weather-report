@@ -15,7 +15,23 @@ body {
 
 #city {
     grid-row: 1/2;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    border: 2px solid red;
+}
+
+#city-input, #reset {
+    border: 2px solid red;
     justify-self: end;
+    max-height: 2rem;
+}
+
+#city-name {
+    border: 2px solid red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    justify-self: start;
 }
 
 #temperature {
