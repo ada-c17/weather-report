@@ -5,13 +5,6 @@ const state = {
   temp: 32,
   sky: '',
 };
-// console.log(state);
-
-function rangeSlide(event) {
-  const value = event.currentTarget.value;
-  document.getElementById('rangeValue').textContent = value;
-  console.log(value);
-}
 
 const getLonLat = () => {
   axios
@@ -45,7 +38,6 @@ const getLocationWeather = () => {
       validateSkyCondition(condition);
       const kelvin = response.data.current.temp;
       const fTemp = Math.floor(((kelvin - 273.15) * 9) / 5 + 32);
-      // const cTemp = Math.floor(kelvin - 273.15);
       state.temp = fTemp;
       document.getElementById('rangeValue').textContent = fTemp;
       document.getElementById('range').value = fTemp;
@@ -56,20 +48,42 @@ const getLocationWeather = () => {
     });
 };
 
+function clickBtn(event) {
+  const city = document.getElementById('city').value;
+  state.location = city;
+  getLonLat();
+}
+
+const inputBox = document.getElementById('city');
+inputBox.onkeyup = function () {
+  document.getElementById('city-name').innerHTML = inputBox.value;
+};
+
+function rangeSlide(event) {
+  const value = event.currentTarget.value;
+  document.getElementById('rangeValue').textContent = value;
+}
+
 const validateSkyCondition = (condition) => {
+  console.log(condition);
   if (condition === 'Clear') {
     state.sky.value = 'sunny';
+    document.getElementById('skySelect').value = '#7496C9';
   } else if (
     condition === 'Rain' ||
     condition === 'Drizzle' ||
     condition === 'Thunderstorm'
   ) {
     state.sky.value = 'rainy';
-  } else if (condition === 'Clouds') {
+    document.getElementById('skySelect').value = '#356098';
+  } else if (condition === 'Clouds' || condition === 'Haze') {
     state.sky.value = 'cloudy';
+    document.getElementById('skySelect').value = '#557BB1';
   } else if (condition === 'Snow') {
     state.sky.value = 'snowy';
+    document.getElementById('skySelect').value = '#234772';
   }
+  skyChange();
 };
 
 const changeColors = () => {
@@ -100,18 +114,7 @@ const changeColors = () => {
     document.getElementById('sky-circle').style.background = '#AEBFDD';
   }
 };
-function clickBtn(event) {
-  const city = document.getElementById('city').value;
-  state.location = city;
-  getLonLat();
-  // changeRangeS();
-}
 
-const inputBox = document.getElementById('city');
-
-inputBox.onkeyup = function () {
-  document.getElementById('city-name').innerHTML = inputBox.value;
-};
 const changeRangeS = () => {
   const input = document.getElementById('range');
   input.addEventListener('input', (event) => {
@@ -144,9 +147,10 @@ const changeRangeS = () => {
 };
 changeRangeS();
 
-function skyChange(event) {
+function skyChange() {
   const skyButton = document.getElementById('skyButton');
-  document.body.style.backgroundColor = event.target.value;
+  document.body.style.backgroundColor =
+    document.getElementById('skySelect').value;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
