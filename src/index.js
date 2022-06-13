@@ -46,7 +46,7 @@ const changeTemperatureColor = () => {
   } else if (state.temperature >= 20 && state.temperature <= 39) {
     state.currentColor = '#1a557d';
   } else {
-    state.currentColor = '#979da1';
+    state.currentColor = '#67686b';
   }
 
   temperatureContainer.style.color = state.currentColor;
