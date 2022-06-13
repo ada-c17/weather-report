@@ -129,8 +129,8 @@ const resetButton = () => {
   const landScape = document.getElementById('landscape');
   landScape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   // reset display detail on right window
-  const display = document.getElementById('display');
-  display.textContent = '';
+  // const display = document.getElementById('display');
+  // display.textContent = '';
   // reset realtime temp button
   const realTimeTemp = document.getElementById('realtime-temp');
   realTimeTemp.textContent = 'Realtim Temp';
@@ -208,11 +208,12 @@ const getRealtimeTemp = () => {
         })
         .catch((e) => {
           // alert('Location does not exist!');
-          window.swal('Oops!', 'Location does not exist!', 'error');
+          //swal('Oops!', 'Location does not exist!', 'error');
+          console.log(e);
         });
     })
     .catch((error) => {
-      // console.log(error);
+      console.log(error);
       //alert('Location does not exist!');
       window.swal('Oops!', 'Location does not exist!', 'error');
     });
