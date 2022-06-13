@@ -1,3 +1,45 @@
+//get latitude and longitude of city with the location API
+const getLatandLon = (query) => {
+  let latitude;
+  let longitude;
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: query,
+      },
+    })
+    .then((response) => {
+      //code that executes with a successful response
+      let latitude = response.data[0].lat;
+      let longitude = response.data[0].lon;
+
+      getWeather(latitude, longitude);
+    });
+
+  document.querySelector('.textBox').value = '';
+};
+//use the lat and long with Open Weather API to get weather data
+const getWeather = (latitude, longitude) => {
+  console.log('reached the weather fnction');
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: latitude,
+        lon: longitude,
+      },
+    })
+    .then((response) => {
+      let temp = response.data.current.temp;
+      temp = Math.floor(1.8 * (temp - 273) + 32);
+      changeTemp(temp);
+    });
+};
+//change temp
+const changeTemp = (temp) => {
+  state.currentTemp = temp;
+  document.querySelector('#currentTemp').innerHTML = `${state.currentTemp}`;
+};
+
 //temperature starting state
 const state = {
   currentTemp: 0,
@@ -52,7 +94,9 @@ const changeLandScape = (query) => {
 const cityDisplay = () => {
   let currentCityContainer = document.querySelector('.cityDisplay');
   currentCityContainer.innerHTML = document.querySelector('.textBox').value;
-  document.querySelector('.textBox').value = '';
+  console.log(`location query: ${document.querySelector('.textBox').value}`);
+  getLatandLon(document.querySelector('.textBox').value);
+  // console.log(`location query: ${document.querySelector('.textBox').value}`);
 };
 
 const refreshCity = () => {
