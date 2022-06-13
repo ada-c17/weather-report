@@ -5,26 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
-    <link rel="stylesheet" href="../styles/index.css">
-    <link rel="index" href="../src/index.js">
-    <link rel="node_modules" href="./node_modules/axios/dist/axios.min.js"
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <link href="./styles/index.css" rel="stylesheet" type="text/css">
+    <!-- <link rel="node_modules" href="./node_modules/axios/dist/axios.min.js" -->
+    
 </head>
 <header>
     <h1 id="headline"> Weather Report</h1>
-    <h2 id="city"> City Placeholder</h2>
+    <h2 id="city"> City Placeholder</h2> 
 </header>
 
 <body>
-    <ul id="list">
-        <li>city: <input type="text"></li>
-        <li>temp</li>
-        <li>sky</li>
-    </ul>
+    <section class="info">
+        <section>
+            <label>City: <input type="text" id="input"></label>
+            <button id="enter">Enter</button>
+        </section>
+        <section class="temperatureContainer">
+            <button id="upButton"> increase Temperature</button>
+            <h2 id="celsius"> Degrees Celsius: 0</h2>
+            <button id="downButton"> decrease Temperature</button>
+        </section>
+        <section>
+            <p>sky</p>
+        </section>
+</section> 
+    <footer class="seasons">
+        <p>Landscape:</p>
+        <span id="condition">
+    </footer> 
+
     <script src="./node_modules/axios/dist/axios.min.js"></script>
+
     <script src="./src/index.js"></script>
 </body>
-<footer>
-    <p>What to wear today:</p>
-</footer>
+
 </html>

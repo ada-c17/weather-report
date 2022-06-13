@@ -1,1 +1,26 @@
-header {text-align: center};
+header {text-align: center;}
+
+ul {
+    list-style-type: none;
+}
+section.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+
+}
+section.temperatureContainer {
+    padding: 50px;
+    border-color: pink;
+    background-color: aquamarine;
+    
+
+
+
+
+}   
+footer {
+    display:flex;
+    justify-content: center; 
+}
