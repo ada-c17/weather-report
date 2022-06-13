@@ -1,0 +1,13 @@
+html, body {
+    height: 100%;
+}
+
+#city-info {
+    height: 25%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid;
+    border-radius: 10px;
+}

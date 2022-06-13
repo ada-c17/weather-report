@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Report</title>
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link href="./styles/index.css" rel="stylesheet">
 </head>
 <body>
   <main>
     <h1>Weather Report</h1>
-    <section>
+
+    <section id="city-info">
       <h2>City Name</h2>
       <input type="search" placeholder="Enter a city"></input>
       <button>Current Temperature</button>
@@ -25,7 +27,7 @@
 
     <section>
       <h2>Sky Type:</h2>
-      <select name="sky">
+      <select name="sky type">
         <option value="sunny">Sunny</option>
         <option value="cloudy">Cloudy</option>
         <option value="rainy">Rainy</option>
