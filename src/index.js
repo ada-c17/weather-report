@@ -2,6 +2,7 @@
 
 const state = {
   temp: 65,
+  city: 'Houston',
 };
 
 const tempColor = () => {
@@ -61,6 +62,21 @@ const registerEventHandlers = () => {
 
   const tempDecreaseButton = document.getElementById('decrease');
   tempDecreaseButton.addEventListener('click', decreaseTemp);
+
+  const cityInput = document.getElementById('city-input');
+  cityInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      updateCity();
+    }
+  });
+};
+
+const updateCity = () => {
+  const cityInput = document.getElementById('city-input').value;
+  state.city = cityInput || 'Houston';
+  const cityName = document.getElementById('city-name');
+  cityName.textContent = `${state.city}`;
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
