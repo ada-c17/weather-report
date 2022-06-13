@@ -18,11 +18,17 @@
             <div class="sky">
                 <label for="sky-selector">Sky Selector</label>
                 <select name="sky-selector" id="sky-selector">
-                    <option value="sunny">Sunny</option>
-                    <option value="rainy">Rainy</option>
-                    <option value="sunset">Sunset</option>
-                    <option value="lightningstorm">Lightning Storm</option>
+                    <option value="sunny" id="sunny">Sunny</option>
+                    <option value="rainy" id="rainy">Rainy</option>
+                    <option value="snowy" id="snowy">Snowy</option>
+                    <option value="cloudy" id="cloudy">Cloudy</option>
                 </select>
+            </div>
+            <div id="skyContainer">
+                <div id="sunemoji">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</div>
+                <div id="rainemoji">🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧</div>
+                <div id="cloudemoji">☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️</div>
+                <div id="snowemoji">🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨</div>
             </div>
             <div class="landscape">
                 <h1>Weather Garden</h1>
@@ -38,7 +44,7 @@
                     <input class='textBox'type='search' placeholder="Search a City" name="q">
                     <button type="button"><img src='photos/search_icon.png' alt='search button' class="searchIcon"></button>
                 </form>
-                <h1 class="cityDisplay">Select A City</h1>
+                <h1 class="cityDisplay">Select a City</h1>
                 <button type="reset"><img src='photos/refresh.png' alt='refresh all button' class="refreshBtn"></button>
             </div>
         </div>

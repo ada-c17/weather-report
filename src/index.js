@@ -38,6 +38,7 @@ const getWeather = (latitude, longitude) => {
 const changeTemp = (temp) => {
   state.currentTemp = temp;
   document.querySelector('#currentTemp').innerHTML = `${state.currentTemp}`;
+  changeTempColor();
 };
 
 //temperature starting state
@@ -80,6 +81,25 @@ const changeTempColor = () => {
   }
 };
 
+//change the sky
+const changeSky = () => {
+  let skyOptions = document.querySelector('#skyContainer').children;
+  for (let child = 0; child < skyOptions.length; child++) {
+    skyOptions[child].style.display = 'none';
+  }
+  let sky = document.querySelector('#sky-selector');
+  let selectedSky = sky.options[sky.selectedIndex].text;
+  if (selectedSky === 'Sunny') {
+    document.querySelector('#sunemoji').style.display = 'block';
+  } else if (selectedSky === 'Rainy') {
+    document.querySelector('#rainemoji').style.display = 'block';
+  } else if (selectedSky === 'Cloudy') {
+    document.querySelector('#cloudemoji').style.display = 'block';
+  } else {
+    document.querySelector('#snowemoji').style.display = 'block';
+  }
+};
+
 //change landscape
 const changeLandScape = (query) => {
   const weatherChildren = document.querySelector('.weather').children;
@@ -94,13 +114,14 @@ const changeLandScape = (query) => {
 const cityDisplay = () => {
   let currentCityContainer = document.querySelector('.cityDisplay');
   currentCityContainer.innerHTML = document.querySelector('.textBox').value;
-  console.log(`location query: ${document.querySelector('.textBox').value}`);
   getLatandLon(document.querySelector('.textBox').value);
-  // console.log(`location query: ${document.querySelector('.textBox').value}`);
 };
 
 const refreshCity = () => {
-  document.querySelector('.cityDisplay').style.display = 'none';
+  document.querySelector('.cityDisplay').innerHTML = 'Select a City';
+  state.currentTemp = 0;
+  document.querySelector('#currentTemp').innerHTML = state.currentTemp;
+  changeTempColor();
 };
 
 //register events
@@ -110,12 +131,16 @@ const registerEventHandlers = () => {
   const downArrow = document.querySelector('#downArrow');
   const searchBtn = document.querySelector('.searchIcon');
   const refreshBtn = document.querySelector('.refreshBtn');
+  //skies
+  const skySelect = document.querySelector('#sky-selector');
 
   //attach event
   upArrow.addEventListener('click', addTemp);
   downArrow.addEventListener('click', subtractTemp);
   searchBtn.addEventListener('click', cityDisplay);
   refreshBtn.addEventListener('click', refreshCity);
+  //skies
+  skySelect.addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
