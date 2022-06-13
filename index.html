@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet"></link>
     <title>Weather Report</title>
 </head>
-<body>
-    
+<body id="skyBackground">
+    <header>
+        <h1>Current Weather Report For:</h1>
+        <h2 id="headerCity"></h2>
+    </header>
+    <section id="temp">
+        <h2>What's the temperature today?</h2>
+        <button id="increaseButton" type="button">⬆</button>
+        <h2 id="updateTemperature"></h2>
+        <button id="decreaseButton" type="button">⬇</button>
+        <h3>
+            <button id="realTempButton">Get the Real-time Temp</button>
+        </h3>
+    </section>
+    <section id="sky">
+        <h2>How's the sky today?</h2>
+        <select id="skySelect">
+            <option value="default">Pick A Sky!</option>
+            <option value="sunny">Sunny</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+        </select>
+    </section>
+    <section id="city">
+        <h2>What city are you in?</h2>
+        <input type="text" id="inputCity">
+        <button id="submitCityButton">Submit</button>
+        <button id="resetCityButton">Reset</button>
+    </section>
+    <sectio id="display">
+        <h2>Preview outside:</h2>
+        <img id="landscape" src="ada-project-docs/assets/cloudy_day.jpeg" alt="a cloudy day"/>
+    </section>
+    <script src="src/index.js" type="text/javascript"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>

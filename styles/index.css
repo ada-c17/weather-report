@@ -1,0 +1,28 @@
+body {
+  margin: 0px;
+  font-family: monospace;
+  display: grid;
+  grid-template-columns: 20% auto 20%;
+  grid-template-rows: 0.5fr 1fr 0.5fr;
+  text-align: center;
+}
+
+header {
+  grid-column: 2/3;
+}
+
+img {
+  width: 500px;
+}
+
+#temp {
+  grid-column: 1/2;
+}
+
+#display {
+  grid-column: 2/3;
+}
+
+#updateTemperature {
+  color: yellow;
+}
