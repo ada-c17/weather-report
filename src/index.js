@@ -1,5 +1,7 @@
 'use strict';
 
+const { default: axios } = require("axios");
+
 const state = {
   temperature: 70,
   tempBackgroundColor: 'orange',
@@ -191,9 +193,40 @@ const makeApiCallUsingAsync = async () => {
   }
 };
 
+const getTemperature = async (lat, lon) => {
+  let temperature;
+  try {
+    const response = await axios.get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: lat,
+        lon: lon,
+      },
+    });
+    temperature = convertKtoF(response.data.currentTemp.temperature);
+  } catch (error) {
+    console.log(`error in getTemp:${error}`);
+    tempeContainer.textContent = state.temp;
+  };
+
+}
+// const getTemperature = () => {
+  //   axios
+  //   .get('http://127.0.0.1:5000/weather', {
+    //     params: {
+      //       lat: state.lat,
+      //       lon:state.lon,
+      //     },
+      //   })
+      //   .then((response) => {
+        //     console.log('SUCCESS' + JSON.stringify(Response.data.currentTemp.temperature)
+        //     )
+        //   })
+        // }
+        
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 makeApiCallUsingAsync();
+getTemperature();
 
 
 
