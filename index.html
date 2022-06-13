@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles/index.css" rel="stylesheet">
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <header>
+        <h1 id="city-name"></h1>
+        <h2>Weather Report</h2>
+    </header>
+    <main>
+        <section class="temp">
+            <h2>Temperature</h2>
+            <h3>Your Temp</h3>
+            <img id="up-arrow" src="./assets/uparrow.png" alt="up arrow">
+            <p id="current-temp"></p>
+            <button id="realtime-temp" type="button">Get Realtime Temp</button>
+            <img id="down-arrow" src="./assets/downarrow.jpg" alt="down arrow">
+        </section>
+        <section class="outside">
+            <h2>Outside View</h2>
+            <h3>Choose a sky:</h3>
+            <select id="sky-select">
+                <option value="sunny">Sunny</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+            </select>
+            <div id="landscape">
+                <p id="sky"></p>
+                <p id="ground"></p>
+            </div>
+        </section>
+        <section class="change-city">
+            <h3>Change City</h3>
+            <input id="city" type="text">
+            <button id="city-reset" type="button">Reset City</button>
+        </section>
+    </main>
+    <script src="./src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
