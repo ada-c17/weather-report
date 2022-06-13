@@ -69,7 +69,7 @@ const getLatAndLong = () => {
     });
 };
 
-const getWeatherForCity = (lat, long) => {
+const getTempForCity = (lat, long) => {
   axios
     .get('http://127.0.0.1:5000/weather', {
       params: {
@@ -85,7 +85,7 @@ const getWeatherForCity = (lat, long) => {
       updateTempInfo();
     })
     .catch((error) => {
-      console.log('Error in getWeatherForCity', error.response);
+      console.log('Error in getTempForCity', error.response);
     });
 };
 
@@ -108,6 +108,15 @@ const displaySkySelection = (sky) => {
 const selectSkyOption = () => {
   const skySelection = document.querySelector('#select-sky');
   displaySkySelection(skySelection.value);
+};
+
+const resetCityName = () => {
+  const cityInput = document.querySelector('#city-input');
+  const cityName = document.querySelector('#city-name');
+  cityInput.value = '';
+  state.city = 'Boston';
+  cityName.textContent = state.city;
+  getTempForCity();
 };
 
 // Register Event Handlers:

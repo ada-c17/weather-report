@@ -23,14 +23,29 @@ header {
   display: flex;
   justify-content: flex-end;
   font-size: 25px;
-  padding: 1.5em 1.5em;
+  padding: 1em 1em;
+  border-bottom: white solid;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 50px;
+}
+
+img#logo {
+  margin-right: 36em;
+  height: 110px;
 }
 
 form {
   padding: 2em;
   width: 100%;
   text-align: center;
-  margin: 3em;
+  margin: 5em;
 }
 
 input {
@@ -60,7 +75,10 @@ button {
   border-radius: 20px;
   background-color: #9caffb;
   width: 30%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 h2 {
@@ -73,15 +91,22 @@ h2 {
 p {
   background-color: #9caffb;
   font-size: 5em;
-  padding: 10px;
+}
+
+img#thermometer {
+  width: 30%;
+  background-color: #9caffb;
+  padding-bottom: 25px;
 }
 
 #increase-temp,
 #decrease-temp {
   width: 15%;
-  padding: 5px;
-  margin: 0;
+  padding: 0;
+  margin: 5px;
+  border: 20px;
   font-size: 1em;
+  background-color: #a1cf5e;
 }
 
 .red {
