@@ -1,0 +1,142 @@
+/* || UTILITIES */
+
+:root {
+    --gray: #e7e6e6;
+    --outline_black: #555;
+}
+
+/* * {
+    border: red 1px solid;
+} */
+
+h1 {
+    font-size: 2.75em;
+}
+
+h3 {
+    text-align: center;
+    color: black;
+}
+
+
+/* || GENERAL STYLES */
+
+body {
+    /* background-color: rgb(155, 71, 178); */
+    font-family: OpenSans, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0 auto;
+    max-width: 60em;
+    /* vertical-align: middle; */
+    /* line-height: 1.5em; */
+    /* text-align: left; */
+    color: black
+}
+
+header {
+    padding: 1em 0 0 1em;
+}
+
+main {
+    margin: 0 auto;
+    line-height: 1.5;
+    padding: 3em 1em;
+}
+
+/* || HEADER */
+
+#page-heading {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+}
+
+aside {
+    font-size: larger;
+}
+
+#current-city {
+    margin: 0;
+}
+
+/* || WEATHER BOX GRID */
+
+#box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    gap: 2em 6em;
+    margin: 0 auto;
+    padding: 0;
+    justify-content: center;
+    max-width: 60em;
+    list-style-type: none;
+}
+
+li {
+    background: rgba(0, 0, 0, 0.1);
+    background-blend-mode: darken;
+    margin: 0 auto;
+    padding: 0em 1em 2em 1em;
+    width: 12em;
+    border: var(--outline_black) 1px solid;
+    border-radius: 5px;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.reset-button {
+    margin: 2em 0 0 0;
+}
+
+/* || CITY BOX */
+
+#input-city {
+    margin: 1em 0 0 0;
+}
+
+#get-city-weather {
+    margin: 1em 0 0 0;
+}
+
+#city-input-label {
+    font-size: 14px;
+}
+
+
+/* || TEMPERATURE BOX */
+
+#temp-controls {
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.arrow {
+    margin: auto;
+    display: block;
+}
+
+#temp-container {
+    text-align: center;
+    font-size: 2em;
+}
+
+
+/* || SKY BOX */
+
+
+
+/* || WEATHER GARDEN */
+
+#dog-container {
+    margin: 0 auto;
+    padding: 4em 0;
+    justify-content: center;
+}
+
+#dog-container img {
+    margin: auto;
+    display: block;
+    border: var(--outline_black) 1px solid;
+    border-radius: 5px;}
