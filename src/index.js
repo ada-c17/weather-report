@@ -34,9 +34,18 @@ const getCurrentTemp = function () {
           params: { lat: latitude, lon: longitude },
         })
         .then((response) => {
+          // set temperature to the temp returned converted to fahrenheit
           const kelvin = response.data.current.temp;
           const fahrenheit = (9 / 5) * (kelvin - 273) + 32;
           temperature = Math.round(fahrenheit);
+
+          // change the sky image based on the current weather data returned
+          const sky = response.data.current.weather[0].main;
+          document.querySelector('#skytype-select').value = sky;
+          document.querySelector('#sky').src = getSky(sky);
+          changeSky();
+
+          // update temperature
           newTemperature();
         })
         .catch((error) => {
@@ -71,6 +80,7 @@ const changeCity = function () {
 const changeSky = function () {
   const input = document.querySelector('#skytype-select');
 
+  // if the #skytype-select selection changes, change the image
   input.addEventListener('change', (event) => {
     const skyImage = document.querySelector('#sky');
     skyImage.src = getSky(event.target.value);
@@ -78,14 +88,16 @@ const changeSky = function () {
 };
 
 const newTemperature = function () {
+  // change temperature message and landscape based on the temperature
   const temperatureMessage = temperature + '\u00B0F';
   document.getElementById('temperature').innerHTML = temperatureMessage;
   setTextColorLandscapeBasedOnTemp();
 };
 
 const setTextColorLandscapeBasedOnTemp = function () {
-  let landscape = 'landscape';
-  let tempColor = '';
+  let landscape;
+  let tempColor;
+
   if (temperature >= 80) {
     tempColor = 'maroon';
     landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
@@ -107,15 +119,24 @@ const setTextColorLandscapeBasedOnTemp = function () {
 };
 
 const getSky = function (skyType) {
-  let sky = '';
-  if (skyType === 'cloudy') {
+  let sky;
+
+  if (skyType === 'cloudy' || skyType === 'Clouds') {
     sky = './assets/cloud.webp';
-  } else if (skyType === 'rainy') {
+  } else if (
+    skyType === 'rainy' ||
+    skyType === 'Rain' ||
+    skyType === 'Drizzle' ||
+    skyType === 'Thunderstorm'
+  ) {
     sky = './assets/rain.png';
-  } else if (skyType === 'snowy') {
+  } else if (skyType === 'snowy' || skyType === 'Snow') {
     sky = './assets/snow.png';
-  } else if (skyType === 'sunny') {
+  } else if (skyType === 'sunny' || skyType === 'Clear') {
     sky = './assets/sun.webp';
+  } else {
+    sky = './assets/unknown_weather.png';
   }
+
   return sky;
 };
