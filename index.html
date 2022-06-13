@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet" />
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <header>
+        <h1>My Weather</h1>
+    </header>
+    <section>
+        <h2>City</h2>
+    </section>
+    <section id="tempContainer">
+        <h2>Temperature</h2>
+        <h2>Temp:</h2>
+        <button id="increaseTempButton"> Add Temperature</button> <span id ="tempIncrease">0</span>
+        <button id="decreaseTempButton">Lower Temperature</button><span id="tempDecrease"></span>
+        <!-- <button id="getRealTimeButton">Get Real Time Temperature</button> --> 
+        <!-- Kelvin conversion  -->
+        <section>
+        <h2>Sky</h2>
+    </section>
+    <section id=""weatherGardenContainer>
+        <h2>Weather Garden</h2>
+    </section>
+    <script src="src/index.js" type="text/javascript"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
