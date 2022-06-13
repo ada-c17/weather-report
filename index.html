@@ -4,9 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <title> Temperate Weather Report</title>
 </head>
 <body>
+        <header>
+            <h1>Temperate</h1>
+            <h4>Realtime Weather:</h4>
+            <p id="city-header">Your City Name Here!</p>
+        </header>
+
+        <section class="divOne">
+            <h2>Weather Garden</h2>
+            <div id="postDiv">
+                <div id="sky-garden">☀️ ☀️ ☀️ ☀️ ☀️ ☀️ ☀️</div>
+                <div id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div>
+            </div>
+        </section>
+
+
+        <section class="divTwo">
+            <h3>Thermostat</h3>
+            <div class=".adhDiv">
+                <span class="orange" id="temp-display">70</span>
+                <div>
+                <button id="increase-temp" class= button_design>+</button>
+                <button id="decrease-temp" class= button_design >-</button>
+                </div>
+            </div>
     
+            <h3>Sky</h3>
+            <h4>Select Sky Conditions:</h4>
+            <select id="sky-dropdown">
+                <option>Sunny</option>
+                <option>Cloudy</option>
+                <option>Rainy</option>
+                <option>Snowy</option>
+        </select>
+
+            <h3>Select City Name</h3>
+            <select id=".timeDiv">
+            <input type="text" id="city-input" value="City Name Here"/>
+            <h3>Reset City:</h3>
+            <button id="city-reset">Reset Me</button>
+        </select>
+
+        </section>
+    </main>
+    <script src="src/index.js"></script>
 </body>
 </html>
