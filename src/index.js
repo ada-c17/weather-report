@@ -79,6 +79,7 @@ const updateDisplayCity = () => {
     userInputCity.slice(1).toLowerCase();
 
   displayCity.textContent = capitalizedCity;
+  // console.log(getLatAndLon(userInputCity));
 };
 
 const registerEventHandlers = () => {
@@ -93,3 +94,23 @@ const registerEventHandlers = () => {
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
+
+// endpoints to retrieve real time weather
+
+const getLatAndLon = (location) => {
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: location,
+      },
+    })
+    .then((response) => {
+      const lat = response.data[0]['lat'];
+      const lon = response.data[0]['lon'];
+      return { lat, lon };
+    })
+    .catch((error) => {
+      console.log('error!');
+      console.log(error.response.data);
+    });
+};
