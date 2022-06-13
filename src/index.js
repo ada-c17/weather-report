@@ -5,8 +5,6 @@ const state = {
   city: 'Seattle, WA',
 };
 
-// export { state };
-
 // Changes background color of temp box
 const changeColor = () => {
   const tempCityBox = document.getElementById('temp_city_box_grid');
@@ -73,7 +71,7 @@ const controlInputBox = () => {
   }
 };
 
-// Change placeholder text in input box
+// Change placeholder text in search input box
 const changePlaceholderText = () => {
   const openInputBox = document.getElementById('city_input_box');
   const placeholderText = openInputBox.getAttribute('placeholder');
@@ -104,7 +102,6 @@ const getLatAndLong = () => {
       },
     })
     .then((response) => {
-      // console.log(response.data);
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
       const displayName = response.data[0].display_name;
@@ -124,12 +121,32 @@ const getLatAndLong = () => {
           },
         })
         .then((response) => {
-          console.log(response.data);
+          const condition = response.data.current.weather[0].main;
           const tempKelvin = response.data.current.temp;
           state.temp = Math.round((tempKelvin - 273.15) * (9 / 5) + 32);
           changeTemp();
           changeColor();
           changeBgImg();
+
+          // Change sky based on API response
+          const h1 = document.querySelector('h1');
+          const conditions = ['Rain', 'Drizzle', 'Thunderstorm', 'Squall'];
+          if (condition === 'Clear') {
+            h1.textContent = '☀️ 🌞 🔆 Weather App ☀️ 🌞 🔆';
+            h1.style.backgroundColor = 'rgba(255, 255, 0, 0.7)';
+          } else if (condition === 'Clouds') {
+            h1.textContent = '☁️🌤 ☁️ Weather App ☁️🌤 ☁️ ';
+            h1.style.backgroundColor = 'rgba(174, 171, 171, 0.7)';
+          } else if (condition in conditions) {
+            h1.textContent = '🌧 ⛈ 🌧 Weather App 🌧 ⛈ 🌧 ';
+            h1.style.backgroundColor = 'rgba(0, 204, 255, 0.7)';
+          } else if (condition === 'Snow') {
+            h1.textContent = '❄️ 🌨 ❄️ Weather App ❄️ 🌨 ❄️';
+            h1.style.backgroundColor = 'white';
+          } else {
+            h1.textContent = 'Weather App';
+            h1.style.backgroundColor = 'rgba(174, 171, 171, 0.7)';
+          }
         })
         .catch((error) => {
           console.log(`Encountered an error: ${error}`);
@@ -141,6 +158,7 @@ const getLatAndLong = () => {
     });
 };
 
+// Change sky based on dropdown selection
 const changeSky = () => {
   const select = document.getElementById('sky_drop_down');
   const option = select.options[select.selectedIndex].text;
@@ -166,10 +184,8 @@ const changeSky = () => {
 
 const resetDropdown = () => {
   const select = document.getElementById('sky_drop_down');
-  console.log(`select.value: ${select.value}`);
   const option = document.getElementById('select_title');
   select.value = option.value;
-  console.log('sky reset?');
 };
 
 const resetInfo = () => {
