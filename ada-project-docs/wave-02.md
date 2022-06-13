@@ -28,23 +28,23 @@ Our solution uses the following ranges, which you may use if desired:
 | 50-59           | Green  |
 | 49 or below     | Teal   |
 
-### Temperature Ranges Change Landscape
+### Temperature Ranges Change land
 
-Depending on what temperature it is, a different landscape should appear on the page.
+Depending on what temperature it is, a different land should appear on the page.
 
-These landscapes can be anything, as long as they are visual and noticeable to any instructors. For example, the landscapes can be:
+These lands can be anything, as long as they are visual and noticeable to any instructors. For example, the lands can be:
 
 - A single image that appears
 - ASCII art
 - Text
 
-Changing landscapes should _replace_ the existing landscape. There should only be one visible landscape at a time.
+Changing lands should _replace_ the existing land. There should only be one visible land at a time.
 
-There must be at least four landscapes.
+There must be at least four lands.
 
 Our solution uses the following ranges, which you may use if desired:
 
-| Temperature (F) | Landscape                         |
+| Temperature (F) | land                         |
 | --------------- | --------------------------------- |
 | 80+             | `"🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"`       |
 | 70-79           | `"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"`      |

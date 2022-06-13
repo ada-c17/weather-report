@@ -6,9 +6,9 @@ There must be a [`<select> element`](https://developer.mozilla.org/en-US/docs/We
 
 When a user selects an option from the dropdown element, the appropriate sky should appear on the page.
 
-Like the landscapes, the skies can be anything, as long as they are visual and noticeable to any instructors. They can be images, ASCII art, text, or anything else.
+Like the lands, the skies can be anything, as long as they are visual and noticeable to any instructors. They can be images, ASCII art, text, or anything else.
 
-Like the landscapes, changing the sky should _replace_ the existing sky. There should only be one visible sky at a time.
+Like the lands, changing the sky should _replace_ the existing sky. There should only be one visible sky at a time.
 
 There must be at least four skies.
 

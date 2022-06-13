@@ -3,15 +3,15 @@ const state = {
   color: document.getElementById('mid--color'),
   skyCondition: document.getElementById('sky--select-box'),
   skyConditionImage: document.getElementById('sky'),
-  landscape: document.getElementById('landscape'),
+  land: document.getElementById('land'),
   location: '',
   lat: 0,
   lon: 0,
 };
 
+// ********** SKY changes***********
 // change sky
 const changeSky = () => {
-  // console.log('ENTER changeSky');
   if (state.skyCondition.value === 'sunny') {
     state.skyConditionImage.style.background =
       "url('/assets/sky/sunny 1920x360.jpg')";
@@ -24,38 +24,29 @@ const changeSky = () => {
   } else if (state.skyCondition.value === 'snowy') {
     state.skyConditionImage.style.background =
       "url('/assets/sky/snowy 1920x360.jpg')";
+  } else if (state.skyCondition.value === ' ') {
+    state.skyConditionImage.style.background =
+      "url('/assets/sky/clear 1920x360.jpg')";
   }
-  // console.log('EXIT changeSky');
 };
 
-// set state.skyCondition
 const validateSkyCondition = (condition) => {
-  // console.log('ENTER validateSkyCondition');
-  // console.log('state.skyCondition');
-  // console.log(state.skyCondition);
-  // console.log('condition');
-  // console.log(condition);
   if (condition === 'Clear') {
     state.skyCondition.value = 'sunny';
-    // console.log('changes to SUNNY');
   } else if (
     condition === 'Rain' ||
     condition === 'Drizzle' ||
     condition === 'Thunderstorm'
   ) {
     state.skyCondition.value = 'rainy';
-    // console.log('changes to RIANY');
   } else if (condition === 'Clouds') {
     state.skyCondition.value = 'cloudy';
-    // console.log('changes to CLOUDY');
   } else if (condition === 'Snow') {
     state.skyCondition.value = 'snowy';
-    // console.log('changes to SNOWY');
   }
-  // console.log(state.skyConditionImage);
-  // console.log('EXIT validateSkyCondition for changeSky');
 };
 
+// ********** TEMP changes***********
 // change TEMP
 const changeTempDisplay = () => {
   const tempContainer = document.getElementById('temperature');
@@ -76,51 +67,71 @@ const convertKelvin = (temp) => {
   changeTempDisplay();
 };
 
-// change bottom image and middle color based on temp
+// change BOTTOM image and MIDDLE color based on temp
 const changeColorTemp = () => {
   if (state.temp >= 80) {
     state.color.style.backgroundColor = 'rgba(140,114,89, 0.5)';
-    document.getElementById('landscape').style.background =
+    document.getElementById('land').style.background =
       "url('/assets/temp/80 plus 1920x360.jpg')";
   } else if (state.temp >= 70) {
     state.color.style.backgroundColor = 'rgba(252,67,29, 0.5)';
-    document.getElementById('landscape').style.background =
+    document.getElementById('land').style.background =
       "url('/assets/temp/70 to 79 1920x360.jpg')";
   } else if (state.temp >= 60) {
     state.color.style.backgroundColor = 'rgba(238,170,60, 0.5)';
-    document.getElementById('landscape').style.background =
+    document.getElementById('land').style.background =
       "url('/assets/temp/60 to 69  1920x360.jpg')";
   } else if (state.temp >= 50) {
     state.color.style.backgroundColor = 'rgba(135,160,180, 0.5)';
-    document.getElementById('landscape').style.background =
+    document.getElementById('land').style.background =
       "url('/assets/temp/50 to below 1920x360.jpg')";
   } else {
     state.color.style.backgroundColor = 'rgba(193,205,215, 0.5)';
   }
 };
 
-// const hitReturn = (event) =>{
-//   console.log(event.key)
-//   if (event.key === "Enter") {
-//     console.log("Return was pressed")
-//     event.preventDefault();
-//     document.getElementById("myBtn").click();
-// }
-
-// location NAME UPDATES
-const changeLocationName = () => {
+// **********LOCATION INPUT changes***********
+// location name updates in REAL TIME
+const changeLocationDisplay = () => {
   const inputText = document.getElementById('location-input');
-  const newLocationName = document.getElementById('location-display-name');
+  const newLocationName = document.getElementById(
+    'location-display--display-name'
+  );
   newLocationName.textContent = inputText.value;
 };
 
-// location name updates in REAL TIME
-const getLocationName = (event) => {
-  if (event.key != 'Enter') {
-    state.location = document.getElementById('location-input').value;
-    getLatLon();
+// location NAME UPDATES with RETURN key
+const returnKeySubmitLocationInput = (event) => {
+  if (event.key == 'Enter') {
+    submitLocationInput();
   }
 };
+
+// location NAME UPDATES with SUBMIT button
+const submitLocationInput = () => {
+  state.location = document.getElementById('location-input').value;
+  getLatLon();
+};
+
+// ******** RESET *********
+// location NAME RESET
+const resetInput = () => {
+  const newLocationName = document.getElementById(
+    'location-display--display-name'
+  );
+  document.getElementById('land').style.background =
+    "url('/assets/temp/default 1920x360.jpg')";
+  state.color.style.backgroundColor = 'rgba(255,255,255, 0.5)';
+  const inputText = document.getElementById('location-input');
+
+  inputText.value = '';
+  newLocationName.textContent = 'Earth';
+  state.skyCondition = ' ';
+  state.temp = 70;
+  changeTempDisplay();
+  changeSky();
+};
+
 // ********API CALLS*********
 // get LOCATION info
 const getLatLon = () => {
@@ -151,11 +162,8 @@ const getLocationWeather = () => {
       },
     })
     .then((response) => {
-      console.log(response);
       condition = response.data.current.weather[0].main;
       kelvinTemp = response.data.current.temp;
-      // console.log(condition);
-      // console.log('EXIT getLocationWeather for validateSkyCondition');
       validateSkyCondition(condition);
       convertKelvin(kelvinTemp);
       changeSky();
@@ -165,13 +173,6 @@ const getLocationWeather = () => {
       console.log(error);
     });
 };
-
-// // Changes location after hitting submit
-// const changeLocationNameSubmit = () => {
-//   const newLocationName = document.getElementById('location-display-name');
-//   newLocationName.textContent = state.location;
-// };
-//changes location as you type
 
 const registerEventHandlers = () => {
   // change sky
@@ -185,13 +186,21 @@ const registerEventHandlers = () => {
   const tempDec = document.getElementById('arrow-decrease');
   tempDec.addEventListener('click', decTemp);
   tempDec.addEventListener('click', changeColorTemp);
-  // change locaion
+  // change location - SUBMIT button
   const locationSubmit = document.getElementById('location-submit');
-  locationSubmit.addEventListener('click', getLocationName);
-  locationSubmit.addEventListener('keydown', getLocationName);
-  // change location name
+  locationSubmit.addEventListener('click', submitLocationInput);
+  // change location - SUBMIT - RETURN
+  const enterKeyLocationSubmit = document.getElementById('location-input');
+  enterKeyLocationSubmit.addEventListener(
+    'keyup',
+    returnKeySubmitLocationInput
+  );
+  // change location - NAME DISPLAY
   const locationInput = document.getElementById('location-input');
-  locationInput.addEventListener('keyup', changeLocationName);
+  locationInput.addEventListener('keyup', changeLocationDisplay);
+  // change location - RESET button
+  const locationReset = document.getElementById('location-reset');
+  locationReset.addEventListener('click', resetInput);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);

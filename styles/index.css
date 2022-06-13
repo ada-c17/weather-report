@@ -1,11 +1,9 @@
 body {
     margin: 0;
-    /* margin-left: auto;
-    margin-right: auto; */
+    margin-left: auto;
+    margin-right: auto;
 }
 .wrapper {
-    /* width: 100%; */
-    /* height: 100%; */
     display: grid;
     grid-template-columns: 100vw;
     grid-template-rows: 25vh 50vh 25vh;
@@ -15,7 +13,6 @@ body {
 #sky{
     grid-row: 1;
     width: 100%;
-    /* margin: 0; */
     background-size: cover;
     background-position: bottom; 
     background-image: url('/assets/sky/clear\ 1920x360.jpg');
@@ -27,8 +24,11 @@ body {
     grid-column: 2;
     height: 80%;
     width: 100%;
-    background-color: #c7c6c6;
+    background-color: rgba(199, 198, 198, 0.9);
+
     border-radius: 10px;
+    display: flex;
+    align-self: center;
 }
 
 .sky--square::before {
@@ -47,12 +47,15 @@ body {
     text-transform: uppercase;
     font-family: "Poppins", Helvetica, sans-serif;
     font-weight: bold;
-    font-size: xx-large;
+    font-size: 2.25vmax;
 }
 
-.inner {
+.sky--inner {
     grid-column: 2;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #sky--box {
@@ -60,6 +63,7 @@ body {
     flex-direction: row;
     justify-content: center;
     position: relative;
+    margin-top: 3vmax;
 }
 
 #sky--select-wrapper {
@@ -69,15 +73,17 @@ body {
 
 #sky--select-box {
     text-align: center;
-    width: 140px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
     border: none;
     outline: none;
+    color:#707070;
     background-color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
     font-family: "Poppins", Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 1vmax;
+    cursor: pointer;
 }
 
 /************* MID *************/
@@ -112,7 +118,7 @@ body {
 
 #weather h1{
     font-family: 'Poppins', Helvetica, sans-serif;
-    font-size: 300%;
+    font-size: 3vmax;
     text-transform: uppercase;
     font-weight: bold;
     margin: 0;
@@ -120,54 +126,181 @@ body {
     text-align: center;
 }
 
-#real-time{
-    grid-column: 2;
-    grid-row: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-#real-time--grey-box{
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-image: url(/assets/sections/grey_box_sky.png);
-}
-
-#location-selector{
+/* location DISPLAY */
+#location-display{
     grid-column: 1;
     grid-row: 2;
+    display: grid;
+    grid-template-columns: auto 50% auto;
+    justify-content: center;
+}
+
+.location-display--square {
+    grid-column: 2;
+    height: 80%;
+    width: 100%;
+    background-color: rgba(199, 198, 198, 0.8);
+
+    border-radius: 10px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-self: center;
 }
 
-#real-time img{
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-}
-
-#location-selector img{
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 1fr 5fr;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-}
-
-#location-display-name{
-    font-family: 'Poppins', Helvetica, sans-serif;
-    font-size: 300%;
-    font-weight: bold;
+.location-display--square::before {
+    grid-column: 2;
+    position: absolute;
+    transform: translate3d(10px, 10px, 0);
+    height: 100%;
+    width: 100%;
+    border: 3px solid #707070;
+    box-sizing: border-box;
+    border-radius: 10px;
+    /*   text appearance */
+    content: "Location";
     color: #707070;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2.25vmax;
+}
+
+.location-display--inner {
+    grid-column: 2;
+    position: relative;
+    overflow-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#location-display--box {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-top: 3vmax;
+}
+
+#location-display--display-name{
+    font-family: 'Poppins', Helvetica, sans-serif;
+    font-size: 3vmax;
+    font-weight: bold;
+    color: #f9f9f9;
+}
+
+/* location SEARCH */
+#location-search{
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: auto 50% auto;
+    justify-content: center;
+}
+
+.location-search--square {
+    grid-column: 2;
+    height: 80%;
+    width: 100%;
+    background-color: rgba(199, 198, 198, 0.8);
+
+    border-radius: 10px;
+    display: flex;
+    align-self: center;
+}
+
+.location-search--square::before {
+    grid-column: 2;
+    position: absolute;
+    transform: translate3d(10px, 10px, 0);
+    height: 100%;
+    width: 100%;
+    border: 3px solid #707070;
+    box-sizing: border-box;
+    border-radius: 10px;
+    /*   text appearance */
+    content: "Search \Location";
+    color: #707070;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2.25vmax;
+}
+
+.location-search--inner {
+    grid-column: 2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#location-search--box {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin-top: 3vmax;
+
+}
+
+#location-search--group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    margin-top: 3vmax;
+}
+
+#location-input{
+    color: #232323;
+    font-family: "Poppins", Helvetica, sans-serif;
+    width: 10vmax;
+    border: 3 solid #707070;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    outline: none;
+    border-radius: 5px 0 0 5px;
+    
+}
+
+#location-input:focus{
+    background-color: #C7C6C7;
+}
+
+.buttons{
+    color: #232323;
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+}
+
+.buttons:hover{
+    background-color: #707070;
+    color: #f9f9f9
+}
+
+#location-submit{
+    border-radius: 0 5px 5px 0;
+}
+
+#location-search--reset {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+
+#location-reset{
+    margin: 1vmax;
+    height: 2vmax;
+    width: 40%;
+    border-radius: 5px;
 }
 
 /* TEMP */
-#landscape{
+#land{
     grid-row: 3;
     width: 100%;
     margin: 0;
@@ -180,43 +313,89 @@ body {
 
 }
 
-#temp-box{
+.land--square {
     grid-column: 2;
-    background-image: url('/assets/sections/grey_box_temp.png');
-    background-position: top;
-    margin-left: auto;
-    margin-right: auto;
+    height: 80%;
     width: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
+    background-color: rgba(199, 198, 198, 0.9);
+    border-radius: 10px;
+    display: flex;
+    align-self: center;
+}
+
+.land--square::before {
+    grid-column: 2;
+    position: absolute;
+    transform: translate3d(10px, 10px, 0);
+    height: 100%;
+    width: 100%;
+    border: 3px solid #707070;
+    box-sizing: border-box;
+    border-radius: 10px;
+    /*   text appearance */
+    content: "Temp";
+    color: #707070;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2.25vmax;
+}
+
+.land--inner {
+    grid-column: 2;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#temp-holder{
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+#land--box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    position: relative;
+    margin-top: 3vmax;
 }
 
 #temperature{
     justify-self: center;
     align-self: center;
-    /* color: aqua; */
+    color: #f9f9f9;
+    text-transform: uppercase;
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2.25vmax;
 }
+
 #arrow-decrease {
-    width: 0; 
-    height: 0; 
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent; 
-    border-right:20px solid #707070;   
+    margin: 2vmax;
+    border-top: 1.5vmax solid transparent;
+    border-bottom: 1.5vmax solid transparent; 
+    border-right: 1.5vmax solid #707070;
+    cursor: pointer;
+}
+
+#arrow-decrease:hover {
+    margin: 2vmax;
+    border-top: 1.5vmax solid transparent;
+    border-bottom: 1.5vmax solid transparent; 
+    border-right: 1.5vmax solid #232323;
 }
 
 #arrow-increase {
-    width: 0; 
-    height: 0; 
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent; 
-    border-left:20px solid #707070;     
+    margin: 2vmax;
+    border-top: 1.5vmax solid transparent;
+    border-bottom: 1.5vmax solid transparent; 
+    border-left: 1.5vmax solid #707070;
+    cursor: pointer;     
+}
+
+#arrow-increase:hover {
+    margin: 2vmax;
+    border-top: 1.5vmax solid transparent;
+    border-bottom: 1.5vmax solid transparent; 
+    border-left: 1.5vmax solid #232323;     
+
 }

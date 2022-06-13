@@ -10,30 +10,12 @@
 <body>
     <main class="wrapper">
         <!-- *****SKY***** -->
-        <!-- <section id="sky">
-            <div id="sky--middle-column">
-                <div id="sky--grey-box"> -->
-                <!-- <img src="/assets/sections/grey_box_sky.png" alt="transparent grey light box with off set dark grey border with 'city' text" /> -->
-                    <!-- <div id="sky--box">
-                        <div id="sky--select-wrapper">
-                            <select id="sky--select-box">
-                                <option value="none" selected disabled hidden>select sky</option>
-                                <option value="cloudy">cloudy</option>
-                                <option value="rainy">rainy</option>
-                                <option value="snowy">snowy</option>
-                                <option value="sunny">sunny</option>
-                                </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
         <section id="sky">
-            <div class="sky--square inner">
+            <div class="sky--square sky--inner">
                 <div id="sky--box">
                     <div id="sky--select-wrapper">
                         <select id="sky--select-box">
-                            <option value="none" selected disabled hidden>select sky</option>
+                            <option value=" " selected disabled hidden>select sky</option>
                             <option value="cloudy">cloudy</option>
                             <option value="rainy">rainy</option>
                             <option value="snowy">snowy</option>
@@ -46,36 +28,50 @@
 
 
 
+
         <!-- *****MID***** -->
         <section id="mid">
             <section id="mid--color">
                 <section id="weather">
                     <h1>Weather Report</h1>
                 </section>
-                <section id="location-selector">
-                    <!-- <img src="/assets/sections/grey_box_city.png" alt="transparent grey light box with off set dark grey border with 'real time weather' text" /> -->
-                    <div id="location-display-name">Earth</div>
-                </section>
-                <section id="real-time">
-                    <div id="real-time--grey-box">
-                        <input id="location-input" type="text" placeholder="Pick a location on Earth">
-                        <input id="location-submit" type="submit" value="Submit">
+
+                <section id="location-display">
+                    <div class="location-display--square location-display--inner">
+                        <div id="location-display--box">
+                            <div id="location-display--display-name">Earth</div>
+                        </div>
                     </div>
-                    <!-- <img src="/assets/sections/grey_box_city.png" alt="transparent grey light box with off set dark grey border with 'city' text" /> -->
+                </section>
+
+
+                    <section id="location-search">
+                        <div class="location-search--square location-search--inner">
+                            <div id="location-search--box">
+                                <div id="location-search--group">
+                                    <input id="location-input" type="text" placeholder="Pick a location on 🌍">
+                                    <input class="buttons" id="location-submit" type="submit" value="GET WEATHER">
+                                </div>
+                                <div id="location-search--reset">
+                                    <input class="buttons" id="location-reset" type="reset" value="RESET">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                 </section>
             </section>
         </section>
-        
-        <!-- *****TEMP***** -->
-        <section id="landscape">
-            <div id="temp-box">
-                <!-- <img src="/assets/sections/grey_box_temp.png" alt="transparent grey light box with off set dark grey border with 'real time weather' text" /> -->
-                <section id="temp-holder">
+
+        <!-- *****TEMP***** -->    
+        <section id="land">
+            <div class="land--square land--inner">
+                <div id="land--box">
                     <div id="arrow-decrease"></div>
-                        <h2 id="temperature">70°F</h2>
+                    <h2 id="temperature">70°F</h2>
                     <div id="arrow-increase"></div>
-                </section>
-            </div>
+                </div>
+            </div>        
         </section>
     </main>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
