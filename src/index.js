@@ -110,6 +110,7 @@ const updateCity = (e) => {
   if (e.keyCode === 13) {
     toggleUpdating();
     document.activeElement.blur();
+    realWeatherQuery();
   } else {
     let val = e.target.value;
     const last = /^\p{L}$/iu.test(e.key) ? e.key : '';
