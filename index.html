@@ -1,17 +1,43 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <input id="city"> <img src="https://cultofthepartyparrot.com/parrots/hd/parrot.gif" id="cityButton" height="25px">
-    <p id="latlon"></p>
-    <p id="weather"></p>
 
-    <script src="/src/index.js"></script>
+    <link href="/styles/index.css" rel="stylesheet" />
+
+    <title>Weather Report</title>
+</head>
+
+
+<body>
+    <main>
+    <center>
+    <section id="weatherbox">
+        <section class="weatherbox__section weatherbox__section--temp ">
+            <img src="https://pngimg.com/uploads/sun/sun_PNG13420.png" alt="sun" height="25px" id="warmer">
+
+            <h1 id="weather"></h1>
+
+            <img src="https://pngimg.com/uploads/snowflakes/snowflakes_PNG7593.png" alt="snowflake" height="25px" id="colder">
+
+        </section>
+        <section class="weatherbox__section weatherbox__section--city">
+            <h1><input type="text" id="city" placeholder="location"></h1>
+            <img src="https://cultofthepartyparrot.com/parrots/hd/parrot.gif" id="cityButton" height="25px">
+        </section>
+        <section class="weatherbox__section weatherbox_section--landscape">
+            <img src="/images/green_mountains.svg" class="mountains">
+        </section>
+    </section>
+
+    </center>
+    </main>
+    <script src="/src/index.js"></script> 
     <script src="./node_modules/axios/dist/axios.min.js"></script>
+
 </body>
+
+
 </html>
