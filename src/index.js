@@ -91,6 +91,24 @@ const switchTemp = () => {
   document.getElementById('toggle').textContent = `to ${state.metric}`;
 }
 
+// change sky
+const changeSky = event => {
+  const result = document.querySelector('#skyPic');
+    if (event.target.value == "snowy") {
+      document.getElementById('img').className = 'snowy';
+      document.getElementById('img').alt = 'snowy';
+    } else if (event.target.value == "sunny") {
+      document.getElementById('img').className = 'sunny';
+      document.getElementById('img').alt = 'sunny';
+    } else if (event.target.value == "rainy") {
+      document.getElementById('img').className = 'rainy';
+      document.getElementById('img').alt = 'rainy';
+    } else if (event.target.value == "cloudy") {
+      document.getElementById('img').className = 'cloudy';
+      document.getElementById('img').alt = 'cloudy';
+    }
+}
+
 // show temperature and all its changes to screen
 const publishTemp = () => {
   const temperature = document.getElementById('tValue');
@@ -120,24 +138,9 @@ const addEvents = () => {
     city.textContent = e.target.value;
   });
 
-  // get 'select' element, add event to it, get 'options' of select and change pictures according to options
+  // Change sky. get 'select' element, add event to it, get 'options' of select and change pictures according to options
   const select = document.querySelector('select');
-  select.addEventListener('change', (event) => {
-    const result = document.querySelector('#skyPic');
-    if (event.target.value == "snowy") {
-      document.getElementById('img').className = 'snowy';
-      document.getElementById('img').alt = 'snowy';
-    } else if (event.target.value == "sunny") {
-      document.getElementById('img').className = 'sunny';
-      document.getElementById('img').alt = 'sunny';
-    } else if (event.target.value == "rainy") {
-      document.getElementById('img').className = 'rainy';
-      document.getElementById('img').alt = 'rainy';
-    } else if (event.target.value == "cloudy") {
-      document.getElementById('img').className = 'cloudy';
-      document.getElementById('img').alt = 'cloudy';
-    }
-  })
+  select.addEventListener('change', changeSky);
 
   // reset button
   const reset = document.getElementById('reset');
