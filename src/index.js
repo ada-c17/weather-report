@@ -2,7 +2,7 @@
 
 const state = {
     city: 'San Francisco',
-    temperature: 75,
+    temperature: 75
   };
 
   const temperatureDisplay = document.getElementById('temperature');
@@ -70,25 +70,25 @@ const state = {
   };
 
   const convertKelvinToFahrenheit = (temperatureKelvin) => {
-    return Math.floor(1.8 * (temperatureKelvin - 273.15) + 32)
+    return Math.floor(1.8 * (temperatureKelvin - 273.15) + 32);
   };
 
   const changeSky = () => {
     switch (skyInput.value) {
       case 'sunny':
-        document.body.className = 'sunny'
+        document.body.className = 'sunny';
         break;
       case 'cloudy':
-        document.body.className = 'cloudy'
+        document.body.className = 'cloudy';
         break;
       case 'foggy':
-        document.body.className = 'foggy'
+        document.body.className = 'foggy';
         break;
       case 'rainy':
-        document.body.className = 'rainy'
+        document.body.className = 'rainy';
         break;
       case 'snowy':
-        document.body.className = 'snowy'
+        document.body.className = 'snowy';
     }
   };
 
