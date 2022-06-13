@@ -1,5 +1,3 @@
-// const axios = require('axios');
-
 const state = {
   temp: 50,
   city: 'Bloomington',
@@ -9,6 +7,10 @@ const upButton = document.getElementById('up-arrow');
 const downButton = document.getElementById('down-arrow');
 const tempText = document.getElementById('current-temp');
 const ground = document.getElementById('ground');
+const cityHeader = document.getElementById('city-name');
+const cityInput = document.getElementById('city');
+
+cityInput.value = state['city'];
 
 const tempColor = (temp) => {
   if (temp >= 80) {
@@ -50,5 +52,10 @@ const decreaseTemp = () => {
   groundLayout(state['temp']);
 };
 
+const changeCityHeader = () => {
+  cityHeader.textContent = cityInput.value;
+};
+
 upButton.addEventListener('click', increaseTemp);
 downButton.addEventListener('click', decreaseTemp);
+cityInput.addEventListener('input', changeCityHeader);
