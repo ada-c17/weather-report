@@ -15,7 +15,6 @@ const getLatAndLon = (query) => {
       },
     })
     .then((response) => {
-      console.log(response.data);
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
 
@@ -25,7 +24,6 @@ const getLatAndLon = (query) => {
 
 // api call to openweather
 const updateWeather = (latitude, longitude) => {
-  console.log(latitude, longitude);
   axios
     .get('http://127.0.0.1:5000/weather', {
       params: {
@@ -34,11 +32,8 @@ const updateWeather = (latitude, longitude) => {
       },
     })
     .then((response) => {
-      console.log(response.data);
       let kelvinTemp = response.data.current.temp;
-
       let farTemp = Math.round((9 / 5) * (kelvinTemp - 273)) + 32;
-      console.log(farTemp);
 
       setTemp(farTemp);
     });
@@ -53,6 +48,7 @@ background.style.height = '500px';
 // take current temp as parameter
 const setTemp = (temp) => {
   state.temperature = temp;
+
   updateTempDisplay();
 };
 
@@ -99,6 +95,7 @@ const updateCity = (event) => {
 
 const findSearchCity = () => {
   let cityName = document.getElementById('city-name');
+
   getLatAndLon(cityName.textContent);
 };
 
@@ -120,6 +117,7 @@ const updateSky = (event) => {
 const resetCity = (city) => {
   let cityName = document.getElementById('city-name');
   cityName.innerHTML = state.defaultCity;
+
   findSearchCity();
 };
 
