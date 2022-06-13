@@ -2,6 +2,21 @@
     box-sizing: border-box;
 }
 
+button {
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 10px 10px -8px rgba(0, 0, 0,.7)
+}
+
+button:hover {
+    background-color: #7393B3;
+    transition: all 0.5s;
+    cursor: pointer;
+    color: aliceblue;
+
+}
+
 .container {
     max-width: 800px;
     margin: 50px auto;
@@ -18,21 +33,6 @@
     height: auto;
 }
 
-#sky-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    padding-top: 20px;
-    font-size: 40px;
-}
-
-#search-bar {
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    width: 80%;
-}
-
 .weather-info {
     display: flex;
     justify-content: space-evenly;
@@ -41,33 +41,6 @@
     font-size: 28px;
     line-height: 26px;
     font-family: 'Roboto', sans-serif;
-}
-
-#search-box {
-    margin-right: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    width: 50%;
-    font-size: 16px;
-}
-
-#realtime-button {
-    margin-right: 10px;
-    padding: 10px;
-}
-
-#sky-select {
-    padding: 5px;
-    box-shadow: 0 10px 10px -8px rgba(0, 0, 0,.7);
-    font-size: 14px;
-} 
-
-#sky-select:hover {
-    cursor: pointer;
-    background-color: #7393B3;
-    transition: all 0.5s;
-    cursor: pointer;
-    color: aliceblue;
 }
 
 .temp {
@@ -84,6 +57,54 @@
     align-items: center;
     font-size: 25px;
     padding-top: 10px;
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+}
+
+#search-bar {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+
+#search-box {
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 50%;
+    font-size: 16px;
+}
+
+
+#realtime-button {
+    margin-right: 10px;
+    padding: 10px;
+}
+
+#sky-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 20px;
+    font-size: 40px;
+}
+
+#sky-select {
+    padding: 5px;
+    box-shadow: 0 10px 10px -8px rgba(0, 0, 0,.7);
+    font-size: 14px;
+} 
+
+#sky-select:hover {
+    cursor: pointer;
+    background-color: #7393B3;
+    transition: all 0.5s;
+    cursor: pointer;
+    color: aliceblue;
 }
 
 #up-arrow:hover {
@@ -106,26 +127,6 @@
     padding: 5px;
 }
 
-.reset {
-    display: flex;
-    justify-content: center;
-}
-
 #reset-button {
     padding: 10px;
-}
-
-button {
-    background-color: #fff;
-    border-radius: 5px;
-    font-size: 14px;
-    box-shadow: 0 10px 10px -8px rgba(0, 0, 0,.7)
-}
-
-button:hover {
-    background-color: #7393B3;
-    transition: all 0.5s;
-    cursor: pointer;
-    color: aliceblue;
-
 }
