@@ -4,9 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet" />
     <title>Weather Report</title>
 </head>
 <body>
+    <html>
+    <body>
+        <section class="container">
+            <header id="navigation">
+            <h1> Weather Report</h1>
+            <h6> We are in the city of <span id="currentCity"> Seattle </span> 📍</h6>
+            <input id="cityInput" placeholder="Type in your city name"></input> 
+            <button id="resetCity">🔄</button>
+            </header>
+        <div>
+            <section id="tempDisplay">
+                <button id="tempUp">🔼</button>
+                <h2 id="tempInfo"> 70 </h2>
+                <button id="tempDown">🔽</button>
+            </section>
+            </div>
+        <div>
+        <section id="realTemp">
+            <h5> Real Temperature </h5>
+            <button id="getTemp"> Click here for Temperature</button>
+            <h5> Sky </h5>
+            <select name="skies" id="skies">
+                <option value="none">None</option>
+                <option value="sunny">Sunny</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+            </select> 
+        </section>
+        </div>
+        <div>
+            <section>
+            <h5> How does it look outside? </h5>
+            <h6 id="sky">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</h6>
+            <h6 id="landScape"> 🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷 </h6>
+        </div>
     
+    </body>
+    </html>
+    </main>
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
