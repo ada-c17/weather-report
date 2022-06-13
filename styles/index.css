@@ -10,6 +10,9 @@ h1 {
     color: #87CEEB;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 40px;
+    width: 700px;
+    margin-left: 450px;
+
 }
 
 #temp > p, section > h2{
@@ -55,7 +58,9 @@ footer {
 #temp {
     background-color: white;
     border-radius: 30px;
-    max-width: 700px;
+    
+    width: 700px;
+   
     opacity: .5;
     display: flex;
     flex-direction: row;
@@ -64,6 +69,8 @@ footer {
     margin-left: 450px;
     margin-right: 450px;
     padding: 30px;
+
+
 }
 
 #sky {
@@ -72,6 +79,8 @@ footer {
     max-width: 600px;
     opacity: .5;
     padding: 30px; 
+
+    block-size: fit-content;
 }
 
 #garden {
@@ -81,6 +90,7 @@ footer {
     opacity: .5;
     padding-right: 10px;
     padding-left: 10px;
+    min-width: 200px;
 }
 
 #skyAndGarden {
@@ -92,6 +102,9 @@ footer {
     margin-right: 450px;
     margin-top: 30px;
     margin-bottom: 30px;
+    width: 700px;
+
+   
 }
 
 #cityBoxLast {
@@ -112,4 +125,7 @@ footer {
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 15px;
+
+    min-width: 200px;
+
 }
