@@ -69,11 +69,33 @@ const calculateColor = () => {
   return Math.round(colorRotate);
 };
 
+const updateLandscape = () => {
+  let mountains;
+  if (state.temperature > 110) {
+    mountains = '/images/hot_mountains.svg';
+  } else if (state.temperature > 85) {
+    mountains = '/images/less_hot_mountains.svg';
+  } else if (state.temperature > 32) {
+    mountains = '/images/green_mountains.svg';
+  } else if (state.temperature > -10) {
+    mountains = '/images/snowy_mountains.svg';
+  } else {
+    mountains = '/images/ice_mountains.svg';
+  }
+  document.querySelector('#mountain').src = mountains;
+};
+
 const updateTempAndColor = () => {
   document.getElementById(
     'weather'
   ).style.color = `hsl(${calculateColor()}, 75%, 50%)`;
   document.getElementById('weather').textContent = state.temperature;
+  updateLandscape();
+};
+
+const updateCityText = (event) => {
+  document.getElementById('cityDisplay').textContent =
+    document.getElementById('city').value;
 };
 
 updateTempAndColor();
@@ -82,9 +104,10 @@ const registerEventHandlers = (event) => {
   const cityField = document.querySelector('#cityButton');
   const warmer = document.querySelector('#warmer');
   const colder = document.querySelector('#colder');
+  const cityChange = document.querySelector('#city');
 
   cityField.addEventListener('click', updateCity);
-
+  cityChange.addEventListener('keydown', updateCityText);
   warmer.addEventListener('click', raiseTemp);
   colder.addEventListener('click', lowerTemp);
 };
