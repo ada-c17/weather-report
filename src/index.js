@@ -108,9 +108,8 @@ skyOption.addEventListener('change', updateSky);
 
 async function getLatLon(place) {
   console.log(place);
-  const response = await axios.get('https://us1.locationiq.com/v1/search.php', {
+  const response = await axios.get('http:127.0.0.1:5000/location', {
     params: {
-      key: 'pk.f06c8c89d5d21e12396df6e07fe686dd',
       q: place,
       format: 'json',
     },
@@ -129,17 +128,13 @@ async function getLatLon(place) {
 }
 
 async function getTemp(lat, long) {
-  const response = await axios.get(
-    'https://api.openweathermap.org/data/2.5/onecall',
-    {
-      params: {
-        lat: lat,
-        lon: long,
-        APPID: 'a63f76d71c284265bbebf86c9459a554',
-        units: 'metric',
-      },
-    }
-  );
+  const response = await axios.get('http://127.0.0.1:5000/weather', {
+    params: {
+      lat: lat,
+      lon: long,
+      units: 'metric',
+    },
+  });
   let parsedresp = response.data;
   let temp = parsedresp.current.temp;
   return temp;
