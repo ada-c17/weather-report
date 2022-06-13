@@ -71,10 +71,17 @@ header h1 {
 
 #weatherGarden {
     flex: 3 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 1vw;
     height: 69vh;
 }
-
+#weatherGarden img {
+    align-self: flex-end;
+    width: 54vw;
+    padding-right: 1vw;
+}
 main div {
     flex: 2 30%;
     margin: 1vw;
