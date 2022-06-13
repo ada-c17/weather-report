@@ -137,43 +137,43 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 // endpoints to retrieve real time weather
 
-// const getLatAndLon = () => {
-//   axios
-//     .get('http://127.0.0.1:5000/location', {
-//       params: {
-//         q: state.currentCity,
-//       },
-//     })
-//     .then((response) => {
-//       const lat = response.data[0]['lat'];
-//       const lon = response.data[0]['lon'];
-//       // return { lat, lon };
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
+const getLatAndLon = () => {
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: state.currentCity,
+      },
+    })
+    .then((response) => {
+      const lat = response.data[0]['lat'];
+      const lon = response.data[0]['lon'];
 
-//   return { lat, lon };
-// };
+      getCurrentWeather(lat, lon);
+    })
+    .catch((error) => {
+      console.log(error.response.data);
+    });
+};
 
-// const getCurrentWeather = (location) => {
-//   axios
-//     .get('http://127.0.0.1:5000/weather', {
-//       params: {
-//         lat: getLatAndLon(location).latitude,
-//         lon: getLatAndLon(location).longitude,
-//       },
-//     })
-//     .then((response) => {
-//       const tempInK = response.data.current.temp;
-//       const tempInF = 1.8 * (tempInK - 273) + 32;
-//       // return tempInF;
-//       console.log(tempInF);
-//     })
-//     .catch((error) => {
-//       console.log('error!');
-//       console.log(error.response.data);
-//     });
-// };
+getLatAndLon();
 
-// getCurrentWeather('seattle');
+const getCurrentWeather = (latitude, longitude) => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: latitude,
+        lon: longitude,
+      },
+    })
+    .then((response) => {
+      const tempInK = response.data.current.temp;
+      const tempInF = 1.8 * (tempInK - 273) + 32;
+
+      // return tempInF;
+      console.log(tempInF);
+    })
+    .catch((error) => {
+      console.log('error!');
+      console.log(error.response.data);
+    });
+};
