@@ -78,15 +78,12 @@ const changeSkySelection = () => {
 // Update temperature display and landscape
 const updateTempDisplay = () => {
   document.querySelector('#temp-display h1').textContent = weather.temperature;
-  document.getElementById('temp-display').classList = `${tempClass()}`;
-  document.getElementById('landscape').classList = tempClass(
-    weather.temperature
-  );
+  document.getElementById('temp-display').classList = tempClass();
+  document.getElementById('landscape').classList = tempClass();
 };
 
 // Handles clicks on temp controls
 const changeTemp = (e) => {
-  console.log(e.target.id);
   e.target.id === 'heat' ? weather.temperature++ : weather.temperature--;
   updateTempDisplay();
 };
