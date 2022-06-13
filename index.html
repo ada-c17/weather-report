@@ -4,9 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <script src="https://kit.fontawesome.com/e77df31685.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <div class="container">
+        <section id ="main-container" class="main-elements">
+            <div id="search-bar">
+                <input id="search-box" type="text" placeholder="Enter a city..." autofocus>
+                <button id="realtime-button" type="buttone">RealTime Weather</button>
+                
+                <select name="change-sky" id="sky-select">
+                    <option value="">Change Sky</option>
+                    <option value="Sunny">Sunny</option>
+                    <option value="Cloudy">Cloudy</option>
+                    <option value="Rainy">Rainy</option>
+                    <option value="Snowy">Snowy</option>
+                </select>
+            </div>
+            <div id="sky-container"></div>
+            <div class="weather-info">
+                <h1 id="city-name">Tampa, FL</h1>
+                <div class="temp">
+                    <div class="arrows">
+                        <i id="up-arrow" class="fa-solid fa-angle-up"></i>
+                        <i id="down-arrow" class="fa-solid fa-angle-down"></i>
+                    </div>
+                    <span id="temp">88</span>
+                    <span id="units">°F</span>
+                </div>
+            </div>
+            <div class="reset">
+                <button id="reset-button" type="button">Reset</button>
+            </div>
+        </section>
+    </div>
 </body>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+<script src="/src/index.js"></script>
+
 </html>
