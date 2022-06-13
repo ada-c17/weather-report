@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/index.css">
+    
     <title>Weather Report</title>
 </head>
 <body>
+    <header>
+        <h1>Weather Report</h1>
+        <h2 id="cityHeader"></h2>
+    </header>
     
+    <div id="container">
+        <section id="sky-container">
+            <img id="sky-image" src="">
+        </section>
+        <section id="temp-controls">
+            <output id="temp"></output>
+            <button id="current">
+                <span></span>
+                Current Temp
+            </button>
+            <button id="inc" class="increment">
+                <span></span>
+                Increase
+            </button>
+            <button id="dec" class="increment">
+                <span></span>
+                Decrease
+            </button>
+        </section>
+
+        <section id="options">
+            <span id="input-container">
+                <label>Enter City Name</label>
+                <input id="city-input" name="city" type="text" size="15">
+                <button id="reset">Reset</button>
+            </span>
+            <br>
+            <span id="select-container">
+                <label>Select Sky</label>
+                <select id="select-sky">
+                    <option>Sunny</option>
+                    <option>Cloudy</option>
+                    <option>Rainy</option>
+                    <option>Snowy</option>
+                </select>
+            </span>
+        </section>
+        
+        
+    </div>
+    <script src="src/index.js" type="text/javascript"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
