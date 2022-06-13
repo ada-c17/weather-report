@@ -16,13 +16,37 @@
   <body>
     <header>
       <h1>Weather</h1>
+      <div id="heart"><span id="seasonalChange" class="emoji">✨</span></div>
+      <div class="selectSky">
+        <label for="skies">choose a sky </label>
+        <select id="skies" name="skies">
+          <option value="clear-day">sunny</option>
+          <option value="rain">rainy</option>
+          <option value="wind">windy</option>
+          <option value="snow">snowy</option>
+        </select>
+        <!-- <section id="sky">
+          <canvas id="icon" width="128" height="128"></canvas>
+        </section> -->
+      </div>
     </header>
+    <!-- "landscape" changes according to temp -->
+
     <main>
       <!-- zip code/city input -->
       <form>
-        <input type="search" placeholder="enter city or zip code" />
-        <!-- <button type="submit"></button> -->
+        <input
+          id="searchCity"
+          type="text"
+          placeholder="enter city or zip code"
+          value=""
+        />
       </form>
+      <button id="currentTempButton">Get Temp</button>
+
+      <section id="citySection">
+        <span id="cityDisplay">New York City</span>
+      </section>
 
       <section class="temperature">
         <!-- clickable elements to change temp -->
@@ -30,19 +54,22 @@
           <img src="/images/up.svg" />
         </button>
         <!-- Temperature Display -->
-        <h2 id="currentTemp">75<span></span></h2>
+        <h2 id="currentTemp">75</h2>
         <!-- clickable elements to change temp -->
         <button id="decreaseTempButton" class="down">
           <img src="/images/down.svg" alt="" />
         </button>
       </section>
 
-      <!-- "landscape" changes according to temp -->
+      <!-- city text display -->
+      <!-- <section id="citySection">
+        <span id="cityDisplay">New York City</span>
+        <button id="currentTempButton">Get Realtime Temperature</button>
+      </section> -->
     </main>
 
-    <div id="heart"><span id="seasonalChange" class="emoji">✨</span></div>
-
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="100 100 900 400">
+    <!-- cloud filter -->
+    <svg id="sky" xmlns="http://www.w3.org/2000/svg" viewBox="100 100 900 400">
       <filter
         id="filter"
         filterUnits="userSpaceOnUse"
@@ -111,5 +138,6 @@
     </svg>
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="skycons.js"></script>
   </body>
 </html>
