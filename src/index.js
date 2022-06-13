@@ -62,7 +62,9 @@ const updateTempDisplay = () => {
   document.getElementById('temp-display').classList = `${tempClass()}`;
   const sky = skyClass();
   document.querySelector('main').classList = `${sky}`;
-  document.querySelector('#sky-selector').value = `${sky}`;
+  const selectElement = document.querySelector('#sky-selector');
+  selectElement.value = `${sky}`;
+  selectElement.dispatchEvent(new Event('change'));
   document.querySelector('#landscape h1').textContent =
     landscapes[tempClass(weather.temperature)];
 };
@@ -125,8 +127,29 @@ const realWeatherQuery = () => {
     .catch((e) => console.log(e));
 };
 
+const makeRain = () => {
+  const wrapper = document.createElement('div');
+  wrapper.classList = 'drop-row';
+  wrapper.id = 'rain-overlay';
+  [...Array(5)].forEach((_, i) => {
+    const drop = document.createElement('div');
+    drop.classList = 'drop';
+    wrapper.appendChild(drop);
+  });
+  document.querySelector('main').appendChild(wrapper);
+};
+
 const updateSky = (e) => {
   document.querySelector('main').classList = e.target.value;
+  if (e.target.value === '🌦' || e.target.value === '🌧') {
+    if (document.getElementsByClassName('drop-row').length === 0) {
+      makeRain();
+    }
+  } else {
+    if (document.getElementsByClassName('drop-row').length > 0) {
+      document.getElementById('rain-overlay').remove();
+    }
+  }
 };
 
 const defaultCity = () => {
