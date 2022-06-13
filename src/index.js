@@ -126,7 +126,7 @@ const resetInput = () => {
 
   inputText.value = '';
   newLocationName.textContent = 'Earth';
-  state.skyCondition = ' ';
+  state.skyCondition.value = ' ';
   state.temp = 70;
   changeTempDisplay();
   changeSky();
@@ -142,7 +142,6 @@ const getLatLon = () => {
       },
     })
     .then((response) => {
-      console.log(response);
       state.lon = response.data[0].lon;
       state.lat = response.data[0].lat;
       getLocationWeather();

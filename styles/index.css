@@ -20,18 +20,16 @@ body {
     grid-template-columns: auto 20% auto;
 }
 
-.sky--square {
+.square {
     grid-column: 2;
     height: 80%;
     width: 100%;
-    background-color: rgba(199, 198, 198, 0.9);
-
     border-radius: 10px;
     display: flex;
     align-self: center;
 }
 
-.sky--square::before {
+.square::before {
     grid-column: 2;
     position: absolute;
     transform: translate3d(10px, 10px, 0);
@@ -41,13 +39,21 @@ body {
     box-sizing: border-box;
     border-radius: 10px;
     /*   text appearance */
-    content: "Sky";
     color: #707070;
     text-align: center;
     text-transform: uppercase;
     font-family: "Poppins", Helvetica, sans-serif;
     font-weight: bold;
     font-size: 2.25vmax;
+}
+
+
+.sky--square {
+    background-color: rgba(199, 198, 198, 0.9);
+}
+
+.sky--square::before {
+    content: "Sky";
 }
 
 .sky--inner {
@@ -136,33 +142,11 @@ body {
 }
 
 .location-display--square {
-    grid-column: 2;
-    height: 80%;
-    width: 100%;
     background-color: rgba(199, 198, 198, 0.8);
-
-    border-radius: 10px;
-    display: flex;
-    align-self: center;
 }
 
 .location-display--square::before {
-    grid-column: 2;
-    position: absolute;
-    transform: translate3d(10px, 10px, 0);
-    height: 100%;
-    width: 100%;
-    border: 3px solid #707070;
-    box-sizing: border-box;
-    border-radius: 10px;
-    /*   text appearance */
     content: "Location";
-    color: #707070;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Poppins", Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 2.25vmax;
 }
 
 .location-display--inner {
@@ -198,33 +182,11 @@ body {
 }
 
 .location-search--square {
-    grid-column: 2;
-    height: 80%;
-    width: 100%;
     background-color: rgba(199, 198, 198, 0.8);
-
-    border-radius: 10px;
-    display: flex;
-    align-self: center;
 }
 
 .location-search--square::before {
-    grid-column: 2;
-    position: absolute;
-    transform: translate3d(10px, 10px, 0);
-    height: 100%;
-    width: 100%;
-    border: 3px solid #707070;
-    box-sizing: border-box;
-    border-radius: 10px;
-    /*   text appearance */
     content: "Search \Location";
-    color: #707070;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Poppins", Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 2.25vmax;
 }
 
 .location-search--inner {
