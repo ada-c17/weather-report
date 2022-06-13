@@ -76,6 +76,14 @@ p {
   padding: 10px;
 }
 
+#increase-temp,
+#decrease-temp {
+  width: 15%;
+  padding: 5px;
+  margin: 0;
+  font-size: 1em;
+}
+
 .red {
   color: red;
 }
@@ -91,25 +99,19 @@ p {
 .teal {
   color: aqua;
 }
-
-#increase-temp,
-#decrease-temp {
-  width: 15%;
-  padding: 5px;
-  margin: 0;
-  font-size: 1em;
-}
-
 #select-sky {
   width: 50%;
   background-color: white;
   color: #4876ff;
   border-color: #848484;
+  border-radius: 5px;
   font-size: 18px;
   font-weight: bolder;
   text-align: center;
 }
 
-#landscape {
+#landscape-icons,
+#sky-icons {
   font-size: 3em;
+  color: white;
 }
