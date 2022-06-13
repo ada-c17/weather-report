@@ -5,7 +5,7 @@ let t = {
 
 const kelvinToFahrenheit = (t) => {
     tempretureInFahrenhait = 1.8 * (t - 273) + 32;
-    return tempretureInFahrenhait;
+    return tempretureInFahrenhait.toFixed(2);
 }
 
 const temperatureColor = () => {
@@ -112,6 +112,9 @@ const getRealtimeTemperature = (event) => {
             })
                 .then((response) => {
                     const currentTemperature = response.data.current.temp; 
+                    // I changed query parameters for search in proxy to get temperature in Fahrenhaits, but i also did it using a convert function, 
+                    //in case we were were not able to change proxy, both implementation work
+                    // t.temperature = kelvinToFahrenheit(currentTemperature);
                     t.temperature = currentTemperature;
                     showTemperture();     
                 })
