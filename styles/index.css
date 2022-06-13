@@ -66,8 +66,8 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    margin-left: 450px;
-    margin-right: 450px;
+    margin-left: 580px;
+    margin-right: 300px;
     padding: 30px;
 
 
@@ -78,9 +78,7 @@ footer {
     border-radius: 30px;
     max-width: 600px;
     opacity: .5;
-    padding: 30px; 
-
-    block-size: fit-content;
+    padding: 20px; 
 }
 
 #garden {
@@ -90,7 +88,7 @@ footer {
     opacity: .5;
     padding-right: 10px;
     padding-left: 10px;
-    min-width: 200px;
+    flex-shrink: auto;
 }
 
 #skyAndGarden {
@@ -102,9 +100,7 @@ footer {
     margin-right: 450px;
     margin-top: 30px;
     margin-bottom: 30px;
-    width: 700px;
-
-   
+    flex-shrink: auto;
 }
 
 #cityBoxLast {
@@ -114,6 +110,7 @@ footer {
     justify-content: space-evenly;
     margin-top: px;
     margin-bottom: 30px;
+    flex-shrink: auto;
 }
 
 #cityWhiteBox {
@@ -125,7 +122,5 @@ footer {
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 15px;
-
-    min-width: 200px;
-
+    flex-shrink: auto;
 }

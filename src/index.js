@@ -20,7 +20,7 @@ const gardenLayout = (temp) => {
   if (temp >= 80) {
     floorEmojisContainer.textContent = '🌵🦂🐍🏜🦂🏜🌵🌵🌵🐍_🏜_🦂';
   } else if (70 <= temp && temp <= 79) {
-    floorEmojisContainer.textContent = '🌸🌿🌼🌸🌿🌷🌻🌿🌱☘️🌱🌻🌷🌻🌷';
+    floorEmojisContainer.textContent = '🌸🌿🌼🌸🌿🌷🌻🌿🌱☘️🌱🌷🌻🌷';
   } else if (60 <= temp && temp <= 69) {
     floorEmojisContainer.textContent = '🌾🌾🍃🍃🛤🌾🛤🌾🌾🌾🍃🌾🍃🌾';
   } else if (50 <= temp && temp <= 59) {
@@ -63,27 +63,6 @@ const tempDecrease = () => {
   tempColor(state.tempCount);
   gardenLayout(state.tempCount);
 };
-
-const registerEventHandlers = () => {
-  const raiseTemp = document.querySelector('#raiseTemp');
-  raiseTemp.addEventListener('click', tempIncrease);
-  raiseTemp.addEventListener('click', tempColor);
-
-  const decreaseTemp = document.querySelector('#decreaseTemp');
-  decreaseTemp.addEventListener('click', tempDecrease);
-  decreaseTemp.addEventListener('click', tempColor);
-
-  const cityNameid = document.querySelector('#cityNameid');
-  cityNameid.addEventListener('input', updateCityname);
-
-  const getRealWeather = document.querySelector('#realCityWeather');
-  getRealWeather.addEventListener('click', getLocation);
-
-  const changeSky = document.querySelector('#skySelect');
-  changeSky.addEventListener('change', skyLayout);
-};
-
-document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 const clearCityName = () => {
   const nameOfCity = (document.getElementById('cityNameid').value = 'Seattle');
@@ -132,3 +111,24 @@ const getLocation = () => {
         });
     });
 };
+
+const registerEventHandlers = () => {
+  const raiseTemp = document.querySelector('#raiseTemp');
+  raiseTemp.addEventListener('click', tempIncrease);
+  raiseTemp.addEventListener('click', tempColor);
+
+  const decreaseTemp = document.querySelector('#decreaseTemp');
+  decreaseTemp.addEventListener('click', tempDecrease);
+  decreaseTemp.addEventListener('click', tempColor);
+
+  const cityNameid = document.querySelector('#cityNameid');
+  cityNameid.addEventListener('input', updateCityname);
+
+  const getRealWeather = document.querySelector('#realCityWeather');
+  getRealWeather.addEventListener('click', getLocation);
+
+  const changeSky = document.querySelector('#skySelect');
+  changeSky.addEventListener('change', skyLayout);
+};
+
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
