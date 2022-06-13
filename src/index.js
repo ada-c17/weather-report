@@ -1,5 +1,7 @@
 "use strict";
-const axios = require('axios');
+console.log('helloooooo');
+//const axios = require('axios');
+
 // let map;
 // let service;
 // function callback(place, status) {
@@ -36,7 +38,7 @@ const axios = require('axios');
 const state = {
     degree:60,
     isF: true,
-    cityName: 'Poppy City, USA'
+    cityName: 'Poppy City, USA',
 };
 //let theText = myTextInput.value;
 const showCityName=()=>{
@@ -57,39 +59,46 @@ const changeToF=()=>{
     const degreeCountContainer = document.getElementById("degree");
     if (! state.isF){
         state.isF=true;
-        degreeCountContainer.textContent = state.degree; 
+        updateTempDisplay(); 
     }
 
 }
-const plusTemp = () => {
+const changeTemp=(e)=> { //refactor 2 functions together to change temp
+    e.target.id ==='plus'? state.degree++: state.degree--;
+    console.log(state.degree);
+    updateTempDisplay();
+}
+const updateTempDisplay=()=>{
     const degreeCountContainer = document.getElementById("degree");
-    state.degree += 1;
     degreeCountContainer.textContent = state.degree;
+}
+// const plusTemp = (e) => {
+//     const degreeCountContainer = document.getElementById("degree");
+//     state.degree += 1;
+//     degreeCountContainer.textContent = state.degree;
 
-    const temperature = document.querySelector("#degree");
-    if (temperature > 80) {
-        temperature.style.color = 'red';
+//     const temperature = document.querySelector("#degree");
+//     if (temperature > 80) {
+//         temperature.style.color = 'red';
         
-    }
-    state.clickCount=0;
-};
-const minusTemp = () => {
-    const degreeCountContainer = document.getElementById("degree");
-    state.degree -= 1;
-    degreeCountContainer.textContent = state.degree;
+//     }
+//     state.clickCount=0;
+// };
+// const minusTemp = () => {
+//     const degreeCountContainer = document.getElementById("degree");
+//     state.degree -= 1;
+//     degreeCountContainer.textContent = state.degree;
 
-    const temperature = document.querySelector("#degree");
-    if (temperature < 40) {
-        temperature.style.color = 'blue';
-    }
-    state.clickCount=0;
-};
+//     const temperature = document.querySelector("#degree");
+//     if (temperature < 40) {
+//         temperature.style.color = 'blue';
+//     }
+//     state.clickCount=0;
+// };
 const resetTemp = () => {
     state.degree = 60;
-    const degreeCountContainer = document.getElementById("degree");
-    degreeCountContainer.textContent = state.degree;
     state.isF=true;
-    
+    updateTempDisplay();
 }
 const getLocation=(theText)=> {
     axios
@@ -125,20 +134,19 @@ const showRealWeather = ()=> {
     let theText = myTextInput.value;
     loc=getLocation(theText);
     temp=getWeather(loc);
-    
-    const degreeCountContainer = document.getElementById("degree");
     state.degree=temp;
-    degreeCountContainer.textContent = state.degree;
     state.isF=true;
+    updateTempDisplay();
 }
 
 const registerEventHandlers = () => {
+    console.log('hello!');
     const realWeather=document.getElementById("s");
     realWeather.addEventListener("click", showRealWeather);
     const plusDegree = document.getElementById("plus");
-    plusDegree.addEventListener("click", plusTemp);
+    plusDegree.addEventListener("click", changeTemp);
     const minusDegree = document.getElementById("minus");
-    minusDegree.addEventListener("click", minusTemp);
+    minusDegree.addEventListener("click", changeTemp);
 
     const cButton = document.getElementById("c-button");
     cButton.addEventListener("click", changeToC);
