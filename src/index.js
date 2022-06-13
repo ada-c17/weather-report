@@ -5,7 +5,8 @@ const state = {
 };
 
 const tempConvert = function (K) {
-  F = ((K - 273.15) * 9) / 5 + 32;
+  F = Math.round(((K - 273.15) * 9) / 5 + 32);
+
   return F;
 };
 
@@ -50,11 +51,6 @@ const displayTemperature = function (temperature) {
   const imgFileNameString = `<img alt="Nice Landscape" src="assets/${imgFileName}">`;
   tempDisplay.innerHTML = displayString;
   landScape.innerHTML = imgFileNameString;
-  console.log(temperature);
-  console.log(color);
-  console.log(imgFileName);
-  console.log(displayString);
-  console.log(imgFileNameString);
 };
 
 const getTemp = function () {
@@ -78,7 +74,6 @@ const getLocationAndTemp = function (place) {
     },
   };
   axios.get('http://127.0.0.1:5000/location', p).then((response) => {
-    console.log(response);
     state.lat = response.data[0].lat;
     state.lon = response.data[0].lon;
     getTemp();
