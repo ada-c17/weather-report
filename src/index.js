@@ -93,6 +93,14 @@ const setCity = () => {
   city.textContent = state.city;
 };
 
+const resetTheCity = () => {
+  const cityInput = document.querySelector('#changeCityTo');
+  state.city = 'New York City';
+  cityInput.value = '';
+  const cityInHeader = document.querySelector('#city');
+  cityInHeader.textContent = state.city;
+};
+
 const currentLatLon = () => {
   //let lat, long;
   axios
@@ -142,6 +150,8 @@ const registerEventHandlers = (event) => {
   resetTemp.addEventListener('click', currentLatLon);
   const chooseSky = document.querySelector('#chooseSky');
   chooseSky.addEventListener('change', updateSky);
+  const resetCity = document.querySelector('#resetCity');
+  resetCity.addEventListener('click', resetTheCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
