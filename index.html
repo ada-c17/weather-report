@@ -16,9 +16,9 @@
     </header>
     <main class = "main-container">
         <section id = "landscape">
-            <h1>New York, NY</h1>
+            <h1 id="city-name-display">New York, NY</h1>
             <button id = "temp-button"> Realtime Temp</button>
-            <div id="landscape-view"></div>
+            <img id="landscape-img" src="/images/sun.png" alt="line drawings of sun"/>
         </section>
         <section id = "temp">
             <h2>Temperature</h2>
@@ -27,7 +27,9 @@
             <button id="down-button">▽</button>  
         </section>
         <section id = "sky">
-            <h2>Sky:</h2>
+            <h2>
+                <label for= "sky-color">Sky:</label>
+            </h2>
             <select id="sky-color" >
                 <option value="">Please choose a sky</option>
                 <option value="sunny">Sunny</option>

@@ -1,35 +1,49 @@
 'use strict';
 
-const temperature = document.getElementById('temp-display');
+const tempDisplay = document.getElementById('temp-display');
+const landscapeImg = document.getElementById('landscape-img');
 
 const state = {
-  clickCount: parseInt(temperature.textContent),
+  temp: parseInt(tempDisplay.textContent),
+  landscape: landscapeImg.src,
 };
 
-const updateTemp = (x) => {
-  state.clickCount += x;
-  temperature.textContent = `${state.clickCount}°`;
-  if (state.clickCount > 79) {
-    temperature.style.color = 'red';
+const updateTempDisplay = (x) => {
+  state.temp += x;
+  tempDisplay.textContent = `${state.temp}°`;
+
+  if (state.temp > 79) {
+    tempDisplay.style.color = 'rgb(248, 163, 163)';
+    landscapeImg.src = '/images/sun.png';
   }
-  if (state.clickCount < 80) {
-    temperature.style.color = 'orange';
+  if (state.temp < 80) {
+    tempDisplay.style.color = 'orange';
+    landscapeImg.src = '/images/cloudy.png';
   }
-  if (state.clickCount < 70) {
-    temperature.style.color = 'yellow';
+  if (state.temp < 70) {
+    tempDisplay.style.color = 'yellow';
   }
-  if (state.clickCount < 60) {
-    temperature.style.color = 'green';
+  if (state.temp < 60) {
+    tempDisplay.style.color = 'green';
+    landscapeImg.src = '/images/rainy.png';
   }
-  if (state.clickCount < 50) {
-    temperature.style.color = 'teal';
+  if (state.temp < 40) {
+    tempDisplay.style.color = 'teal';
+    landscapeImg.src = '/images/snowy.png';
   }
 };
+
+const updateCity = (e) => {
+  const log = document.getElementById('city-name-display');
+  log.textContent = e.target.value;
+};
+
+const resetCity = () => {};
 
 const updateSky = (value) => {
   const skyColor = document.querySelector('.sky-container');
   if (value === 'sunny') {
-    skyColor.style.backgroundColor = 'red';
+    skyColor.style.backgroundColor = rgb(255, 255, 174);
   }
   if (value === 'cloudy') {
     skyColor.style.backgroundColor = 'grey';
@@ -45,12 +59,17 @@ const updateSky = (value) => {
 const registerEventHandlers = () => {
   const upButton = document.getElementById('up-button');
   upButton.addEventListener('click', () => {
-    updateTemp(1);
+    updateTempDisplay(1);
   });
+
   const downButton = document.getElementById('down-button');
   downButton.addEventListener('click', () => {
-    updateTemp(-1);
+    updateTempDisplay(-1);
   });
+
+  const cityInput = document.querySelector('input');
+  cityInput.addEventListener('input', updateCity);
+
   const skySelector = document.getElementById('sky-color');
   skySelector.addEventListener('change', updateSky(skySelector.value));
 };
