@@ -113,45 +113,26 @@ main {
     min-width: 70px;
 }
 
+/* Classes for affecting text in the temp display */
+
 .hot {
     color: rgb(169, 14, 22);
-}
-
-#landscape.hot {
-    background: linear-gradient(rgba(255,255,255,0) 50%, rgba(225,225,0,1) 55%), radial-gradient(circle at top left, yellow 5%, lightblue 60%);
-
 }
 
 .warm {
     color: rgb(148, 91, 29);
 }
 
-#landscape.warm {
-    background: linear-gradient(rgba(255,255,255,0) 50%, rgba(125,225,125,1) 55%), radial-gradient(circle at top, yellow 5%, orange 10%, lightblue 65%);
-}
-
 .goldilocks {
     color: rgb(103, 119, 106);
-}
-
-#landscape.goldilocks {
-    background: linear-gradient(rgba(255,255,255,0) 50%, rgba(25,225,25,1) 55%), radial-gradient(circle at top, yellow 5%, lightblue 25%);
 }
 
 .cool {
     color: rgb(40, 98, 221);
 }
 
-#landscape.cool {
-    background: linear-gradient(rgba(255,255,255,0) 50%, rgb(154, 114, 34) 55%), radial-gradient(circle at top, yellow 5%, lightblue 25%);
-}
-
 .cold {
     color: rgb(168, 195, 255);
-}
-
-#landscape.cold {
-    background: linear-gradient(rgba(255,255,255,0) 50%, rgba(225,225,225,1) 55%), radial-gradient(circle at top right, yellow 5%, lightblue 25%);
 }
 
 #temp-display h1 {
@@ -189,8 +170,30 @@ main {
     box-shadow: inset 2px 2px 5px black,
                 inset -2px -2px 5px black,
                 0 0 5px rgb(122, 31, 31);
-    transition: all 2s;
 }
+
+#landscape.hot {
+    background: linear-gradient(rgba(255,255,255,0) 50%, rgba(225,225,0,1) 55%), radial-gradient(circle at top left, yellow 5%, lightblue 60%);
+}
+
+#landscape.warm {
+    background: linear-gradient(rgba(255,255,255,0) 50%, rgba(125,225,125,1) 55%), radial-gradient(circle at top, yellow 5%, orange 10%, lightblue 65%);
+}
+
+#landscape.goldilocks {
+    background: linear-gradient(rgba(255,255,255,0) 50%, rgba(25,225,25,1) 55%), radial-gradient(circle at top, yellow 5%, lightblue 25%);
+}
+
+#landscape.cool {
+    background: linear-gradient(rgba(255,255,255,0) 50%, rgb(154, 114, 34) 55%), radial-gradient(circle at top, yellow 5%, lightblue 25%);
+}
+
+#landscape.cold {
+    background: linear-gradient(rgba(255,255,255,0) 50%, rgba(225,225,225,1) 55%), radial-gradient(circle at top right, yellow 5%, lightblue 25%);
+}
+
+
+/* Classes for painting background with changes to sky selection */
 
 .☀️ {
     background: var(--sun);
@@ -213,6 +216,9 @@ main {
 .🌈 {
     background: var(--bare-sun), var(--rainbow), var(--sun);
 }
+
+
+/* Classes and animation for rain overlay  */
 
 .drop {
     margin-right: 20vw;

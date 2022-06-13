@@ -1,13 +1,5 @@
 'use strict';
 
-const landscapes = {
-  hot: '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂',
-  warm: '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷',
-  goldilocks: '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃',
-  cool: '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲',
-  cold: '❄️',
-};
-
 const weather = {
   temperature: 72,
   clouds: 0,
@@ -57,17 +49,20 @@ const skyClass = () => {
   return '🌥';
 };
 
+const updateSkyDisplay = () => {
+  const selectElement = document.querySelector('#sky-selector');
+  selectElement.value = `${skyClass()}`;
+  selectElement.dispatchEvent(new Event('change'));
+};
+
 const updateTempDisplay = () => {
+  // Update temp and temp color
   document.querySelector('#temp-display h1').textContent = weather.temperature;
   document.getElementById('temp-display').classList = `${tempClass()}`;
-  const sky = skyClass();
-  document.querySelector('main').classList = `${sky}`;
-  const selectElement = document.querySelector('#sky-selector');
-  selectElement.value = `${sky}`;
-  selectElement.dispatchEvent(new Event('change'));
   document.getElementById('landscape').classList = tempClass(
     weather.temperature
   );
+  updateSkyDisplay();
 };
 
 const changeTemp = (e) => {
