@@ -34,7 +34,7 @@ h1 {
   position: relative;
   width: 100px;
   height: 90px;
-  margin-left: 7.5%;
+  margin-left: 7%;
   z-index: -1;
   display: flex;
   flex-wrap: nowrap;
@@ -137,6 +137,7 @@ input[type='text']:focus-within {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 15%;
 }
 #currentTemp {
   font-weight: 700;
@@ -169,9 +170,16 @@ svg {
   height: 400px;
   position: absolute;
   z-index: -1;
+  left: 5%;
 }
 .cloud {
   fill: #fff;
   opacity: 0.9;
   filter: url(#filter);
+}
+
+#resetBtn {
+  position: absolute;
+  right: 0;
+  font-size: 1rem;
 }

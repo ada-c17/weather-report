@@ -11,7 +11,10 @@ const seasonalChange = document.getElementById('seasonalChange');
 const searchCity = document.getElementById('searchCity');
 const cityDisplay = document.getElementById('cityDisplay');
 const currentTempButton = document.getElementById('currentTempButton');
-const selectSkies = document.getElementById('skies').value;
+const resetButton = document.getElementById('resetBtn');
+
+// const selectSkies = document.getElementById('skies');
+// const selection = selectSkies.options[selectSkies.selectedIndex].value;
 // const skyChoice = document.getElementById('skyChoice');
 
 const updateTemp = () => {
@@ -42,17 +45,25 @@ const changeSky = () => {
   // let skyContent = document.getElementById('body').style.background
   //   const skyContent = document.getElementById('skyChoice');
   //   let skyScape = '';
-  if (selectSkies === 'clearDay') {
+  let selection = this.value || document.getElementById('skies').value;
+  if (selection === 'clearDay') {
+    console.log('changing to Sunny');
     seasonalChange.textContent = '🔆';
     // skyContent = 'linear-gradient(to bottom, '#daf4ff', '#d1eaff', '#bfd7ff')'
-  } else if (selectSkies === 'rain') {
+  } else if (selection === 'rain') {
+    console.log('changing to rainy');
     seasonalChange.textContent = '🌧';
-  } else if (selectSkies === 'wind') {
+  } else if (selection === 'wind') {
+    console.log('changing to windy');
     seasonalChange.textContent = '🌬';
-  } else if (selectSkies === 'snow') {
+  } else if (selection === 'snow') {
+    console.log('changing to snowy');
     seasonalChange.textContent = '❄️';
   }
 };
+window.onload = changeSky;
+
+document.getElementById('skies').addEventListener('change', changeSky);
 // change the sky
 // const setIcon = (icons, iconID) => {
 //   const skycons = new Skycons({ color: '#2b2d42' });
@@ -66,7 +77,7 @@ const registerEventHandlers = () => {
   decrementButton.addEventListener('click', decrementTemp);
   searchCity.addEventListener('input', updateCity);
   currentTempButton.addEventListener('click', findLatitudeAndLongitude);
-  selectSkies.addEventListener('change', changeSky);
+  //   selectSkies.addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
@@ -104,6 +115,11 @@ const alterTextColor = () => {
   console.log('text color did not change');
 };
 
+const refreshPage = () => {
+  location.reload();
+};
+
+resetButton.addEventListener('click', refreshPage);
 // const setIcons = () => {
 //   icons.set('clear-day', Skycons.CLEAR_DAY);
 //   icons.set('rain', Skycons.RAIN);
