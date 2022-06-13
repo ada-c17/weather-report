@@ -11,8 +11,8 @@ const state = {
 
 // increase temperature
 const increaseTemperature = () => {
-  state.temperature += 1;
   const temperatureContainer = document.getElementById('temperature');
+  state.temperature += 1;
 
   temperatureContainer.textContent = `${state.temperature}° F`;
 
@@ -23,8 +23,8 @@ const increaseTemperature = () => {
 
 // decrease temperature
 const decreaseTemperature = () => {
-  state.temperature -= 1;
   const temperatureContainer = document.getElementById('temperature');
+  state.temperature -= 1;
 
   temperatureContainer.textContent = `${state.temperature}° F`;
 
@@ -134,11 +134,10 @@ const manuallyChangeSky = () => {
   }
 };
 
-// update display city and temp based on user input
-const updateDisplayCityAndTemp = () => {
+// update display city based on user input
+const updateDisplayCity = () => {
   const displayCity = document.getElementById('display-city');
   const userInputCity = document.getElementById('input-city').value;
-  const currentTemp = document.getElementById('temperature');
 
   const capitalizedCity =
     userInputCity.charAt(0).toUpperCase() +
@@ -148,16 +147,20 @@ const updateDisplayCityAndTemp = () => {
   state.currentCity = capitalizedCity;
   displayCity.textContent = state.currentCity;
 
-  // call getLatAndLon to update state.coordinates
-  state.coordinates = getLatAndLon();
-  console.log(state.coordinates);
+  // update display temperature
+  showCurrentTemp();
+};
 
-  // call getCurrentWeather to update state.temperature
-  state.temperature = getCurrentWeather();
-  console.log(state.temperature);
+// function to display real time temperature
+const showCurrentTemp = () => {
+  const currentTemp = document.getElementById('temperature');
 
-  // update temperature text content
+  getCurrentTemp();
   currentTemp.textContent = `${state.temperature}° F`;
+
+  changeTemperatureColor();
+  changeLandscape();
+  changeSky();
 };
 
 // reset display city
@@ -167,6 +170,8 @@ const resetDisplayCity = () => {
   document.getElementById('input-city').value = '';
   displayCity.textContent = 'Chicago';
   state.currentCity = displayCity.textContent;
+
+  showCurrentTemp();
 };
 
 const registerEventHandlers = () => {
@@ -177,7 +182,10 @@ const registerEventHandlers = () => {
   decreaseTempButton.addEventListener('click', decreaseTemperature);
 
   const changeCityButton = document.getElementById('change-city-button');
-  changeCityButton.addEventListener('click', updateDisplayCityAndTemp);
+  changeCityButton.addEventListener('click', updateDisplayCity);
+
+  const currentTempButton = document.getElementById('current-temp-button');
+  currentTempButton.addEventListener('click', showCurrentTemp);
 
   const resetCityButton = document.getElementById('reset-city-button');
   resetCityButton.addEventListener('click', resetDisplayCity);
@@ -190,7 +198,8 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 // endpoints to retrieve real time weather
 
-const getLatAndLon = () => {
+const getCurrentTemp = () => {
+  // get latitude and longitude of current city
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
@@ -203,26 +212,28 @@ const getLatAndLon = () => {
 
       return [lat, lon];
     })
+    // get current temp of current city
+    .then((response) => {
+      axios
+        .get('http://127.0.0.1:5000/weather', {
+          params: {
+            lat: response[0],
+            lon: response[1],
+          },
+        })
+        .then((response) => {
+          const tempInK = response.data.current.temp;
+          const tempInF = Math.floor(1.8 * (tempInK - 273) + 32);
+
+          state.temperature = tempInF;
+
+          return tempInF;
+        })
+        .catch(() => {
+          console.log('Error retrieving current weather');
+        });
+    })
     .catch(() => {
       console.log('Error retrieving latitude and longitude');
-    });
-};
-
-const getCurrentWeather = () => {
-  axios
-    .get('http://127.0.0.1:5000/weather', {
-      params: {
-        lat: state.coordinates[0],
-        lon: state.coordinates[1],
-      },
-    })
-    .then((response) => {
-      const tempInK = response.data.current.temp;
-      const tempInF = Math.floor(1.8 * (tempInK - 273) + 32);
-
-      return tempInF;
-    })
-    .catch(() => {
-      console.log('Error retrieving current weather');
     });
 };
