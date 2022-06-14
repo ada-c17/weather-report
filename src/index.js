@@ -1,4 +1,4 @@
-//write conditional statements to change backgroundColor based on temp
+//BackgroundColor and landscape will change based on temp ranges:
 // 95+	Red
 // 80-95	Orange
 // 70-80	green
@@ -31,11 +31,7 @@ const updateTempBackground = () => {
 
 const addSky = () => {
   const skyContainer = document.querySelector('#skyContainer');
-  // const optionChosen = document.querySelector('#skyOptionsButton').value;
-  const optionChosen =
-    document.querySelector('#skyOptionsButton').options[skyOption.selectedIndex] //this doesn't work...
-      .value;
-  // Need to fix this... how do I get at the option selected
+  let optionChosen = document.getElementById('skyOptionsButton').value;
   console.log(`This is the option selected: ${optionChosen}`);
   if ((optionChosen = 'sunny')) {
     skyContainer.textContent = '🌞😎🌤🌞😎🌤🌞😎🌤🌞😎🌤';
@@ -69,7 +65,7 @@ const changeCity = (event) => {
 };
 
 // Notes to self: Need to:
-// 1. activate venv in weatherAPI-proxy
+// 1. activate venv in weatherAPI-proxy (`source venv/bin/activate`)
 // 2. flask run
 
 const apiRequests = () => {
@@ -113,9 +109,8 @@ const registerEventHandlers = (event) => {
   const getRealTempButton = document.querySelector('#getRealTimeTemp');
   getRealTempButton.addEventListener('click', apiRequests);
   getRealTempButton.addEventListener('click', updateTempBackground);
-  const skyOption =
-    document.querySelector('#skyOptionsButton').options[skyOption.selectedIndex]
-      .value;
+
+  const skyOption = document.getElementById('skyOptionsButton');
   skyOption.addEventListener('change', addSky);
 };
 
@@ -127,6 +122,7 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 // To see whats within an element:
 // console.log(document.getElementById('temp').innerHTML);
 
+// API call example:
 // axios
 //   .get('some URL')
 //   .then((response) => {
@@ -136,14 +132,14 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 //     // Code that executes with an unsuccessful response goes here
 //   });
 
+// API endpoints:
 // http://127.0.0.1:5000/location
 // http://127.0.0.1:5000/location?q='seattle, wa'
 
 // http://127.0.0.1:5000/weather
 // http://127.0.0.1:5000/weather?lat=47.6484673&lon=-122.3790015
 
-//examples:
-
+// Related examples:
 // const registerEventHandlers = (event) => {
 //   console.log('in event handler:', event);
 //   const bookButton = document.querySelector('#addBook');
