@@ -27,8 +27,8 @@ h1 {
   width: 40%;
 }
 
-.black {
-  color: black;
+#displayTemperature {
+  text-shadow: 2px 1px #000000;
 }
 
 .red {
