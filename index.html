@@ -4,9 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/index.css" rel="stylesheet" />
+
     <title>Weather Report</title>
 </head>
 <body>
+    <header>
+    <h1>Weather Report</h1>
+    </header>
+    <main>
+        <div class="grid-display">
+            <img id="sunnyday" src="/ada-project-docs/images/sunnyday.jpg" alt="a sunnyday" />
+            <div id="cityTempcontainer">
+                <h1 id="cityLabel">Honolulu</h1>
+                <h1 id="tempLabel">70°F</h1>
+
+            </div>
+        </div>
+        
+        <div class="grid-display">
     
+            <section>
+                <h1>Change the Sky</h1>
+                <select id="sky-types">
+                    <option value="sunny">Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                </select>
+                <div id="sky-horizon">☁️ ☁️ ☁️🌞☁️ ☁️ ☁️</div>
+            </section>
+            <h1 id="tempLabel" class="green">Temperature</h1>
+            <span id="tempUp">⬆️</span>
+            <span id="tempDown">⬇️</span>
+            <section>
+                <div id="landscape">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</div>
+                <div id="searchContainer">
+                    <label for="citySearch">Search City</label>
+                    <input type="search" id="citySearch" name="citySearch">
+                    <button id="submitCity">Submit</button>
+                    <button id="reset">Reset</button>
+                </div>
+            </section>
+        
+        </div>
+    </main>
+    <footer>
+    </footer>
+
+
+    <script src="src/index.js" type="text/javascript"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
