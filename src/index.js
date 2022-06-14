@@ -135,20 +135,32 @@ const manuallyChangeSky = () => {
 };
 
 // update display city based on user input
+// const updateDisplayCity = () => {
+//   const displayCity = document.getElementById('display-city');
+//   const userInputCity = document.getElementById('input-city').value;
+
+//   const capitalizedCity =
+//     userInputCity.charAt(0).toUpperCase() +
+//     userInputCity.slice(1).toLowerCase();
+
+//   // update display city text content
+//   state.currentCity = capitalizedCity;
+//   displayCity.textContent = state.currentCity;
+
+//   // update display temperature
+//   showCurrentTemp();
+// };
+
 const updateDisplayCity = () => {
   const displayCity = document.getElementById('display-city');
   const userInputCity = document.getElementById('input-city').value;
 
-  const capitalizedCity =
-    userInputCity.charAt(0).toUpperCase() +
-    userInputCity.slice(1).toLowerCase();
-
   // update display city text content
-  state.currentCity = capitalizedCity;
-  displayCity.textContent = state.currentCity;
+  // state.currentCity = userInputCity;
+  displayCity.textContent = userInputCity;
 
   // update display temperature
-  showCurrentTemp();
+  // showCurrentTemp();
 };
 
 // function to display real time temperature
@@ -183,8 +195,11 @@ const registerEventHandlers = () => {
   const decreaseTempButton = document.getElementById('decrease-temp');
   decreaseTempButton.addEventListener('click', decreaseTemperature);
 
-  const changeCityButton = document.getElementById('change-city-button');
-  changeCityButton.addEventListener('click', updateDisplayCity);
+  // const changeCityButton = document.getElementById('change-city-button');
+  // changeCityButton.addEventListener('click', updateDisplayCity);
+
+  const userInputCity = document.getElementById('input-city');
+  userInputCity.addEventListener('input', updateDisplayCity);
 
   const currentTempButton = document.getElementById('current-temp-button');
   currentTempButton.addEventListener('click', showCurrentTemp);
