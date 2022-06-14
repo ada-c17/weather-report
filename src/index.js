@@ -134,42 +134,24 @@ const manuallyChangeSky = () => {
   }
 };
 
-// update display city based on user input
-// const updateDisplayCity = () => {
-//   const displayCity = document.getElementById('display-city');
-//   const userInputCity = document.getElementById('input-city').value;
-
-//   const capitalizedCity =
-//     userInputCity.charAt(0).toUpperCase() +
-//     userInputCity.slice(1).toLowerCase();
-
-//   // update display city text content
-//   state.currentCity = capitalizedCity;
-//   displayCity.textContent = state.currentCity;
-
-//   // update display temperature
-//   showCurrentTemp();
-// };
-
 const updateDisplayCity = () => {
   const displayCity = document.getElementById('display-city');
   const userInputCity = document.getElementById('input-city').value;
 
   // update display city text content
-  // state.currentCity = userInputCity;
   displayCity.textContent = userInputCity;
-
-  // update display temperature
-  // showCurrentTemp();
 };
 
 // function to display real time temperature
 const showCurrentTemp = () => {
+  // update state current city based on completed user input
+  state.currentCity = document.getElementById('display-city').textContent;
+
   const currentTemp = document.getElementById('temperature');
 
+  // update display temp, sky, and landscape after retrieving weather data
   getCurrentTemp().then(() => {
     currentTemp.textContent = `${state.temperature}° F`;
-    console.log('made it to showCurrentTemp');
 
     changeTemperatureColor();
     changeLandscape();
@@ -195,9 +177,6 @@ const registerEventHandlers = () => {
   const decreaseTempButton = document.getElementById('decrease-temp');
   decreaseTempButton.addEventListener('click', decreaseTemperature);
 
-  // const changeCityButton = document.getElementById('change-city-button');
-  // changeCityButton.addEventListener('click', updateDisplayCity);
-
   const userInputCity = document.getElementById('input-city');
   userInputCity.addEventListener('input', updateDisplayCity);
 
@@ -213,7 +192,7 @@ const registerEventHandlers = () => {
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
-// endpoints to retrieve real time weather
+// endpoints to retrieve real time weather data
 
 const getCurrentTemp = () => {
   // get latitude and longitude of current city
@@ -243,8 +222,8 @@ const getCurrentTemp = () => {
             const tempInK = response.data.current.temp;
             const tempInF = Math.floor(1.8 * (tempInK - 273) + 32);
 
+            // update state temperature
             state.temperature = tempInF;
-            console.log(state.temperature);
 
             return tempInF;
           })
