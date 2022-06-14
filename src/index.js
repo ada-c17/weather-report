@@ -7,12 +7,10 @@ const state = {
 
 const increaseTemp = (event) => {
   state.tempCounter += 1;
-  // not sure why we have to have this
   const tempCounterContainer = document.getElementById('tempNumber');
   tempCounterContainer.textContent = state.tempCounter + '°';
   let tempCircle = document.getElementById('circle');
   tempCircle = displayColorAndGarden(event);
-  // we are changing textContent even if it's just a var?
 };
 
 const decreaseTemp = (event) => {
@@ -27,8 +25,6 @@ const displayColorAndGarden = (event) => {
   let tempCircleColor = document.getElementById('tempNumber');
   let gardenContainer = document.getElementById('earthGarden')
   if (state.tempCounter >= 80) {
-    // what is the method for changing color of an html el?
-    // how do we get the color red to be a value in js?
     tempCircleColor.style.color = 'red';
     gardenContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (state.tempCounter <= 79 && state.tempCounter >= 70) {
@@ -94,7 +90,7 @@ const registerEventHandlers = (event) => {
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 // translate from Kelvin
-const toFahrenheit = function(temp) {
+const fromKelvinToFahrenheit = function(temp) {
   return (temp - 273.15) * 9/5 + 32;
 };
 
@@ -105,8 +101,6 @@ const getLatAndLon = () => {
     }
   })
   .then(function (response) {
-    //  what are we calling back? - success message
-    // console.log('success!', response);
     state.lat = response.data[0].lat;
     state.lon = response.data[0].lon;
     console.log('success');
@@ -114,8 +108,6 @@ const getLatAndLon = () => {
 
   })
   .catch(function (error) {
-    //what is the error message?
-    // we have error message if url endpoint is incorrect for example
     console.log('error!', error.response.data);
   })
 }
@@ -124,19 +116,15 @@ const getWeather = (latitude, longitude) => {
   axios.get('http://127.0.0.1:5000/weather',
   {
     params: {
-      // lat: state.lat,
-      // lon: state.lon
       lat: latitude,
       lon: longitude
     }
   })
   .then(function (response) {
-    //  what are we calling back? - success message
-    // console.log('success!', response);
     console.log('success');
     weatherResponse = response.data;
     let realTemp = weatherResponse.current.temp
-    realTemp = Math.floor(toFahrenheit(realTemp));
+    realTemp = Math.floor(fromKelvinToFahrenheit(realTemp));
 
     let tempNumElement = document.getElementById('tempNumber');
     tempNumElement.textContent = realTemp;
@@ -144,8 +132,6 @@ const getWeather = (latitude, longitude) => {
     displayColorAndGarden(event);
   })
   .catch(function (error) {
-    //what is the error message?
-    // we have error message if url endpoint is incorrect for example
     console.log('error!', error)
   })
 }
