@@ -10,7 +10,7 @@ section.info {
     
 
 }
-section.temperatureContainer {
+#temperatureContainer {
     padding: 50px;
     border-color: pink;
     background-color: aquamarine;
