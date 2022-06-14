@@ -1,0 +1,255 @@
+body {
+    background-color: #C2DED1;
+    color: #354259;
+    font-family: "JetBrains";
+    margin: 0;
+    padding: 0;
+    /* height: 100%;
+    width: 100%; */
+    /* font-size: 1.5;
+    line-height: 1.5; */
+}
+
+h1 {
+    width: 200px;
+    padding: 10px;
+    margin: auto;
+    color: rgb(89, 119, 128);
+    font-family: 'Lucida Console';
+    font-size: 48px;
+}
+
+h2 {
+    width: 200px;
+    padding: 10px;
+    margin: auto;
+    color: rgb(89, 119, 128);
+    font-family: "Lucida Console";
+    font-size: 25px;
+    line-height: 1.15l;
+    color: #FBF7F0;
+}
+
+h3 {
+    width: 200px;
+    padding: 10px;
+    margin: auto;
+    font-family: "Lucida Console";
+    font-size: 25px;
+    line-height: 1.15l;
+    color: #ECE5C7;
+}
+
+h4 {
+    width: 200px;
+    padding: 10px;
+    margin: auto;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    /* font-weight: bold; */
+    line-height: 1.15l;
+    color: #FBF7F0;
+}
+
+/* html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+} */
+
+/* need to make direction column because I want 5 columns
+    header
+    header2
+    displays
+    weather garden header 2
+    gardenbox
+*/
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 900px;
+    border-style: solid;
+    border: thin solid #354259;
+    padding: 60px;
+    margin: 40px;
+    background: #ECE5C7;
+    border-radius: 6px;
+    /* #bed5de */
+    /* background: linear-gradient(to top, #f0eddf, #ECE5C7); */
+}
+
+#header {
+    padding: 20px;
+    border-style: solid;
+    border: thin solid #ECE5C7;
+}
+
+.row1-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+    /* border-style: solid;
+    border: thin solid #ECE5C7; */
+}
+
+#wrapsEls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    /* border-style: solid;
+    border: thin solid #354259; */
+    height: 60%;
+    width: 80%;
+}
+
+#mini-wrapper-temperature{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 120px;
+    width: 30%;
+    /* border-style: solid;s
+    border: thin solid #354259; */
+}
+
+#circle {
+    display: flex;
+    align-items: center;
+    width: 43px;
+    height: 43px;
+    border-radius: 20px;
+    /* background: linear-gradient(to bottom, #40b3ff, #09f); */
+    background: linear-gradient(to bottom, #f79ea7, #ff4b5c);
+}
+
+#getRealTemp {
+    display: grid;
+    align-items: center;
+    width: 86px;
+    height: 40px;
+    border-radius: 20px;
+    /* background: linear-gradient(to bottom, #40b3ff, #09f); */
+    /* background: linear-gradient(to bottom, #bed5de, #64bfe0); */
+    background: linear-gradient(to bottom, #f79ea7, #f46f7c);
+    border: none;
+    color: #FBF7F0;
+}
+
+#tempNumber {
+    width: 90%;
+}
+
+#box-display {
+    background-color: #C2DED1;
+    height: 220px;
+    width: 220px;
+    border-style: solid;
+    /* CDC2AE  354259 */
+    border: thin solid #CDC2AE;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+select {
+    font-size: .9rem;
+    padding: 2px 5px;
+}
+
+/* #sky-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 900px;
+    border-style: solid;
+    border: thin solid #354259;
+}
+
+#city-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 900px;
+    border-style: solid;
+    border: thin solid #354259;
+} */
+
+
+#miniheader {
+    height: 50px;
+    width: 200%;
+    border-style: solid;
+    border: thin solid #ECE5C7;
+    color: #f95e6d;
+    /* f95e6d   fa5868*/
+}
+
+.row3-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 200px;
+    width: 400px;
+    border-style: solid;
+    border: thin solid #CDC2AE;
+    margin: 20px;
+    padding: 20px;
+    background: #C2DED1;
+    border-radius: 6px;
+}
+
+#skyGarden {
+    height: 50px;
+    /* width: 250px; */
+    /* border-style: solid;
+    border: thin solid #ECE5C7; */
+    /* text-align: center; */
+    font-size: 30px;
+}
+
+#earthGarden {
+    height: 50px;
+    /* border-style: solid;
+    border: thin solid #ECE5C7; */
+    font-size: 30px;
+}
+
+
+
+
+
+/*
+
+i {
+  font-size: 20px;
+  padding: 10px;
+  padding-bottom: 5px;
+  margin: auto;
+
+}
+
+i:hover {
+  color: rgb(250, 128, 128);
+  cursor: pointer;
+}
+
+
+
+*/
