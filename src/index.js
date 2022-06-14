@@ -4,6 +4,12 @@ const state = {
   temperatureCount: 0,
 };
 
+const changeTemperatureColor = () => {
+ if (state.temperatureCount >= 80) {
+  
+ }
+}
+
 const increaseTemperatureCount = (tempChangeValue) => {
   const displayTemperatureEl = document.getElementById("displayTemperature");
   state.temperatureCount += tempChangeValue;
