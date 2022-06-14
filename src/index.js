@@ -50,10 +50,14 @@ const updateCityLabel = () => {
   citySearch.textContent = `${state.city}`;
 };
 
+const updateCityWithTemp = () => {
+  updateCity();
+  getLatAndLong();
+};
+
 const updateCity = () => {
   const searchFieldInput = document.getElementById('citySearch');
   state.city = searchFieldInput.value;
-  getLatAndLong();
   updateCityLabel();
 };
 
@@ -76,9 +80,9 @@ const updateTheSky = () => {
 
 const resetCity = () => {
   const cityName = document.getElementById('citySearch');
-  cityName.value = 'Honolulu';
-  updateCity();
   cityName.value = '';
+  state.city = 'Honolulu';
+  updateCityLabel();
 };
 
 const registerEventHandlers = () => {
@@ -87,11 +91,13 @@ const registerEventHandlers = () => {
   const tempDownButton = document.getElementById('tempDown');
   tempDownButton.addEventListener('click', decreaseTemp);
   const submitCityButton = document.getElementById('submitCity');
-  submitCityButton.addEventListener('click', updateCity);
+  submitCityButton.addEventListener('click', updateCityWithTemp);
   const selectItem = document.getElementById('sky-types');
   selectItem.addEventListener('change', updateTheSky);
   const resetButton = document.getElementById('reset');
   resetButton.addEventListener('click', resetCity);
+  const citySearchEl = document.getElementById('citySearch');
+  citySearchEl.addEventListener('input', updateCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
