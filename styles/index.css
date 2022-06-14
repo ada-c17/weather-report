@@ -39,7 +39,7 @@ body {
 
 #changeCity {
     background-color: #A5BECC ;
-    margin-right: 20px; 
+    margin-right: 5px; 
 }
 
 #cityToSearch {
@@ -110,15 +110,15 @@ h3 {
 }
 
 #skyContainer {
-    padding: 20px;
+    /* padding: 20px; */
     /* margin: 20px; */
-    align-self: start;
+    /* align-self: start; */
 }
 
 #landscapeContainer {
     padding: 20px;
-    /* margin: 20px; */
-    align-self: baseline;
+    margin: 20px;
+    /* align-self: baseline; */
 }
 
 #skyOptionsContainer {

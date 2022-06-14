@@ -65,6 +65,11 @@ const changeCity = (event) => {
   titleContainer.textContent = document.getElementById('cityToSearch').value;
 };
 
+const ResetCity = () => {
+  let cityInput = document.querySelector('#cityToSearch');
+  cityInput.value = '';
+};
+
 // Notes to self: Need to:
 // 1. activate venv in weatherAPI-proxy (`source venv/bin/activate`)
 // 2. flask run
@@ -112,6 +117,8 @@ const registerEventHandlers = (event) => {
   getRealTempButton.addEventListener('click', updateTempBackground);
   const skyOption = document.getElementById('skyOptionsButton');
   skyOption.addEventListener('change', addSky);
+  const resetButton = document.getElementById('resetButton');
+  resetButton.addEventListener('click', ResetCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
