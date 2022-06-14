@@ -4,12 +4,12 @@ let state = {
 };
 
 const images = [
-  'url("/images/image1.jpg")',
-  'url("/images/image2.jpg")',
-  'url("/images/image3.jpg")',
-  'url("/images/image4.jpg")',
-  'url("/images/image5.jpg")',
-  'url("/images/image6.jpg")',
+  'url("./images/image1.jpg")',
+  'url("./images/image2.jpg")',
+  'url("./images/image3.jpg")',
+  'url("./images/image4.jpg")',
+  'url("./images/image5.jpg")',
+  'url("./images/image6.jpg")',
 ];
 
 // change color by temp, change background by temp
