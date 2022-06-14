@@ -1,5 +1,5 @@
 "use strict";
-console.log('helloooooo');
+
 //const axios = require('axios');
 
 // let map;
@@ -39,6 +39,7 @@ const state = {
     degree:60,
     isF: true,
     cityName: 'Poppy City, USA',
+    
 };
 //let theText = myTextInput.value;
 const showCityName=()=>{
@@ -51,7 +52,7 @@ const changeToC=()=>{
     const degreeCountContainer = document.getElementById("degree");
     if (state.isF){
         state.isF=false;
-        degreeCountContainer.textContent = (state.degree -32)/1.8;
+        degreeCountContainer.textContent = Math.floor((state.degree -32)/1.8);
     }
 
 }
@@ -59,23 +60,18 @@ const changeToF=()=>{
     const degreeCountContainer = document.getElementById("degree");
     if (! state.isF){
         state.isF=true;
-        updateTempDisplay(); 
     }
-
+    degreeCountContainer.textContent=state.degree;
 }
 const changeTemp=(e)=> { //refactor 2 functions together to change temp
-    e.target.id ==='plus'? state.degree++: state.degree--;
-    console.log(state.degree);
-    updateTempDisplay();
-}
-const updateTempDisplay=()=>{
     const degreeCountContainer = document.getElementById("degree");
-    degreeCountContainer.textContent = state.degree;
+    e.target.id ==='plus'? state.degree++: state.degree--;
+    degreeCountContainer.textContent=state.degree;
 }
 // const plusTemp = (e) => {
 //     const degreeCountContainer = document.getElementById("degree");
 //     state.degree += 1;
-//     degreeCountContainer.textContent = state.degree;
+//     degreeCountContainer.textContent=state.degree;
 
 //     const temperature = document.querySelector("#degree");
 //     if (temperature > 80) {
@@ -96,9 +92,12 @@ const updateTempDisplay=()=>{
 //     state.clickCount=0;
 // };
 const resetTemp = () => {
+    const degreeCountContainer = document.getElementById("degree");
     state.degree = 60;
     state.isF=true;
-    updateTempDisplay();
+    
+    degreeCountContainer.textContent=state.degree;
+    
 }
 const getLocation=(theText)=> {
     axios
@@ -131,20 +130,41 @@ const getWeather = (loc)=>{
     }
 )};
 const showRealWeather = ()=> {
+    const degreeCountContainer = document.getElementById("degree");
     let theText = myTextInput.value;
     loc=getLocation(theText);
     temp=getWeather(loc);
     state.degree=temp;
     state.isF=true;
-    updateTempDisplay();
+    degreeCountContainer.textContent=state.degree;
 }
-
+const selectSky= (event)=>{
+    const result = document.querySelector('.result');
+    result.textContent = event.target.value;
+    
+}
+const changeBackground=(event) =>{ // this one doesn't work
+    let imgPath ='';
+    imgPath = document.getElementById("body").style.backgroundImage;
+    if (event.target.value == 'sunny'){
+        document.getElementById("body").style.backgroundImage=url('/assets/sunny.gif');
+    }else if (event.target.value == 'rainy'){
+        document.getElementById("body").style.backgroundImage=url('/assets/rainy.gif');
+    }else if (event.target.value == 'snowy'){
+        document.getElementById("body").style.backgroundImage=url('/assets/snow.gif');
+    }else if (event.target.value == 'cloudy'){
+        document.getElementById("body").style.backgroundImage=url('/assets/cloudy.webp');
+    }
+    
+}
 const registerEventHandlers = () => {
     console.log('hello!');
     const realWeather=document.getElementById("s");
     realWeather.addEventListener("click", showRealWeather);
+
     const plusDegree = document.getElementById("plus");
     plusDegree.addEventListener("click", changeTemp);
+
     const minusDegree = document.getElementById("minus");
     minusDegree.addEventListener("click", changeTemp);
 
@@ -161,14 +181,12 @@ const registerEventHandlers = () => {
     showCity.addEventListener('click', showRealWeather);
 
     const sky= document.getElementById("select-sky");
-    sky.addEventListener('change', (event) => {
-    const result = document.querySelector('.result');
-    result.textContent = event.target.value;
-    });
+    sky.addEventListener('change', selectSky);
+    sky.addEventListener('change', changeBackground);
 }
 
 
 // DOM listener
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
 
-//registerEventHandlers();
+

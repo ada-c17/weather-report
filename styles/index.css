@@ -1,4 +1,33 @@
 
+#body{
+    /* background-image: url(src/index.js/state.image); */
+    background-image: url('/assets/sunny.gif');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center; /* Center the image */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+h1{
+    font-size: 3em;
+    color: rgb(196, 196, 196);
+}
+h2{
+    font-size: 2em;
+    color: rgb(196, 196, 196);
+}
+section{
+    width: 35em;
+    height: 55em;
+    border: 2px;
+    border-radius: 15%;
+    position: center;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    padding: 5em;
+    opacity: .6;
+}
 .box {
     width: 30em;
     height: 25em;
@@ -10,6 +39,8 @@
     position: center;
     margin-left: auto;
     margin-right: auto;
+    
+    
 }
 .box1{
     width: 25em;
@@ -83,7 +114,7 @@
     height: 2em;
     width: 2em;
     font-size: 1.5em;
-    margin-left: 2em;
+    margin-left: 3em;
     margin-right: 2em;
     border-radius: 15%;
 }
