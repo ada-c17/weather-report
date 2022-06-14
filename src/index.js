@@ -45,29 +45,6 @@ const render = {
 
 // Math.floor(1.8 * (k - 273) + 32)
 
-const weatherChange = (temperature) => {
-  // What season goes with this temperature?
-  // Given a temperature access the season data structure
-  // Set uppper and lower bounds
-  const weatherReference = [
-    {
-      lowerTemp: 80,
-      color: 'red',
-    },
-    {
-      upperTemp: 69,
-      lowerTemp: 60,
-      color: 'orange',
-    },
-    {
-      upperTemp: 59,
-      lowerTemp: 50,
-      color: 'yellow',
-    },
-  ];
-};
-
-
 const setBackgroundColorLandscape = (temperature) => {
   if (temperature > 80) {
     state.tempBackgroundColor = 'red';
@@ -228,21 +205,6 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 makeApiCallUsingAsync();
 getTemperature();
 
-
-
-  
-
-// document.body.style.backgroundColor = "navy";
-
-// function changeColour () {
-//   let red = document.getElementById('rangeRed').value;
-//   let blue = document.getElementById('rangeBlue').value;
-//   let green = document.getElementById('rangeGreen').value;
-//   // let blue = document.getElementById('rangeRed').value;
-//   let orange = document.getElementById('rangeRed').value;
-// }
-
-
 // axios
 //   .get('https://us1.locationiq.com/v1/search.php')
 //   .then((response) => {
@@ -257,15 +219,3 @@ getTemperature();
 
 
 
-
-  // axios
-  // .get('https://api.openweathermap.org/data/2.5/onecall')
-  // .then((response) => {
-  //   console.log('SUCCESS');
-
-  // })
-  // .catch((error) => {
-  //   console.log('ERROR');
-
-  // });
-  
