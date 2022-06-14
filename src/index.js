@@ -37,7 +37,7 @@ const addSky = () => {
   if (optionChosen === 'sunny') {
     skyContainer.textContent = '🌞😎🌤🌞😎🌤🌞😎🌤🌞😎🌤';
   } else if (optionChosen === 'cloudy') {
-    skyContainer.textContent = '☁️🌁🌥🌤☁️☁️🌁🌥🌤☁️☁️🌁🌥🌤☁️';
+    skyContainer.textContent = '☁️🌁🌥🌤☁️🌁🌥🌤☁️☁️🌁🌥🌤☁️';
   } else if (optionChosen === 'rainy') {
     skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
   } else if (optionChosen === 'snowy') {
