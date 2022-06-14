@@ -33,13 +33,14 @@ const addSky = () => {
   const skyContainer = document.querySelector('#skyContainer');
   let optionChosen = document.getElementById('skyOptionsButton').value;
   console.log(`This is the option selected: ${optionChosen}`);
-  if ((optionChosen = 'sunny')) {
+
+  if (optionChosen === 'sunny') {
     skyContainer.textContent = '🌞😎🌤🌞😎🌤🌞😎🌤🌞😎🌤';
-  } else if ((optionChosen = 'cloudy')) {
+  } else if (optionChosen === 'cloudy') {
     skyContainer.textContent = '☁️🌁🌥🌤☁️☁️🌁🌥🌤☁️☁️🌁🌥🌤☁️';
-  } else if ((optionChosen = 'rainy')) {
+  } else if (optionChosen === 'rainy') {
     skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else if ((optionChosen = 'snowy')) {
+  } else if (optionChosen === 'snowy') {
     skyContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 };
@@ -109,7 +110,6 @@ const registerEventHandlers = (event) => {
   const getRealTempButton = document.querySelector('#getRealTimeTemp');
   getRealTempButton.addEventListener('click', apiRequests);
   getRealTempButton.addEventListener('click', updateTempBackground);
-
   const skyOption = document.getElementById('skyOptionsButton');
   skyOption.addEventListener('change', addSky);
 };
