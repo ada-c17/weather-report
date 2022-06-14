@@ -155,12 +155,14 @@ const updateDisplayCity = () => {
 const showCurrentTemp = () => {
   const currentTemp = document.getElementById('temperature');
 
-  getCurrentTemp();
-  currentTemp.textContent = `${state.temperature}° F`;
+  getCurrentTemp().then(() => {
+    currentTemp.textContent = `${state.temperature}° F`;
+    console.log('made it to showCurrentTemp');
 
-  changeTemperatureColor();
-  changeLandscape();
-  changeSky();
+    changeTemperatureColor();
+    changeLandscape();
+    changeSky();
+  });
 };
 
 // reset display city
@@ -200,40 +202,43 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 const getCurrentTemp = () => {
   // get latitude and longitude of current city
-  axios
-    .get('http://127.0.0.1:5000/location', {
-      params: {
-        q: state.currentCity,
-      },
-    })
-    .then((response) => {
-      const lat = response.data[0]['lat'];
-      const lon = response.data[0]['lon'];
+  return (
+    axios
+      .get('http://127.0.0.1:5000/location', {
+        params: {
+          q: state.currentCity,
+        },
+      })
+      .then((response) => {
+        const lat = response.data[0]['lat'];
+        const lon = response.data[0]['lon'];
 
-      return [lat, lon];
-    })
-    // get current temp of current city
-    .then((response) => {
-      axios
-        .get('http://127.0.0.1:5000/weather', {
-          params: {
-            lat: response[0],
-            lon: response[1],
-          },
-        })
-        .then((response) => {
-          const tempInK = response.data.current.temp;
-          const tempInF = Math.floor(1.8 * (tempInK - 273) + 32);
+        return [lat, lon];
+      })
+      // get current temp of current city
+      .then((response) => {
+        return axios
+          .get('http://127.0.0.1:5000/weather', {
+            params: {
+              lat: response[0],
+              lon: response[1],
+            },
+          })
+          .then((response) => {
+            const tempInK = response.data.current.temp;
+            const tempInF = Math.floor(1.8 * (tempInK - 273) + 32);
 
-          state.temperature = tempInF;
+            state.temperature = tempInF;
+            console.log(state.temperature);
 
-          return tempInF;
-        })
-        .catch(() => {
-          console.log('Error retrieving current weather');
-        });
-    })
-    .catch(() => {
-      console.log('Error retrieving latitude and longitude');
-    });
+            return tempInF;
+          })
+          .catch(() => {
+            console.log('Error retrieving current weather');
+          });
+      })
+      .catch(() => {
+        console.log('Error retrieving latitude and longitude');
+      })
+  );
 };
