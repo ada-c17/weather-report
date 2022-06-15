@@ -152,6 +152,9 @@ const registerEventHandlers = () => {
 
   const realtimeTemp = document.getElementById('realtime-temp');
   realtimeTemp.addEventListener('click', getCoordinates);
+
+  const skyDropdown = document.getElementById('sky-dropdown');
+  skyDropdown.addEventListener('change', changeSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
