@@ -5,8 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet">
 </head>
+
 <body>
+    <div class="container">
+        <header>
+            <img
+            id="cloud-logo"
+            src="assets/cloud-logo.png"
+            alt="A small, white cloud outlined in black">
+            <h1 id="weather-wizard">weather wizard</h1>
+        </header>
     
+        <section id="current-city">
+            <h2>The temperature in <span id="display-city">Chicago</span> is:</h2>
+        </section>
+
+        <button class="temp-adjusters" id="decrease-temp">-</button>
+        <h2 id="temperature">0</h2>
+        <button class="temp-adjusters" id="increase-temp">+</button>
+
+        <section id="city-search">
+            <label for="input-city"><h2>Show me the weather in:</h2></label>
+            <input type="text" id="input-city" name="name">
+        </section>
+
+        <section id="reset-city-or-temp">
+            <button class="reset-button" id="reset-city-button"><h2>RESET CITY</h2></button>
+            <button class="reset-button" id="current-temp-button"><h2>SHOW CURRENT TEMPERATURE</h2></button>
+        </section>
+
+        <section id="sky-and-landscape-container">
+            <figure id="sky-with-caption">
+                <img
+                id="sky-image"
+                src="assets/sky/grooveland-designs-sunny.jpg"
+                alt="The sun, off in the distance, surrounded by bright blue sky">
+                <figcaption id="sky-caption">Photo by Grooveland Designs</figcaption>
+            </figure>
+            
+            <div id="sky-selector">
+                <label for="sky-dropdown"><h2>CHANGE SKY</h2></label>
+                <select name="skies" id="sky-dropdown">
+                    <option value="">Please select an option below</option>
+                    <option value="sunny">Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="stormy">Stormy</option>
+                    <option value="snowy">Snowy</option>
+                </select>
+            </div>
+
+            <figure id="landscape-with-caption">
+                <img
+                id="landscape-image"
+                src="assets/marissa-rodriguez-summer.jpg"
+                alt="Crystal clear turquoise water in a pool or sea">
+                <figcaption id="landscape-caption">Photo by Marissa Rodriguez</figcaption>
+            </figure>
+        </section>
+    
+        <footer>© 2022 Tiffini Hyatt</footer>
+    </div>
+
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js" type="text/javascript"></script>
 </body>
 </html>
