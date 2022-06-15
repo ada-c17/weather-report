@@ -155,18 +155,23 @@ const registerEventHandlers = () => {
 
 
 // const axios = require('axios');
-const makeApiCallUsingAsync = async () => {
+const getLatitudeLongitude= async (locationName) => {
   try {
     const response = await axios.get('http://127.0.0.1:5000/location', {
       params: {  
-        q: 'New York',
+        q: locationName,
       },
     });
     // Code which normally appears in the `then` block.
     console.log(response.data);
+    latitude = response.data[0].lat;
+    longitude = response.data[0].lon;
+    console.log('success in findLatitudeAndLongitude!', latitude, longitude);
+    
   } catch (error) {
     // Code which normally appears in the `catch` block.
     console.log(error);
+  
   }
 };
 
@@ -180,12 +185,16 @@ const getTemperature = async (lat, lon) => {
       },
     });
     temperature = convertKtoF(response.data.currentTemp.temperature);
+    // return {
+    //   let 
+    // }
+ 
   } catch (error) {
     console.log(`error in getTemp:${error}`);
     tempeContainer.textContent = state.temp;
-  };
+  }
 
-}
+};
 // const getTemperature = () => {
   //   axios
   //   .get('http://127.0.0.1:5000/weather', {
@@ -204,19 +213,11 @@ const getTemperature = async (lat, lon) => {
         
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
-makeApiCallUsingAsync();
-getTemperature();
+let latLon = getLatitudeLongitude('New York');
+getTemperature(latLon.latitude,latLon.longitude); 
+// What will do I want to do with the temperature now that i have it? return it
 
-// axios
-//   .get('https://us1.locationiq.com/v1/search.php')
-//   .then((response) => {
-//     console.log('SUCCESS');
 
-//   })
-//   .catch((error) => {
-//     console.log('ERROR');
-
-//   });
 
 
 
