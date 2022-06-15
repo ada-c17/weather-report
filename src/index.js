@@ -7,6 +7,7 @@ const state = {
 
 const changeTemperatureEnvironment = (displayTemperatureEl) => {
   // displayTemperatureEl.className = "padding-5";
+  // the following works, ho
   const landscape = document.getElementById("landscape");
 
   if (state.temperatureCount <= 49) {
@@ -15,18 +16,22 @@ const changeTemperatureEnvironment = (displayTemperatureEl) => {
   }
   else if (state.temperatureCount <= 59) {
     displayTemperatureEl.classList.add("green");
+    displayTemperatureEl.classList.remove("teal");
   }
   else if (state.temperatureCount <= 69) {
     displayTemperatureEl.classList.add("yellow");
     landscape.textContent = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"
+    displayTemperatureEl.classList.remove("green");
   } 
   else if (state.temperatureCount <= 79) { 
     displayTemperatureEl.classList.add("orange");
     landscape.textContent = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"
+    displayTemperatureEl.classList.remove("yellow");
   }
   else {
     displayTemperatureEl.classList.add("red");
     landscape.textContent = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"
+    displayTemperatureEl.classList.remove("orange");
   }
 };
 
