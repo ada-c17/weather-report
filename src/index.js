@@ -43,24 +43,18 @@ const displayColorAndGarden = (event) => {
 };
 
 const displaySky = (event) => {
-  const selectSkyEl = document.querySelector('option');
-  // console.log(selectSkyEl);
+  let newOption = event.target.value;
   let changeSkyEl = document.getElementById('skyGarden');
-  if (selectSkyEl.value === 'sunny') {
+  if (newOption === 'sunny') {
     changeSkyEl.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️'
-  } else if (selectSkyEl.value === 'cloudy') {
-    changeSkyEl.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️'
-  } else if (selectSkyEl.value === 'rainy') {
+  } else if (newOption === 'cloudy') {
+    changeSkyEl.textContent = '☁️☁️ ☁️ ☁️☁️ 🌤 ☁️ ☁️☁️'
+  } else if (newOption === 'rainy') {
     changeSkyEl.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else if (selectSkyEl.value === 'snowy') {
+  } else if (newOption === 'snowy') {
     changeSkyEl.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨'
   }
-//   Cloudy	"☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️"
-// Rainy	"🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
-// Snowy	"🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
 };
-
-// displaySky()
 
 function changeCity(e) {
   const changeHeading = document.getElementById('miniheader');
@@ -90,8 +84,8 @@ const registerEventHandlers = (event) => {
   const getRealTempButton = document.getElementById('getRealTemp');
   getRealTempButton.addEventListener('click', getLatAndLon);
 
-  const skySelector = document.querySelector('option');
-  getRealTempButton.addEventListener('change', displaySky);
+  const skySelector = document.querySelector('#skySelect');
+  skySelector.addEventListener('change', displaySky);
 
   const resetButton = document.querySelector('#resetButton');
   resetButton.addEventListener('click', resetCity);
@@ -114,7 +108,6 @@ const getLatAndLon = () => {
   .then(function (response) {
     state.lat = response.data[0].lat;
     state.lon = response.data[0].lon;
-    console.log('success');
     getWeather(state.lat, state.lon);
 
   })
@@ -132,7 +125,6 @@ const getWeather = (latitude, longitude) => {
     }
   })
   .then(function (response) {
-    console.log('success');
     weatherResponse = response.data;
     let realTemp = weatherResponse.current.temp
     realTemp = Math.floor(fromKelvinToFahrenheit(realTemp));
@@ -147,5 +139,4 @@ const getWeather = (latitude, longitude) => {
   })
 }
 
-// getLatAndLon()
 
