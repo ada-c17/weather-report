@@ -66,21 +66,44 @@ const updateCity = () => {
 };
 
 const getCoordinates = (city) => {
-  axios.get('https://us1.locationiq.com/v1/search.php', {
-    params: {
-      key: '',
-      q: `${city}`,
-      format: 'json',
-    },
-  })
-  .then((response) => {
-    state.lat = response.data[0].lat;
-    state.lon = response.data[0].lon;
-  })
-  .catch((error) => {
-    console.log('Error getting weather data.');
-    console.log(error.response.data);
-  });
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: 'Houston',
+      },
+    })
+    .then((response) => {
+      state.lat = response.data[0].lat;
+      state.lon = response.data[0].lon;
+      getRealtimeTemp();
+    })
+    .catch((error) => {
+      console.log('Error getting coordinates.');
+      console.log(error.response);
+    });
+};
+
+const getRealtimeTemp = () => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: state.lat,
+        lon: state.lon,
+      },
+    })
+    .then((response) => {
+      const tempKelvin = response.data.current.temp;
+      state.temp = toFahrenheit(tempKelvin);
+      updateTheme();
+    })
+    .catch((error) => {
+      console.log('Error getting weather data');
+      console.log(error.response.data);
+    });
+};
+
+const toFahrenheit = (temp) => {
+  return Math.floor((1.8 * (temp - 273)) + 32);
 }
 
 const registerEventHandlers = () => {
