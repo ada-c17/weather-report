@@ -120,6 +120,9 @@ const registerEventHandlers = () => {
       updateCity();
     }
   });
+
+  const realtimeTemp = document.getElementById('realtime-temp');
+  realtimeTemp.addEventListener('click', getCoordinates);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
