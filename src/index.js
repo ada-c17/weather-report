@@ -103,8 +103,37 @@ const getRealtimeTemp = () => {
 };
 
 const toFahrenheit = (temp) => {
-  return Math.floor((1.8 * (temp - 273)) + 32);
-}
+  return Math.floor(1.8 * (temp - 273) + 32);
+};
+
+const changeSky = () => {
+  const selectedOption = document.getElementById('sky-dropdown').selectedIndex;
+  let pic;
+  switch (selectedOption) {
+    case 0:
+      pic =
+        "url('/Users/daniellewhyte/Developer/projects/weather-report/assets/sunny.jpg')";
+      break;
+    case 1:
+      pic =
+        "url('/Users/daniellewhyte/Developer/projects/weather-report/assets/cloudy.jpg')";
+      break;
+    case 2:
+      pic =
+        "url('/Users/daniellewhyte/Developer/projects/weather-report/assets/rainy.jpg')";
+      break;
+    case 3:
+      pic =
+        "url('/Users/daniellewhyte/Developer/projects/weather-report/assets/snowy.jpg')";
+      break;
+    default:
+      pic =
+        "url('/Users/daniellewhyte/Developer/projects/weather-report/assets/sunny.jpg')";
+  }
+
+  const sky = document.getElementById('sky');
+  sky.style.backgroundImage = pic;
+};
 
 const registerEventHandlers = () => {
   const tempIncreaseButton = document.getElementById('increase');
