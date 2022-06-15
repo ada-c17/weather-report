@@ -6,8 +6,7 @@ const state = {
 
 
 const changeTemperatureEnvironment = (displayTemperatureEl) => {
-  // displayTemperatureEl.className = "padding-5";
-  // the cold emojis don't show up 
+  // displayTemperatureEl.className = "padding-5"; 
   const landscape = document.getElementById("landscape");
 
   if (state.temperatureCount <= 49) {
@@ -16,6 +15,7 @@ const changeTemperatureEnvironment = (displayTemperatureEl) => {
   else if (state.temperatureCount <= 59) {
     displayTemperatureEl.classList.add("green");
     displayTemperatureEl.classList.remove("teal");
+    landscape.textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"
   }
   else if (state.temperatureCount <= 69) {
     displayTemperatureEl.classList.add("yellow");
