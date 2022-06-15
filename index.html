@@ -5,8 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
-</head>
-<body>
+    <link href="./styles/index.css" rel="stylesheet" type="text/css">
+    <!-- <link rel="node_modules" href="./node_modules/axios/dist/axios.min.js" -->
     
+</head>
+<header>
+    <h1 id="headline"> Weather Report</h1>
+    <h2 id="city"> Edmonds</h2> 
+</header>
+
+<body>
+    <section class="info">
+        <section>
+            <label>City: <input type="text" id="input" value=" "></label>
+            <button id="enter">Enter</button>
+            <button type ="reset" id="reset">Reset</button>
+        </section>
+        <section id="temperatureContainer">
+            <button id="upButton"> Increase Temperature</button>
+            <h2 id="f"> Degrees Fahrenheit:60</h2>
+            <button id="downButton"> Decrease Temperature</button>
+        </section>
+        <section>
+            <select id="sky">
+                <option>Sunny</option>
+                <option>Cloudy</option>
+                <option>Rainy</option>
+                <option>Snowy</option>
+            </select>
+            <span id="skies">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</span>
+        </section>
+</section> 
+    <footer class="seasons">
+        <h2>Landscape:
+            <span id="conditions"> 🌸☀️🌸☀️🌸☀️🌸☀️🌸☀️</span>
+        </h2>
+
+        
+    </footer> 
+    <script src="./src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+
 </body>
+
 </html>
