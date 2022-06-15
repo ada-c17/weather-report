@@ -198,6 +198,8 @@ const getTemperature = async (lat, lon) => {
         //     console.log('SUCCESS' + JSON.stringify(Response.data.currentTemp.temperature)
         //     )
         //   })
+        // .catch((error) => {
+          //     console.log('ERROR');
         // }
         
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
