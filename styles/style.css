@@ -4,10 +4,6 @@ body {
     font-family: "Lucida Console";
     margin: 0;
     padding: 0;
-    /* height: 100%;
-    width: 100%; */
-    /* font-size: 1.5;
-    line-height: 1.5; */
 }
 
 h1 {
@@ -51,20 +47,6 @@ h4 {
     color: #FBF7F0;
 }
 
-/* html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-} */
-
-/* need to make direction column because I want 5 columns
-    header
-    header2
-    displays
-    weather garden header 2
-    gardenbox
-*/
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -95,8 +77,6 @@ h4 {
     align-items: center;
     height: 300px;
     width: 100%;
-    /* border-style: solid;
-    border: thin solid #ECE5C7; */
 }
 
 #wrapsEls {
@@ -168,36 +148,12 @@ select {
     padding: 2px 5px;
 }
 
-/* #sky-display {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 100%;
-    width: 900px;
-    border-style: solid;
-    border: thin solid #354259;
-}
-
-#city-display {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 100%;
-    width: 900px;
-    border-style: solid;
-    border: thin solid #354259;
-} */
-
-
 #miniheader {
     height: 50px;
     width: 200%;
     border-style: solid;
     border: thin solid #ECE5C7;
     color: #f95e6d;
-    /* f95e6d   fa5868*/
 }
 
 .row3-wrapper {
@@ -217,39 +173,10 @@ select {
 
 #skyGarden {
     height: 50px;
-    /* width: 250px; */
-    /* border-style: solid;
-    border: thin solid #ECE5C7; */
-    /* text-align: center; */
     font-size: 30px;
 }
 
 #earthGarden {
     height: 50px;
-    /* border-style: solid;
-    border: thin solid #ECE5C7; */
     font-size: 30px;
 }
-
-
-
-
-
-/*
-
-i {
-  font-size: 20px;
-  padding: 10px;
-  padding-bottom: 5px;
-  margin: auto;
-
-}
-
-i:hover {
-  color: rgb(250, 128, 128);
-  cursor: pointer;
-}
-
-
-
-*/
