@@ -7,6 +7,7 @@ let num = state.fahrenheit;
 const tempUp = (event) => {
   state.fahrenheit += 1;
   tempChangeColor(state.fahrenheit);
+  weatherGarden();
   const increase = document.getElementById('f');
   increase.textContent = `Degrees Fahrenheit:${state.fahrenheit}`;
   return increase.textContent;
@@ -15,9 +16,17 @@ const tempUp = (event) => {
 const tempDown = (event) => {
   state.fahrenheit--;
   tempChangeColor(state.fahrenheit);
+  weatherGarden();
   const decrease = document.getElementById('f');
   decrease.textContent = `Degrees Fahrenheit:${state.fahrenheit}`;
   return decrease.textContent;
+};
+const cityInput = (event) => {
+  let cityInput = document.getElementById('input').value;
+  console.log(cityInput);
+  state.city = cityInput;
+  let cityHeader = document.querySelector('#city');
+  cityHeader.textContent = `${state.city}`;
 };
 
 const registerEventHandlers = (event) => {
@@ -26,49 +35,45 @@ const registerEventHandlers = (event) => {
 
   const downButton = document.querySelector('#downButton');
   downButton.addEventListener('click', tempDown);
+
+  //   const changeCity = document.getElementById('enter');
+  //   changeCity.addEventListener(cityInput);
 };
 
 const tempChangeColor = (num) => {
   let element = document.getElementById('temperatureContainer');
   if (state.fahrenheit >= 80) {
     element.style.backgroundColor = 'red';
-  } else if (70 < state.fahrenheit < 80) {
+  } else if (80 > state.fahrenheit && state.fahrenheit >= 70) {
+    console.log('orange');
     element.style.backgroundColor = 'orange';
-  } else if (60 < state.fahrenheit < 70) {
+  } else if (70 > state.fahrenheit && state.fahrenheit >= 60) {
     element.style.backgroundColor = 'yellow';
-  } else if (49 < state.fahrenheit < 60) {
+  } else if (60 > state.fahrenheit && state.fahrenheit >= 50) {
     element.style.backgroundColor = 'green';
-  } else if (33 <= state.fahrenheit < 50) {
+  } else if (50 > state.fahrenheit && state.fahrenheit >= 33) {
     element.style.backgroundColor = 'teal';
-  } else if (state.fahrenheit < 32) {
+  } else if (state.fahrenheit <= 32) {
     element.style.backgroundColor = 'blue';
   }
 };
 
 const weatherGarden = () => {
   let num = state.fahrenheit;
-  let conditions = document.querySelector('#conditions');
+  let conditions = document.getElementById('conditions');
   if (num >= 80) {
-    conditions.textContent = `"🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"`;
-  } else if (70 <= num < 80) {
-    conditions.textContent = `"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"`;
-  } else if (60 <= num < 70) {
-    conditions.textContent = `"🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"`;
-  } else if (50 <= num < 60) {
-    conditions.textContent = `"🌲🌲🌲🍂🌲🍁🌲🌲🍂🌲🍂🍁🍂"`;
-  } else if (33 <= num < 50) {
-    conditions.textContent = `"🍂🍁🍂🍂🍁🍂🍂🍁🍂🍂🍁🍂"`;
+    conditions.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  } else if (80 > num && num >= 70) {
+    conditions.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (70 > num && num >= 60) {
+    conditions.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (60 > num && num >= 50) {
+    conditions.textContent = '🌲🌲🌲🍂🌲🍁🌲🌲🍂🌲🍂🍁🍂';
+  } else if (50 > num && num >= 33) {
+    conditions.textContent = '🍂🍁🍂🍂🍁🍂🍂🍁🍂🍂🍁🍂';
   } else if (num < 32) {
-    conditions.textContent = `"⛄️⛄️⛄️⛄️⛄️⛄️⛄️⛄️⛄️⛄️"`;
+    conditions.textContent = '⛄️⛄️⛄️⛄️⛄️⛄️⛄️⛄️⛄️⛄️';
   }
-};
-
-const cityInput = (event) => {
-  let cityInput = document.getElementById('input').value;
-  console.log(cityInput);
-  state.city = cityInput;
-  let cityHeader = document.querySelector('#city');
-  cityHeader.textContent = `${state.celsius}`;
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
