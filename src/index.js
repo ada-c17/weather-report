@@ -68,6 +68,14 @@ function changeCity(e) {
   state.city = changeHeading.textContent;
 }
 
+function resetCity() {
+  const cityInput = document.querySelector('input');
+  cityInput.value = 'Kąśna Dolna, Poland';
+  const changeHeading = document.getElementById('miniheader');
+  changeHeading.textContent = cityInput.value;
+  state.city = cityInput.value;
+}
+
 const registerEventHandlers = (event) => {
   const tempButtonUp = document.getElementById('tempButtonUp');
   tempButtonUp.addEventListener('click', increaseTemp);
@@ -83,7 +91,10 @@ const registerEventHandlers = (event) => {
   getRealTempButton.addEventListener('click', getLatAndLon);
 
   const skySelector = document.querySelector('option');
-  getRealTempButton.addEventListener('change', displaySky)
+  getRealTempButton.addEventListener('change', displaySky);
+
+  const resetButton = document.querySelector('#resetButton');
+  resetButton.addEventListener('click', resetCity);
 
 };
 
