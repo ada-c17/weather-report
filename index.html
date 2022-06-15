@@ -11,22 +11,29 @@
 </head>
 <header>
     <h1 id="headline"> Weather Report</h1>
-    <h2 id="city"> City Placeholder</h2> 
+    <h2 id="city"> Edmonds</h2> 
 </header>
 
 <body>
     <section class="info">
         <section>
-            <label>City: <input type="text" id="input"></label>
+            <label>City: <input type="text" id="input" value=" "></label>
             <button id="enter">Enter</button>
+            <button type ="reset" id="reset">Reset</button>
         </section>
         <section id="temperatureContainer">
-            <button id="upButton"> increase Temperature</button>
+            <button id="upButton"> Increase Temperature</button>
             <h2 id="f"> Degrees Fahrenheit:60</h2>
-            <button id="downButton"> decrease Temperature</button>
+            <button id="downButton"> Decrease Temperature</button>
         </section>
         <section>
-            <p>sky</p>
+            <select id="sky">
+                <option>Sunny</option>
+                <option>Cloudy</option>
+                <option>Rainy</option>
+                <option>Snowy</option>
+            </select>
+            <span id="skies">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</span>
         </section>
 </section> 
     <footer class="seasons">
@@ -36,10 +43,9 @@
 
         
     </footer> 
-
+    <script src="./src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
 
-    <script src="./src/index.js"></script>
 </body>
 
 </html>
