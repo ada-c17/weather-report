@@ -5,8 +5,100 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Roboto+Condensed&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="styles/index.css" rel="stylesheet"/>
 </head>
 <body>
-    
+
+        <header class="header">
+            <h1>Weather Report: <span id="headerCity"></span></h1>
+
+        </header>
+    <main>
+
+        <!-- <section class="choose_yr_adventure"> -->
+                <section class="choose_city">
+                    <h3>enter a city</h3>
+                    <input type="text" id="cityName" value="New Orleans" />
+                    <button id="realTempButton">get realtime temp</button>
+                    <button id="cityNameReset" class="city-name__reset-btn">Reset</button>
+                    
+                </section>
+                            
+
+            
+                <section id="choose_sky" class="box">
+                    <p>how's the sky? what's it looking like over there ?</p>
+                    <select id="changeSky">
+                        <!-- <option>Sunny &#9728</option>
+                        <option>Cloudy &#9729</option>
+                        <option>Rainy 	&#9730</option>
+                        <option>Snowy 	&#9731</option> -->
+                        <option>sunny</option>
+                        <option>cloudy</option>
+                        <option>raining</option>
+                        <option>snowing</option> 
+                        <!-- <option>Thunderstorm</option>
+                        <option>Drizzle</option>
+                        <option>Rain</option>
+                        <option>Snow</option>
+                        <option>Clear</option>
+                        <option>Clouds</option> -->
+
+                        Thunderstorm 
+                        Drizzle 
+                        Rain 
+                        Snow 
+                        Clear 
+                        Clouds 
+                    </select>
+                </section>
+        <!-- </section> -->
+        
+
+    <section id="gardenSection" class="box">
+
+        <!-- <p>i think it looks something like this</p> -->
+        <!-- <div id="gardenContent" class="garden__content"> -->
+            <p id="sky"></p>
+            <!-- <p id="landscape">🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂'</p>  -->
+        <!-- </div> -->
+    </section>
+
+        
+       
+    <section id="tempContainer" class ="box">
+        <p id="tempDisplayed"></p>
+        <div id="adjustTemp">
+            <button id="decreaseTempButton">&larr;</button>
+            <button id="increaseTempButton">&#8594;</button>
+        </div>
+        <p id="landscape">🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂'</p> 
+    </section>
+  
+
+
+
+</main>
+    <script src="/src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
+
+
+
+        <!-- </div> -->
+        <!-- <div>         
+                  label for="uname">Choose a city: </label>
+                  <input type="text" id="uname" name="name"
+                         placeholder="Lower case, all one word">
+                  <button>Submit</button> -->
+        <!-- </div>
+        <div>
+            
+
+        </div> -->
+        <!-- </section> --> 
+  

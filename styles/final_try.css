@@ -1,0 +1,23 @@
+
+body{
+    display:grid;
+    justify-content: space-evenly;
+}
+
+main{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+section{
+    background-color: indigo;
+    border-radius: 1em;
+    margin: 3rem;
+    padding: 2em;
+    flex-direction: column;
+}
+
+#choose_yr_adventure{
+    width: 100vw;
+    height: 20vh
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Report</title>
+    <link href="/styles/draft.css" rel="stylesheet"/>
+</head>
+<body>
+
+        <header class="header">
+            <h1>Weather Report: <span id="headerCityName" class="header__city-name"></span></h1>
+
+            </header>
+        <main>
+
+
+        <section class="city-name__section">
+            <h3>enter a city</h3>
+            <input type="text" id="cityNameInput" value="New Orleans" />
+            <button id="realTempButton">get realtime temp</button>
+            <button id="cityNameReset" class="city-name__reset-btn">Reset</button>
+            
+        </section>
+                    
+
+      
+        <section id="sky__section" class="box">
+            <p>how's the sky? what's it looking like over there ?</p>
+            <select id="changeSky">
+                <!-- <option>Sunny &#9728</option>
+                <option>Cloudy &#9729</option>
+                <option>Rainy 	&#9730</option>
+                <option>Snowy 	&#9731</option> -->
+                <option>sunny</option>
+                <option>cloudy</option>
+                <option>raining</option>
+                <option>snowing</option> 
+                <!-- <option>Thunderstorm</option>
+                <option>Drizzle</option>
+                <option>Rain</option>
+                <option>Snow</option>
+                <option>Clear</option>
+                <option>Clouds</option> -->
+
+                Thunderstorm 
+                Drizzle 
+                Rain 
+                Snow 
+                Clear 
+                Clouds 
+            </select>
+        </section>
+        
+
+    <section id="gardenSection" class="box">
+        <p>i think it looks something like this</p>
+        <!-- <div id="gardenContent" class="garden__content"> -->
+            <p id="sky"></p>
+            <p id="landscape">🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂'</p> 
+        <!-- </div> -->
+    </section>
+
+        
+       
+    <section id="tempContainer" class ="box">
+        <p id="tempDisplayed"></p>
+        <div id="adjustTemp">
+            <button id="decreaseTempButton">&larr;</button>
+            <button id="increaseTempButton">&#8594;</button>
+        </div>
+    </section>
+  
+
+
+
+    </main>
+    <script src="/src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+</body>
+</html>
