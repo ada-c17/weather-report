@@ -33,7 +33,7 @@ const updateTempDisplay = (x) => {
     landscapeImg.alt = 'black line drawing of clouds in front of a sun';
   }
   if (state.temp < 60) {
-    tempDisplay.style.color = 'green';
+    tempDisplay.style.color = '#2B835E';
   }
   if (state.temp < 50) {
     tempDisplay.style.color = 'teal';
