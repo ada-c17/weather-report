@@ -135,6 +135,13 @@ const changeSky = () => {
   sky.style.backgroundImage = pic;
 };
 
+const reset = () => {
+  const cityInput = document.getElementById('city-input')
+  cityInput.value = '';
+  updateCity();
+  getCoordinates(state.city);
+}
+
 const registerEventHandlers = () => {
   const tempIncreaseButton = document.getElementById('increase');
   tempIncreaseButton.addEventListener('click', increaseTemp);
