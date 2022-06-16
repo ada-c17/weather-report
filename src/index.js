@@ -49,6 +49,19 @@ const changeCityName = (event) => {
 };
 
 
+const axios = require('axios');
+let latitude, longitude;
+const LOCATION_KEY = process.env['LOCATION_KEY'];
+axios
+  .get('')
+  .then((response) => {
+    // Code that executes with a successful response goes here
+  })
+  .catch((error) => {
+    // Code that executes with an unsuccessful response goes here
+  });
+
+
 const registerEventHandlers = () => {
   const upArrowEl = document.getElementById('upArrow');
   upArrowEl.addEventListener('click', () => {incOrDecTemperatureCount(1)});
