@@ -5,8 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="/styles/index.css" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <h1 id = "main-title">Weather Report</h1>
+        <h2 id = "sub-title">For the lovely city of: </h2>
+    </header>
+    <main>
+        <section>
+            <!-- <div id = "star-wrap-open">✨ </div> -->
+            <span type = "text" id = "city-name"></span><!-- placeholder = "Seattle"-->
+            <!-- <div id = "star-wrap-close"> ✨</div> -->
+        </section>
+        <section class = "temperature">
+            <div id = "temperature-content-box"></div>
+            <h1 id = "temperature-content-box-header">Temperature</h1>
+            <button type = "button" id = "increase-temperature-button">🔼</button>
+            <p>
+                <span id = "temperature"></span>
+            </p>
+            <button type = "button" id = "decrease-temperature-button">🔽</button>
+            <button type = "button" id = "get-current-forecast-button">Get Current<br>Forecast</button>
+        </section>
+        <section class = "sky">
+            <div id = "sky-content-box"></div>
+            <h1 id = "sky-content-box-header">Sky</h1>
+            <select id = "sky-drop-down">
+                <option value="What's the Vibe?">--What's the Vibe?--</option>
+                <option value="sunny">Sunny</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+            </select>
+        </section>
+        <aside class = "weather-garden">
+            <h1 id = "weather-garden-header">Weather Garden</h1>
+            <div id = "weather-garden-container"></div>
+            <p id = "weather-garden-containing-sky" placeholder = "🌧🌈⛈🌧💧🌧🌦⛈💧🌧🌧🌈🌧"></p>
+            <div id = "weather-garden-containing-landscape"></div>
+        </aside>
+        <section class = "city">
+            <div id = "city-name-content-box"></div>
+            <h1 id = "city-name-content-box-header">City Name</h1>
+            <input type = "text" id = "city-name-input" placeholder = "Input City for Specific Weather Report">
+            <!-- <button type = "button" id = "city-name-weather-details-button">Go</button> -->
+            <button type = "button" id = "city-name-reset-button">Reset</button>
+        </section>
+        <!-- <section>
+            <button id="addCrabButton">Add Crab</button>
+        </section>
+        <section id="crabContainer">
+        </section> -->
+    </main>
+
+    <footer>©2022 Tori Shade | Ada Developers Academy</footer>
+
+    <script src="src/index.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
