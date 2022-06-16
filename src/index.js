@@ -101,29 +101,29 @@ const decreaseTemp = (event) => {
 
 // LANDSCAPE & TEMP COLOR CHANGE 
 const formatTemp = () => {
-    // const backgroundColor= document.getElementById('changeSky').value;
+ 
     let temp = state.temperature;
     let color = '';
-    // let backgroundColor = ''
+
     
-    let landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    let landscape = '🌵__🐍__🌵🌵__🐍_';
     if (temp >= 80) {
       color = 'red';
-    //   backgroundColor = 'cloudy';
-      landscape = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  
+      landscape = '🌵__🐍__🌵🌵__🐍_';
       
     } else if (temp >= 70) {
       color = 'orange';
-    //   backgroundColor = 'cloudy'
+
   
       landscape = '🌸🌿🌿🌱🌷';
     } else if (temp >= 60) {
       color = 'yellow';
-      landscape = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+      landscape = '🍁🍁🍁🍁🍁🍁🍁';
 
     } else {
       color = 'teal';
-      landscape = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+      landscape = '⛄️⛄️';
     }
   
     const newLandscape = document.getElementById('landscape');
@@ -141,16 +141,16 @@ const updateSky = () => {
     let sky = '';
     let skyColor = '';
     if (inputSky === 'cloudy') {
-        sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+        sky = "   ☁️   ☁️   ☁️   ☁️   ☁️   ☁️   ☁️   ☁️   ☁️";
         skyColor = 'cloudy';
     } else if (inputSky === 'sunny') {
-        sky = '☁️     ☁️   ☁️ ☀️ ☁️  ☁️';
+        sky = ' 🌤  🌤  🌤  🌤  🌤  🌤  🌤  🌤  🌤  🌤 ';
         skyColor = 'sunny';
     } else if (inputSky === 'raining') {
-        sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+        sky = '💧 💧 💧 💧 💧 💧 💧 💧 💧 💧';
         skyColor = 'rainy';
     } else if (inputSky === 'snowing') {
-        sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨🌨🌨';
+        sky = '❄️   ❄️   ❄️   ❄️   ❄️   ❄️   ❄️   ❄️';
         skyColor = 'snowy';
     }
     skyContainer.textContent = sky;

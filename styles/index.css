@@ -63,16 +63,23 @@ margin: 2em;
 /* rgb(18, 41, 83); */
 }
 
+
+.choose_city{
+    color:rgb(47, 87, 218);
+    background-color: rgb(193, 145, 228);
+}
+
 #choose_sky{
-    color:darksalmon;
-    background-image: url(/styles/glitter.png);
+    color:rgb(184, 45, 45);
+    font-display;
+    /* background-image: url(/styles/glitter.png); */
     background-size: 10000rem;
     /* background-position: center; */
     /* background-color: gainsboro; */
     
     /* background-image: url(/styles/glitter.png) ; */
     /* background-size: 50% 50%; */
-    background-color: rgb(3, 15, 15); 
+    background-color: rgb(40, 184, 184); 
     /* background-color: rgba(100, 148, 237, 0.274); */
     /* background-image: url(/styles/glitter.png) no-repeat; */
     /* background-size:300px 150px; */
@@ -207,7 +214,7 @@ image{
 
 .sunny {
     background-image: url(/styles/sunnysky.png);
-    background-image: url(/styles/Sun-PNG-Image-91249-300x300.png);
+    /* background-image: url(/styles/Sun-PNG-Image-91249-300x300.png); */
     background-size: 50rem;
     background-position: center;
     background-color: rgb(190, 106, 28);
