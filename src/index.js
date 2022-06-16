@@ -72,11 +72,11 @@ const updateSky = () => {
   }
 };
 
-const getLatLon = () => {
+const getLatLon = (place) => {
   return axios
     .get('http://127.0.0.1:5000/location', {
       params: {
-        q: state.city,
+        q: place,
       },
     })
     .then((response) => {
@@ -103,10 +103,11 @@ const getTemp = (lat, lon) => {
 };
 
 const realtimeTemp = () => {
-  const result = getLatLon();
+  let place = state.city;
+  const result = getLatLon(place);
   console.log(result);
-  const temp = getTemp(result);
-  console.log(temp);
+  // let temp = await getTemp(lat,lon);
+  // console.log(temp);
 };
 
 const registerEventHandlers = () => {
