@@ -17,12 +17,12 @@ h1 {
   margin: 0 auto;
 }
 
-#temperature-container {
+#temperature-sky-container {
   display: flex;
   justify-content: space-evenly;
 }
 
-.temperature-sky {
+.temperature-sky-section {
   display: flex;
   align-items: center;
   justify-content: center;
