@@ -22,7 +22,7 @@ h1 {
   justify-content: space-evenly;
 }
 
-.bottom-section {
+.temperature-sky {
   display: flex;
   align-items: center;
   justify-content: center;
