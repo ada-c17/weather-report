@@ -162,6 +162,9 @@ const registerEventHandlers = () => {
 
   const skyDropdown = document.getElementById('sky-dropdown');
   skyDropdown.addEventListener('change', changeSky);
+
+  const resetButton = document.getElementById('reset');
+  resetButton.addEventListener('click', reset);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
