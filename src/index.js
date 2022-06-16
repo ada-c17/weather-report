@@ -69,7 +69,7 @@ const getCoordinates = (city) => {
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
-        q: 'Houston',
+        q: state.city,
       },
     })
     .then((response) => {
