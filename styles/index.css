@@ -1,10 +1,8 @@
-
 /* Page Background */
 html {
     position: relative;
     background: #0066FF;
 }
-
 header {
     text-align: center;
 }
@@ -15,15 +13,12 @@ header {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 48px;
-
     color: #FFFFFF;
 }
-
 /* For the lovely city of: */
 #sub-title {
     position: absolute;
@@ -38,10 +33,8 @@ header {
     font-style: normal;
     font-weight: lighter;
     font-size: 24px;
-
     color: #FFFFFF;
 }
-
 /* cityNameContentBox */
 #city-name-display-box {
     position: absolute;
@@ -50,68 +43,50 @@ header {
     left: 647px; /* 615 */
     top: 100px; /* 186 */
     text-decoration: none;
-
     background: #0066FF;
 }
-
-/* cityNameContentBox */
-/* #star-wrap-open {
-    position: absolute;
-    width: 20px;
-    height: 221px;
-    left: 640px;
-    top: 100px;
-
-    background: #0066FF;
-} */
-
-/* cityNameContentBox */
-#star-wrap-close {
-    /* position: absolute;
-    width: 20px;
-    height: 221px;
-    left: 1000px;
-    top: 100px; */
-
-    background: #0066FF;
-}
-
 /* cityName */
 #city-name {
     position: absolute;
-    width: 750px;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    /* width: 750px; */
+    width: 590px;
+    padding: 5px;
     height: 221px;
     left: 647px; /* 615 */
-    top: 95px; /* 186 */
-
+    top: 140px; /* 186 */
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: 120px;
-    /* font-size: 12vmin; */
-    /* font-size: 7vmin; */
+    font-size: 6vw;
+    flex-wrap: wrap;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: visible;
+    line-height: 1em;
+    max-height: 2em;
     padding-right: 2.0rem;
     text-decoration: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-
 
     background-color: #0066FF;
+    color: #FFFFFF;
     
 }
-
 /* temperatureContentBox */
 #temperature-content-box {
     position: absolute;
+    text-align: center;
+    align-items: center;
+    border-radius: 1em;
     width: 433px;
     height: 252px;
     left: 66px;
-    top: 156px;
-
+    top: 333px;
     background: #FFFFFF;
 }
-
 /* Temperature */
 #temperature-content-box-header {
     text-align: center;
@@ -119,17 +94,14 @@ header {
     width: 145px;
     height: 27px;
     left: 210px;
-    top: 159px;
-
+    top: 337px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
-
     color: #000000;
 }
-
 /* temperatureDisplay */
 #temperature {
     position: absolute;
@@ -138,166 +110,135 @@ header {
     width: 100px;
     height: 112px;
     left: 106px;
-    top: 245px;
-
+    top: 421px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 96px;
-
     background: #FFFFFF;
 }
-
 /* increaseTemperature */
 #increase-temperature-button {
     position: absolute;
+    text-align: center;
+    margin: auto;
+    border: none;
     width: 21px;
-    height: 16px;
-    left: 146px;
-    top: 208px;
-    }
-
+    height: 30px;
+    left: 143px;
+    top: 397px;
+    background-color: #FFFFFF;
+}
 /* decreaseTemperature */
 #decrease-temperature-button {
     position: absolute;
-    width: 21px;
+    border: none;
+    width: 30px;
     height: 16px;
-    left: 146px;
-    top: 366px;
+    left: 143px;
+    top: 532px;
+    background-color: #FFFFFF;
 }
-
 /* getCurrentForecastButton */
 #get-current-forecast-button {
     position: absolute;
+    border: solid;
     width: 215px;
     height: 112px;
     left: 242px;
-    top: 245px;
-
+    top: 421px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 19px;
-
     background: #0066FF;
     color: #FFFFFF;
 }
-
-/* Get Realtime Temperature */
-#get-current-forecast-button-text {
-    text-align: center;
-    position: absolute;
-    width: 215px;
-    height: 112px;
-    left: 242px;
-    top: 265px;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 19px;
-
-    color: #FFFFFF;
-}
-
 /* skyContentBox */
 #sky-content-box {
     position: absolute;
     width: 433px;
     height: 160px;
     left: 66px;
-    top: 425px;
-
+    top: 603px;
+    border-radius: 1em;
     background: #FFFFFF;
 }
-
 /* Sky */
 #sky-content-box-header {
     position: absolute;
+    text-align: center;
     width: 42px;
     height: 29px;
     left: 261px;
-    top: 428px;
-
+    top: 606px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
-
     color: #000000;
 }
-
 /* skyDropDown */
 #sky-drop-down {
     position: absolute;
+    align-items: center;
+    text-align: center;
+    border: thin solid;
     width: 174px; /*154*/
     height: 28px;
     left: 190px; /*210*/
-    top: 511px;
-
-    background: #D9D9D9;
-}
-
-/* cityNameContentBox */
-#city-name-content-box {
-    position: absolute;
-    width: 433px;
-    height: 160px;
-    left: 66px;
-    top: 603px;
-
-    background: #FFFFFF;
-}
-
-/* City Name */
-#city-name-content-box-header {
-    position: absolute;
-    width: 119px;
-    height: 29px;
-    left: 223px;
-    top: 606px;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 29px;
-
-    color: #000000;
-}
-
-/* cityNameInput */
-#city-name-input {
-    position: absolute;
-    justify-content:center;
-    width: 258px;
-    height: 28px;
-    left: 90px;
-    top: 691px;
-
-    background: #D9D9D9;
-}
-
-/* Go */
-#city-name-weather-details-button {
-    position: absolute;
-    justify-content:center;
-    text-align: center;
-    width: 50px;
-    height: 36px;
-    left: 369px;
     top: 689px;
 
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
+    background: #D9D9D9;
+}
+/* cityNameContentBox */
+#city-name-content-box {
+    position: absolute;
+    width: 433px;
+    height: 160px;
+    left: 66px;
+    top: 155px;
+    border-radius: 1em;
 
-    background: #0066FF;
-    color: #FFFFFF;
+    background: #FFFFFF;
+}
+/* city Name */
+#city-name-content-box-header {
+    position: absolute;
+    text-align: center;
+    width: 119px;
+    height: 29px;
+    left: 223px;
+    top: 158px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+}
+/* cityNameInput */
+#city-name-input {
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    border: thin solid;
+    width: 297px;
+    height: 28px;
+    left: 90px;
+    top: 243px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    background: #D9D9D9;
 }
 
 /* cityNameResetButton */
@@ -305,73 +246,75 @@ header {
     position: absolute;
     justify-content:center;
     text-align: center;
-
-    width: 50px;
-    height: 36px;
-    left: 433px;
-    top: 689px;
-
+    border: solid;
+    width: 60px;
+    height: 34px;
+    left: 413px;
+    top: 243px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-
     background: #0066FF;
     color: #FFFFFF;
 }
-
 /* Weather Garden */
 #weather-garden-header {
     position: absolute;
-    width: 190px;
+    align-items: center;
+    text-align: center;
+    width: 625px;
     height: 29px;
-    left: 882px; /*833*/
-    top: 311px;
-
+    left: 647px; /*833*/
+    top: 428px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
     line-height: 29px;
-
     color: #FFFFFF;
 }
-
 /* weatherGardenDisplay */
 #weather-garden-container {
     position: absolute;
     width: 625px;
     height: 270px;
     left: 647px; /*615*/
-    top: 370px;
-
-    background: #FFFFFF;
+    top: 493px;
+    background: #0066FF;
 }
-
-/* weatherGardenDisplaySky */
-#weather-garden-containing-sky {
-    position: absolute;
-    width: 625px;
-    height: 135px;
-    left: 647px; /*615*/
-    top: 370px;
-
-    background: #FFFFFF;
-}
-
 /* weatherGardenDisplayLandscape */
 #weather-garden-containing-landscape {
     position: absolute;
+    text-align: center;
+    margin: auto;
+    width: 625px;
+    height: 68px;
+    left: 647px; /*615*/
+    top: 500px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    background: #0066FF;
+}
+/* weatherGardenDisplaySky */
+#weather-garden-containing-sky {
+    position: absolute;
+    text-align: center;
+    margin: auto;
     width: 625px;
     height: 135px;
     left: 647px; /*615*/
-    top: 505px;
-
-    background: #FFFFFF;
+    top: 635px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    background: #0066FF;
 }
-
 footer {
-    text-align: right;
+    text-align: center;
     position: fixed;
     right: 1%;
     bottom: 0%;
