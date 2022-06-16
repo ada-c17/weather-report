@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles/index.css" rel="stylesheet">
     <title>Weather Report</title>
 </head>
-<body>
-    
+<body id="body">
+    <section class="left-col">
+        <h1 id="city-name"></h1>
+        <div class="search-bar">
+            <input id="text-input" type="text">
+            <button class="button"><img class="icon" src="./assets/getliveweather.png" alt="Fetch current weather conditions and weather forecast"></button>
+            <button class="button"><img class="icon" src="./assets/getlivelocation.png" alt="Fetch current weather conditions and weather forecast"></button>
+        </div>
+        <div class="search-bar">
+        <label for="skies">Change sky:</label>
+            <select id="skies" name="skies">
+                <option value="Sunny">Sunny</option>
+                <option value="Cloudy">Cloudy</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Snowy">Snowy</option>
+            </select>
+        </div>
+        <p class="city-info" id="cur-conditions">Current conditions: </p>
+        <div class="temperature">
+            <button class="button block" id="increase-temp"><img class="icon" src="./assets/up.png" alt="Increase temperature by 1 degree"></button>
+            <div id="temp-bar">
+                <span id="city-temp"></span>
+                <span id="selected-measurement"> °F / </span>
+                <button class="button" id="change-unit">C</button>
+            </div>
+            <button class="button block" id="decrease-temp"><img class="icon" src="./assets/down.png" alt="Decrease temperature by 1 degree"></button>
+        </div>
+        <p class="city-info" id="cur-day"></p>
+        <p class="city-info" id="cur-time"></p>
+    </section>
+    <section class="right-col">
+        <h3 class="secondary-title">Weather Forecast</h3>
+    </section>
+    <script src="./src/index.js"></script>
 </body>
 </html>

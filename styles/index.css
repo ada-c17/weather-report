@@ -1,0 +1,69 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 90vh;
+    padding: 2.5vh;
+    margin: 2.5vh;
+    grid-gap: 2vw;
+    background: linear-gradient(pink,teal)
+}
+
+.left-col {
+    border: 2px solid gray;
+}
+
+.left-col > * {
+    padding: 10px;
+    margin: 10px;
+}
+
+.right-col {
+    border: 2px solid gray;
+}
+
+.right-col > * {
+    padding: 10px;
+    margin: 10px;
+}
+
+/* .button {
+    all: unset;
+
+} */
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.temp-bar > * {
+    display: inline;
+}
+
+/* .block {
+    display: block;
+}
+
+.city-temp {
+    display: inline;
+} */
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.green {
+    color: green;
+}
+
+.teal {
+    color: teal;
+}
