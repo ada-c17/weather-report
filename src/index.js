@@ -3,13 +3,17 @@
 const tempDisplay = document.getElementById('temp-display');
 const landscapeImg = document.getElementById('landscape-img');
 const cityName = document.getElementById('city-name-display');
-
-// tempDisplay.textContent = state.temp;
+const cityInputBox = document.getElementById('city-name');
 
 const state = {
-  temp: 75,
+  temp: 80,
   city: cityName.textContent,
+  color: 'rgb(248, 163, 163)',
 };
+
+// Set default values
+tempDisplay.textContent = `${state.temp}°`;
+tempDisplay.style.color = state.color;
 
 const updateTempDisplay = (x) => {
   state.temp += x;
@@ -21,10 +25,12 @@ const updateTempDisplay = (x) => {
   if (state.temp < 80) {
     tempDisplay.style.color = 'orange';
     landscapeImg.src = '/images/sun.png';
+    landscapeImg.alt = 'black line drawings of sun, with circle in center';
   }
   if (state.temp < 70) {
     tempDisplay.style.color = 'yellow';
     landscapeImg.src = '/images/cloudy.png';
+    landscapeImg.alt = 'black line drawing of clouds in front of a sun';
   }
   if (state.temp < 60) {
     tempDisplay.style.color = 'green';
@@ -32,10 +38,13 @@ const updateTempDisplay = (x) => {
   if (state.temp < 50) {
     tempDisplay.style.color = 'teal';
     landscapeImg.src = '/images/rainy.png';
+    landscapeImg.alt =
+      'black line drawings of cloud with strong diagonal rain falling';
   }
   if (state.temp < 40) {
     tempDisplay.style.color = '#CFF2FF';
     landscapeImg.src = '/images/snowy.png';
+    landscapeImg.alt = 'black line drawings of a detailed snowflake';
   }
 };
 
@@ -45,7 +54,9 @@ const updateCity = (e) => {
 };
 
 const resetCity = () => {
+  state.city = 'New Orleans';
   cityName.textContent = 'New Orleans';
+  cityInputBox.value = '';
 };
 
 const updateSky = () => {
@@ -54,21 +65,26 @@ const updateSky = () => {
     document.body.style.backgroundImage =
       'linear-gradient(to top, rgb(255, 255, 174),rgb(248, 163, 163)';
     landscapeImg.src = '/images/sun.png';
+    landscapeImg.alt = 'black line drawing of sun, with circle in center';
   }
   if (value === 'cloudy') {
     document.body.style.backgroundImage =
       'linear-gradient(rgb(211, 224, 224),rgb(106, 112, 159))';
     landscapeImg.src = '/images/cloudy.png';
+    landscapeImg.alt = 'black line drawing of clouds in front of a sun';
   }
   if (value === 'rainy') {
     document.body.style.backgroundImage =
       'linear-gradient( rgb(213, 251, 253),rgb(148, 55, 160))';
     landscapeImg.src = '/images/rainy.png';
+    landscapeImg.alt =
+      'black line drawing of cloud with strong diagonal rain falling';
   }
   if (value === 'snowy') {
     document.body.style.backgroundImage =
       'linear-gradient( rgb(255, 255, 255),rgb(211, 224, 224))';
     landscapeImg.src = '/images/snowy.png';
+    landscapeImg.alt = 'black line drawing of a detailed snowflake';
   }
 };
 
@@ -97,17 +113,16 @@ const getTemp = (lat, lon) => {
     })
     .then((response) => {
       const temp = response.data.current.temp;
-      return temp;
+      return Math.floor((temp - 273) * 1.8 + 32);
     })
     .catch((err) => console.log({ err }));
 };
 
-const realtimeTemp = () => {
-  let place = state.city;
-  const result = getLatLon(place);
-  console.log(result);
-  // let temp = await getTemp(lat,lon);
-  // console.log(temp);
+const realtimeTemp = async () => {
+  const place = state.city;
+  const { lat, lon } = await getLatLon(place);
+  state.temp = await getTemp(lat, lon);
+  updateTempDisplay(0);
 };
 
 const registerEventHandlers = () => {
