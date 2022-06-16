@@ -17,6 +17,11 @@ h1 {
   margin: 0 auto;
 }
 
+#temperature-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .bottom-section {
   display: flex;
   align-items: center;
@@ -54,8 +59,3 @@ h1 {
 /* .padding-5 {
   padding: 5%;
 } */
-
-#bottom-container {
-  display: flex;
-  justify-content: space-evenly;
-}

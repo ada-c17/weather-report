@@ -43,9 +43,9 @@ const incOrDecTemperatureCount = (tempChangeValue) => {
 };
 
 
-const changeCityName = (input) => {
+const changeCityName = (event) => {
   const cityEl = document.getElementById('city');
-  cityEl.textContent = `${input.target.value}`;
+  cityEl.textContent = `${event.target.value}`;
 };
 
 
@@ -56,9 +56,8 @@ const registerEventHandlers = () => {
   const downArrowEl = document.getElementById('downArrow');
   downArrowEl.addEventListener('click', () => {incOrDecTemperatureCount(-1)});
 
-  const inputEl = document.querySelector('input').oninput;
-  // inputEl.oninput = handleInput;
-  cityEl.addEventListener('input', () => {changeCityName(inputEl)})
+  const inputEl = document.getElementById('city-input');
+  inputEl.addEventListener('input', changeCityName);
 };
 
 
