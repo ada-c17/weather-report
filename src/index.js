@@ -24,7 +24,7 @@ const updateTempDisplay = (x) => {
   }
   if (state.temp < 80) {
     tempDisplay.style.color = 'orange';
-    landscapeImg.src = '/images/sun.png';
+    landscapeImg.src = '/images/sunny.png';
     landscapeImg.alt = 'black line drawings of sun, with circle in center';
   }
   if (state.temp < 70) {
@@ -64,7 +64,7 @@ const updateSky = () => {
   if (value === 'sunny') {
     document.body.style.backgroundImage =
       'linear-gradient(to top, rgb(255, 255, 174),rgb(248, 163, 163)';
-    landscapeImg.src = '/images/sun.png';
+    landscapeImg.src = '/images/sunny.png';
     landscapeImg.alt = 'black line drawing of sun, with circle in center';
   }
   if (value === 'cloudy') {
