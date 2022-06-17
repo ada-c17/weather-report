@@ -1,0 +1,103 @@
+body {
+    color: #ffffff;
+    background-size: cover;
+}
+
+#display_city {
+    font-size: larger;
+    font-style: italic;
+}
+
+main {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+h1 {
+    color: #b4cac9;
+}
+
+#left_content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.boxes {
+    border: 2px solid #519dba;
+    background: #519dba;
+    border-radius: 10px;
+    padding: 0px 10px 20px 10px;
+    width: auto;
+}
+
+#temperature {
+    font-size: x-large;
+    text-align: center;
+}
+
+.temp_box {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    max-width: 300px;
+}
+
+.hot_color {
+    color: #ffadad;
+}
+
+.warm_color {
+    color: #ffd6a5;
+}
+
+.cool_color {
+    color: #fdffb6;
+}
+
+.chilly_color {
+    color: #caffbf;
+}
+
+.cold_color {
+    color: #9bf6ff;
+}
+
+.hot {
+    content: url(../assets/summer.jpg)
+}
+
+.warm {
+    content: url(../assets/spring.jpg)
+}
+
+.cool {
+    content: url(../assets/fall.jpg)
+}
+
+.cold {
+    content: url(../assets/winter.jpg)
+}
+
+.foggy {
+    background-image: url(../assets/foggy.jpg);
+}
+
+.sunny {
+    background-image: url(../assets/sunny.jpg);
+}
+
+.rainy {
+    background-image: url(../assets/rainy.jpg);
+}
+
+.snowy {
+    background-image: url(../assets/snowy.jpg);
+}
+
+.cloudy {
+    background-image: url(../assets/cloudy.jpg);
+}
