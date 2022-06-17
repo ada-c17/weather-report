@@ -84,6 +84,14 @@ const registerEventHandlers = () => {
 
   const inputEl = document.getElementById('city-input');
   inputEl.addEventListener('input', changeCityName);
+
+  // get the curent temperature of a city
+  // console.log(showCurrentTemperature("Seattle")) returns undefined;
+  const currentTempButtonEl = document.getElementById('currentTemperature');
+  const cityName = document.getElementById('city').innerHTML;
+  currentTempButtonEl.addEventListener('click', () => {
+    showCurrentTemperature(cityName);
+  });
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
