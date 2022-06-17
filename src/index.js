@@ -37,6 +37,7 @@ const changeTemperatureEnvironment = (displayTemperatureEl) => {
 
 const incOrDecTemperatureCount = (tempChangeValue) => {
   const displayTemperatureEl = document.getElementById('displayTemperature');
+  // maybe pass operation into `tempChangeValue`?
   state.temperatureCount += tempChangeValue;
   changeTemperatureEnvironment(displayTemperatureEl);
   displayTemperatureEl.textContent = `Temperature: ${state.temperatureCount}`;
@@ -48,18 +49,30 @@ const changeCityName = (event) => {
   cityEl.textContent = `${event.target.value}`;
 };
 
+// move the code using axios into a helper function called when the Current Temperature button is clicked
+const showCurrentTemperature = () => {
+  const LOCATION_KEY = process.env['LOCATION_KEY'];
+  let latitude, longitude;
+  const cityText = document.getElementById('city').innerHTML;
 
-const axios = require('axios');
-let latitude, longitude;
-const LOCATION_KEY = process.env['LOCATION_KEY'];
-axios
-  .get('')
-  .then((response) => {
-    // Code that executes with a successful response goes here
+  axios.get('http://127.0.0.1:5500/location',
+  {
+    params: {
+      key: LOCATION_KEY,
+      q: cityText,
+      format: 'json'
+    }
+  })
+  .then( (response) => {
+    console.log('Success. Location found.');
+    latitude = response.data[0].lat;
+    longitude = response.data[0].lon;
+    console.log(`Latitude: ${latitude}, longitude ${longitude}`);
   })
   .catch((error) => {
-    // Code that executes with an unsuccessful response goes here
+    console.log('Error. Location not found.')
   });
+};
 
 
 const registerEventHandlers = () => {
