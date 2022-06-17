@@ -1,0 +1,51 @@
+html {
+    font-family: Palatino, Verdana;
+    background-image: url('../assets/summer.jpg');
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    display: grid;
+    height: 10vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    color: #040110;
+    background-color: rgba(191, 191, 191, 0.217);
+}
+
+main {
+    /* grid-column: 1/3; */
+    /* grid-column-start: 2;
+    grid-column-end: 3; */
+    text-align: center;
+    position: absolute;
+    left: 30%;
+    border-radius: 5%;
+    padding: 2% 2% 2% 2%;
+    width: 40%;
+    align-self: center;
+    background-color: rgba(191, 191, 191, 0.476);
+    /* border-radius: 5px; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+/* .teal {
+    color: teal;
+}
+.green {
+    color: green;
+}
+.yellow {
+    color: yellow;
+}
+
+.red {
+    color: red;
+} */
+
+#tempValue {
+    color: orange;
+}
