@@ -42,10 +42,6 @@ const render = {
   },
 };
 
-// if (temperature > 40) {
-
-// }
-
 const convertKtoF= (kelvin) => {
   return Math.floor(1.8 * (kelvin - 273) + 32)
   
@@ -222,20 +218,4 @@ document.addEventListener('DOMContentLoaded', registerEventHandlers);
 
 let latLon = getLatitudeLongitude('New York');
 getTemperature(latLon.latitude, latLon.longitude);
-// What will do I want to do with the temperature now that i have it? return it
 
-// const getTemperature = () => {
-//   axios
-//   .get('http://127.0.0.1:5000/weather', {
-//     params: {
-//       lat: state.lat,
-//       lon:state.lon,
-//     },
-//   })
-//   .then((response) => {
-//     console.log('SUCCESS' + JSON.stringify(Response.data.currentTemp.temperature)
-//     )
-//   })
-// .catch((error) => {
-//     console.log('ERROR');
-// }
