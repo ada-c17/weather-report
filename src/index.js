@@ -46,7 +46,7 @@ const changeCityName = (event) => {
 const showCurrentTemperature = (city) => {
   let latitude, longitude;
   axios
-    .get('http://127.0.0.1:5500/location', {
+    .get('http://127.0.0.1:5000/location', {
       params: {
         q: city,
       },
@@ -65,6 +65,19 @@ const showCurrentTemperature = (city) => {
       );
       console.log('The data given back by the API response is:', response.data);
       console.log(`Latitude: ${latitude}, longitude ${longitude}`);
+
+      return axios.get('http://127.0.0.1:5000/weather', {
+        params: {
+          lat: latitude,
+          lon: longitude,
+        },
+      });
+    })
+    .then((response) => {
+      console.log('Hello Word', response.data);
+      // const temp = document.getElementById('displayTemperature');
+      // gotta access the temperature, try a get request in Postman
+      // temp.textContent = response.data[]
     })
     .catch((error) => {
       console.log('Error. Location not found.');
@@ -88,7 +101,7 @@ const registerEventHandlers = () => {
   // get the curent temperature of a city
   // console.log(showCurrentTemperature("Seattle")) returns undefined;
   const currentTempButtonEl = document.getElementById('currentTemperature');
-  const cityName = document.getElementById('city').innerHTML;
+  const cityName = document.getElementById('city-input').innerHTML;
   currentTempButtonEl.addEventListener('click', () => {
     showCurrentTemperature(cityName);
   });
