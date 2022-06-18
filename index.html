@@ -22,19 +22,21 @@
     <div id="temperature-sky-container">
       <section class="temperature-sky-section">
         <img id="upArrow" class="padding-5" src="./assets/up-arrow.png" alt="Up arrow">
-        <h2 id="displayTemperature" class="padding-5">Temperature</h2>
+        <h2 id="displayTemperature" class="padding-5">Temperature: 0</h2>
         <img id="downArrow" class="padding-5" src="./assets/down-arrow.png" alt="Down arrow">
         <p id="landscape">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</p>
       </section>
   
       <section class="temperature-sky-section">
         <h2 class="padding-5">Sky Type:</h2>
-        <select name="sky type">
+        <select id="sky-type">
+          <option value="none" selected disabled hidden>Select a sky</option>
           <option value="sunny">Sunny</option>
           <option value="cloudy">Cloudy</option>
           <option value="rainy">Rainy</option>
           <option value="snowy">Snowy</option>
         </select>
+        <span id="sky-landscape"></span>
       </section>
     </div>
 

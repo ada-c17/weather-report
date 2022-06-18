@@ -1,10 +1,11 @@
 'use strict';
 
-// creating state, holds temperature
 const state = {
   temperatureCount: 0,
   landscape: document.getElementById('landscape'),
   location: '',
+  skyType: document.getElementById('sky-type'),
+  skyDisplay: document.getElementById('sky-landscape'),
 };
 
 // ******TEMP control********
@@ -54,6 +55,19 @@ const updateCity = () => {
   state.location = document.getElementById('city-input').value;
   console.log(state.location);
   getLatLon();
+};
+
+//******CHANGING THE SKY ******
+const getSkyType = () => {
+  if (state.skyType.value === 'sunny') {
+    state.skyDisplay.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (state.skyType.value === 'cloudy') {
+    state.skyDisplay.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (state.skyType.value === 'rainy') {
+    state.skyDisplay.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (state.skyType.value === 'snowy') {
+    state.skyDisplay.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
 };
 
 //****** API calls ********
@@ -114,8 +128,11 @@ const registerEventHandlers = () => {
 
   // clicking 'Current Temperature' button should display the current temperature
   const currentTempButtonEl = document.getElementById('currentTemperature');
-  const cityName = document.getElementById('city-input').innerHTML;
   currentTempButtonEl.addEventListener('click', updateCity);
+
+  // Selecting a sky type changes the sky's look
+  const skyContainer = document.getElementById('sky-type');
+  skyContainer.addEventListener('change', getSkyType);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
