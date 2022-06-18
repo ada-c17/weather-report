@@ -1,90 +1,103 @@
 'use strict';
 
+// creating state, holds temperature
 const state = {
   temperatureCount: 0,
+  landscape: document.getElementById('landscape'),
+  location: '',
 };
 
+// ******TEMP control********
 const changeTemperatureEnvironment = (displayTemperatureEl) => {
   // displayTemperatureEl.className = "padding-5";
-  const landscape = document.getElementById('landscape');
 
   if (state.temperatureCount <= 49) {
     displayTemperatureEl.classList.add('teal');
   } else if (state.temperatureCount <= 59) {
     displayTemperatureEl.classList.add('green');
     displayTemperatureEl.classList.remove('teal');
-    landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    state.landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else if (state.temperatureCount <= 69) {
     displayTemperatureEl.classList.add('yellow');
-    landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    state.landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
     displayTemperatureEl.classList.remove('green');
   } else if (state.temperatureCount <= 79) {
     displayTemperatureEl.classList.add('orange');
-    landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    state.landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
     displayTemperatureEl.classList.remove('yellow');
   } else {
     displayTemperatureEl.classList.add('red');
-    landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    state.landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
     displayTemperatureEl.classList.remove('orange');
   }
 };
 
+// CHANGING TEMP
 const incOrDecTemperatureCount = (tempChangeValue) => {
-  const displayTemperatureEl = document.getElementById('displayTemperature');
-  // maybe pass operation into `tempChangeValue`?
   state.temperatureCount += tempChangeValue;
+  updateDisplayedTemp();
+};
+
+const updateDisplayedTemp = () => {
+  const displayTemperatureEl = document.getElementById('displayTemperature');
   changeTemperatureEnvironment(displayTemperatureEl);
   displayTemperatureEl.textContent = `Temperature: ${state.temperatureCount}`;
 };
 
-const changeCityName = (event) => {
+// ***** change CITY*******
+const changeCityDisplay = (event) => {
   const cityEl = document.getElementById('city');
   cityEl.textContent = `${event.target.value}`;
 };
 
+const updateCity = () => {
+  state.location = document.getElementById('city-input').value;
+  console.log(state.location);
+  getLatLon();
+};
+
+//****** API calls ********
 // move the code using axios into a helper function called when the Current Temperature button is clicked
-const showCurrentTemperature = (city) => {
+const getLatLon = () => {
   let latitude, longitude;
   axios
     .get('http://127.0.0.1:5000/location', {
       params: {
-        q: city,
+        q: state.location,
       },
     })
     .then((response) => {
-      console.log('Success. Location found.');
+      console.log(response);
       latitude = response.data[0].lat;
       longitude = response.data[0].lon;
-      console.log(
-        'The value of status inside of response is:',
-        response.status
-      );
-      console.log(
-        'The date inside header inside response is:',
-        response.headers.date
-      );
-      console.log('The data given back by the API response is:', response.data);
-      console.log(`Latitude: ${latitude}, longitude ${longitude}`);
-
-      return axios.get('http://127.0.0.1:5000/weather', {
-        params: {
-          lat: latitude,
-          lon: longitude,
-        },
-      });
+      return [latitude, longitude];
     })
     .then((response) => {
-      console.log('Hello Word', response.data);
-      // const temp = document.getElementById('displayTemperature');
-      // gotta access the temperature, try a get request in Postman
-      // temp.textContent = response.data[]
+      getWeather(response[0], response[1]);
     })
     .catch((error) => {
       console.log('Error. Location not found.');
     });
 };
 
+const getWeather = (latitude, longitude) => {
+  axios
+    .get('http://127.0.0.1:5000/weather', {
+      params: {
+        lat: latitude,
+        lon: longitude,
+      },
+    })
+    .then((response) => {
+      const tempKelvin = response.data.current.temp;
+      state.temperatureCount = Math.floor(((tempKelvin - 273.15) * 9) / 5 + 32);
+      updateDisplayedTemp();
+    });
+};
+
+//***** EVENT HANDLERS********
 const registerEventHandlers = () => {
+  // arrow click increases or decreases temperature
   const upArrowEl = document.getElementById('upArrow');
   upArrowEl.addEventListener('click', () => {
     incOrDecTemperatureCount(1);
@@ -95,16 +108,14 @@ const registerEventHandlers = () => {
     incOrDecTemperatureCount(-1);
   });
 
+  // Updates the display of city name
   const inputEl = document.getElementById('city-input');
-  inputEl.addEventListener('input', changeCityName);
+  inputEl.addEventListener('input', changeCityDisplay);
 
-  // get the curent temperature of a city
-  // console.log(showCurrentTemperature("Seattle")) returns undefined;
+  // clicking 'Current Temperature' button should display the current temperature
   const currentTempButtonEl = document.getElementById('currentTemperature');
   const cityName = document.getElementById('city-input').innerHTML;
-  currentTempButtonEl.addEventListener('click', () => {
-    showCurrentTemperature(cityName);
-  });
+  currentTempButtonEl.addEventListener('click', updateCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
