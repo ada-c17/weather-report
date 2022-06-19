@@ -82,7 +82,7 @@ const updateSky = () => {
   }
   if (value === 'snowy') {
     document.body.style.backgroundImage =
-      'linear-gradient( rgb(255, 255, 255),rgb(211, 224, 224))';
+      'linear-gradient( rgb(255, 255, 255),rgb(177, 181, 181))';
     landscapeImg.src = '/images/snowy.png';
     landscapeImg.alt = 'black line drawing of a detailed snowflake';
   }
