@@ -26,10 +26,10 @@ body {
     margin: 10px;
 }
 
-/* .button {
+.button {
     all: unset;
-
-} */
+    cursor: pointer;
+}
 
 .icon {
     width: 20px;
@@ -38,6 +38,8 @@ body {
 
 .temp-bar > * {
     display: inline;
+    font-size: 29px;
+    /* font: bolder; */
 }
 
 /* .block {
@@ -57,7 +59,7 @@ body {
 }
 
 .yellow {
-    color: yellow;
+    color: gold;
 }
 
 .green {

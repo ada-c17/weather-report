@@ -12,8 +12,8 @@
         <h1 id="city-name"></h1>
         <div class="search-bar">
             <input id="text-input" type="text">
-            <button class="button"><img class="icon" src="./assets/getliveweather.png" alt="Fetch current weather conditions and weather forecast"></button>
-            <button class="button"><img class="icon" src="./assets/getlivelocation.png" alt="Fetch current weather conditions and weather forecast"></button>
+            <button class="button" id="fetchweather"><img class="icon" src="./assets/getliveweather.png" alt="Fetch current weather conditions and weather forecast"></button>
+            <button class="button" id="fetchlivelocationweather"><img class="icon" src="./assets/getlivelocation.png" alt="Fetch current weather conditions and weather forecast"></button>
         </div>
         <div class="search-bar">
         <label for="skies">Change sky:</label>
@@ -24,7 +24,7 @@
                 <option value="Snowy">Snowy</option>
             </select>
         </div>
-        <p class="city-info" id="cur-conditions">Current conditions: </p>
+        <span class="city-info">Current conditions: </span><span id="cur-conditions"></span>
         <div class="temperature">
             <button class="button block" id="increase-temp"><img class="icon" src="./assets/up.png" alt="Increase temperature by 1 degree"></button>
             <div id="temp-bar">
@@ -34,12 +34,15 @@
             </div>
             <button class="button block" id="decrease-temp"><img class="icon" src="./assets/down.png" alt="Decrease temperature by 1 degree"></button>
         </div>
-        <p class="city-info" id="cur-day"></p>
+        <p class="city-info" id="cur-date"></p>
         <p class="city-info" id="cur-time"></p>
     </section>
     <section class="right-col">
         <h3 class="secondary-title">Weather Forecast</h3>
+        <figure id="forecast">
+        </figure>
     </section>
     <script src="./src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
