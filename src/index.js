@@ -1,7 +1,7 @@
 'use strict';
 
 const state = {
-  temperatureCount: 0,
+  temperature: 0,
   landscape: document.getElementById('landscape'),
   location: '',
   skyType: document.getElementById('sky-type'),
@@ -12,17 +12,17 @@ const state = {
 const changeTemperatureEnvironment = (displayTemperatureEl) => {
   // display-temperatureEl.className = "padding-5";
 
-  if (state.temperatureCount <= 49) {
+  if (state.temperature <= 49) {
     displayTemperatureEl.classList.add('teal');
-  } else if (state.temperatureCount <= 59) {
+  } else if (state.temperature <= 59) {
     displayTemperatureEl.classList.add('green');
     displayTemperatureEl.classList.remove('teal');
     state.landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
-  } else if (state.temperatureCount <= 69) {
+  } else if (state.temperature <= 69) {
     displayTemperatureEl.classList.add('yellow');
     state.landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
     displayTemperatureEl.classList.remove('green');
-  } else if (state.temperatureCount <= 79) {
+  } else if (state.temperature <= 79) {
     displayTemperatureEl.classList.add('orange');
     state.landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
     displayTemperatureEl.classList.remove('yellow');
@@ -34,15 +34,15 @@ const changeTemperatureEnvironment = (displayTemperatureEl) => {
 };
 
 // CHANGING TEMP
-const incOrDecTemperatureCount = (tempChangeValue) => {
-  state.temperatureCount += tempChangeValue;
+const incOrDecTemp = (tempChangeValue) => {
+  state.temperature += tempChangeValue;
   updateDisplayedTemp();
 };
 
 const updateDisplayedTemp = () => {
   const displayTemperatureEl = document.getElementById('display-temperature');
   changeTemperatureEnvironment(displayTemperatureEl);
-  displayTemperatureEl.textContent = `Temperature: ${state.temperatureCount}`;
+  displayTemperatureEl.textContent = `Temperature: ${state.temperature}`;
 };
 
 // ***** change CITY*******
@@ -104,7 +104,7 @@ const getWeather = (latitude, longitude) => {
     })
     .then((response) => {
       const tempKelvin = response.data.current.temp;
-      state.temperatureCount = Math.floor(((tempKelvin - 273.15) * 9) / 5 + 32);
+      state.temperature = Math.floor(((tempKelvin - 273.15) * 9) / 5 + 32);
       updateDisplayedTemp();
     });
 };
@@ -114,12 +114,12 @@ const registerEventHandlers = () => {
   // arrow click increases or decreases temperature
   const upArrowEl = document.getElementById('upArrow');
   upArrowEl.addEventListener('click', () => {
-    incOrDecTemperatureCount(1);
+    incOrDecTemp(1);
   });
 
   const downArrowEl = document.getElementById('downArrow');
   downArrowEl.addEventListener('click', () => {
-    incOrDecTemperatureCount(-1);
+    incOrDecTemp(-1);
   });
 
   // Updates the display of city name
