@@ -8,17 +8,29 @@
     <link href="styles/index.css" rel="stylesheet">
 </head>
 <body>
-    <main>
-        <header class="header">
-            <h1>Weather Report</h1>
-        </header>
+    <header class="header">
+        <h1>Weather Report</h1>
+    </header>
+    <main class="main-container">
 
-        <section>
-            <button id="increaseTempButton">⬆️</button>
+        <section class ="general-container temperature-container">
+            <h2>Temperature (F):</h2>
+            <div>
+                <button id="increase-temp-button">⬆️</button>
+                <span id="temp-number">49</span>
+                <button id="decrease-temp-button">⬇️</button>
+            </div>
         </section>
-        <section id="tempContainer">
-            <h2 id="tempCount">Temp Increase: 0</h2>
+
+        <section class="general-container city-container"></section>
+
+        <section class="general-container landscape-container">
+            <h2>Weather Garden</h2>
+            <div class="garden">
+                <div id="ground-garden">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</div>
+            </div>
         </section>
+
     </main>
     <script src="src/index.js"></script>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
