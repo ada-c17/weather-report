@@ -56,6 +56,10 @@ h1 {
   color: teal;
 }
 
-/* .padding-5 {
+.padding-5 {
   padding: 5%;
-} */
+}
+
+img {
+  width: 20%
+}
