@@ -5,19 +5,22 @@ const initialTitle = 'Weather Wonderland'
 const state = {
     title: initialTitle,
     temp: 60,
-    sky: 'Sunny',
-    unit: 'F',
     sky: null,
+    unit: 'F',
     land: null,
     cur_conditions: null,
     timezone: null,
     toc: false
 };
 
+const forecastArr = [];
+
 const tempDisplay = document.getElementById('city-temp');
 const tempBar = document.getElementById('temp-bar');
 const increaseTempBtn = document.getElementById('increase-temp');
 const decreaseTempBtn = document.getElementById('decrease-temp');
+const changeUnitsBtn = document.getElementById('change-unit');
+const curUnits = document.getElementById('selected-measurement');
 const textInputBox = document.getElementById('text-input');
 const cityDisplay = document.getElementById('city-name');
 const bodyMain = document.getElementById('body');
@@ -44,17 +47,32 @@ const decreaseTemp = event => {
 }
 
 const updateColor = () => {
-    if (state.temp < 50) {
-        tempBar.className = 'teal';
-    } else if (state.temp < 60) {
-        tempBar.className = 'green';
-    } else if (state.temp < 70) {
-        tempBar.className = 'yellow';
-    } else if (state.temp < 80) {
-        tempBar.className = 'orange';
+    if (state.unit === 'F') {
+        if (state.temp < 50) {
+            tempBar.className = 'teal';
+        } else if (state.temp < 60) {
+            tempBar.className = 'green';
+        } else if (state.temp < 70) {
+            tempBar.className = 'yellow';
+        } else if (state.temp < 80) {
+            tempBar.className = 'orange';
+        } else {
+            tempBar.className = 'red';
+        }
     } else {
-        tempBar.className = 'red';
+        if (state.temp < 10) {
+            tempBar.className = 'teal';
+        } else if (state.temp < 16) {
+            tempBar.className = 'green';
+        } else if (state.temp < 21) {
+            tempBar.className = 'yellow';
+        } else if (state.temp < 27) {
+            tempBar.className = 'orange';
+        } else {
+            tempBar.className = 'red';
+        }
     }
+    
 }
 
 const updateTitle = () => {
@@ -78,14 +96,26 @@ const updateSkyState = () => {
 }
 
 const updateLandState = () => {
-    if (state.temp < 60) {
-        state.land = "Gainsboro";
-    } else if (state.temp < 70) {
-        state.land = "MistyRose";
-    } else if (state.temp < 80) {
-        state.land = "Pink";
+    if (state.unit === 'F') {
+        if (state.temp < 60) {
+            state.land = "Gainsboro";
+        } else if (state.temp < 70) {
+            state.land = "MistyRose";
+        } else if (state.temp < 80) {
+            state.land = "Pink";
+        } else {
+            state.land = "Tomato";
+        }
     } else {
-        state.land = "Tomato";
+        if (state.temp < 16) {
+            state.land = "Gainsboro";
+        } else if (state.temp < 21) {
+            state.land = "MistyRose";
+        } else if (state.temp < 27) {
+            state.land = "Pink";
+        } else {
+            state.land = "Tomato";
+        }
     }
     updateBackground();
 }
@@ -93,7 +123,7 @@ const updateLandState = () => {
 const updateBackground = () => {
     bodyMain.style.backgroundImage = "linear-gradient(to bottom, "+ state.sky +", "+ state.land +")"};
 
-const updateForecast = (forecast) => {
+const fetchForecast = (forecast) => {
     forecastContainer.innerHTML = "";
     var addDays = 1;
     for (const day of forecast) {
@@ -101,7 +131,7 @@ const updateForecast = (forecast) => {
         const todayDate = new Date();
         todayDate.setDate(todayDate.getDate() + addDays)
         dayForecastCap.textContent = todayDate.toDateString();
-        addDays += 1;
+        forecastArr.push({min: day.temp.min, max: day.temp.max});
         forecastContainer.appendChild(dayForecastCap);
 
         const dayForecast = document.createElement('ul');
@@ -112,8 +142,9 @@ const updateForecast = (forecast) => {
         minTempTitle.className = "key";
         minTempListItem.appendChild(minTempTitle);
         const minTemp = document.createElement('span');
-        minTemp.textContent = day.temp.min;
+        minTemp.textContent = `${forecastArr[addDays-1].min} °${state.unit}`;
         minTemp.className = "val";
+        minTemp.id = `min${addDays}`
         minTempListItem.appendChild(minTemp);
         dayForecast.appendChild(minTempListItem);
 
@@ -123,8 +154,9 @@ const updateForecast = (forecast) => {
         maxTempTitle.className = "key";
         maxTempListItem.appendChild(maxTempTitle);
         const maxTemp = document.createElement('span');
-        maxTemp.textContent = day.temp.max;
+        maxTemp.textContent = `${forecastArr[addDays-1].max} °${state.unit}`;
         maxTemp.className = "val";
+        maxTemp.id = `max${addDays}`
         maxTempListItem.appendChild(maxTemp);
         dayForecast.appendChild(maxTempListItem);
 
@@ -140,8 +172,21 @@ const updateForecast = (forecast) => {
         dayForecast.appendChild(weatherDescListItem);
 
         forecastContainer.appendChild(dayForecast);
+        addDays += 1;
     };
 }
+
+const updateForecast = () => {
+    var addDays = 1;
+    for (const dayObj of forecastArr) {
+        const minDay = document.getElementById(`min${addDays}`);
+        minDay.textContent = `${Math.round(dayObj.min)} °${state.unit}`;
+        const maxDay = document.getElementById(`max${addDays}`);
+        maxDay.textContent = `${Math.round(dayObj.max)} °${state.unit}`;
+        addDays += 1;
+    };
+}
+
 
 const getCurDateTime = () => {
     const utcDateTime = new Date();
@@ -174,15 +219,15 @@ const fetchLatLon = async () => {
 const fetchWeather = async (locationRes) => {
     const lat = locationRes.lat;
     const lon = locationRes.lon;
-    const weatherRes = await axios.get("http://127.0.0.1:5000/weather", {params: {lat: lat, lon: lon}});
-    console.log(weatherRes.data);
+    const unit = state.unit === 'F' ? 'imperial' : 'metric';
+    const weatherRes = await axios.get("http://127.0.0.1:5000/weather", {params: {lat: lat, lon: lon, units: unit}});
     return weatherRes.data;
 }
 
 const fetchAll = async () => {
     const resLatLon = await fetchLatLon();
     const resWeather = await fetchWeather(resLatLon);
-    state.temp = Math.round(resWeather.current.temp);
+    state.temp = resWeather.current.temp;
     const curWeatherDes = resWeather.current.weather[0].description;
     const curWeatherMain = resWeather.current.weather[0].main;
     state.timezone = resWeather.timezone;
@@ -199,8 +244,31 @@ const fetchAll = async () => {
     state.cur_conditions = curWeatherDes;
 
     const weatherForecast = resWeather.daily;
-    updateForecast(resWeather.daily);
+    fetchForecast(resWeather.daily);
 
+    displayStates();
+}
+
+const changeUnits = () => {
+    if (state.unit === 'F') {
+        state.unit = 'C';
+        curUnits.textContent = ' °C / '
+        changeUnitsBtn.textContent =  '°F'
+        state.temp = (state.temp-32)*(5/9);
+        for (const dayObj of forecastArr) {
+            dayObj.min = (dayObj.min-32)*(5/9);
+            dayObj.max = (dayObj.max-32)*(5/9);
+        }
+    } else {
+        state.unit = 'F';
+        curUnits.textContent = ' °F / '
+        changeUnitsBtn.textContent =  '°C'
+        state.temp = (state.temp*1.8)+32;
+        for (const dayObj of forecastArr) {
+            dayObj.min = (dayObj.min*1.8)+32;
+            dayObj.max = (dayObj.max*1.8)+32;
+        }
+    }
     displayStates();
 }
 
@@ -211,16 +279,18 @@ const registerEventHandlers = () => {
     skyInput.addEventListener('change', updateSkyState);
     fetchWeatherBtn.addEventListener('click', fetchAll);
     // fetchLocationWeatherBtn.addEventListener('click', fetchLiveWeather);
+    changeUnitsBtn.addEventListener('click', changeUnits);
 }
 
 const displayStates = () => {
-    tempDisplay.textContent = state.temp;
+    tempDisplay.textContent = Math.round(state.temp);
     updateColor();
     cityDisplay.textContent = state.title;
     updateLandState();
     updateSkyState();
     cityCurConditions.textContent = state.cur_conditions;
     displayDateTime();
+    updateForecast();
 }
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
