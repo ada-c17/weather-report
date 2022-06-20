@@ -104,12 +104,12 @@ const getWeather = (latitude, longitude) => {
 };
 
 const registerEventHandlers = () => {
-  const upArrowEl = document.getElementById('upArrow');
+  const upArrowEl = document.getElementById('up-arrow');
   upArrowEl.addEventListener('click', () => {
     incOrDecTemp(1);
   });
 
-  const downArrowEl = document.getElementById('downArrow');
+  const downArrowEl = document.getElementById('down-arrow');
   downArrowEl.addEventListener('click', () => {
     incOrDecTemp(-1);
   });
