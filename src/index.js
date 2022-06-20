@@ -10,7 +10,7 @@ const state = {
 
 // ******TEMP control********
 const changeTemperatureEnvironment = (displayTemperatureEl) => {
-  // display-temperatureEl.className = "padding-5";
+  displayTemperatureEl.className = 'padding-5';
 
   if (state.temperature <= 49) {
     displayTemperatureEl.classList.add('teal');
@@ -90,7 +90,7 @@ const getLatLon = () => {
       getWeather(response[0], response[1]);
     })
     .catch((error) => {
-      console.log('Error. Location not found.');
+      console.log('Error, longitude or latitude not found.');
     });
 };
 
