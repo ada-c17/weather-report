@@ -1,0 +1,118 @@
+body {
+    background-color: white;
+    padding: 1vw;
+    font-family: 'Raleway', sans-serif;
+    background-image: linear-gradient(to top, rgb(255, 255, 174),rgb(248, 163, 163) );
+}
+
+
+header {
+    text-align: center;
+    font-size: 2em;
+}
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .5fr 2fr;
+    padding: 2vw;
+}
+
+#landscape {
+    grid-area: 2 / 1 / 3 / 2;
+    border-color: black;
+    border-style: solid;    
+    margin: 1.5vw;
+    padding: 1.5vw;
+    font-style: italic;
+
+}
+
+img {
+    mix-blend-mode: multiply;
+    justify-content: center;
+    width: 550px;
+    height: 500px;
+
+}
+
+#realtime-button {
+    background-color: transparent;
+    font-family: 'Raleway', sans-serif;
+    border-width: 1px;
+}
+
+#temp {
+    grid-area: 2 / 2 / 3 / 3;
+    border-color: black;
+    border-style:groove;
+    margin: 1.5vw;
+    padding: 1.5vw;
+    text-align: center;
+}
+
+#temp h2 {
+    text-align: left;
+}
+
+#temp-display {
+    font-size: 10em;
+    
+}
+
+#up-button {
+    font-size: 4em;
+    background-color: transparent;
+    border: none;
+    max-height: 1px;
+}
+
+#down-button {
+    font-size: 4em;
+    background-color: transparent;
+    border: none;
+    max-height: 1px;
+}
+
+#sky {
+    grid-area: 1 / 2 / 2 / 3; 
+    border-color: black;
+    border-style:groove;
+    margin: 1.5vw;
+    padding: 1.5vw;
+}
+
+#sky-color{
+    background-color: transparent;
+    font-family: 'Raleway', sans-serif;
+}
+
+#city {
+    grid-area: 1 / 1 / 2 / 2;
+    border-color: black;
+    border-style:groove;
+    margin: 1.5vw;
+    padding: 1.5vw;
+
+}
+#reset-button :hover {
+    color: azure;
+}
+
+#reset-button {
+    background-color: transparent;
+    font-family: 'Raleway', sans-serif;
+    border-width: 1px;
+}
+
+input {
+    background-color: transparent;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+/* @media (prefers-reduced-motion: no-preference) {
+
+    button:hover {
+    transition: all 1s ease;
+    }
+} */

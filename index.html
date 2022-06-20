@@ -5,8 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <h1>WEATHER REPORT</h1>
+    </header>
+    <main class = "main-container">
+        <section id = "landscape">
+            <h1 id="city-name-display">New Orleans</h1>
+            <button id = "realtime-button"> Realtime Temp</button>
+            <img id="landscape-img" src="/images/sunny.png" alt="black line drawings of sun, with circle in center"/>
+        </section>
+        <section id = "temp">
+            <h2>Temperature</h2>
+            <button id="up-button">△</button>
+            <h3 id="temp-display"></h3>
+            <button id="down-button">▽</button>  
+        </section>
+        <section id = "sky">
+            <h2>
+                <label for= "sky-color">Sky:</label>
+            </h2>
+            <select id="sky-color" >
+                <option value="">Please choose a sky</option>
+                <option value="sunny">Sunny</option>
+                <option value="cloudy">Cloudy</option>
+                <option value="rainy">Rainy</option>
+                <option value="snowy">Snowy</option>
+                </select>
+        </section>
+        <section id = city>
+            <h2>City: </h2>
+            <input type="text" id="city-name"></input>
+            <button id="reset-button">Reset</button>
+        </section>
+    </main>
+    <script src="src/index.js" type="text/javascript"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
+
+<!-- Wave 2:
+
+? : An element that displays the temperature
+? : A clickable element to increase temperature
+?: A clickable element to decrease temperature
+?: An element that displays a landscape
+
+Wave 3:
+
+?: An element that displays the city name
+?: An element that contains an <input type="text"> element, used to rename the city
+
+Wave 4:
+
+?: A clickable element to get the current temperature of the displayed city name
+Wave 5:
+
+?: A <select> dropdown element to set the sky type
+?: An element that displays a sky
+Wave 6:
+
+?: A clickable element to reset the city name -->
