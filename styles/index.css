@@ -48,12 +48,12 @@ body {
     color: red;
 }
 
-#change-unit {
+#change-unit, #increase-temp, #decrease-temp {
     transition: transform .2s;
     color: black;
 }
 
-#change-unit:hover {
+#change-unit:hover, #increase-temp:hover, #decrease-temp:hover {
     transform: scale(1.2);
 }
 
