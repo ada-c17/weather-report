@@ -1,7 +1,5 @@
 "use strict";
 
-const { default: axios } = require("axios");
-
 const initialTitle = 'Weather Wonderland'
 
 const state = {
