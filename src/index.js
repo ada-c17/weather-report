@@ -13,7 +13,7 @@ const state = {
     toc: false
 };
 
-const forecastArr = [];
+var forecastArr = [];
 
 const tempDisplay = document.getElementById('city-temp');
 const tempBar = document.getElementById('temp-bar');
@@ -23,6 +23,7 @@ const changeUnitsBtn = document.getElementById('change-unit');
 const curUnits = document.getElementById('selected-measurement');
 const textInputBox = document.getElementById('text-input');
 const cityDisplay = document.getElementById('city-name');
+const errorBox = document.getElementById('error-box');
 const bodyMain = document.getElementById('body');
 const skyInput = document.getElementById('skies');
 const fetchWeatherBtn = document.getElementById('fetchweather');
@@ -124,6 +125,7 @@ const updateBackground = () => {
     bodyMain.style.backgroundImage = "linear-gradient(to bottom, "+ state.sky +", "+ state.land +")"};
 
 const fetchForecast = (forecast) => {
+    forecastArr = [];
     forecastContainer.innerHTML = "";
     var addDays = 1;
     for (const day of forecast) {
@@ -210,21 +212,36 @@ const displayDateTime = () => {
 };
 
 const fetchLatLon = async () => {
-    const locationRes = await axios.get("http://127.0.0.1:5000/location", {params: {q: state.title}});
-    const lat = locationRes.data[0].lat;
-    const lon = locationRes.data[0].lon;
-    return {lat: lat, lon: lon};
+    try {
+        const locationRes = await axios.get("http://127.0.0.1:5000/location", {params: {q: state.title}});
+        const lat = locationRes.data[0].lat;
+        const lon = locationRes.data[0].lon;
+        errorBox.innerHTML = "";
+        errorBox.className = "";
+        return {lat: lat, lon: lon};
+    } catch (e) {
+        errorBox.className = "error";
+        errorBox.textContent = "ERROR: Invalid location";
+    }
 }
 
 const fetchWeather = async (locationRes) => {
-    const lat = locationRes.lat;
-    const lon = locationRes.lon;
-    const unit = state.unit === 'F' ? 'imperial' : 'metric';
-    const weatherRes = await axios.get("http://127.0.0.1:5000/weather", {params: {lat: lat, lon: lon, units: unit}});
-    return weatherRes.data;
+    try {
+        const lat = locationRes.lat;
+        const lon = locationRes.lon;
+        const unit = state.unit === 'F' ? 'imperial' : 'metric';
+        const weatherRes = await axios.get("http://127.0.0.1:5000/weather", {params: {lat: lat, lon: lon, units: unit}});
+        errorBox.innerHTML = "";
+        errorBox.className = "";
+        return weatherRes.data;
+    } catch (e) {
+        errorBox.className = "error";
+        errorBox.textContent = "ERROR: Invalid location";
+    }
 }
 
 const fetchAll = async () => {
+    textInputBox.value = "";
     const resLatLon = await fetchLatLon();
     const resWeather = await fetchWeather(resLatLon);
     state.temp = resWeather.current.temp;
@@ -243,7 +260,6 @@ const fetchAll = async () => {
     }
     state.cur_conditions = curWeatherDes;
 
-    const weatherForecast = resWeather.daily;
     fetchForecast(resWeather.daily);
 
     displayStates();
@@ -272,13 +288,41 @@ const changeUnits = () => {
     displayStates();
 }
 
+const fetchCity = async (lat, lon) => {
+    try {
+        const response = await axios.get("http://127.0.0.1:5000/location/reverse", {params: {lat: lat, lon: lon}});
+        errorBox.innerHTML = "";
+        errorBox.className = "";
+        return response.data.address.city;
+    } catch (e) {
+        errorBox.className = "error";
+        errorBox.textContent = "ERROR: Unable to fetch city from lat/lon";
+    }
+};
+
+const fetchLiveWeather = () => {
+    textInputBox.value = "";
+    const success = async (pos) => {
+        alert('Please wait to fetch your current location.');
+        const curCity = await fetchCity(pos.coords.latitude, pos.coords.longitude);
+        if (curCity) {
+            state.title = curCity;
+        }
+        await fetchAll();
+    };
+    const error = (err) => {
+        alert('Your browser does not permit location sharing.');
+    };
+    navigator.geolocation.getCurrentPosition(success, error);
+};
+
 const registerEventHandlers = () => {
     increaseTempBtn.addEventListener('click', increaseTemp);
     decreaseTempBtn.addEventListener('click', decreaseTemp);
     textInputBox.addEventListener('input', updateTitle);
     skyInput.addEventListener('change', updateSkyState);
     fetchWeatherBtn.addEventListener('click', fetchAll);
-    // fetchLocationWeatherBtn.addEventListener('click', fetchLiveWeather);
+    fetchLocationWeatherBtn.addEventListener('click', fetchLiveWeather);
     changeUnitsBtn.addEventListener('click', changeUnits);
 }
 

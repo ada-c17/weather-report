@@ -43,6 +43,11 @@ body {
     /* font: bolder; */
 }
 
+.error {
+    border: 7px solid red;
+    color: red;
+}
+
 #change-unit {
     transition: transform .2s;
     color: black;
@@ -51,14 +56,6 @@ body {
 #change-unit:hover {
     transform: scale(1.2);
 }
-
-/* .block {
-    display: block;
-}
-
-.city-temp {
-    display: inline;
-} */
 
 .red {
     color: red;
