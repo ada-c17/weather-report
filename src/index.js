@@ -8,7 +8,6 @@ const state = {
   skyDisplay: document.getElementById('sky-landscape'),
 };
 
-// ******TEMP control********
 const changeTemperatureEnvironment = (displayTemperatureEl) => {
   displayTemperatureEl.className = 'padding-5';
 
@@ -33,7 +32,6 @@ const changeTemperatureEnvironment = (displayTemperatureEl) => {
   }
 };
 
-// CHANGING TEMP
 const incOrDecTemp = (tempChangeValue) => {
   state.temperature += tempChangeValue;
   updateDisplayedTemp();
@@ -45,7 +43,6 @@ const updateDisplayedTemp = () => {
   displayTemperatureEl.textContent = `Temperature: ${state.temperature}`;
 };
 
-// ***** change CITY*******
 const changeCityDisplay = (event) => {
   const cityEl = document.getElementById('city');
   cityEl.textContent = `${event.target.value}`;
@@ -57,7 +54,6 @@ const updateCity = () => {
   getLatLon();
 };
 
-//******CHANGING THE SKY ******
 const getSkyType = () => {
   if (state.skyType.value === 'sunny') {
     state.skyDisplay.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
@@ -70,8 +66,6 @@ const getSkyType = () => {
   }
 };
 
-//****** API calls ********
-// move the code using axios into a helper function called when the Current Temperature button is clicked
 const getLatLon = () => {
   let latitude, longitude;
   axios
@@ -109,9 +103,7 @@ const getWeather = (latitude, longitude) => {
     });
 };
 
-//***** EVENT HANDLERS********
 const registerEventHandlers = () => {
-  // arrow click increases or decreases temperature
   const upArrowEl = document.getElementById('upArrow');
   upArrowEl.addEventListener('click', () => {
     incOrDecTemp(1);
@@ -122,15 +114,12 @@ const registerEventHandlers = () => {
     incOrDecTemp(-1);
   });
 
-  // Updates the display of city name
   const inputEl = document.getElementById('city-input');
   inputEl.addEventListener('input', changeCityDisplay);
 
-  // clicking 'Current Temperature' button should display the current temperature
   const currentTempButtonEl = document.getElementById('current-temperature');
   currentTempButtonEl.addEventListener('click', updateCity);
 
-  // Selecting a sky type changes the sky's look
   const skyContainer = document.getElementById('sky-type');
   skyContainer.addEventListener('change', getSkyType);
 };
