@@ -127,7 +127,7 @@ const registerEventHandlers = () => {
   inputEl.addEventListener('input', changeCityDisplay);
 
   // clicking 'Current Temperature' button should display the current temperature
-  const currentTempButtonEl = document.getElementById('currentTemperature');
+  const currentTempButtonEl = document.getElementById('current-temperature');
   currentTempButtonEl.addEventListener('click', updateCity);
 
   // Selecting a sky type changes the sky's look
