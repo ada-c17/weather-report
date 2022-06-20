@@ -215,8 +215,8 @@ const displayDateTime = () => {
 
 const fetchLatLon = async () => {
     try {
-        // const locationRes = await axios.get("https://weather-report-proxy.herokuapp.com/location", {params: {q: state.title}});
-        const locationRes = await axios.get(`https://weather-report-proxy.herokuapp.com/location?q=${state.title}`);
+        const locationRes = await axios.get("https://weather-report-proxy.herokuapp.com/location", {params: {q: state.title}});
+        // const locationRes = await axios.get(`https://weather-report-proxy.herokuapp.com/location?q=${state.title}`);
         const lat = locationRes.data[0].lat;
         const lon = locationRes.data[0].lon;
         errorBox.innerHTML = "";
@@ -233,8 +233,8 @@ const fetchWeather = async (locationRes) => {
         const lat = locationRes.lat;
         const lon = locationRes.lon;
         const unit = state.unit === 'F' ? 'imperial' : 'metric';
-        // const weatherRes = await axios.get("https://weather-report-proxy.herokuapp.com/weather", {params: {lat: lat, lon: lon, units: unit}});
-        const weatherRes = await axios.get(`https://weather-report-proxy.herokuapp.com/weather?lat=${lat}&lon=${lon}&units=${unit}`);
+        const weatherRes = await axios.get("https://weather-report-proxy.herokuapp.com/weather", {params: {lat: lat, lon: lon, units: unit}});
+        // const weatherRes = await axios.get(`https://weather-report-proxy.herokuapp.com/weather?lat=${lat}&lon=${lon}&units=${unit}`);
         errorBox.innerHTML = "";
         errorBox.className = "";
         return weatherRes.data;
@@ -294,8 +294,8 @@ const changeUnits = () => {
 
 const fetchCity = async (lat, lon) => {
     try {
-        // const response = await axios.get("https://weather-report-proxy.herokuapp.com/location/reverse", {params: {lat: lat, lon: lon}});
-        const response = await axios.get(`https://weather-report-proxy.herokuapp.com/location/reverse?lat=${lat}&lon=${lon}`);
+        const response = await axios.get("https://weather-report-proxy.herokuapp.com/location/reverse", {params: {lat: lat, lon: lon}});
+        // const response = await axios.get(`https://weather-report-proxy.herokuapp.com/location/reverse?lat=${lat}&lon=${lon}`);
         errorBox.innerHTML = "";
         errorBox.className = "";
         return response.data.address.city;
