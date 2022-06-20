@@ -10,7 +10,7 @@ const state = {
 
 // ******TEMP control********
 const changeTemperatureEnvironment = (displayTemperatureEl) => {
-  // displayTemperatureEl.className = "padding-5";
+  // display-temperatureEl.className = "padding-5";
 
   if (state.temperatureCount <= 49) {
     displayTemperatureEl.classList.add('teal');
@@ -40,7 +40,7 @@ const incOrDecTemperatureCount = (tempChangeValue) => {
 };
 
 const updateDisplayedTemp = () => {
-  const displayTemperatureEl = document.getElementById('displayTemperature');
+  const displayTemperatureEl = document.getElementById('display-temperature');
   changeTemperatureEnvironment(displayTemperatureEl);
   displayTemperatureEl.textContent = `Temperature: ${state.temperatureCount}`;
 };
