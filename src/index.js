@@ -11,24 +11,31 @@ const state = {
 const changeTemperatureEnvironment = (displayTemperatureEl) => {
   displayTemperatureEl.className = 'padding-5';
 
+  const landscape = {
+    cold: '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲',
+    warm: '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃',
+    veryWarm: '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷',
+    hot: '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂',
+  };
+
   if (state.temperature <= 49) {
     displayTemperatureEl.classList.add('teal');
   } else if (state.temperature <= 59) {
-    displayTemperatureEl.classList.add('green');
     displayTemperatureEl.classList.remove('teal');
-    state.landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    displayTemperatureEl.classList.add('green');
+    state.landscape.textContent = landscape.cold;
   } else if (state.temperature <= 69) {
-    displayTemperatureEl.classList.add('yellow');
-    state.landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
     displayTemperatureEl.classList.remove('green');
+    displayTemperatureEl.classList.add('yellow');
+    state.landscape.textContent = landscape.warm;
   } else if (state.temperature <= 79) {
-    displayTemperatureEl.classList.add('orange');
-    state.landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
     displayTemperatureEl.classList.remove('yellow');
+    displayTemperatureEl.classList.add('orange');
+    state.landscape.textContent = landscape.veryWarm;
   } else {
-    displayTemperatureEl.classList.add('red');
-    state.landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
     displayTemperatureEl.classList.remove('orange');
+    displayTemperatureEl.classList.add('red');
+    state.landscape.textContent = landscape.hot;
   }
 };
 
@@ -50,7 +57,6 @@ const changeCityDisplay = (event) => {
 
 const updateCity = () => {
   state.location = document.getElementById('city-input').value;
-  console.log(state.location);
   getLatLon();
 };
 
@@ -91,7 +97,8 @@ const getLatLon = () => {
       getWeather(response[0], response[1]);
     })
     .catch((error) => {
-      console.log('Error, longitude or latitude not found.');
+      const errorMessage = document.getElementById('error-message');
+      errorMessage.textContent = 'Error, location not found.';
     });
 };
 
