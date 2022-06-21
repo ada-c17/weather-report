@@ -1,12 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Report</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link href="./styles/index.css" rel="stylesheet">
 </head>
 <body>
+  <main>
+    <section class="box-container">
+      <!--   TOP     -->
+      <section class="top">
+        <h1>Weather Report</h1>
+      </section>
+      
+      <!--   MIDDLE     -->
+      <section class="middle">
+        <div id="city">
+          <h2 id="city--name">City</h2>
+          <input id="city--input" type="text" placeholder="Enter a city"></input>
+        <div id="city--buttons">
+          <button id="current-temperature">Current Temperature</button>
+          <button id="reset-temperature">Reset</button>
+        </div>
+          <p id="city--error-message"></p>
+        </div>
+      </section>
+
+      <!--    BOTTOM    -->
+      <section class="temp-sky">
+        <section class="temp-sky--section">
+          <section id="temp-sky--container">
+            <img id="up-arrow" class="padding-5" src="./assets/up-arrow.png" alt="Up arrow">
+        <h2 id="display-temperature" class="padding-5">Temperature: 70</h2>
+        <img id="down-arrow" class="padding-5" src="./assets/down-arrow.png" alt="Down arrow">
+          </section>
+          <p id="landscape">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</p>
+        </section>
+        
+        <section class="temp-sky--section">
+          <section id="temp-sky--container">
+            <h2 class="padding-5">Sky Type:</h2>
+        <select id="sky-type">
+          <option value="none" selected disabled hidden>Select a sky</option>
+          <option value="sunny">Sunny</option>
+          <option value="cloudy">Cloudy</option>
+          <option value="rainy">Rainy</option>
+          <option value="snowy">Snowy</option>
+        </select>
+           <section>
+        </section>
+      </section>
+       <p id="sky-landscape" class="padding-5"></p>
+    </section>
+
+    <!-- <section id="city-info"> -->
+      <!-- <h2 id="city">City</h2> -->
+      <!-- <input id="city-input" type="text" placeholder="Enter a city"></input> -->
+      <!-- <button id="current-temperature">Current Temperature</button>
+      <button class="reset-temperature">Reset</button>
+      <p id="error-message"></p>
+    </section> -->
     
+   <!-- BOTTOM -->
+    <!-- <div id="temperature-sky-container">
+      <section class="temperature-sky-section">
+        <img id="up-arrow" class="padding-5" src="./assets/up-arrow.png" alt="Up arrow">
+        <h2 id="display-temperature" class="padding-5">Temperature: 0</h2>
+        <img id="down-arrow" class="padding-5" src="./assets/down-arrow.png" alt="Down arrow">
+        <p id="landscape">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</p>
+      </section>
+  
+      <section class="temperature-sky-section">
+        <h2 class="padding-5">Sky Type:</h2>
+        <select id="sky-type">
+          <option value="none" selected disabled hidden>Select a sky</option>
+          <option value="sunny">Sunny</option>
+          <option value="cloudy">Cloudy</option>
+          <option value="rainy">Rainy</option>
+          <option value="snowy">Snowy</option>
+        </select>
+        <span id="sky-landscape" class="padding-5"></span>
+      </section>
+    </div> -->
+
+  </main>
+  <script src="./src/index.js"></script>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
