@@ -51,12 +51,12 @@ const updateDisplayedTemp = () => {
 };
 
 const changeCityDisplay = (event) => {
-  const cityEl = document.getElementById('city');
+  const cityEl = document.getElementById('city--name');
   cityEl.textContent = `${event.target.value}`;
 };
 
 const updateCity = () => {
-  state.location = document.getElementById('city-input').value;
+  state.location = document.getElementById('city--input').value;
   getLatLon();
 };
 
@@ -97,7 +97,7 @@ const getLatLon = () => {
       getWeather(response[0], response[1]);
     })
     .catch((error) => {
-      const errorMessage = document.getElementById('error-message');
+      const errorMessage = document.getElementById('city--error-message');
       errorMessage.textContent = 'Error, location not found.';
     });
 };
@@ -128,7 +128,7 @@ const registerEventHandlers = () => {
     incOrDecTemp(-1);
   });
 
-  const inputEl = document.getElementById('city-input');
+  const inputEl = document.getElementById('city--input');
   inputEl.addEventListener('input', changeCityDisplay);
 
   const currentTempButtonEl = document.getElementById('current-temperature');

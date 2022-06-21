@@ -10,17 +10,62 @@
 </head>
 <body>
   <main>
-    <h1>Weather Report</h1>
+    <section class="box-container">
+      <!--   TOP     -->
+      <section class="top">
+        <h1>Weather Report</h1>
+      </section>
+      
+      <!--   MIDDLE     -->
+      <section class="middle">
+        <div id="city">
+          <h2 id="city--name">City</h2>
+          <input id="city--input" type="text" placeholder="Enter a city"></input>
+        <div id="city--buttons">
+            <button id="current-temperature">Current Temperature</button>
+          <button class="reset-temperature">Reset</button>
+        </div>
+          <p id="city--error-message"></p>
+        </div>
+      </section>
 
-    <section id="city-info">
-      <h2 id="city">City</h2>
-      <input id="city-input" type="text" placeholder="Enter a city"></input>
-      <button id="current-temperature">Current Temperature</button>
-      <button class="reset-temperature">Reset</button>
-      <p id="error-message"></p>
+      <!--    BOTTOM    -->
+      <section class="temp-sky">
+        <section class="temp-sky--section">
+          <section id="temp-sky--container">
+            <img id="up-arrow" class="padding-5" src="./assets/up-arrow.png" alt="Up arrow">
+        <h2 id="display-temperature" class="padding-5">Temperature: 0</h2>
+        <img id="down-arrow" class="padding-5" src="./assets/down-arrow.png" alt="Down arrow">
+          </section>
+          <p id="landscape">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</p>
+        </section>
+        
+        <section class="temp-sky--section">
+          <section id="temp-sky--container">
+            <h2 class="padding-5">Sky Type:</h2>
+        <select id="sky-type">
+          <option value="none" selected disabled hidden>Select a sky</option>
+          <option value="sunny">Sunny</option>
+          <option value="cloudy">Cloudy</option>
+          <option value="rainy">Rainy</option>
+          <option value="snowy">Snowy</option>
+        </select>
+           <section>
+        </section>
+      </section>
+       <p id="sky-landscape" class="padding-5"></p>
     </section>
 
-    <div id="temperature-sky-container">
+    <!-- <section id="city-info"> -->
+      <!-- <h2 id="city">City</h2> -->
+      <!-- <input id="city-input" type="text" placeholder="Enter a city"></input> -->
+      <!-- <button id="current-temperature">Current Temperature</button>
+      <button class="reset-temperature">Reset</button>
+      <p id="error-message"></p>
+    </section> -->
+    
+   <!-- BOTTOM -->
+    <!-- <div id="temperature-sky-container">
       <section class="temperature-sky-section">
         <img id="up-arrow" class="padding-5" src="./assets/up-arrow.png" alt="Up arrow">
         <h2 id="display-temperature" class="padding-5">Temperature: 0</h2>
@@ -39,7 +84,7 @@
         </select>
         <span id="sky-landscape" class="padding-5"></span>
       </section>
-    </div>
+    </div> -->
 
   </main>
   <script src="./src/index.js"></script>

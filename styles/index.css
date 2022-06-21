@@ -1,40 +1,99 @@
-html, body {
-  height: 100%;
+body {
+  margin : 0;
 }
 
-h1, h2, #error-message {
+h1, h2, #city--error-message {
   text-align: center;
 }
 
-#city-info {
-  height: 25%;
-  width: 25%;
-  display: block;
-  border: 3px solid;
-  border-radius: 10px;
-  padding: 2% 2%;
-  margin: 0 auto;
+
+/* TOP */
+.box-container {
+  display: grid;
+  grid-template-rows: 10vh 45vh 45vh;
 }
 
-#temperature-sky-container {
-  display: flex;
-  justify-content: space-evenly;
+.top {
+  grid-row: 1;
 }
 
-.temperature-sky-section {
+
+/* MIDDLE */
+.middle {
+  grid-row: 2;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 5%;
+}
+
+#city {
+  height: 40vh;
+  width: 30vmax;
+  display: grid;
+  grid-template-rows: 1fr, 1fr, 1fr, 1fr;
+  border: 3px solid;
+  border-radius: 10px;
+}
+
+#city--name {
+  grid-row: 1;
+}
+
+#city--input {
+  grid-row: 2;
+  width: 70%;
+  text-align: center;
+  justify-self: center;
+  margin-bottom: 5%;
+}
+
+#city--buttons {
+  grid-row: 3;
+}
+
+#city--error-message {
+  grid-row: 4;
+}
+
+
+/* BOTTOM */
+.temp-sky {
+  grid-row: 3;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.temp-sky--section {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   border: 3px solid;
   border-radius: 10px;
   width: 40%;
+  height: 40vh;
+  text-align: center;
+}
+
+#temp-sky--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 20%;
+}
+
+.padding-5 {
+  padding: 0 1% 0 1%;
 }
 
 #display-temperature {
   text-shadow: 2px 1px #000000;
 }
 
+/* CHANGE TEMP COLOR */
 .red {
   color: red;
 }
@@ -53,12 +112,4 @@ h1, h2, #error-message {
 
 .teal {
   color: teal;
-}
-
-.padding-5 {
-  padding: 5%;
-}
-
-img {
-  width: 20%;
 }
