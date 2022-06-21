@@ -120,8 +120,8 @@ const registerEventHandlers = () => {
   const currentTempButtonEl = document.getElementById('current-temperature');
   currentTempButtonEl.addEventListener('click', updateCity);
 
-  const skyContainer = document.getElementById('sky-type');
-  skyContainer.addEventListener('change', getSkyType);
+  const selectEl = document.getElementById('sky-type');
+  selectEl.addEventListener('change', getSkyType);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
