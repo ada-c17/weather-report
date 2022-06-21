@@ -4,6 +4,7 @@
 const state = {
     tempDegrees: 50,
     city: 'Anchorage',
+    sky: 'snowy',
 };
 
 // increase temperature 
@@ -45,6 +46,23 @@ const changesByTemp = () => {
     }
 };
 
+// changes the sky element
+const changeSky = () => {
+    let currentSky = document.getElementById('skys').value;
+    let skyContainer = document.getElementById('sky-garden');
+    state.sky = currentSky;
+    if(state.sky === 'cloudy') {
+        skyContainer.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️'
+    } else if(state.sky === 'sunny') {
+        skyContainer.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️'
+    } else if(state.sky === 'rainy') {
+        skyContainer.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧'
+    } else if(state.sky === 'snowy') {
+        skyContainer.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨'
+    }
+};
+
+// changes city name according to text input
 const changeCityName = () => {
     const cityInput = document.getElementById('city-input').value;
     const currentCityName = document.getElementById('city-name');
@@ -52,11 +70,13 @@ const changeCityName = () => {
     state.city = cityInput;
 };
 
+// converts given degrees kelvin to fahrenheit
 const convertTemp = (degreesKelvin) => {
     let degreesFahrenheit = Math.round(1.8*(degreesKelvin -273) + 32);
     return degreesFahrenheit;
 };
 
+// gets latitiude and longitude for current city inputted
 const getLatitudeAndLongitude = () => {
     axios
         .get('http://127.0.0.1:5000/location', {
@@ -74,6 +94,7 @@ const getLatitudeAndLongitude = () => {
     });
 }
 
+// gets current real time temperature using latitude and longitude
 const getTemperature = (latitude, longitude) => {
     axios
         .get('http://127.0.0.1:5000/weather', {
@@ -105,6 +126,9 @@ const registerEventHandlers = () => {
 
     const getRealTemp = document.getElementById('real-temp-button');
     getRealTemp.addEventListener("click", getLatitudeAndLongitude);
+
+    const changeCurrentSky = document.getElementById('skys');
+    changeCurrentSky.addEventListener("change", changeSky);
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
