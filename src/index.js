@@ -1,6 +1,5 @@
 "use strict";
 
-//const axios = require('axios');
 
 // let map;
 // let service;
@@ -44,9 +43,9 @@ const state = {
 //let theText = myTextInput.value;
 const showCityName=()=>{
     const cityContainer = document.getElementById("cityDisplay");
-    let theText = myTextInput.value;
-    state.cityName=theText;
-    cityContainer.textContent = `Showing weather for: ${state.cityName}`;
+    const city= document.getElementById('name')
+    const cityName= city.value;
+    cityContainer.textContent = `Showing weather for: ${cityName}`;
 }   
 const changeToC=()=>{
     const degreeCountContainer = document.getElementById("degree");
@@ -99,68 +98,77 @@ const resetTemp = () => {
     degreeCountContainer.textContent=state.degree;
     
 }
-const getLocation=(theText)=> {
-    axios
-    .get('https://us1.locationiq.com/v1/search.php?', {
+
+const getTemp=() => {
+    //console.log(loc)
+    const loc= document.getElementById('name');
+    
+    return axios
+    .get('http://127.0.0.1:5000/location', {
         params:{
-            key: pk.c4dffe85e029156fa5f4e3dee8600c56,
-            q: theText,
-            format: 'json',
+            q: loc.value,
             },
     })
     .then((response) => {
+        console.log(response);
         const lat=response.data[0].lat;
         const lon=response.data[0].lon;
-        return { lat, lon };
-    }
-)};
-const getWeather = (loc)=>{
-    axios
-    .get('https://api.openweathermap.org/data/2.5/onecall', {
+        return axios.get('http://127.0.0.1:5000/weather', {
         params:{
-            appid: '05bcade8cd63472439446adea0a55dec',
-            lat: loc.lat,
-            lon: loc.lon,
-            units: 'imperial',
+            lat: lat,
+            lon: lon,
             },
+        })
     })
+
     .then((response) => {
-        const temp=response.data[0].current.temp;
-        return temp;
-    }
-)};
-const showRealWeather = ()=> {
-    const degreeCountContainer = document.getElementById("degree");
-    let theText = myTextInput.value;
-    loc=getLocation(theText);
-    temp=getWeather(loc);
-    state.degree=temp;
-    state.isF=true;
-    degreeCountContainer.textContent=state.degree;
+        
+        const temp=response.data.current.temp;
+        state.degree=Math.floor((temp-273.15)*1.8+32)
+        document.getElementById("degree").textContent=state.degree;
+        return state.degree;
+    })
+    .catch((response)=>{
+        console.log(response);
+        console.log('ERROR');
+    })
 }
+
+// const showRealWeather = ()=> {
+//     const degreeCountContainer = document.getElementById("degree");
+//     let theText = document.getElementById("name").value;
+    
+//     // let temp=getTemp(theText);
+//     // state.isF=true;
+//     // degreeCountContainer.textContent=temp;
+// }
 const selectSky= (event)=>{
     const result = document.querySelector('.result');
     result.textContent = event.target.value;
     
-}
-const changeBackground=(event) =>{ // this one doesn't work
-    let imgPath ='';
-    imgPath = document.getElementById("body").style.backgroundImage;
-    if (event.target.value == 'sunny'){
-        document.getElementById("body").style.backgroundImage=url('/assets/sunny.gif');
-    }else if (event.target.value == 'rainy'){
-        document.getElementById("body").style.backgroundImage=url('/assets/rainy.gif');
-    }else if (event.target.value == 'snowy'){
+    }
+
+const changeBackground=() =>{ 
+    const sky = document.getElementById('select-sky');
+    if (sky.value == 'sunny'){
+        document.getElementById("body").style.backgroundImage= url('/assets/sunny.gif');
+    }else if (sky.value == 'rainy'){
+        const result = document.querySelector('#body');
+        result['background-image']= url('/assets/rainy.gif');
+        //document.getElementById("body").style.backgroundImage =url('/assets/rainy.gif');
+    }else if (sky.value == 'snowy'){
         document.getElementById("body").style.backgroundImage=url('/assets/snow.gif');
-    }else if (event.target.value == 'cloudy'){
+    }else if (sky.value == 'cloudy'){
         document.getElementById("body").style.backgroundImage=url('/assets/cloudy.webp');
     }
     
 }
 const registerEventHandlers = () => {
-    console.log('hello!');
+    
     const realWeather=document.getElementById("s");
-    realWeather.addEventListener("click", showRealWeather);
+    realWeather.addEventListener("click", getTemp);
+    realWeather.addEventListener('click', showCityName);
+
 
     const plusDegree = document.getElementById("plus");
     plusDegree.addEventListener("click", changeTemp);
@@ -176,12 +184,8 @@ const registerEventHandlers = () => {
     const resetDegree = document.getElementById("resetbutton");
     resetDegree.addEventListener("click", resetTemp);
 
-    const showCity= document.getElementById("s");
-    showCity.addEventListener('click', showCityName);
-    showCity.addEventListener('click', showRealWeather);
-
     const sky= document.getElementById("select-sky");
-    sky.addEventListener('change', selectSky);
+    //sky.addEventListener('change', selectSky);
     sky.addEventListener('change', changeBackground);
 }
 

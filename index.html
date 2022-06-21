@@ -9,7 +9,7 @@
 </head>
 <body id="body">
     <h1><span >Poppy's Weather App</span> </h1>
-    <h2><span >Showing weather for: Poppy City, USA</span> </h2>
+    <h2><span id='cityDisplay'>Showing weather for: Poppy City, USA</span> </h2>
     <section>
         <div id="temperature" class="box">
             <div class="flex3">
@@ -28,17 +28,17 @@
     
         <div class="box1">
             <label class="cityName">Choose a sky:
-                <select class ='select-sky' name="select-sky">
-                    <option value= "☁️ ☁️ ☁️ ☀️ ☁️ ☁️" id="sunny">sunny</option>;
-                    <option value= "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧" id="'rainy">rainy</option>
-                    <option value= "☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️" id="'cloudy">cloudy</option>
-                    <option value= "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨" id="snowy">snowy</option>
+                <select class='select-sky' id='select-sky'>
+                    <option value= "sunny" id="sunny">sunny</option>;
+                    <option value= "rainy" id="'rainy">rainy</option>
+                    <option value= "cloudy" id="'cloudy">cloudy</option>
+                    <option value= "snowy" id="snowy">snowy</option>
                 </select>
             </label>
             <div class="skyResult"></div>
 
             <label class='cityName' for="name">Get a city's real weather:</label>
-            <input class ='cityName' type="text" id="name" name="name" required>
+            <input class ='cityName' type="text" id="name" name="name" required/>
             <button id="s">Search</button>
             <button id="resetbutton">Reset</button>
         </div>
