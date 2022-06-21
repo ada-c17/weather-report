@@ -1,7 +1,7 @@
 'use strict';
 
 const state = {
-  temperature: 0,
+  temperature: 70,
   landscape: document.getElementById('landscape'),
   location: '',
   skyType: document.getElementById('sky-type'),
@@ -26,10 +26,10 @@ const changeTemperatureEnvironment = (displayTemperatureEl) => {
     state.landscape.textContent = landscape.cold;
   } else if (state.temperature <= 69) {
     displayTemperatureEl.classList.remove('green');
-    displayTemperatureEl.classList.add('yellow');
+    displayTemperatureEl.classList.add('pink');
     state.landscape.textContent = landscape.warm;
   } else if (state.temperature <= 79) {
-    displayTemperatureEl.classList.remove('yellow');
+    displayTemperatureEl.classList.remove('pink');
     displayTemperatureEl.classList.add('orange');
     state.landscape.textContent = landscape.veryWarm;
   } else {

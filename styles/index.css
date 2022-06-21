@@ -34,6 +34,7 @@ h1, h2, #city--error-message {
   grid-template-rows: 1fr, 1fr, 1fr, 1fr;
   border: 3px solid;
   border-radius: 10px;
+  font-size: 2.3rem;
 }
 
 #city--name {
@@ -46,6 +47,7 @@ h1, h2, #city--error-message {
   text-align: center;
   justify-self: center;
   margin-bottom: 5%;
+  font-size: 1.5rem;
 }
 
 #city--buttons {
@@ -63,6 +65,7 @@ h1, h2, #city--error-message {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  font-size: 2rem;
 }
 
 .temp-sky--section {
@@ -89,9 +92,10 @@ img {
   padding: 0 1% 0 1%;
 }
 
-#display-temperature {
-  text-shadow: 2px 1px #000000;
+#sky-type {
+  font-size: 2rem;
 }
+
 
 /* CHANGE TEMP COLOR */
 .red {
@@ -102,8 +106,8 @@ img {
   color: orange;
 }
 
-.yellow {
-  color: yellow;
+.pink {
+  color: pink;
 }
 
 .green {
