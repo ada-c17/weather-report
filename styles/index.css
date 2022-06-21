@@ -75,12 +75,16 @@ body{
     font-size: 125%;
 }
 
+#real-temp-button:hover{
+    cursor: pointer;
+}
+
 #decrease-temp-button:hover{
     cursor: pointer;
 }
 
 #temp-number{
-    font-size: 250%;
+    font-size: 200%;
     font-weight: bold;
 }
 

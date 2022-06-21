@@ -3,6 +3,7 @@
 
 const state = {
     tempDegrees: 50,
+    city: 'Anchorage',
 };
 
 // increase temperature 
@@ -25,6 +26,7 @@ const decreaseTemp = () => {
 const changesByTemp = () => {
     const tempContainer = document.getElementById('temp-number');
     const gardenContainer = document.getElementById('ground-garden')
+    tempContainer.textContent = state.tempDegrees;
     if(state.tempDegrees >= 80) {
         tempContainer.style.color = '#d04123';
         gardenContainer.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂'
@@ -47,7 +49,49 @@ const changeCityName = () => {
     const cityInput = document.getElementById('city-input').value;
     const currentCityName = document.getElementById('city-name');
     currentCityName.textContent = cityInput;
+    state.city = cityInput;
 };
+
+const convertTemp = (degreesKelvin) => {
+    let degreesFahrenheit = Math.round(1.8*(degreesKelvin -273) + 32);
+    return degreesFahrenheit;
+};
+
+const getLatitudeAndLongitude = () => {
+    axios
+        .get('http://127.0.0.1:5000/location', {
+        params: {
+            q: state.city
+        },
+    })
+    .then((response) => {
+        let latitude = response.data[0].lat;
+        let longitude = response.data[0].lon;
+        getTemperature(latitude, longitude);
+    })
+    .catch((error) => {
+        console.log('error with getting lat & lon!', error.response.data);
+    });
+}
+
+const getTemperature = (latitude, longitude) => {
+    axios
+        .get('http://127.0.0.1:5000/weather', {
+        params: {
+            lat: latitude,
+            lon: longitude,
+        },
+    })
+    .then((response) => {
+        const degreesKelvin = response.data.current.temp;
+        let currentTemp = convertTemp(degreesKelvin);
+        state.tempDegrees = currentTemp;
+        changesByTemp();
+    })
+    .catch((error) => {
+        console.log('error with getting temp!', error.response.data);
+    });
+}
 
 const registerEventHandlers = () => {
     const increaseTempButton = document.querySelector("#increase-temp-button");
@@ -59,6 +103,8 @@ const registerEventHandlers = () => {
     const cityInput = document.getElementById('city-input');
     cityInput.addEventListener('input', changeCityName);
 
+    const getRealTemp = document.getElementById('real-temp-button');
+    getRealTemp.addEventListener("click", getLatitudeAndLongitude);
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
