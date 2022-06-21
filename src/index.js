@@ -141,16 +141,16 @@ const updateSky = () => {
     let sky = '';
     let skyColor = '';
     if (inputSky === 'cloudy') {
-        sky = "   ☁️   ☁️   ☁️   ☁️   ☁️   ☁️   ☁️   ☁️   ☁️";
+        // sky = "   ☁️   ☁️   ☁️   ☁️   ☁️   ☁️   ☁️   ☁️   ☁️";
         skyColor = 'cloudy';
     } else if (inputSky === 'sunny') {
-        sky = ' 🌤  🌤  🌤  🌤  🌤  🌤  🌤  🌤  🌤  🌤 ';
+        // sky = ' 🌤  🌤  🌤  🌤  🌤  🌤  🌤  🌤  🌤  🌤 ';
         skyColor = 'sunny';
     } else if (inputSky === 'raining') {
-        sky = '💧 💧 💧 💧 💧 💧 💧 💧 💧 💧';
+        // sky = '💧 💧 💧 💧 💧 💧 💧 💧 💧 💧';
         skyColor = 'rainy';
     } else if (inputSky === 'snowing') {
-        sky = '❄️   ❄️   ❄️   ❄️   ❄️   ❄️   ❄️   ❄️';
+        // sky = '❄️   ❄️   ❄️   ❄️   ❄️   ❄️   ❄️   ❄️';
         skyColor = 'snowy';
     }
     skyContainer.textContent = sky;
