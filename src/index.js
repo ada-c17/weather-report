@@ -43,12 +43,21 @@ const changesByTemp = () => {
     }
 };
 
+const changeCityName = () => {
+    const cityInput = document.getElementById('city-input').value;
+    const currentCityName = document.getElementById('city-name');
+    currentCityName.textContent = cityInput;
+};
+
 const registerEventHandlers = () => {
     const increaseTempButton = document.querySelector("#increase-temp-button");
     increaseTempButton.addEventListener("click", increaseTemp);
 
     const decreaseTempButton = document.querySelector("#decrease-temp-button");
     decreaseTempButton.addEventListener("click", decreaseTemp);
+
+    const cityInput = document.getElementById('city-input');
+    cityInput.addEventListener('input', changeCityName);
 
 };
 

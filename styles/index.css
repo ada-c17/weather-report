@@ -1,6 +1,14 @@
 header{
-    display: flex;
-    justify-content: flex-start;
+    /* display: flex;
+    justify-content: flex-start; */
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+#city-name {
+    color: #ae78f0;
+    font-size: 150%;
+    font-weight: bold;
 }
 
 body{

@@ -9,7 +9,12 @@
 </head>
 <body>
     <header class="header">
-        <h1>Weather Report</h1>
+        <h1>Weather Report</h1><br>
+        <span>for the city of 
+            <span id="city-name">
+                Anchorage
+            </span>
+        </span>
     </header>
     <main class="main-container">
 
@@ -22,7 +27,10 @@
             </div>
         </section>
 
-        <section class="general-container city-container"></section>
+        <section class="general-container city-container">
+            <h2>Enter City Name:</h2>
+            <input type="text" id="city-input" value="Anchorage">
+        </section>
 
         <section class="general-container landscape-container">
             <h2>Weather Garden</h2>
