@@ -41,44 +41,44 @@ const tempVariations = [
   },
 ];
 
-const skyVariations = [
-  {
+const skyVariations = {
+  sunny: {
     sky: 'sunny',
     garden: '☀️',
     alt: 'a black and white icon of the sun',
     src: './weather-icons/sunny.png',
   },
-  {
+  cloudy: {
     sky: 'cloudy',
     garden: '☁️ ☁️ ☁️   ☁️ ☁️  ☁️   ☁️ ☁️  ☁️  ☁️ ☁️ ☁️  🌥',
     alt: 'a black and white icon of clouds',
     src: './weather-icons/cloudy.png',
   },
-  {
+  rainy: {
     sky: 'rainy',
     garden: '🌧 🌧 🌧 🌧 💧 💧 🌧 💧 💧 🌧 🌧 🌧 🌧',
     alt: 'a black and white icon of a raincloud',
     src: './weather-icons/rainy.png',
   },
-  {
+  snowy: {
     sky: 'snowy',
     garden: '🌨 🌨 🌨 ❄️ 🌨 ❄️ 🌨 ❄️ 🌨 🌨 🌨',
     alt: 'a black and white icon of snow falling from a cloud',
     src: './weather-icons/snowy.png',
   },
-  {
+  windy: {
     sky: 'windy',
     garden: '🌬     💨 💨 💨 ',
     alt: 'a black and white icon of a cloud and wind',
     src: './weather-icons/windy.png',
   },
-  {
+  thunderstorms: {
     sky: 'thunderstorms',
     garden: '🌩 ⛈ ⛈ 🌩 ⛈ ⛈ 🌩',
     alt: 'a black and white icon of a thundercloud',
     src: './weather-icons/thunder.png',
   },
-];
+};
 
 // initialize all variables
 let tempUpButton;
@@ -93,14 +93,34 @@ let skyIcon;
 let gardenSky;
 let skyDropdown;
 
-// temp functions
-const increaseTemp = () => {
-  state.temp += 1;
-  updateTemp();
+// set variables to html elements
+const lookUpElements = () => {
+  tempUpButton = document.getElementById('tempUp');
+  tempDownButton = document.getElementById('tempDown');
+  tempDisplay = document.getElementById('tempNum');
+  tempRealTimeButton = document.getElementById('realTime');
+  skyIcon = document.getElementById('skyIcon');
+  skyDropdown = document.getElementById('skySelect');
+  gardenSky = document.getElementById('gardenSky');
+  gardenDisplay = document.getElementById('garden');
+  cityInput = document.getElementById('cityInput');
+  cityDisplay = document.getElementById('cityDisplay');
+  cityResetButton = document.getElementById('resetCity');
 };
 
-const decreaseTemp = () => {
-  state.temp -= 1;
+// temp functions
+// const increaseTemp = () => {
+//   state.temp += 1;
+//   updateTemp();
+// };
+
+// const decreaseTemp = () => {
+//   state.temp -= 1;
+//   updateTemp();
+// };
+
+const setTemp = (tempChange) => {
+  state.temp += tempChange;
   updateTemp();
 };
 
@@ -154,21 +174,15 @@ const resetCity = () => {
 
 // sky functions
 const updateSky = () => {
-  const skyValue = skyDropdown.value;
+  let skyValue = skyDropdown.value;
 
   if (skyValue === 'default') {
-    gardenSky.textContent = skyVariations[0].garden;
-    skyIcon.src = skyVariations[0].src;
-    skyIcon.alt = skyVariations[0].alt;
+    skyValue = 'sunny';
   }
 
-  for (let sky of skyVariations) {
-    if (sky.sky === skyValue) {
-      gardenSky.textContent = sky.garden;
-      skyIcon.src = sky.src;
-      skyIcon.alt = sky.alt;
-    }
-  }
+  gardenSky.textContent = skyVariations[skyValue].garden;
+  skyIcon.src = skyVariations[skyValue].src;
+  skyIcon.alt = skyVariations[skyValue].alt;
 };
 
 // realtime temperature functions
@@ -219,25 +233,14 @@ const getLatLong = () => {
     });
 };
 
-// set variables to html elements
-const lookUpElements = () => {
-  tempUpButton = document.getElementById('tempUp');
-  tempDownButton = document.getElementById('tempDown');
-  tempDisplay = document.getElementById('tempNum');
-  tempRealTimeButton = document.getElementById('realTime');
-  skyIcon = document.getElementById('skyIcon');
-  skyDropdown = document.getElementById('skySelect');
-  gardenSky = document.getElementById('gardenSky');
-  gardenDisplay = document.getElementById('garden');
-  cityInput = document.getElementById('cityInput');
-  cityDisplay = document.getElementById('cityDisplay');
-  cityResetButton = document.getElementById('resetCity');
-};
-
 // register events
 const registerEventHandlers = () => {
-  tempUpButton.addEventListener('click', increaseTemp);
-  tempDownButton.addEventListener('click', decreaseTemp);
+  tempUpButton.addEventListener('click', () => {
+    setTemp(1);
+  });
+  tempDownButton.addEventListener('click', () => {
+    setTemp(-1);
+  });
   tempRealTimeButton.addEventListener('click', getLatLong);
   cityInput.addEventListener('change', updateCity);
   cityResetButton.addEventListener('click', resetCity);
