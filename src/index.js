@@ -55,14 +55,21 @@ const updateCity = () => {
 };
 
 const getSkyType = () => {
+  const skyAppearance = {
+    sunny: '☁️ ☁️ ☁️ ☀️ ☁️ ☁️',
+    cloudy: '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️',
+    rainy: '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧',
+    snowy: '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨',
+  };
+
   if (state.skyType.value === 'sunny') {
-    state.skyDisplay.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+    state.skyDisplay.textContent = skyAppearance.sunny;
   } else if (state.skyType.value === 'cloudy') {
-    state.skyDisplay.textContent = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    state.skyDisplay.textContent = skyAppearance.cloudy;
   } else if (state.skyType.value === 'rainy') {
-    state.skyDisplay.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    state.skyDisplay.textContent = skyAppearance.rainy;
   } else if (state.skyType.value === 'snowy') {
-    state.skyDisplay.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    state.skyDisplay.textContent = skyAppearance.snowy;
   }
 };
 
