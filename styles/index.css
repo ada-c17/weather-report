@@ -8,9 +8,13 @@ h1, h2, #city--error-message {
 
 
 /* TOP */
+h1 {
+  font-size: 3.5rem;
+}
+
 .box-container {
   display: grid;
-  grid-template-rows: 10vh 45vh 45vh;
+  grid-template-rows: 15vh 42.5vh 42.5vh;
 }
 
 .top {
@@ -52,6 +56,10 @@ h1, h2, #city--error-message {
 
 #city--buttons {
   grid-row: 3;
+}
+
+#current-temperature, #reset-temperature {
+  font-size: 1.3rem;
 }
 
 #city--error-message {
