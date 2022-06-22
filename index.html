@@ -5,8 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link href="styles/index.css" rel="stylesheet">
 </head>
 <body>
-    
+    <header class="header">
+        <h1>Weather Report</h1><br>
+        <span>for the city of 
+            <span id="city-name">
+                Anchorage
+            </span>
+        </span>
+    </header>
+    <main class="main-container">
+
+        <section class ="general-container temperature-container">
+            <h2>Temperature (F):</h2>
+            <div>
+                <button id="increase-temp-button">⬆️</button>
+                <span id="temp-number">49</span>
+                <button id="decrease-temp-button">⬇️</button>
+            </div>
+            <div>
+                <button id="real-temp-button">Realtime Temperature!</button>
+            </div>
+        </section>
+
+        <section class="general-container city-container">
+            <h2>Enter City Name:</h2>
+            <input type="text" id="city-input" value="Anchorage"><br>
+            <br>
+            <button id="reset-city-button">Reset City</button>
+        </section>
+
+        <section class="general-container landscape-container">
+            <h2>Weather Garden</h2>
+            <div class="garden">
+                <h3>Select Sky:</h3>
+                <select name="sky-type" id="skys" value="snowy">
+                    <option value="cloudy">Cloudy</option>
+                    <option value="sunny">Sunny</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                </select>
+                <div id="sky-garden">☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️</div><br>
+                <div id="ground-garden">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</div>
+            </div>
+        </section>
+
+    </main>
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
