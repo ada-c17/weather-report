@@ -75,6 +75,11 @@ body{
     font-size: 125%;
 }
 
+#real-temp-button{
+    color: whitesmoke;
+    background-color: #1e475b;
+}
+
 #real-temp-button:hover{
     cursor: pointer;
 }
@@ -86,5 +91,14 @@ body{
 #temp-number{
     font-size: 200%;
     font-weight: bold;
+}
+
+#reset-city-button{
+    color: whitesmoke;
+    background-color: #1e475b;
+}
+
+#reset-city-button:hover{
+    cursor: pointer;
 }
 

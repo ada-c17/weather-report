@@ -70,6 +70,15 @@ const changeCityName = () => {
     state.city = cityInput;
 };
 
+// reset city name to the default
+const resetCityName = () => {
+    const cityContainer = document.getElementById('city-input');
+    const currentCityName = document.getElementById('city-name');
+    state.city = 'Anchorage';
+    cityContainer.value = state.city;
+    currentCityName.textContent = state.city;
+}; 
+
 // converts given degrees kelvin to fahrenheit
 const convertTemp = (degreesKelvin) => {
     let degreesFahrenheit = Math.round(1.8*(degreesKelvin -273) + 32);
@@ -115,20 +124,23 @@ const getTemperature = (latitude, longitude) => {
 }
 
 const registerEventHandlers = () => {
-    const increaseTempButton = document.querySelector("#increase-temp-button");
-    increaseTempButton.addEventListener("click", increaseTemp);
+    const increaseTempButton = document.querySelector('#increase-temp-button');
+    increaseTempButton.addEventListener('click', increaseTemp);
 
-    const decreaseTempButton = document.querySelector("#decrease-temp-button");
-    decreaseTempButton.addEventListener("click", decreaseTemp);
+    const decreaseTempButton = document.querySelector('#decrease-temp-button');
+    decreaseTempButton.addEventListener('click', decreaseTemp);
 
     const cityInput = document.getElementById('city-input');
     cityInput.addEventListener('input', changeCityName);
 
     const getRealTemp = document.getElementById('real-temp-button');
-    getRealTemp.addEventListener("click", getLatitudeAndLongitude);
+    getRealTemp.addEventListener('click', getLatitudeAndLongitude);
 
     const changeCurrentSky = document.getElementById('skys');
-    changeCurrentSky.addEventListener("change", changeSky);
+    changeCurrentSky.addEventListener('change', changeSky);
+
+    const resetCity = document.getElementById('reset-city-button');
+    resetCity.addEventListener('click', resetCityName);
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
