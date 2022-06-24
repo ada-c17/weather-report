@@ -151,16 +151,16 @@ const selectSky= (event)=>{
 const changeBackground=() =>{ 
     const sky = document.getElementById('select-sky');
     if (sky.value == 'sunny'){
-        document.getElementById("body").style.backgroundImage= url('/assets/sunny.gif');
+        document.getElementById("body").style.backgroundImage= "url('/assets/sunny.gif')";
     }else if (sky.value == 'rainy'){
-        const result = document.querySelector('#body');
-        result['background-image']= url('/assets/rainy.gif');
-        //document.getElementById("body").style.backgroundImage =url('/assets/rainy.gif');
+        
+        document.getElementById("body").style.backgroundImage ="url('/assets/rainy.gif')";
     }else if (sky.value == 'snowy'){
-        document.getElementById("body").style.backgroundImage=url('/assets/snow.gif');
+        document.getElementById("body").style.backgroundImage='url("/assets/snow.gif")';
     }else if (sky.value == 'cloudy'){
-        document.getElementById("body").style.backgroundImage=url('/assets/cloudy.webp');
+        document.getElementById("body").style.backgroundImage="url('/assets/cloudy.webp')";
     }
+    console.log('changeBackgroundCalled')
     
 }
 const registerEventHandlers = () => {
@@ -187,6 +187,7 @@ const registerEventHandlers = () => {
     const sky= document.getElementById("select-sky");
     //sky.addEventListener('change', selectSky);
     sky.addEventListener('change', changeBackground);
+
 }
 
 
