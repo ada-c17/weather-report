@@ -20,10 +20,11 @@ main {
 }
 
 main button {
-    background-color: #fcd5ce;
-    border-left-color: #fec89a;
-    border-top-color: #ffd7ba;
-    border-radius: 10vw;
+    background-color: #d8e2dc;
+    border-left-color: #5856d6;
+    border-top-color: #d7e3fc;
+    border-radius: 1vw;
+    color: #38040e;
 }
 
 main:nth-of-type(3) {
@@ -75,28 +76,26 @@ header h1 {
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 1vw;
-    height: 100vh;
+    height: 88vh;
 }
 
 #sky, #landScape {
-    width: 54vw;
+    min-width: 54vw;
+    max-width: 60vw;
     margin-right:1vw;
-    /* object-fit:contain; */
 }
 #sky {
-    /* flex: 1; */
     height: 40vh;
     align-self: flex-start;
 }
 .skyRainy {
     background-image: url('../assets/rain.png');
-    background-size: contain;
+    background-size: cover;
 }
 
 
 #landScape {
-    /* flex: 1; */
-    height: 27vh;
+    height: 20vh;
     align-self: flex-end;
     padding-top: 2vh;
 }
@@ -120,7 +119,6 @@ header h1 {
 main div {
     flex: 2 30%;
     margin: 1vw;
-    /* padding-bottom: 1vh; */
 }
 main div h2 {
     font-size: 5em;
@@ -194,17 +192,46 @@ main div:first-of-type section div{
 #raiseTemp, #lowerTemp {
     height: 4vh;
 }
-#currentTemp {
+#irlTemp {
     font-size: 2.25em;
 }
 
 #skySelector {
+    /* padding-top: 4vh; */
     display: flex;
     flex-wrap: wrap;
-    margin-top: 1vh;
+    margin-top: 3.5vh;
 }
-#skySelector ul {
+
+.dropdown_button {
+    background-color: #b6ccfe;
+    color:#38040e;
+    padding: 1vw;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+    font-size: 1rem;
+}
+
+.weather {
+    display: none;
+    position: absolute;
+    background-color: #fcd5ce;
+    box-shadow: 0px 2px 4px 0px #B6B6B6;
+    z-index: 1;
+}
+
+.weather li {
+    color: #38040e;
+    /* padding: 2px 4px; */
+    text-decoration: none;
+    display: block;
     list-style: none;
+    background-color: #fec5bb;
+}
+
+.weather li:hover {
+    background-color: #d7e3fc;
+    color: #38040e;
 }
 
 #layerReport {

@@ -10,24 +10,20 @@
 
 <body>
     <header>
-        <h2> in city,</h2>
+        <h2> in <span id="city" class="cityName">city</span>,</h2>
         <h1>WEATHER REPORT</h1>
     </header>
 
     <main>
         <section id="cityInput">
-            <h3> what is the current weather in this city? : </h3>
-<!-- input might be more useful than text area-->
-            <input></input>
+            <h3> what is the current weather? : </h3>
+            <input id="cityText" class="cityTextBox"></input>
             <button id ="reset">☁☁reset☁☁</button>
         </section>
 
         <section id="weatherGarden"> 
-            <!-- <h4> weather garden </h4> -->
-            <!-- <img src="assets/rain.png" alt= "sky based on dropdown"  id="sky"> -->
             <section id="sky" class="skyRainy"></section>
             <section id="landScape" class="landTemperate"></section>
-            <!-- <img src="assets/comfy.png" alt="landscape based on weather temp" id ="landScape"> -->
         </section>
         <div>
             <section id="tempAdjust" class ="tempTemperate">
@@ -37,16 +33,20 @@
                     <h2 id="temp">23</h2>
                     <button id="raiseTemp">👆</button>
                 </div>
-                <button id="currentTemp">irl temp</button>
+                <button id="irlTemp" class="currentTempButton">irl temp</button>
             </section>
             
             <section id="skySelector">
-                <h4> sky </h4>
-                <ul>
+                <button class="dropdown_button" onclick="show_sky()">
+                    select weather
+                </button>
+
+                <ul id="sky_id" class="weather">
                     <li>sunny</li>
                     <li>partly cloudy</li>
                     <li>overcast</li>
-                    <li>percipitation</li>
+                    <li>rain</li>
+                    <li>snow</li>
                 </ul>
             </section>
         </div>
