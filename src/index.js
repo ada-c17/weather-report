@@ -9,22 +9,52 @@ const state = {
   lon: 0,
 };
 
-// ********** SKY changes***********
+// ********** SKY changes ***********
 // change sky
 const changeSky = () => {
+  // SUNNY
   if (state.skyCondition.value === 'sunny') {
+    state.skyConditionImage.alt = 'outline of hills with yellow sunset';
+
+    state.skyConditionImage.title = 'Photo by Nic Y-C on Unsplash';
+
     state.skyConditionImage.style.background =
       "url('/assets/sky/sunny 1920x360.jpg')";
+
+    // RAINY
   } else if (state.skyCondition.value === 'rainy') {
+    state.skyConditionImage.alt = 'tree branches in a rain storm';
+
+    state.skyConditionImage.title = 'Photo by Milin John on Unsplash';
+
     state.skyConditionImage.style.background =
       "url('/assets/sky/rainy 1920x360.jpg')";
+
+    // CLOUDY
   } else if (state.skyCondition.value === 'cloudy') {
+    state.skyConditionImage.alt = 'dark sky with fluffy dark clouds';
+
+    state.skyConditionImage.title = 'Photo by Harshit Sharma on Unsplash';
+
     state.skyConditionImage.style.background =
       "url('/assets/sky/cloudy 1920x360.jpg')";
+
+    // SNOWY
   } else if (state.skyCondition.value === 'snowy') {
+    state.skyConditionImage.alt =
+      'ice covered tree branch covered snow falling our of sky';
+
+    state.skyConditionImage.title = 'Photo by Chandler Cruttenden on Unsplash';
+
     state.skyConditionImage.style.background =
       "url('/assets/sky/snowy 1920x360.jpg')";
+
+    // CLEAR
   } else if (state.skyCondition.value === ' ') {
+    state.skyConditionImage.alt = 'clear blue skies';
+
+    state.skyConditionImage.title = 'Photo by Patrick Fore on Unsplash';
+
     state.skyConditionImage.style.background =
       "url('/assets/sky/clear 1920x360.jpg')";
   }
@@ -44,10 +74,11 @@ const validateSkyCondition = (condition) => {
   } else if (condition === 'Snow') {
     state.skyCondition.value = 'snowy';
   }
+  changeSky();
 };
 
-// ********** TEMP changes***********
-// change TEMP
+// ********** TEMP changes ***********
+// change TEMP displayed
 const changeTempDisplay = () => {
   const tempContainer = document.getElementById('temperature');
   tempContainer.textContent = `${state.temp}°F`;
@@ -57,6 +88,7 @@ const incTemp = () => {
   state.temp++;
   changeTempDisplay();
 };
+
 const decTemp = () => {
   state.temp--;
   changeTempDisplay();
@@ -71,26 +103,23 @@ const convertKelvin = (temp) => {
 const changeColorTemp = () => {
   if (state.temp >= 80) {
     state.color.style.backgroundColor = 'rgba(140,114,89, 0.5)';
-    document.getElementById('land').style.background =
-      "url('/assets/temp/80 plus 1920x360.jpg')";
+    state.land.style.background = "url('/assets/temp/80 plus 1920x360.jpg')";
   } else if (state.temp >= 70) {
     state.color.style.backgroundColor = 'rgba(252,67,29, 0.5)';
-    document.getElementById('land').style.background =
-      "url('/assets/temp/70 to 79 1920x360.jpg')";
+    state.land.style.background = "url('/assets/temp/70 to 79 1920x360.jpg')";
   } else if (state.temp >= 60) {
     state.color.style.backgroundColor = 'rgba(238,170,60, 0.5)';
-    document.getElementById('land').style.background =
-      "url('/assets/temp/60 to 69  1920x360.jpg')";
+    state.land.style.background = "url('/assets/temp/60 to 69  1920x360.jpg')";
   } else if (state.temp >= 50) {
     state.color.style.backgroundColor = 'rgba(135,160,180, 0.5)';
-    document.getElementById('land').style.background =
+    state.land.style.background =
       "url('/assets/temp/50 to below 1920x360.jpg')";
   } else {
     state.color.style.backgroundColor = 'rgba(193,205,215, 0.5)';
   }
 };
 
-// **********LOCATION INPUT changes***********
+// **********LOCATION INPUT changes ***********
 // location name updates in REAL TIME
 const changeLocationDisplay = () => {
   const inputText = document.getElementById('location-input');
@@ -136,7 +165,7 @@ const resetInput = () => {
 // get LOCATION info
 const getLatLon = () => {
   axios
-    .get('https://weather-report-proxy-server.herokuapp.com/location', {
+    .get('http://localhost:5000/location', {
       params: {
         q: state.location,
       },
@@ -144,6 +173,8 @@ const getLatLon = () => {
     .then((response) => {
       state.lon = response.data[0].lon;
       state.lat = response.data[0].lat;
+    })
+    .then(() => {
       getLocationWeather();
     })
     .catch((error) => {
@@ -154,7 +185,7 @@ const getLatLon = () => {
 // get WEATHER info
 const getLocationWeather = () => {
   axios
-    .get('https://weather-report-proxy-server.herokuapp.com/weather', {
+    .get('http://localhost:5000/weather', {
       params: {
         lat: state.lat,
         lon: state.lon,
@@ -163,9 +194,10 @@ const getLocationWeather = () => {
     .then((response) => {
       condition = response.data.current.weather[0].main;
       kelvinTemp = response.data.current.temp;
+    })
+    .then((response) => {
       validateSkyCondition(condition);
       convertKelvin(kelvinTemp);
-      changeSky();
       changeColorTemp();
     })
     .catch((error) => {
@@ -188,7 +220,7 @@ const registerEventHandlers = () => {
   // change location - SUBMIT button
   const locationSubmit = document.getElementById('location-submit');
   locationSubmit.addEventListener('click', submitLocationInput);
-  // change location - SUBMIT - RETURN
+  // change location - RETURN key
   const enterKeyLocationSubmit = document.getElementById('location-input');
   enterKeyLocationSubmit.addEventListener(
     'keyup',
@@ -197,7 +229,7 @@ const registerEventHandlers = () => {
   // change location - NAME DISPLAY
   const locationInput = document.getElementById('location-input');
   locationInput.addEventListener('keyup', changeLocationDisplay);
-  // change location - RESET button
+  // reset page - RESET button
   const locationReset = document.getElementById('location-reset');
   locationReset.addEventListener('click', resetInput);
 };
