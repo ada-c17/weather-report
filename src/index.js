@@ -1,3 +1,5 @@
+const axios = required('axios');
+
 const state = {
   temp: 70,
   color: document.getElementById('mid--color'),
@@ -104,7 +106,7 @@ const changeColorTemp = () => {
   if (state.temp >= 80) {
     state.color.style.backgroundColor = 'rgba(140,114,89, 0.5)';
     state.land.ariaLabel = 'tan dry desert ground';
-    state.landgit  = 'Photo by Ivars Krutainis on Unsplash';
+    state.landgit = 'Photo by Ivars Krutainis on Unsplash';
     state.land.style.background = "url('/assets/temp/80 plus 1920x360.jpg')";
   } else if (state.temp >= 70) {
     state.color.style.backgroundColor = 'rgba(252,67,29, 0.5)';
