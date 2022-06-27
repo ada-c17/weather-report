@@ -18,6 +18,7 @@
         <section id="cityInput">
             <h3> what is the current weather? : </h3>
             <input id="cityText" class="cityTextBox"></input>
+            <button id="irlTemp" class="currentTempButton">irl temp</button>
             <button id ="reset">☁☁reset☁☁</button>
         </section>
 
@@ -33,21 +34,20 @@
                     <h2 id="temp">23</h2>
                     <button id="raiseTemp">👆</button>
                 </div>
-                <button id="irlTemp" class="currentTempButton">irl temp</button>
             </section>
             
             <section id="skySelector">
-                <button class="dropdown_button" onclick="show_sky()">
+                <!-- <button class="dropdown_button" onclick="show_sky()">
                     select weather
-                </button>
+                </button> -->
 
-                <ul id="sky_id" class="weather">
-                    <li>sunny</li>
-                    <li>partly cloudy</li>
-                    <li>overcast</li>
-                    <li>rain</li>
-                    <li>snow</li>
-                </ul>
+                <select id="sky-id" class="weather">
+                    <option value="sunny">sunny</option>
+                    <option value="partlyCloudy">partly cloudy</option>
+                    <option value="overcast">overcast</option>
+                    <option value="rainy">rain</option>
+                    <option value="snow">snow</option>
+                </select>
             </section>
         </div>
 
@@ -58,5 +58,5 @@
     </main>
 </body>
 <script src="src/index.js"></script>
-
+<script src="./node_modules/axios/dist/axios.min.js"></script>
 </html>

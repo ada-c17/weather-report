@@ -93,6 +93,27 @@ header h1 {
     background-size: cover;
 }
 
+.skySnow {
+    background-image: url('../assets/snow.png');
+    background-size: cover;
+}
+
+.skyOvercast{
+    background-image: url('../assets/snow.png');
+    background-size: cover;
+}
+
+
+.skyPartlyCloudy {
+    background-image: url('../assets/partlyCloudy.png');
+    background-size: cover;
+}
+
+.skySunny{
+    background-image: url('../assets/partlyCloudy.png');
+    background-size: cover;
+}
+
 
 #landScape {
     height: 20vh;
@@ -203,6 +224,7 @@ main div:first-of-type section div{
     margin-top: 3.5vh;
 }
 
+/*
 .dropdown_button {
     background-color: #b6ccfe;
     color:#38040e;
@@ -210,10 +232,9 @@ main div:first-of-type section div{
     margin-top: 1.5vh;
     margin-bottom: 1.5vh;
     font-size: 1rem;
-}
+} */
 
 .weather {
-    display: none;
     position: absolute;
     background-color: #fcd5ce;
     box-shadow: 0px 2px 4px 0px #B6B6B6;
