@@ -9,11 +9,8 @@ const weather = {
   updating: false,
 };
 
-// Add options to select menu
-const skies = ['☀️', '🌤', '⛅️', '🌥', '🌦', '🌧', '🌈'];
-const skyMenu = document.getElementById('sky-selector');
-
-const createOption = (emoji) => {
+// Dynamically create sky-selection menu based on emoji array
+const createSkyOption = (emoji) => {
   const opt = document.createElement('option');
   opt.textContent = emoji;
   if (emoji === '☀️') {
@@ -22,50 +19,47 @@ const createOption = (emoji) => {
   return opt;
 };
 
-for (const skyOption of skies.map(createOption)) {
-  skyMenu.appendChild(skyOption);
-}
+const createSkyMenu = (skies) => {
+  const skyMenu = document.getElementById('sky-selector');
+  for (const skyOption of skies.map(createSkyOption)) {
+    skyMenu.appendChild(skyOption);
+  }
+};
 
-// Helper functions used in updates
+createSkyMenu(['☀️', '🌤', '⛅️', '🌥', '🌦', '🌧', '🌈']);
+
+// Helper functions used during updates to set css classes
 const tempClass = () => {
-  if (weather.temperature > 87) {
-    return 'hot';
+  const BOUNDS = [
+    { upperBound: 57, color: 'cold' },
+    { upperBound: 67, color: 'cool' },
+    { upperBound: 77, color: 'goldilocks' },
+    { upperBound: 87, color: 'warm' },
+    { upperBound: Infinity, color: 'hot' },
+  ];
+  for (const { upperBound, color } of BOUNDS) {
+    if (weather.temperature < upperBound) {
+      return color;
+    }
   }
-  if (weather.temperature > 77) {
-    return 'warm';
-  }
-  if (weather.temperature > 67) {
-    return 'goldilocks';
-  }
-  if (weather.temperature > 57) {
-    return 'cool';
-  }
-  return 'cold';
 };
 
 const skyClass = () => {
-  if (weather.clouds < 11) {
-    return '☀️';
+  const BOUNDS = [
+    { upperBound: 11, rain: false, sky: '☀️' },
+    { upperBound: 25, rain: false, sky: '🌤' },
+    { upperBound: 51, rain: false, sky: '⛅️' },
+    { upperBound: 85, rain: true, sky: '🌦' },
+    { upperBound: Infinity, rain: true, sky: '🌧' },
+    { upperBound: Infinity, rain: false, sky: '🌥' },
+  ];
+  const isRaining =
+    weather.condition in { Rain: '', Drizzle: '', Thunderstorm: '' };
+  for (const { upperBound, rain, sky } of BOUNDS) {
+    if (weather.clouds < upperBound && isRaining === rain) {
+      return sky;
+    }
   }
-  if (weather.clouds < 25) {
-    return '🌤';
-  }
-  if (weather.clouds < 51) {
-    return '⛅️';
-  }
-  if (
-    weather.clouds < 85 &&
-    weather.condition in { Rain: '', Drizzle: '', Thunderstorm: '' }
-  ) {
-    return '🌦';
-  }
-  if (
-    weather.clouds >= 85 &&
-    weather.condition in { Rain: '', Drizzle: '', Thunderstorm: '' }
-  ) {
-    return '🌧';
-  }
-  return '🌥';
 };
 
 // Manual triggering of change event on select menu
@@ -123,11 +117,16 @@ const updateCity = (e) => {
 const kTempToF = (k) => (k - 273.15) * 1.8 + 32;
 
 // API call when user wants reality-check
+const PROXY_URL = 'https://wr-proxy.herokuapp.com';
 const realWeatherQuery = () => {
-  const realWeather = axios
-    .get(`http://127.0.0.1:5000/location?q=${weather.city}`)
+  axios
+    .get(`${PROXY_URL}/location`, {
+      params: {
+        q: weather.city,
+      },
+    })
     .then((response) =>
-      axios.get('http://127.0.0.1:5000/weather', {
+      axios.get(`${PROXY_URL}/weather`, {
         params: {
           lat: response.data[0].lat,
           lon: response.data[0].lon,
@@ -135,7 +134,6 @@ const realWeatherQuery = () => {
         },
       })
     )
-    .catch((e) => console.log(e))
     .then((response) => {
       weather.clouds = response.data.current.clouds;
       weather.condition = response.data.current.weather[0].main;
