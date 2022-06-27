@@ -76,7 +76,7 @@ header h1 {
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 1vw;
-    height: 88vh;
+    height: 71vh;
 }
 
 #sky, #landScape {
@@ -84,31 +84,27 @@ header h1 {
     max-width: 60vw;
     margin-right:1vw;
 }
+
 #sky {
-    height: 40vh;
-    align-self: flex-start;
+    height: 35vh;
 }
+
 .skyRainy {
     background-image: url('../assets/rain.png');
     background-size: cover;
 }
-
 .skySnow {
     background-image: url('../assets/snow.png');
     background-size: cover;
 }
-
 .skyOvercast{
     background-image: url('../assets/snow.png');
     background-size: cover;
 }
-
-
 .skyPartlyCloudy {
     background-image: url('../assets/partlyCloudy.png');
     background-size: cover;
 }
-
 .skySunny{
     background-image: url('../assets/sunny.png');
     background-size: cover;
@@ -116,7 +112,7 @@ header h1 {
 
 
 #landScape {
-    height: 20vh;
+    height: 18.5vh;
     align-self: flex-end;
     padding-top: 2vh;
 }
@@ -161,7 +157,6 @@ main div:first-of-type section div{
     margin: 1vw;
 
 }
-
 
 .tempTemperate {
     background: linear-gradient(20deg,#fec5bb,#fcd5ce,#fae1dd,#f8edeb,
@@ -212,6 +207,11 @@ main div:first-of-type section div{
 }
 #raiseTemp, #lowerTemp {
     height: 4vh;
+    background: none;
+    border-radius: 100%;
+    margin-right: 3vw;
+    margin-left: 3vw;
+    font-size: 1.25rem;
 }
 #irlTemp {
     font-size: 2.25em;
@@ -220,22 +220,14 @@ main div:first-of-type section div{
 #skySelector {
     /* padding-top: 4vh; */
     display: flex;
-    flex-wrap: wrap;
     margin-top: 3.5vh;
+    flex-direction: column;
+    align-content:space-around;
+    height: 25vh;
+    font-size: 0.5rem;
 }
 
-/*
-.dropdown_button {
-    background-color: #b6ccfe;
-    color:#38040e;
-    padding: 1vw;
-    margin-top: 1.5vh;
-    margin-bottom: 1.5vh;
-    font-size: 1rem;
-} */
-
 .weather {
-    position: absolute;
     background-color: #fcd5ce;
     box-shadow: 0px 2px 4px 0px #B6B6B6;
     z-index: 1;
@@ -243,16 +235,10 @@ main div:first-of-type section div{
 
 .weather li {
     color: #38040e;
-    /* padding: 2px 4px; */
     text-decoration: none;
     display: block;
     list-style: none;
     background-color: #fec5bb;
-}
-
-.weather li:hover {
-    background-color: #d7e3fc;
-    color: #38040e;
 }
 
 #layerReport {
