@@ -110,7 +110,7 @@ header h1 {
 }
 
 .skySunny{
-    background-image: url('../assets/partlyCloudy.png');
+    background-image: url('../assets/sunny.png');
     background-size: cover;
 }
 
