@@ -76,7 +76,7 @@ header h1 {
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 1vw;
-    height: 71vh;
+    height: 78vh;
 }
 
 #sky, #landScape {
@@ -223,8 +223,8 @@ main div:first-of-type section div{
     margin-top: 3.5vh;
     flex-direction: column;
     align-content:space-around;
-    height: 25vh;
-    font-size: 0.5rem;
+    height: 32vh;
+    font-size: 0.4rem;
 }
 
 .weather {
