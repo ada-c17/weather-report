@@ -1,0 +1,90 @@
+.gridContainer {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template: .5fr 2fr 2fr .5fr/ 1fr 3fr 1fr;
+    background-image: linear-gradient(#5bc0eb, white);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.centerColumn {
+    grid-column: 2 / 3;
+    text-align: center;
+}
+
+#subSectionContainer {
+    display: grid;
+    grid-template: 100% / 1fr 1fr 1fr;
+}
+
+.subSection {
+    padding: 20px;
+    text-align: center;
+}
+
+#tempNum {
+    font-size: 3em;
+    text-shadow: .5px 0 0 #000, 0 -.5px 0 #000, 0 .5px 0 #000, -.5px 0 0 #000;
+}
+
+#cityDisplay {
+    font-size: 2em;
+    padding-top: .75em;
+    padding-bottom: .75em;
+    max-width: 7em;
+    overflow-wrap: break-word;
+    padding-left: .7em;
+    padding-right: .7em;
+}
+
+#garden {
+    padding-top: 5em;
+}
+
+#skyIcon {
+    max-height: auto;
+    max-width: 5em;
+    object-fit: contain;
+    padding-top: 1em;
+    padding-bottom: .75em;
+}
+
+#resetCity {
+    margin-top: .25em;
+
+}
+
+footer {
+    padding-top: 5em;
+}
+
+/* Temp Classes */
+
+.tooHot {
+    color: #FF474E;
+}
+
+.warm {
+    color: #FF924C
+}
+
+.pleasant {
+    color: #FFCA3A;
+}
+
+.mild {
+    color: #52A675;
+}
+
+.chilly {
+    color: #1982C4;
+}
+
+.cold {
+    color: #6A4C93;
+}
+
+.tooCold {
+    color: #AEA3B0;
+}

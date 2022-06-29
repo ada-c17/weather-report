@@ -4,9 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/index.css" rel="stylesheet">
     <title>Weather Report</title>
 </head>
-<body>
-    
+<body class="gridContainer">
+    <header class="centerColumn">
+        <h1 id="pageTitle">Weather App</h1>
+    </header>
+    <main class="centerColumn">
+        <section id="subSectionContainer">
+            <section class="subSection" id="citySection">
+                <h2 class="subHeading" id="cityHeading">
+                    City
+                </h2>
+                <p id="cityDisplay">
+                    Rochester, NY
+                </p>
+                <input type="text" id="cityInput" placeholder="Enter location">
+                <button type="button" id="resetCity">reset city</button>
+            </section>
+            <section class="subSection" id="tempSection">
+                <h2 class="subHeading" id="tempHeading">
+                    Temperature
+                </h2>
+                <p class="tempStyled warm" id="tempNum">
+                    75°F
+                </p>
+                <section id="tempButtons">
+                    <button type="button" id="tempUp">↑</button>
+                    <button type="button" id="realTime">realtime temp</button>
+                    <button type="button" id="tempDown">↓</button>
+                </section>
+            </section>
+            <section class="subSection" id="skySection">
+                <h2 class="subHeading" id="skyHeading">
+                    Sky Info
+                </h2>
+                <img id="skyIcon" src="./weather-icons/sunny.png" alt="a black and white icon of the sun">
+                <br>
+                <label for="skySelect">Select weather:</label>
+                <select name="weatherPatterns" id="skySelect">
+                    <option value="default">-Select weather for the garden-</option>
+                    <option value="sunny">Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                    <option value="thunderstorms">Thunderstorms</option>
+                    <option value="windy">Windy</option>
+                </select>
+            </section>
+        </section>
+        <section id="gardenSection">
+            <h2 id="gardenHeading">Weather Garden</h2>
+            <p id="gardenSky">☀️                    </p>
+            <p id="garden" class="tempStyled warm">🌳 🌱 🌱 🌷 🌱 🌳 🌳 🌱 🌻 🌹 🌱 ⚽️  🌳 🌱 🐿 🌱</p>
+        </section>
+    </main>
+    <footer class="centerColumn">
+        <section>Sky weather icons courtesy of the Noun Project; creator sripfoto</section>
+    </footer>
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
