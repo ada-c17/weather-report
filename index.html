@@ -5,8 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Roboto+Condensed&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="styles/index.css" rel="stylesheet"/>
 </head>
 <body>
+    <main id="weather_app">
+
+        <header class="header">
+            <h1>Weather Report: <span id="headerCity"></span></h1>
+
+        </header>
     
+
+
+
+                <div class="choose_city">
+                    <h3>enter a city</h3>
+                    <input type="text" id="cityName" value="New Orleans" />
+                    <button id="realTempButton">get realtime temp</button>
+                    <button id="cityNameReset" >Reset</button>
+                    
+                </div>
+                            
+
+            
+                <section id="choose_sky" class="box">
+                    <p>how's the sky? what's it looking like over there ?</p>
+                    <select id="changeSky">
+
+                        <option>sunny</option>
+                        <option>cloudy</option>
+                        <option>raining</option>
+                        <option>snowing</option> 
+
+
+            
+                    </select>
+                </section>
+
+        
+
+    <section id="gardenSection" class="box">
+
+            <p id="sky"></p>
+
+    </section>
+
+        
+       
+    <section id="tempContainer" class ="box">
+        <p id="tempDisplayed"></p>
+        <div id="adjustTemp">
+            <button id="decreaseTempButton">&larr;</button>
+            <button id="increaseTempButton">&#8594;</button>
+        </div>
+        <p id="landscape">🌵🐍_'</p> 
+    </section>
+  
+
+
+
+</main>
+    <script src="/src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 </html>
+
+
+
+
+  
