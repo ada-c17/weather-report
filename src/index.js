@@ -5,8 +5,6 @@ const state = {
     clicked: false,
     city: "Arcadia",
     sky: "Sunny",
-    // lat: 0,
-    // lon: 0,
 };
 
 const increaseTemp = () => {
@@ -81,7 +79,6 @@ const resetCity = () => {
 }
 const findLatitudAndLongitude = (query) =>{
     let latitude, longitude;
-
     axios.get('http://127.0.0.1:5000/location',{
         params: {
             q: state.city,
@@ -90,8 +87,6 @@ const findLatitudAndLongitude = (query) =>{
     .then((response) => {
         latitude = response.data[0].lat;
         longitude = response.data[0].lon;
-        console.log(latitude);
-        console.log(longitude);
         let currentTempWeather = findWeather(latitude,longitude);
     })
     .catch((error) => {
@@ -122,10 +117,6 @@ const findWeather = (latitude,longitude) => {
         cityTemp: currentTempWeather,
     }
 }
-// console.log(state.temp);
-// const cityCoordinates = findLatitudAndLongitude(state.city);
-// const weather = findWeather(cityCoordinates.cityLat, cityCoordinates.cityLon);
-
 const getRealTimeTemp = () => {
     findLatitudAndLongitude();
     let currentTempConverted = Math.round(((state.currentTemp-273.15)*1.8)+32);
@@ -174,5 +165,4 @@ const registerEventHandlers = () => {
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
 resetCity();
 updateSkyLandscape();
-// getRealTimeTemp();
 {/* <script src="./node_modules/axios/dist/axios.min.js"></script> */}
