@@ -1,0 +1,144 @@
+html {
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+section {
+    text-align: center;
+}
+
+body {
+    background-image: url('../images/desert.avif');
+    background-repeat: no-repeat;
+    background-size: 2000px 1000px;
+}
+
+button {
+    font-size: 1.3rem;
+    background-color: #c2e1e7;
+    border: none;
+    border-radius: 8px;
+}
+
+span {
+    font-size: 1.5rem;
+    color: antiquewhite;
+}
+
+label {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bolder;
+}
+
+#reset {
+    margin: 1% 1% 0 0;
+}
+
+#realTime {
+    margin: 1% 0 0 1%;
+}
+
+#container {
+    width: 40%;
+    position: absolute;
+    left: 30%;
+    background-color: rgba(191, 191, 191, .5);
+    border-radius: 10%;
+    padding-bottom: 2%;
+}
+
+#tValue {
+    font-size: 5rem;
+    border-radius: 10%;
+}
+
+#temperature, #bottom, #sky, #city {
+    padding-bottom: 1%;
+}
+
+#tempBack {
+    font-size: 3rem;
+}
+
+#inputCity {
+    color:rgb(227, 23, 87);
+    font-size: 1.4rem;
+}
+
+#skyPic {
+    font-size: 3rem;
+}
+
+.red, .def {
+    color: red;
+}
+
+.red1 {
+    background-image: url('../images/desert.avif');
+}
+
+.orange {
+    color: rgb(255, 95, 31);
+}
+
+.orange1 {
+    background-image: url('../images/poppy4.avif');
+}
+
+.yellow {
+    color: yellow;
+}
+
+.yellow1 {
+    background-image: url('../images/field.avif');
+}
+
+.green {
+    color: green;
+}
+
+.green1 {
+    background-image: url('../images/bgrImg.avif');
+}
+
+.teal {
+    color: teal;
+}
+
+.teal1 {
+    background-image: url('../images/winter.avif');
+}
+
+#reflectCity {
+    font-size: 3rem;
+    color: whitesmoke; 
+}
+
+#skySelect {
+    font-size: 1.2rem;
+    
+}
+
+.sunny {
+    content: url('../images/sunny.png');
+}
+
+.cloudy {
+    content:url('../images/cloudy.jpeg');
+}
+
+.rainy {
+    content: url('../images/rainy.png');
+}
+
+.snowy {
+    content: url('../images/snowy.jpeg');
+}
