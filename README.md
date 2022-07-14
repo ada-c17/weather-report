@@ -121,3 +121,4 @@ Wave 6:
 [Wave 6: Resetting the City Name](./ada-project-docs/wave-06.md)
 
 [Optional Enhancements to inspire you](./ada-project-docs/optional-enhancements.md)
+# weather-report.github.io
