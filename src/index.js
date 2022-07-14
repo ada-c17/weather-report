@@ -4,9 +4,9 @@ const state = {
     currentTemp: 0,
     clicked: false,
     city: "Arcadia",
-    sky: "sunny",
-    lat: 0,
-    lon: 0,
+    sky: "Sunny",
+    // lat: 0,
+    // lon: 0,
 };
 
 const increaseTemp = () => {
@@ -79,38 +79,59 @@ const resetCity = () => {
     cityName.textContent = state.city;
 
 }
+const findLatitudAndLongitude = (query) =>{
+    let latitude, longitude;
 
-axios.get('http://127.0.0.1:5000/location',{
-    params: {
-        q: 'Seattle, WA', // will update once have city name
-    },
-})
-.then((response) => {
-    console.log('sucess!', response.data);
-    console.log('sucess!', response.data[0].lon, response.data[0].lat);
-    state.lat = response.data[0].lat;
-    state.lon = response.data[0].lon;
-    console.log(state.lon);
-    console.log(state.lat);
-})
-.catch((error) => {
-    console.log('error',error.response.data);
-});
+    axios.get('http://127.0.0.1:5000/location',{
+        params: {
+            q: state.city,
+        },
+    })
+    .then((response) => {
+        latitude = response.data[0].lat;
+        longitude = response.data[0].lon;
+        console.log(latitude);
+        console.log(longitude);
+        let currentTempWeather = findWeather(latitude,longitude);
+    })
+    .catch((error) => {
+        console.log('error',error.response.data);
+    });
+    return {
+        cityLat: latitude,
+        cityLon: longitude
+    }
+}
+const findWeather = (latitude,longitude) => {
+    let currentTempWeather;
+    axios.get('http://127.0.0.1:5000/weather',{
+        params: {
+            lat: latitude,
+            lon: longitude,
+        },
+    })
+    .then((response) => {
+        currentTempWeather = response.data.current.temp;
+        currentTempWeather = Math.round((currentTempWeather-273.15)*1.8 +32);
+        state.currentTemp = currentTempWeather;
+    })
+    .catch((error) => {
+        console.log('error in Find Weather');
+    });
+    return{
+        cityTemp: currentTempWeather,
+    }
+}
+// console.log(state.temp);
+// const cityCoordinates = findLatitudAndLongitude(state.city);
+// const weather = findWeather(cityCoordinates.cityLat, cityCoordinates.cityLon);
 
-console.log(state.lat);
-
-axios.get('http://127.0.0.1:5000/weather',{
-    params: {
-        lat: state.lat,
-        lon: state.lon,
-    },
-})
-.then((response) => {
-    console.log('sucess!', response.data);
-})
-.catch((error) => {
-    console.log('error',error.response.data);
-});
+const getRealTimeTemp = () => {
+    findLatitudAndLongitude();
+    let currentTempConverted = Math.round(((state.currentTemp-273.15)*1.8)+32);
+    const cityTemp = document.getElementById("tempDisplay");
+    cityTemp.textContent = state.currentTemp;
+}
 
 const updateSkyLandscape = () => {
     const skyColor = document.getElementById('sky_id'); 
@@ -143,15 +164,15 @@ const registerEventHandlers = () => {
     cityName.addEventListener("keyup",getCityName );
     const reset = document.getElementById("resetButton");
     reset.addEventListener("click", resetCity);
-    // const skyLandscapeContainer = document.querySelector("#skyLandscapeContainer");
-    // skyLandscapeContainer.onchange = getSkyElement();
-    // skyLandscapeContainer.addEventListener("change",getSkyElement)
     const skyColor = document.getElementById('sky_id');
-    skyColor.addEventListener("change",updateSkyLandscape)
+    skyColor.addEventListener("change",updateSkyLandscape);
+    const realTimeTemp = document.getElementById("getRealTimeTempButton");
+    realTimeTemp.addEventListener("click", getRealTimeTemp)
     
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
 resetCity();
 updateSkyLandscape();
+// getRealTimeTemp();
 {/* <script src="./node_modules/axios/dist/axios.min.js"></script> */}
