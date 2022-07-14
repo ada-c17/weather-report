@@ -5,6 +5,8 @@ const state = {
     clicked: false,
     city: "Arcadia",
     sky: "sunny",
+    lat: 0,
+    lon: 0,
 };
 
 const increaseTemp = () => {
@@ -60,10 +62,15 @@ const addLandscape = () => {
     }
     landscapeContainer.textContent = landscape;
 }
-const getCityName = () => {
+const getCityName = (event) => {
+    if (event.keyCode === 13){
+        document.getElementById('textbox_id').value = "";
+        return;
+    }
     const cityNameInput = document.getElementById('textbox_id').value;
     const cityNameHeader = document.getElementById("cityName");
     cityNameHeader.textContent = cityNameInput;
+    state.city = cityNameInput;
 
 }
 const resetCity = () => {
@@ -72,54 +79,58 @@ const resetCity = () => {
     cityName.textContent = state.city;
 
 }
-// const axios = require('axios');
 
-// axios.get('https://us1.locationiq.com/v1/search.php',{
-//     params: {
-//         key: process.env['api_key'],
-//         q: 'state.city', // will update once have city name
-//         format: 'json',
-//     },
-// })
-// .then((response) => {
-//     console.log('sucess!', response.data);
-// })
-// .catch((error) => {
-//     console.log('error',error.response.data);
-// });
+axios.get('http://127.0.0.1:5000/location',{
+    params: {
+        q: 'Seattle, WA', // will update once have city name
+    },
+})
+.then((response) => {
+    console.log('sucess!', response.data);
+    console.log('sucess!', response.data[0].lon, response.data[0].lat);
+    state.lat = response.data[0].lat;
+    state.lon = response.data[0].lon;
+    console.log(state.lon);
+    console.log(state.lat);
+})
+.catch((error) => {
+    console.log('error',error.response.data);
+});
 
-// axios.get('https://us1.locationiq.com/v1/search.php',{
-//     params: {
-//         key: process.env['api_key'],
-//         q: 'cityName', // will update once have city name
-//         format: 'json',
-//     },
-// })
-// .then((response) => {
-//     console.log('sucess!', response.data);
-// })
-// .catch((error) => {
-//     console.log('error',error.response.data);
-// });
+console.log(state.lat);
 
-const getSkyElement = () => {
+axios.get('http://127.0.0.1:5000/weather',{
+    params: {
+        lat: state.lat,
+        lon: state.lon,
+    },
+})
+.then((response) => {
+    console.log('sucess!', response.data);
+})
+.catch((error) => {
+    console.log('error',error.response.data);
+});
+
+const updateSkyLandscape = () => {
     const skyColor = document.getElementById('sky_id'); 
-    const skylandscapeContainer = document.querySelector("#skylandscapeContainer");
-    state.sky = "sunny";
-    let sky = skyColor.options[skyColor.selectedIndex].text;
-    if (state.sky == "sunny"){
-        skyLandscape = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️"
+    const skyLandscapeContainer = document.querySelector("#skyLandscapeContainer");
+    state.sky = skyColor.options[skyColor.selectedIndex].text;
+    console.log(state.sky);
+    let skyLandscape = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️";
+    if (state.sky === "Sunny"){
+        skyLandscape = "☁️ ☁️ ☁️ ☀️ ☁️ ☁️";
     }
-    else if (state.sky == "cloudy"){
-        skyLandscape = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️'
+    else if (state.sky === "Cloudy"){
+        skyLandscape = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
     }
-    else if (state.sky == "rainy"){
-        skyLandscape = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧"
+    else if (state.sky === "Rainy"){
+        skyLandscape = "🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧";
     }
-    else if (state.sky == "snowy"){
-        skyLandscape = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨"
+    else if (state.sky === "Snowy"){
+        skyLandscape = "🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨";
     }
-    skylandscapeContainer.textContent = skyLandscape;
+    skyLandscapeContainer.textContent = skyLandscape;
 }
 const registerEventHandlers = () => {
     const increaseTempButton = document.querySelector("#increaseTempButton");
@@ -129,12 +140,18 @@ const registerEventHandlers = () => {
     const landscapeContainer = document.querySelector("#landscapeContainer");
     landscapeContainer.addEventListener("click", addLandscape);
     const cityName = document.getElementById("textbox_id");
-    cityName.addEventListener("keyup",getCityName);
+    cityName.addEventListener("keyup",getCityName );
     const reset = document.getElementById("resetButton");
     reset.addEventListener("click", resetCity);
+    // const skyLandscapeContainer = document.querySelector("#skyLandscapeContainer");
+    // skyLandscapeContainer.onchange = getSkyElement();
+    // skyLandscapeContainer.addEventListener("change",getSkyElement)
+    const skyColor = document.getElementById('sky_id');
+    skyColor.addEventListener("change",updateSkyLandscape)
     
 };
 
 document.addEventListener("DOMContentLoaded", registerEventHandlers);
-
+resetCity();
+updateSkyLandscape();
 {/* <script src="./node_modules/axios/dist/axios.min.js"></script> */}
