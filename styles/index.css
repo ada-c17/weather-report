@@ -1,0 +1,15 @@
+section {
+    background-color: white;
+}
+header{
+    background-color: cornflowerblue;
+}
+.box {
+    margin: .5%;
+    padding:2%;
+    height: 10em;
+    width: 15em;
+    border: 2px solid black;
+    font-size: 0.8 em;
+}
+
