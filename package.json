@@ -1,5 +1,10 @@
 {
   "dependencies": {
-    "axios": "^0.27.2"
-  }
+    "-": "^0.0.1",
+    "axios": "^0.27.2",
+    "global": "^4.4.0",
+    "react-scripts": "^5.0.1",
+    "surge": "^0.23.1"
+  },
+  "private": true
 }
