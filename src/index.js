@@ -65,15 +65,21 @@ const updateTheSky = () => {
   const skyLabel = document.querySelector('#sky-types').value;
   const changeSky = document.getElementById('sky-horizon');
 
+  const imageElement = document.querySelector('#sunnyday');
+
   let sky = '☁️ ☁️ ☁️🌞☁️ ☁️ ☁️';
   if (skyLabel === 'sunny') {
     sky = '☁️ ☁️ ☁️🌞☁️ ☁️ ☁️';
+    imageElement.src = '../ada-project-docs/images/sunnyday.jpg';
   } else if (skyLabel === 'cloudy') {
     sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+    imageElement.src = '../ada-project-docs/images/cloudyday.jpg';
   } else if (skyLabel === 'rainy') {
     sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+    imageElement.src = '../ada-project-docs/images/rainyday.jpg';
   } else if (skyLabel === 'snowy') {
     sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+    imageElement.src = '../ada-project-docs/images/winterday.jpg';
   }
   changeSky.textContent = `${sky}`;
 };
@@ -83,6 +89,9 @@ const resetCity = () => {
   cityName.value = '';
   state.city = 'Honolulu';
   updateCityLabel();
+
+  const skyHorizon = document.getElementById('sky-horizon');
+  skyHorizon.textContent = '☁️ ☁️ ☁️🌞☁️ ☁️ ☁️';
 };
 
 const registerEventHandlers = () => {
