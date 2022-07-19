@@ -1,0 +1,15 @@
+.cloud{
+    position:relative;
+    background: url("/assets/cloud.png");
+    animation:animate 60s linear infinite;
+    background-size: cover;
+    background-color: rgb(31, 116, 150);
+}
+@keyframes animate{
+    0%{
+        background-position: 0px;
+    }
+    100%{
+        background-position: 5440px;
+    }
+}
