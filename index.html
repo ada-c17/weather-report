@@ -5,8 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+
 </head>
 <body>
-    
+    <main>
+        <h1>Weather Report</h1>
+            <h3 class="top-city-title">For the lovely city of: <h3 id="city-title-name"></h3></h3>
+            
+    </main>
+
+    <section id="temperature-box" class="white-box">
+        <h2>Temperature</h2>
+        <button id="up-button">⬆️</button>
+        <h3 id="temperature-number" class="teal">40°F</h3>
+        <button id="down-button">⬇️</button>
+        <br>
+        <button id="realtimeTemp">Get Realtime Temperature</button>
+    </section>
+
+    <section id="sky-box" class="white-box">
+        <h2>Sky</h2>
+        <select id="sky-button">
+        <option value="Sunny">Sunny</option>
+        <option value="Cloudy">Cloudy</option>
+        <option value="Rainy">Rainy</option>
+        <option value="Snowy">Snowy</option>
+        </select>
+    </section>
+
+
+    <section id="cityname-box" class="white-box">
+        <h2>City Name</h2>
+        <input type="text" id="city-name" name="name" required
+        minlength="1" maxlength="20" size="20">
+        <button id="reset-button">Reset</button>
+
+
+    </section>
+
+
+    <section id="weathergarden-box" class="white-box">
+        <h2>Weather Garden</h2>
+        <h3 id="sky">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</h3>
+        <h3 id="landscape">🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲</h3>
+    </section>
+
+    <section class="footer">
+        <small>&copy; 2022, Sophia W. & Nishat S.</small>
+    </section>
+
+    <script src="src/index.js"></script>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+
 </body>
 </html>
