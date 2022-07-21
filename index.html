@@ -4,9 +4,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles/index.css" rel="stylesheet"/>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="./src/index.js"></script>
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <div id="headerSection">
+        <header>Weather report </header>
+        <div id="lovelyCity">For the lovely city of ✨<span id="cityNameHeader">Happyland</span>✨</div>
+    </div>
+    <div class="boxes">
+        <div class="block1">
+            <section>
+                <div id="box1" class="box">
+                    <h3 class="boxHeaders">Temperature</h3>
+                    <div id="box1Elements">
+                        <div id="upButton">
+                            <button type="button">⬆️</button>
+                        </div>
+                        <div id="temperatureBlock">
+                            <section id="currentTemperature">
+                                <span id="temperatureCount">60</span>
+                            </section>
+                            <section id="getTemp">
+                                <input id="getRealtimeTemperature" value="Get Realtime Temperature">
+                            </section>
+                        </div>
+                        <div id="downButton">
+                            <button type="button">⬇️</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div id="box2" class="box">
+                    <h3 class="boxHeaders">Sky</h3>
+                    <div id="box2Elements">
+                        <select id="sky" name="sky">
+                            <option value="">Select One …</option>
+                            <option value="sunny">Sunny</option>
+                            <option value="cloudy">Cloudy</option>
+                            <option value="rainy">Rainy</option>
+                            <option value="snowy">Snowy</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div id="box3" class="box">
+                    <h3 class="boxHeaders">City Name</h3>
+                    <div id="box3Elements">
+                        <div id="cityNameInput">
+                            <input placeholder="enter city name" id="cityName" name="cityName"/>
+                            <input id="resetButton" value="Reset">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="block2">
+            <section>
+                <h3 id="box4Header">Weather garden</h3>
+                <div id="box4" class="box">
+                    <div id="sky">
+                        <span id="currentSky">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</span>
+                    </div>
+                    <div id="landscape">
+                        <span id="currentLandscape">🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,0 +1,108 @@
+body {
+    background-color: #1f6feb;;
+}
+
+header{
+    color: white;
+    font: 2em sans-serif;
+    margin-left: 1cm;
+}
+
+.boxes{
+    display: flex;
+    align-items: center;
+}
+
+#box1{
+    height: 150px; 
+}
+
+#box1Elements{
+    margin-left: 0.5cm;
+}
+
+#box2Elements{
+    margin-left: 0.5cm;
+}
+
+#box3Elements{
+    margin-left: 0.5cm;
+}
+
+#box4{
+    width: 370px;
+    height: 170px;
+    text-align: center;
+    font: 1.5em sans-serif;
+}
+
+.box{
+    background-color: aqua;
+    border-radius: 12px;
+    width: 350px;
+    padding: 10px;
+    margin: 10px;
+    height: 120px; 
+}
+
+#box4Header{
+    color: white;
+    margin-left: 4cm;
+    font: 1em sans-serif;
+}
+
+.boxHeaders{
+    color: black;
+    font: 1em sans-serif;
+    margin-left: 1cm;
+}
+
+#temperatureCount{
+    color: yellow;
+    font: 2em sans-serif;
+}
+
+#currentLandscape {
+    position: relative;
+    bottom: 0px;
+}
+
+#lovelyCity{
+    margin-left: 2cm;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.5cm;
+    color: white;
+}
+
+#headerSection{
+    display: flex;
+    align-items: baseline; 
+}
+
+#resetButton {
+    cursor: pointer;
+    background-color: #3e68ff;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+    padding: 0.25em 0.75em;
+    width: 50px;
+    height: 35px;
+    text-align: center;
+    margin-left: 1cm;
+}
+
+#getRealtimeTemperature {
+    cursor: pointer;
+    background-color: #3e68ff;
+    color: #fff;
+    border-radius: 8px;
+    width: 180px;
+    height: 35px;
+    text-align: center;
+    margin-left: 1cm;
+}
+
+#temperatureBlock {
+    display: flex;
+}
