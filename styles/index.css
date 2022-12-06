@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header h1 {
+    margin-left: 500px;
+    margin-top: 20px;
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 580px;
+    width: 900px;
+    margin: 0 auto; 
+    margin-top: 100px;
+}
+
+#sunnyday {
+    width: 100%;
+}
+
+.grid-display {
+    height: 100%;
+}
+
+.grid-display:nth-child(1){
+    background-color: gray;
+}
+
+.grid-display:nth-child(2){
+    background-color: lightgray;
+}
+
+.red{
+    color: red;
+}
+
+.orange{
+    color: orange;
+}
+
+.yellow{
+    color: yellow;
+}
+
+.green{
+    color: green;
+}
+
+.teal{
+    color: teal;
+}
