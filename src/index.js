@@ -165,7 +165,7 @@ const resetInput = () => {
 // get LOCATION info
 const getLatLon = () => {
   axios
-    .get('http://localhost:5000/location', {
+    .get('https://weather-report-proxy-server-7n03.onrender.com/location', {
       params: {
         q: state.location,
       },
@@ -185,7 +185,7 @@ const getLatLon = () => {
 // get WEATHER info
 const getLocationWeather = () => {
   axios
-    .get('http://localhost:5000/weather', {
+    .get('https://weather-report-proxy-server-7n03.onrender.com/weather', {
       params: {
         lat: state.lat,
         lon: state.lon,
