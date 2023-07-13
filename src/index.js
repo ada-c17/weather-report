@@ -18,7 +18,7 @@ const state = {
 const changeSky = () => {
   // SUNNY
   if (state.skyCondition.value === 'sunny') {
-    state.skyConditionImage.alt = 'outline of hills with yellow sunset';
+    state.skyConditionImage.ariaLabel = 'outline of hills with yellow sunset';
 
     state.skyConditionImage.title = 'Photo by Nic Y-C on Unsplash';
 
@@ -27,7 +27,7 @@ const changeSky = () => {
 
     // RAINY
   } else if (state.skyCondition.value === 'rainy') {
-    state.skyConditionImage.alt = 'tree branches in a rain storm';
+    state.skyConditionImage.ariaLabel = 'tree branches in a rain storm';
 
     state.skyConditionImage.title = 'Photo by Milin John on Unsplash';
 
@@ -36,7 +36,7 @@ const changeSky = () => {
 
     // CLOUDY
   } else if (state.skyCondition.value === 'cloudy') {
-    state.skyConditionImage.alt = 'dark sky with fluffy dark clouds';
+    state.skyConditionImage.ariaLabel = 'dark sky with fluffy dark clouds';
 
     state.skyConditionImage.title = 'Photo by Harshit Sharma on Unsplash';
 
@@ -45,7 +45,7 @@ const changeSky = () => {
 
     // SNOWY
   } else if (state.skyCondition.value === 'snowy') {
-    state.skyConditionImage.alt =
+    state.skyConditionImage.ariaLabel =
       'ice covered tree branch covered snow falling our of sky';
 
     state.skyConditionImage.title = 'Photo by Chandler Cruttenden on Unsplash';
@@ -55,7 +55,7 @@ const changeSky = () => {
 
     // CLEAR
   } else if (state.skyCondition.value === ' ') {
-    state.skyConditionImage.alt = 'clear blue skies';
+    state.skyConditionImage.ariaLabel = 'clear blue skies';
 
     state.skyConditionImage.title = 'Photo by Patrick Fore on Unsplash';
 
@@ -107,15 +107,23 @@ const convertKelvin = (temp) => {
 const changeColorTemp = () => {
   if (state.temp >= 80) {
     state.color.style.backgroundColor = 'rgba(140,114,89, 0.5)';
+    state.land.ariaLabel = 'tan dry desert ground';
+    state.landgit = 'Photo by Ivars Krutainis on Unsplash';
     state.land.style.background = "url('/assets/temp/80 plus 1920x360.jpg')";
   } else if (state.temp >= 70) {
     state.color.style.backgroundColor = 'rgba(252,67,29, 0.5)';
+    state.land.ariaLabel = "a field of red poppy flowers')";
+    state.land.title = 'Photo by Marten Bjork on Unsplash';
     state.land.style.background = "url('/assets/temp/70 to 79 1920x360.jpg')";
   } else if (state.temp >= 60) {
     state.color.style.backgroundColor = 'rgba(238,170,60, 0.5)';
+    state.land.ariaLabel = "golden wheat in a field bathed in sunlight')";
+    state.land.title = 'Photo by Dan Smedley on Unsplash';
     state.land.style.background = "url('/assets/temp/60 to 69  1920x360.jpg')";
   } else if (state.temp >= 50) {
     state.color.style.backgroundColor = 'rgba(135,160,180, 0.5)';
+    state.land.ariaLabel = "mountain floor covered in snow and ice')";
+    state.land.title = 'Photo by Thomas Hetzler on Unsplash';
     state.land.style.background =
       "url('/assets/temp/50 to below 1920x360.jpg')";
   } else {
