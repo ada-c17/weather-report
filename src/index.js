@@ -1,4 +1,5 @@
-const axios = required('axios');
+// import 'regenerator-runtime/runtime';
+// import axios from 'axios';
 
 const state = {
   temp: 70,
@@ -9,6 +10,7 @@ const state = {
   location: '',
   lat: 0,
   lon: 0,
+  downloading: true,
 };
 
 // ********** SKY changes ***********
@@ -152,6 +154,14 @@ const submitLocationInput = () => {
   getLatLon();
 };
 
+// location loading text
+const changeWeatherLoading = () => {
+  const dlProgressContainer = document.getElementById(
+    'downloading-progress-text'
+  );
+  dlProgressContainer.textContent = `Getting ${state.location} weather`;
+};
+
 // ******** RESET *********
 // location NAME RESET
 const resetInput = () => {
@@ -174,8 +184,12 @@ const resetInput = () => {
 // ********API CALLS*********
 // get LOCATION info
 const getLatLon = () => {
+  const dlProgressContainer = document.getElementById(
+    'downloading-progress-text'
+  );
+  dlProgressContainer.textContent = `Getting ${state.location} weather`;
   axios
-    .get('http://localhost:5000/location', {
+    .get('https://weather-report-proxy-server-7n03.onrender.com/location', {
       params: {
         q: state.location,
       },
@@ -185,17 +199,18 @@ const getLatLon = () => {
       state.lat = response.data[0].lat;
     })
     .then(() => {
-      getLocationWeather();
+      getLocationWeather(dlProgressContainer);
     })
     .catch((error) => {
       console.log(error);
+      dlProgressContainer.textContent = 'Error occurred while fetching weather';
     });
 };
 
 // get WEATHER info
-const getLocationWeather = () => {
+const getLocationWeather = (progress) => {
   axios
-    .get('http://localhost:5000/weather', {
+    .get('https://weather-report-proxy-server-7n03.onrender.com/weather', {
       params: {
         lat: state.lat,
         lon: state.lon,
@@ -208,10 +223,13 @@ const getLocationWeather = () => {
     .then((response) => {
       validateSkyCondition(condition);
       convertKelvin(kelvinTemp);
+      progress.innerHTML = ''; // Clear loading message
+      progress.appendChild(document.createElement('br'));
       changeColorTemp();
     })
     .catch((error) => {
       console.log(error);
+      progress.textContent = 'Error occurred while fetching weather';
     });
 };
 
