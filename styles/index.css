@@ -88,7 +88,6 @@ body {
     text-transform: uppercase;
     font-family: "Poppins", Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 1vmax;
     cursor: pointer;
 }
 
@@ -186,11 +185,11 @@ body {
     content: "Search \Location";
 }
 
-#location-search--container {
+/* #location-search--container {
     display: grid;
     grid-template-rows: 1fr 1fr;
     margin-top: 3vmax;
-}
+} */
 
 #location-search--group {
     display: flex;
@@ -204,7 +203,7 @@ body {
     color: #232323;
     font-family: "Poppins", Helvetica, sans-serif;
     width: 10vmax;
-    border: 3 solid #707070;
+    border: 2px solid #707070;
     border-right: none;
     padding: 5px;
     height: 20px;
@@ -248,8 +247,8 @@ body {
 }
 
 #location-reset{
-    margin: 1vmax;
-    height: 2vmax;
+    /* margin: 1vmax; */
+    /* height: 2vmax; */
     width: 40%;
     border-radius: 5px;
 }
@@ -325,3 +324,12 @@ body {
     border-left: 1.5vmax solid #232323;     
 
 }
+
+#downloading-progress-text {
+    font-size: 1rem;
+    font-family: "Poppins", Helvetica, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    color: #326771;
+}
+
