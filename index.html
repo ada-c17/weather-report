@@ -37,14 +37,15 @@
 
     <main>
       <!-- zip code/city input -->
-      <form>
+      <div>
         <input
           id="searchCity"
           type="text"
           placeholder="enter city or zip code"
           value=""
         />
-      </form>
+      </div>
+
       <button id="currentTempButton">Get Temp</button>
 
       <section id="citySection">
@@ -141,7 +142,7 @@
       </filter>
       <ellipse cx="500" cy="290" rx="340" ry="90" class="cloud" />
     </svg>
-    <!-- <script src="node_modules/axios/dist/axios.min.js"></script> -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="src/index.js"></script>
     <!-- <script src="skycons.js"></script> -->
   </body>

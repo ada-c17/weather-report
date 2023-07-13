@@ -1,5 +1,7 @@
-import 'regenerator-runtime/runtime';
-import axios from 'axios';
+// import 'regenerator-runtime/runtime';
+// import axios from 'axios';
+
+// const axios = required('axios');
 
 const state = {
   temp: 75,
@@ -122,6 +124,7 @@ const alterTextColor = () => {
 
 const refreshPage = () => {
   location.reload();
+  console.log('refreshPage');
 };
 
 resetButton.addEventListener('click', refreshPage);
@@ -134,6 +137,23 @@ resetButton.addEventListener('click', refreshPage);
 //   icons.play();
 // };
 
+// const returnKey = (event) => {
+//   if (event.key == 'Enter') {
+//     findLatitudeAndLongitude();
+//   }
+// };
+
+document.addEventListener('keypress', (event) => {
+  // event.keyCode or event.which  property will have the code of the pressed key
+  // let keyCode = event.key ? event.key : event.which;
+
+  // 13 points the enter key
+  if (event.key === 'Enter') {
+    // call click function of the current temp button
+    currentTempButton.click();
+  }
+});
+
 const convertKelvinToFahrenheit = (kelvin) => {
   let fahrenheit;
   fahrenheit = parseInt(1.8 * (kelvin - 273) + 32);
@@ -144,7 +164,7 @@ const convertKelvinToFahrenheit = (kelvin) => {
 const findLatitudeAndLongitude = () => {
   let latitude, longitude;
   axios
-    .get('https://weather-report-proxy-server.herokuapp.com/location', {
+    .get('http://127.0.0.1:5000/location', {
       params: {
         q: state.city,
       },
@@ -164,15 +184,19 @@ const findLatitudeAndLongitude = () => {
 // const temp = document.getElementById('currentTemp');
 
 const findTemperature = (latitude, longitude) => {
+  console.log(latitude, longitude);
   axios
-    .get('https://weather-report-proxy-server.herokuapp.com/weather', {
+    .get('http://127.0.0.1:5000/weather', {
       params: {
         lat: latitude,
         lon: longitude,
       },
     })
     .then((response) => {
-      const kelvin = response.data['current']['temp'];
+      console.log(response);
+      // console.log(response.data.main.temp);
+      const kelvin = response.data['main']['temp'];
+      // const kelvin = response.data.main.temp;
       state.temp = convertKelvinToFahrenheit(kelvin);
       updateTemp();
     })
