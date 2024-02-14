@@ -14,7 +14,7 @@ It is more important and more valuable to do good work with the requirements, an
 - Changing the temperature should change the page's background.
 - Changing the sky should change the page's background.
 - Include transitions and animations for any appearance change.
-- Customize the theme of your app to something other than a landscape and sky (while retaining the same functionality).
+- Customize the theme of your app to something other than a land and sky (while retaining the same functionality).
 - Deploy/host your project onto the Internet
     - If you deploy your *Weather Report web app*, you will also need to deploy the *Weather Report proxy server*.
     - We recommend deploying to GitHub Pages.

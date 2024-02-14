@@ -1,0 +1,335 @@
+body {
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 25vh 50vh 25vh;
+}
+
+
+/* SHARED classes */
+.square {
+    grid-column: 2;
+    height: 80%;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-self: center;
+}
+
+.square::before {
+    grid-column: 2;
+    position: absolute;
+    transform: translate3d(10px, 10px, 0);
+    height: 100%;
+    width: 100%;
+    border: 3px solid #707070;
+    box-sizing: border-box;
+    border-radius: 10px;
+    /*   text appearance */
+    color: #707070;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2.25vmax;
+}
+
+.inner {
+    grid-column: 2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sky{
+    grid-row: 1;
+    width: 100%;
+    background-size: cover;
+    background-position: bottom !important; 
+    background-image: url('/assets/sky/clear\ 1920x360.jpg');
+    display: grid;
+    grid-template-columns: auto 20% auto;
+}
+
+.sky--square {
+    background-color: rgba(199, 198, 198, 0.9);
+}
+
+.sky--square::before {
+    content: "Sky";
+}
+
+#sky--container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    margin-top: 3vmax;
+}
+
+#sky--select-wrapper {
+    border-radius: 36px;
+    overflow: hidden;
+}
+
+#sky--select-box {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    color:#707070;
+    background-color: rgba(255, 255, 255, 0.-);
+    text-transform: uppercase;
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/************* MID *************/
+#mid{
+    grid-row: 2;
+    width: 100%;
+    /* margin: 0; */
+    background-size:cover;
+    background-position: top; 
+    background-image: url('/assets/jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpeg');
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+}
+
+#mid--color{
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 80%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#weather{
+    grid-column: 1/3;
+    grid-row: 1;
+    color: #707070;
+}
+
+#weather h1{
+    font-family: 'Poppins', Helvetica, sans-serif;
+    font-size: 3vmax;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* location DISPLAY */
+#location-display{
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: auto 50% auto;
+    justify-content: center;
+}
+
+.location-display--square {
+    background-color: rgba(199, 198, 198, 0.8);
+}
+
+.location-display--square::before {
+    content: "Location";
+}
+
+.location-display--inner {
+    overflow-wrap: break-word;
+    text-align: center;
+    /* padding-left: 3vmax; */
+}
+
+#location-display--container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-top: 3vmax;
+}
+
+#location-display--display-name{
+    font-family: 'Poppins', Helvetica, sans-serif;
+    font-size: 3vmax;
+    font-weight: bold;
+    color: #f9f9f9;
+}
+
+/* location SEARCH */
+#location-search{
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: auto 50% auto;
+    justify-content: center;
+}
+
+.location-search--square {
+    background-color: rgba(199, 198, 198, 0.8);
+}
+
+.location-search--square::before {
+    content: "Search \Location";
+}
+
+/* #location-search--container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin-top: 3vmax;
+} */
+
+#location-search--group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    margin-top: 3vmax;
+}
+
+#location-input{
+    color: #232323;
+    font-family: "Poppins", Helvetica, sans-serif;
+    width: 10vmax;
+    border: 2px solid #707070;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    outline: none;
+    border-radius: 5px 0 0 5px;
+    
+}
+
+#location-input:focus{
+    background-color: #C7C6C7;
+}
+
+#location-input::selection{
+    background-color: #232323;
+    color: #f9f9f9;
+}
+
+.buttons{
+    color: #232323;
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+}
+
+.buttons:hover{
+    background-color: #707070;
+    color: #f9f9f9
+}
+
+#location-submit{
+    border-radius: 0 5px 5px 0;
+}
+
+#location-search--reset {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+
+#location-reset{
+    /* margin: 1vmax; */
+    /* height: 2vmax; */
+    width: 40%;
+    border-radius: 5px;
+}
+
+/* TEMP */
+#land{
+    grid-row: 3;
+    width: 100%;
+    margin: 0;
+    background-size: cover;
+    background-position:top; 
+    background-image: url('/assets/temp/default\ 1920x360.jpg');
+    display: grid;
+    grid-template-columns: auto 20% auto;
+    justify-content: center;
+
+}
+
+.land--square {
+    background-color: rgba(199, 198, 198, 0.9);
+}
+
+.land--square::before {
+    content: "Temp";
+}
+
+#land--container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 3vmax;
+}
+
+#temperature{
+    justify-self: center;
+    align-self: center;
+    color: #f9f9f9;
+    text-transform: uppercase;
+    font-family: "Poppins", Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2.25vmax;
+}
+
+#arrow-decrease {
+    margin: 2vmax;
+    border-top: 1.5vmax solid transparent;
+    border-bottom: 1.5vmax solid transparent; 
+    border-right: 1.5vmax solid #707070;
+    cursor: pointer;
+}
+
+#arrow-decrease:hover {
+    margin: 2vmax;
+    border-top: 1.5vmax solid transparent;
+    border-bottom: 1.5vmax solid transparent; 
+    border-right: 1.5vmax solid #232323;
+}
+
+#arrow-increase {
+    margin: 2vmax;
+    border-top: 1.5vmax solid transparent;
+    border-bottom: 1.5vmax solid transparent; 
+    border-left: 1.5vmax solid #707070;
+    cursor: pointer;     
+}
+
+#arrow-increase:hover {
+    margin: 2vmax;
+    border-top: 1.5vmax solid transparent;
+    border-bottom: 1.5vmax solid transparent; 
+    border-left: 1.5vmax solid #232323;     
+
+}
+
+#downloading-progress-text {
+    font-size: 1rem;
+    font-family: "Poppins", Helvetica, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    color: #326771;
+}
+
