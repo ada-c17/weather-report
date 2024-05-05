@@ -3,15 +3,16 @@
 
 // const axios = required('axios');
 
+// Define initial state
 const state = {
-  temp: 75,
+  temp: '',
   city: '',
 };
 
-//select elements with get the element by id
+// Select DOM elements
 const currentTemp = document.getElementById('currentTemp');
-const incrementButton = document.getElementById('increaseTempButton');
-const decrementButton = document.getElementById('decreaseTempButton');
+// const incrementButton = document.getElementById('increaseTempButton');
+// const decrementButton = document.getElementById('decreaseTempButton');
 const seasonalChange = document.getElementById('seasonalChange');
 const searchCity = document.getElementById('searchCity');
 const cityDisplay = document.getElementById('cityDisplay');
@@ -22,23 +23,13 @@ const resetButton = document.getElementById('resetBtn');
 // const selection = selectSkies.options[selectSkies.selectedIndex].value;
 // const skyChoice = document.getElementById('skyChoice');
 
+// Update temperature display
 const updateTemp = () => {
   currentTemp.textContent = state.temp;
   alterTextColor();
 };
 
-const incrementTemp = () => {
-  state.temp += 1;
-  updateTemp();
-  alterTextColor();
-};
-
-const decrementTemp = () => {
-  state.temp -= 1;
-  updateTemp();
-  alterTextColor();
-};
-
+// Update city display
 const updateCity = () => {
   const currentCity = document.getElementById('searchCity').value;
   console.log(currentCity);
@@ -46,6 +37,7 @@ const updateCity = () => {
   cityDisplay.textContent = state.city;
 };
 
+// Change sky emoji based on selected weather
 const changeSky = () => {
   // let skyContent = document.getElementById('body').style.background
   //   const skyContent = document.getElementById('skyChoice');
@@ -53,24 +45,24 @@ const changeSky = () => {
   const selectSkies = document.getElementById('skies').value;
   //   let selection = this.value || document.getElementById('skies').value;
   let selection = selectSkies;
-  if (selection === 'clearDay') {
-    console.log('changing to Sunny');
-    seasonalChange.textContent = '🔆';
-    // skyContent = 'linear-gradient(to bottom, '#daf4ff', '#d1eaff', '#bfd7ff')'
-  } else if (selection === 'rain') {
-    console.log('changing to rainy');
-    seasonalChange.textContent = '🌧';
-  } else if (selection === 'wind') {
-    console.log('changing to windy');
-    seasonalChange.textContent = '🌬';
-  } else if (selection === 'snow') {
-    console.log('changing to snowy');
-    seasonalChange.textContent = '❄️';
+  if (selection === 'heartEyes') {
+    console.log('changing to heart eyes emoji');
+    seasonalChange.textContent = '😍';
+  } else if (selection === 'kiss') {
+    console.log('changing to kiss emoji');
+    seasonalChange.textContent = '😘';
+  } else if (selection === 'tongue') {
+    console.log('changing to tongue out emoji');
+    seasonalChange.textContent = '😛';
+  } else if (selection === 'pigNose') {
+    console.log('changing to pig nose emoji');
+    seasonalChange.textContent = '🐽';
+  } else if (selection === 'mushroom') {
+    console.log('changing to mushroom emoji');
+    seasonalChange.textContent = '🍄';
   }
 };
-window.onload = changeSky;
 
-document.getElementById('skies').addEventListener('change', changeSky);
 // change the sky
 // const setIcon = (icons, iconID) => {
 //   const skycons = new Skycons({ color: '#2b2d42' });
@@ -79,80 +71,28 @@ document.getElementById('skies').addEventListener('change', changeSky);
 //   return skycons.set(iconID, skycons[currentIcon]);
 // };
 
+// Event listener registration
 const registerEventHandlers = () => {
-  incrementButton.addEventListener('click', incrementTemp);
-  decrementButton.addEventListener('click', decrementTemp);
   searchCity.addEventListener('input', updateCity);
   currentTempButton.addEventListener('click', findLatitudeAndLongitude);
+  document.getElementById('skies').addEventListener('change', changeSky);
+  resetButton.addEventListener('click', refreshPage);
+  document.addEventListener('keypress', handleKeyPress);
   //   selectSkies.addEventListener('change', changeSky);
 };
 
-document.addEventListener('DOMContentLoaded', registerEventHandlers);
-
-const alterTextColor = () => {
-  if (state.temp > 95) {
-    console.log('changing to red');
-    seasonalChange.textContent = '🔥';
-    return (currentTemp.style.color = '#ec5766');
-  } else if (state.temp >= 85) {
-    console.log('changing to orange');
-    seasonalChange.textContent = '🌊';
-    return (currentTemp.style.color = '#fda187');
-  } else if (state.temp >= 75) {
-    console.log('changing to yellow');
-    seasonalChange.textContent = '🌴';
-    return (currentTemp.style.color = '#F1FFC4');
-  } else if (state.temp >= 60) {
-    seasonalChange.textContent = '🌷';
-    console.log('changing to green');
-    return (currentTemp.style.color = '#b4f9c0');
-  } else if (state.temp >= 45) {
-    seasonalChange.textContent = '🍂';
-    console.log('changing to teal');
-    return (currentTemp.style.color = '#5dac97');
-  } else if (state.temp >= 30) {
-    seasonalChange.textContent = '🌲';
-    console.log('changing to blue');
-    return (currentTemp.style.color = '#6da3ee');
-  } else if (state.temp <= 29) {
-    seasonalChange.textContent = '⛄';
-    console.log('changing to ice blue');
-    return (currentTemp.style.color = '#c2f6ff');
-  }
-  console.log('text color did not change');
-};
-
+// Refresh page function
 const refreshPage = () => {
   location.reload();
   console.log('refreshPage');
 };
 
-resetButton.addEventListener('click', refreshPage);
-// const setIcons = () => {
-//   icons.set('clear-day', Skycons.CLEAR_DAY);
-//   icons.set('rain', Skycons.RAIN);
-//   icons.set('snow', Skycons.SNOW);
-//   icons.set('wind', Skycons.WIND);
-
-//   icons.play();
-// };
-
-// const returnKey = (event) => {
-//   if (event.key == 'Enter') {
-//     findLatitudeAndLongitude();
-//   }
-// };
-
-document.addEventListener('keypress', (event) => {
-  // event.keyCode or event.which  property will have the code of the pressed key
-  // let keyCode = event.key ? event.key : event.which;
-
-  // 13 points the enter key
+// Handle key press event
+const handleKeyPress = (event) => {
   if (event.key === 'Enter') {
-    // call click function of the current temp button
     currentTempButton.click();
   }
-});
+};
 
 const convertKelvinToFahrenheit = (kelvin) => {
   let fahrenheit;
@@ -160,7 +100,7 @@ const convertKelvinToFahrenheit = (kelvin) => {
   return fahrenheit;
 };
 
-// weather API
+// Find latitude and longitude based on city name
 const findLatitudeAndLongitude = () => {
   let latitude, longitude;
   axios
@@ -181,8 +121,7 @@ const findLatitudeAndLongitude = () => {
     });
 };
 
-// const temp = document.getElementById('currentTemp');
-
+// Find temperature based on latitude and longitude
 const findTemperature = (latitude, longitude) => {
   console.log(latitude, longitude);
   axios
@@ -193,14 +132,70 @@ const findTemperature = (latitude, longitude) => {
       },
     })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       // console.log(response.data.main.temp);
       const kelvin = response.data['main']['temp'];
       // const kelvin = response.data.main.temp;
       state.temp = convertKelvinToFahrenheit(kelvin);
       updateTemp();
+
+      const weatherCondition = response.data.weather[0].main;
+      console.log('Weather Condition:', weatherCondition);
+      updateSeasonalChange(weatherCondition);
     })
     .catch((error) => {
       console.log('error in weather info!');
     });
 };
+
+const alterTextColor = () => {
+  if (state.temp > 95) {
+    console.log('changing to red');
+    return (currentTemp.style.color = '#ec5766');
+  } else if (state.temp >= 85) {
+    console.log('changing to orange');
+    return (currentTemp.style.color = '#fda187');
+  } else if (state.temp >= 75) {
+    console.log('changing to yellow');
+    return (currentTemp.style.color = '#F1FFC4');
+  } else if (state.temp >= 60) {
+    console.log('changing to green');
+    return (currentTemp.style.color = '#b4f9c0');
+  } else if (state.temp >= 45) {
+    console.log('changing to teal');
+    return (currentTemp.style.color = '#5dac97');
+  } else if (state.temp >= 30) {
+    console.log('changing to blue');
+    return (currentTemp.style.color = '#6da3ee');
+  } else if (state.temp <= 29) {
+    console.log('changing to ice blue');
+    return (currentTemp.style.color = '#c2f6ff');
+  }
+  console.log('text color did not change');
+};
+
+const updateSeasonalChange = (weatherCondition) => {
+  const weatherIcons = {
+    rain: '🌧',
+    clear: '🔆',
+    thunderstorm: '⛈',
+    snow: '⛄',
+    clouds: '⛅',
+  };
+
+  const defaultIcon = '✨';
+  const icon = weatherIcons[weatherCondition.toLowerCase()] || defaultIcon;
+
+  seasonalChange.textContent = icon;
+};
+
+// the entry point for setting up the initial state of the app
+const initialize = () => {
+  changeSky();
+  registerEventHandlers();
+};
+
+// When the DOMContentLoaded event is triggered, it signals that it's safe to
+// manipulate the DOM and execute JavaScript code that interacts with DOM elements,
+// initiating the setup process for the application by calling the initialize function
+document.addEventListener('DOMContentLoaded', initialize);

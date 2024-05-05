@@ -14,30 +14,31 @@
     <title>Weather Report</title>
   </head>
   <body id="gradient">
+    <!-- Mobile Only Message -->
+    <div class="mobile-message">
+      <p>For Desktop Only</p>
+    </div>
+
+    <!-- Desktop -->
     <header>
       <h1>Weather</h1>
       <div id="heart"><span id="seasonalChange" class="emoji">✨</span></div>
       <div class="selectSky">
-        <label for="skies">choose a sky </label>
+        <label for="skies">choose emoji </label>
         <select id="skies" name="skies">
           <option value=""></option>
-          <option value="clearDay">sunny</option>
-          <option value="rain">rainy</option>
-          <option value="wind">windy</option>
-          <option value="snow">snowy</option>
+          <option value="mushroom">mushroom</option>
+          <option value="heartEyes">heart-eyes</option>
+          <option value="kiss">kiss</option>
+          <option value="tongue">tongue-out</option>
+          <option value="pigNose">pig-nose</option>
         </select>
-        <!-- <section id="sky">
-          <canvas id="icon" width="128" height="128"></canvas>
-        </section> -->
       </div>
-      <!-- <div id="skyChoice"></div> -->
     </header>
-
-    <!-- "landscape" changes according to temp -->
 
     <main>
       <!-- zip code/city input -->
-      <div>
+      <div class="searchBar">
         <input
           id="searchCity"
           type="text"
@@ -45,33 +46,16 @@
           value=""
         />
       </div>
-
-      <button id="currentTempButton">Get Temp</button>
+      <button id="currentTempButton">get temp</button>
 
       <section id="citySection">
-        <span id="cityDisplay">New York City</span>
+        <span id="cityDisplay">hello</span>
+        <button id="resetBtn">reset</button>
       </section>
 
       <section class="temperature">
-        <!-- clickable elements to change temp -->
-        <button id="increaseTempButton" class="up">
-          <img src="images/up.svg" />
-        </button>
-        <!-- Temperature Display -->
-        <h2 id="currentTemp">75</h2>
-        <!-- clickable elements to change temp -->
-        <button id="decreaseTempButton" class="down">
-          <img src="images/down.svg" alt="" />
-        </button>
+        <h2 id="currentTemp">it's a good day!</h2>
       </section>
-
-      <button id="resetBtn">reset</button>
-
-      <!-- city text display -->
-      <!-- <section id="citySection">
-        <span id="cityDisplay">New York City</span>
-        <button id="currentTempButton">Get Realtime Temperature</button>
-      </section> -->
     </main>
 
     <!-- cloud filter -->
@@ -118,7 +102,7 @@
         <feMorphology radius="0 40" />
         <feGaussianBlur stdDeviation="20" />
         <feDisplacementMap scale="80" in2="noise2" result="cloud3" />
-        <feFlood flood-color="rgb(0,0,0)" flood-opacity="0.4" />
+        <feFlood flood-color="rgb(66,105,146)" flood-opacity="0.2" />
         <feComposite operator="in" in2="SourceGraphic" />
         <feOffset dx="20" dy="60" />
         <feMorphology radius="0 65" />
@@ -144,6 +128,5 @@
     </svg>
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="src/index.js"></script>
-    <!-- <script src="skycons.js"></script> -->
   </body>
 </html>
