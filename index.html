@@ -4,9 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <!-- <script src="https://kit.fontawesome.com/4dbdad6524.js" crossorigin="anonymous"></script> -->
     <title>Weather Report</title>
 </head>
 <body>
-    
+    <main>
+        <section class="wrapper">
+            <header>
+                <h1 id="header">Weather Report</h1>
+                <h2 id="miniheader">Kąśna Dolna, Poland</h2>
+                <!-- <h4>72, hello</h4> -->
+            </header>
+            <section class="row1-wrapper">
+                <section id="box-display">
+                    Temperature
+                    <!-- try id="circle" down here -->
+                    <section id=wrapsEls>
+                        <section id="mini-wrapper-temperature">
+                            <button id="tempButtonUp">🔼</button>
+                            <!-- <span id="circle" id="tempNumber">
+                                72°
+                            </span> -->
+                            <span id="circle">
+                                <h4 id="tempNumber">
+                                72°
+                                </h4>
+                            </span>
+                            <button id="tempButtonDown">🔽</button>
+                        </section>
+                        <button id='getRealTemp'>Real Temperature</button>
+                    </section>
+                </section>
+                <section id="box-display">
+                    <!-- <h2>maybe City/etc. text should be in h2/h3</h2> -->
+                     *Sky*
+                     <select name="skies" id="skySelect">
+                         <!-- <option value="">--Please choose an option--</option> -->
+                         <option value="sunny">sunny</option>
+                         <option value="cloudy">cloudy</option>
+                         <option value="rainy">rainy</option>
+                         <option value="snowy">snowy</option>
+                     </select>
+                    <span id='emptyNoBorder'></span>
+
+                </section>
+                <section id='box-display'>
+                    City Name
+                    <input id='cityName' value='Kąśna Dolna, Poland' placeholder="Enter a city...">
+                    <button id='resetButton'>reset</button>
+
+                </section>
+            </section>
+            <section class="row2-wrapper">
+                <h2 id="miniheader">Weather Garden
+                </h2>
+            </section>
+            <section class="row3-wrapper">
+
+
+
+                <section id="skyGarden">☁️ ☁️ ☁️ ☀️ ☁️ ☁️</section>
+                <section id="earthGarden">🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷</section>
+            </section>
+
+        </section>
+    </main>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="src/index.js"></script>
 </body>
 </html>
